@@ -17,19 +17,21 @@
 
 @keyframes slideFromBottom {
     from {
-      transform: translateY(20%);
+        transform: translateY(20%);
     }
     to {
-      transform: translateY(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeIn {
     0% {
-      opacity: 0;
+        transform: translateY(10%);
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
 }
   
@@ -218,6 +220,7 @@
     padding-left: 5px;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 0.95vw;
 }
 
 .menu-con ul li:hover{
@@ -234,12 +237,10 @@
     height: auto;
     padding: 10px;
     background-color: white;
-    /* display: none;
+    /* transition: transform 0.3s;
+    transition: opacity 0.5s;  */
     opacity: 0;
-    transition: transform 0.3s;
-    transition: opacity 0.5s; */
-    opacity: 0;
-    animation: fadeIn 0.5s; /* Sử dụng animation để làm cho opacity từ từ hiện ra */
+    animation: fadeIn 0.6s; /* Sử dụng animation để làm cho opacity từ từ hiện ra */
     animation-fill-mode: forwards; /* Giữ opacity ở 1 sau khi kết thúc animation */
     display: none;
 }
@@ -314,4 +315,88 @@
     display: block;
     /* opacity: 1;
     animation: slideFromBottom 0.5s ease-in-out; */
+}
+
+/* banner */
+.banner{
+    display: grid;
+    width: 80%;
+    height: 300px;
+    margin: 10px auto;
+    grid-template-columns: 69% 30.75%;
+    grid-template-rows: 1fr;
+    grid-gap: 0.25%;
+    border: 1px solid none;
+}
+
+.banner .anh1{
+    width: 100%;
+    height: 100%;
+    border: 1px solid none;
+    overflow: hidden; /* Ẩn phần dư thừa nếu hình ảnh vượt quá kích thước của container */
+    position: relative;
+}
+
+.banner .anh1 a{
+    width: 100%;
+    height: 100%;
+    border: 1px solid none;
+}
+
+.banner .anh1 a img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid none;
+}
+
+#anh-tu-dong {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%; /* Đảm bảo hình ảnh lấp đầy container */
+    height: 100%; /* Đảm bảo hình ảnh lấp đầy container */
+    transition: transform 0.5s ease; /* Sử dụng transition cho hiệu ứng chuyển đổi */
+}
+
+#anh-tu-dong-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2{
+    display: grid;
+    grid-template-rows: 49.5% 49.5%;
+    grid-gap: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2 .img1{
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2 .img1 a{
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2 .img1 a img{
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2 .img2{
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2 .img2 a{
+    width: 100%;
+    height: 100%;
+}
+
+.banner .anh2 .img2 a img{
+    width: 100%;
+    height: 100%;
 }
