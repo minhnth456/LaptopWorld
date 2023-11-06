@@ -1,0 +1,317 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.mgl-5{
+    margin-left: 5%;
+}
+
+.nor-text{
+    text-transform: none;
+}
+/* .mau-chu-dao{
+    color: #2b80dd;
+} */
+
+@keyframes slideFromBottom {
+    from {
+      transform: translateY(20%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  
+.container{
+    width: 100%;
+    height: 1000px;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid none;
+    background-color: #f5f5f5;
+}
+/* header 1 */
+.menu{
+    width: 80%;
+    height: 94px;
+    border: 1px solid none;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* logo */
+.menu .logo{
+    width: 15%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+/* tìm kiếm */
+.tim-kiem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    border: 1px solid none;
+}
+
+.tim{
+    width: 100%;
+    height: 40%;
+    border: 1px solid none;
+    display: flex;
+}
+
+.tim input{
+    width: 90%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #2b80dd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9vw;
+    padding: 0 10px;
+}
+
+.tim button{
+    width: 10%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #2b80dd;
+    background-color: #2b80dd;
+}
+
+.tim button:hover{
+    cursor: pointer;
+}
+
+.tim button i{
+    color: white;
+}
+
+/* đăng ký đăng nhập */
+.tai-khoan{
+    width: 15%;
+    height: 100%;
+    border: 1px solid none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1vw;
+}
+
+.tai-khoan p{
+    margin: 0px 10px;
+    color: rgb(159, 159, 159);
+}
+
+.tai-khoan a{
+    color: black;
+    text-decoration: none;
+}
+
+.tai-khoan a:hover{
+    color: #2b80dd;
+}
+
+/* giỏ hàng */
+.gio-hang{
+    width: 7%;
+    height: 50%;
+    border: 1px solid none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.gio-hang i{
+    font-size: 1.5vw;
+    color: red;
+    padding: 0px;
+    margin: 0px;
+}
+
+.gio-hang a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1vw;
+    color: black;
+    text-decoration: none;
+}
+
+.gio-hang span{
+    position: absolute;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8vw;
+    background-color: #2b80dd;
+    border-radius: 9999px;
+    color: white;
+    font-weight: bold;
+    padding: 2px 4px 2px 4px;
+    top: -5px;
+    right: 20px;
+}
+
+.gio-hang a:hover{
+    color: #2b80dd;
+}
+
+/* header 2 */
+/* menu ngang */
+.menu-con{
+    width: 100%;
+    height: 35px;
+    background-color: #2b80dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-con ul{
+    width: 75%;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1vw;
+    color: white;
+}
+
+.menu-con ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.menu-con ul li.m-c{
+    position: relative;
+}
+
+.menu-con ul li i{
+    font-size: 1.2vw;
+}
+
+.menu-con ul li a.capslock{
+    text-decoration: none;
+    color: white;
+    padding-left: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.menu-con ul li:hover{
+    background-color: #2163a9;
+}
+
+/* menu dọc */
+.menu-con ul li.m-c .danh-muc{
+    position: absolute;
+    border: 1px solid none;
+    top: 35px;
+    left: 0px;
+    width: 400%;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    /* display: none;
+    opacity: 0;
+    transition: transform 0.3s;
+    transition: opacity 0.5s; */
+    opacity: 0;
+    animation: fadeIn 0.5s; /* Sử dụng animation để làm cho opacity từ từ hiện ra */
+    animation-fill-mode: forwards; /* Giữ opacity ở 1 sau khi kết thúc animation */
+    display: none;
+}
+
+.danh-muc .khung-danh-muc{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.khung-danh-muc .danh-sach-danh-muc{
+    width: 50%;
+    height: auto;
+    padding: 0px;
+    margin-bottom: 15px;
+}
+
+.danh-sach-danh-muc .loai-danh-muc{
+    width: 100%;
+    height: auto;
+}
+.loai-danh-muc .tieu-de-danh-muc{
+    width: 35%;
+    height: auto;
+    border: 1px solid none;
+    background-color: #2b80dd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3vw;
+    font-weight: bold;
+    padding: 10px 25px 10px 10px;
+    border-radius: 0px 0px 10px 0px;
+    margin-bottom: 7px;
+}
+
+.tieu-de-danh-muc a{
+    text-decoration: none;
+    color: white;
+}
+
+.loai-danh-muc .san-pham-danh-muc{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid none;
+}
+
+.san-pham-danh-muc .san-pham-danh-muc2{
+    width: 50%;
+    height: 35px;
+    padding-right: 20px;
+    border: 1px solid none;
+}
+
+.san-pham-danh-muc2 a{
+    width: 100%;
+    border: 1px solid none;
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.san-pham-danh-muc2 a:hover{
+    color: #2b80dd;
+}
+
+.menu-con ul li.m-c:hover .danh-muc{
+    display: block;
+    /* opacity: 1;
+    animation: slideFromBottom 0.5s ease-in-out; */
+}
