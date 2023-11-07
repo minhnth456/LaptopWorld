@@ -52,8 +52,8 @@
     width: 100%;
     height: auto;
     padding: 0px;
-    margin: 0px;
-    border: 1px solid none;
+    margin: auto;
+    /* border: 1px solid none; */
     background-color: #f5f5f5;
 }
 
@@ -61,12 +61,14 @@
 /* header 1 */
 
 .menu {
-    width: 80%;
-    height: 94px;
-    border: 1px solid none;
-    margin: 0 auto;
+    width: 1200px !important;
+    max-width: 1200px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -91,14 +93,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    height: 100%;
+    width: 400px;
     border: 1px solid none;
 }
 
 .tim {
     width: 100%;
-    height: 40%;
+    height: 30px;
     border: 1px solid none;
     display: flex;
 }
@@ -110,7 +111,7 @@
     margin: 0px;
     border: 1px solid #2b80dd;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9vw;
+    font-size: 15px;
     padding: 0 10px;
 }
 
@@ -136,13 +137,12 @@
 
 .tai-khoan {
     width: 15%;
-    height: 100%;
     border: 1px solid none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1vw;
+    font-size: 16px;
 }
 
 .tai-khoan p {
@@ -163,6 +163,8 @@
 /* giỏ hàng */
 
 .gio-hang {
+    padding-top: 33px;
+    position: relative!important;
     width: 7%;
     height: 50%;
     border: 1px solid none;
@@ -170,11 +172,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .gio-hang i {
-    font-size: 1.5vw;
+    font-size: 20px;
     color: red;
     padding: 0px;
     margin: 0px;
@@ -182,23 +183,23 @@
 
 .gio-hang a {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1vw;
+    font-size: 16px;
     color: black;
     text-decoration: none;
 }
 
 .gio-hang span {
     position: absolute;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.8vw;
-    background-color: #2b80dd;
-    border-radius: 9999px;
-    color: white;
+    right: 14px;
+    top: 28px;
+    background: #2b80dd;
+    color: #fff;
+    padding: 3px 5px 2px 5px;
+    font-size: 14px;
     font-weight: bold;
-    padding: 1.2px 3.2px 0px 3.7px;
-    top: -5px;
-    right: 20px;
+    text-align: center;
+    line-height: 14px;
+    border-radius: 9999px;
 }
 
 .gio-hang a:hover {
@@ -212,29 +213,21 @@
 /* menu ngang */
 
 .menu-con {
-    width: 100%;
-    height: 35px;
     background-color: #2b80dd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid none;
+    height: 37px;
+    line-height: 35px;
 }
 
 .menu-con ul {
-    width: 75%;
-    height: 100%;
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1vw;
+    /* font-size: 1.1vw; */
     color: white;
-    /* margin-top: 18px; */
-    border: 1px solid none;
-    margin: 0px;
-    padding: 0px;
+    width: 1200px !important;
+    max-width: 1200px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    display: flex;
 }
 
 .menu-con ul li {
@@ -242,7 +235,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 20%;
+    width: 100%;
     height: 100%;
 }
 
@@ -251,7 +244,8 @@
 }
 
 .menu-con ul li i {
-    font-size: 1.2vw;
+    /* font-size: 1.2vw; */
+    margin: 8px;
 }
 
 .menu-con ul li a.capslock {
@@ -261,7 +255,6 @@
     padding-top: 2px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 0.95vw;
 }
 
 .menu-con ul li:hover {
@@ -315,7 +308,7 @@
     border: 1px solid none;
     background-color: #2b80dd;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3vw;
+    font-size: 18px;
     font-weight: bold;
     padding: 10px 25px 10px 10px;
     border-radius: 0px 0px 10px 0px;
@@ -365,23 +358,24 @@
     height: auto;
 }
 
-.menu-con ul li.m-c:not(:hover) .danh-muc{
+.menu-con ul li.m-c:not(:hover) .danh-muc {
     animation: fadeOut 0.6s;
     opacity: 0;
     z-index: 1;
 }
 
+
 /* banner */
 
 .banner {
-    display: grid;
-    width: 80%;
-    height: 100%;
-    margin: 10px auto;
-    grid-template-columns: 69% 30.75%;
-    grid-template-rows: 1fr;
-    grid-gap: 0.25%;
-    border: 1px solid none;
+    width: 1192px !important;
+    max-width: 1200px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: auto;
+    display: flex;
+    height: 300px;
 }
 
 .banner .anh1 {
@@ -466,10 +460,17 @@
 article {
     width: 80%;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 20px;
 }
 
 .header {
+    width: 1182px !important;
+    max-width: 1172px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap!important;
     background-color: #fff;
 }
 
@@ -544,20 +545,30 @@ article {
 /* Sắp xếp */
 
 .sapxep {
-    padding: 1rem;
-    /* margin-left: 10px; */
+    width: 1190px !important;
+    max-width: 1190px !important;
+    padding: 10px 10px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap!important;
 }
 
 
 /* main */
 
 .main {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 1200px !important;
+    max-width: 1200px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap!important;
 }
 
 .sanpham {
+    padding: 5px;
+    width: 295px;
     border: 5px solid #f5f5f5;
     text-align: center;
     background-color: #fff;
@@ -579,12 +590,12 @@ article {
     margin: 0.5rem;
 }
 
-.namesp a{
+.namesp a {
     text-decoration: none;
     color: black;
 }
 
-.sanpham:hover .namesp a{
+.sanpham:hover .namesp a {
     color: #2b80dd;
 }
 
