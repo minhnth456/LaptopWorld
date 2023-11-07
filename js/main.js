@@ -1,19 +1,5 @@
 var slide = null;
 var soAnh = 0;
-//lớp phủ
-var lopphu = document.getElementById('lop-phu');
-console.log(lopphu);
-
-var lopphu2 = document.getElementById('menu-con');
-console.log(lopphu2);
-// button mở
-var openForm = document.getElementById('openForm');
-// button đóng
-var closeForm = document.getElementById('closeForm');
-// form
-var form_dk = document.getElementById('form-dk');
-// khung form
-var khung_form = document.getElementById('form-dk-dn');
 
 function tudong() {
     slide = setInterval(function () {
@@ -32,7 +18,65 @@ function tudong() {
 }
 tudong();
 
-function mo_form(){
+//lớp phủ
+var lopphu = document.getElementById('lop-phu');
+// button mở
+var openForm = document.getElementById('openForm');
+// button đóng
+var closeForm = document.getElementById('closeForm');
+// khung form
+var khung_form = document.getElementById('form-dk-dn');
+// form dang ki
+var form_dk = document.getElementById('dangki');
+// form dang nhap
+var form_dn = document.getElementById('dangnhap');
+// button close form
+var closeForm = document.getElementById('closeForm');
+// thẻ i đóng
+var elI = closeForm.children[0];
+
+function mo_fo(idFo){
     lopphu.style.display = 'flex';
-    khung_form.style.transform = 'scale(1)';
+    if(idFo == 'dangki'){
+        form_dk.style.display = 'block';
+        form_dn.style.display = 'none';
+    } else if(idFo == 'dangnhap'){
+        form_dn.style.display = 'block';
+        form_dk.style.display = 'none';
+    }
+    setTimeout(function(){
+        khung_form.style.transform = 'scale(0.8)';
+    },100);
+    
+}
+
+function chuyen_fo(idFo){
+    if(idFo == 'dangki'){
+        khung_form.style.transform = 'scale(0)';
+        
+        setTimeout(function(){  
+            form_dn.style.display = 'none';
+            form_dk.style.display = 'block';
+            khung_form.style.transform = 'scale(0.8)';
+        },300);
+    } else if(idFo == 'dangnhap'){
+        khung_form.style.transform = 'scale(0)';
+        
+        setTimeout(function(){
+            form_dk.style.display = 'none';
+            form_dn.style.display = 'block';
+            khung_form.style.transform = 'scale(0.8)';
+        },300);
+    }
+}
+
+function dong_fo(e){
+    if(e.target === lopphu || e.target === closeForm || e.target === elI){
+        khung_form.style.transform = 'scale(0)';
+        setTimeout(function(){
+            lopphu.style.display = 'none';
+            form_dk.style.display = 'none';
+            form_dn.style.display = 'none';
+        },300);
+    };
 }

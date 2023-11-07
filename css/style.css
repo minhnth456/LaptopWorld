@@ -182,24 +182,54 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
+    border: 1px solid none;
 }
 
 .lop-phu .form-dk-dn{
+    position: relative;
     background: #fff;
     width: 40%;
     height: auto;
     border-radius: 10px;
     padding: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transform: scale(0.7);
+    transform: scale(0);
     transition: transform 0.3s ease-in-out;
     border: 1px solid none;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
-.form-dk-dn form{
+.form-dk-dn button#closeForm{
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #e74c3c;
+    padding: 8px 20px;
+    color: white;
+}
+
+.form-dk-dn button#closeForm:hover{
+    background-color: #ca4435;
+    color: white;
+}
+
+.form-dk-dn form#dangki{
+    display: none;
+    width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-dk-dn form#dangnhap{
+    display: none;
     width: 80%;
     font-family: Arial, Helvetica, sans-serif;
 }
