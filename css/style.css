@@ -1,16 +1,18 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
 
-.mgl-5{
+.mgl-5 {
     margin-left: 5%;
 }
 
-.nor-text{
+.nor-text {
     text-transform: none;
 }
+
+
 /* .mau-chu-dao{
     color: #2b80dd;
 } */
@@ -34,17 +36,31 @@
         opacity: 1;
     }
 }
-  
-.container{
+
+@keyframes fadeOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+}
+
+.container {
     width: 100%;
-    height: 1000px;
+    height: auto;
     padding: 0px;
     margin: 0px;
     border: 1px solid none;
     background-color: #f5f5f5;
 }
+
+
 /* header 1 */
-.menu{
+
+.menu {
     width: 80%;
     height: 94px;
     border: 1px solid none;
@@ -53,15 +69,25 @@
     align-items: center;
 }
 
+
 /* logo */
-.menu .logo{
-    width: 15%;
+
+.menu .logo {
+    width: 10%;
     height: 100%;
-    border: 1px solid red;
+    border: 1px solid none;
+    margin-left: 50px;
 }
 
+.menu .logo img {
+    width: 100%;
+    height: auto;
+}
+
+
 /* tìm kiếm */
-.tim-kiem{
+
+.tim-kiem {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,14 +96,14 @@
     border: 1px solid none;
 }
 
-.tim{
+.tim {
     width: 100%;
     height: 40%;
     border: 1px solid none;
     display: flex;
 }
 
-.tim input{
+.tim input {
     width: 90%;
     height: 100%;
     padding: 0px;
@@ -88,7 +114,7 @@
     padding: 0 10px;
 }
 
-.tim button{
+.tim button {
     width: 10%;
     height: 100%;
     padding: 0px;
@@ -97,16 +123,18 @@
     background-color: #2b80dd;
 }
 
-.tim button:hover{
+.tim button:hover {
     cursor: pointer;
 }
 
-.tim button i{
+.tim button i {
     color: white;
 }
 
+
 /* đăng ký đăng nhập */
-.tai-khoan{
+
+.tai-khoan {
     width: 15%;
     height: 100%;
     border: 1px solid none;
@@ -117,22 +145,24 @@
     font-size: 1vw;
 }
 
-.tai-khoan p{
+.tai-khoan p {
     margin: 0px 10px;
     color: rgb(159, 159, 159);
 }
 
-.tai-khoan a{
+.tai-khoan a {
     color: black;
     text-decoration: none;
 }
 
-.tai-khoan a:hover{
+.tai-khoan a:hover {
     color: #2b80dd;
 }
 
+
 /* giỏ hàng */
-.gio-hang{
+
+.gio-hang {
     width: 7%;
     height: 50%;
     border: 1px solid none;
@@ -143,21 +173,21 @@
     position: relative;
 }
 
-.gio-hang i{
+.gio-hang i {
     font-size: 1.5vw;
     color: red;
     padding: 0px;
     margin: 0px;
 }
 
-.gio-hang a{
+.gio-hang a {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1vw;
     color: black;
     text-decoration: none;
 }
 
-.gio-hang span{
+.gio-hang span {
     position: absolute;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -171,13 +201,17 @@
     right: 20px;
 }
 
-.gio-hang a:hover{
+.gio-hang a:hover {
     color: #2b80dd;
 }
 
+
 /* header 2 */
+
+
 /* menu ngang */
-.menu-con{
+
+.menu-con {
     width: 100%;
     height: 35px;
     background-color: #2b80dd;
@@ -186,7 +220,7 @@
     align-items: center;
 }
 
-.menu-con ul{
+.menu-con ul {
     width: 75%;
     height: 100%;
     list-style-type: none;
@@ -198,7 +232,7 @@
     color: white;
 }
 
-.menu-con ul li{
+.menu-con ul li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,15 +240,15 @@
     height: 100%;
 }
 
-.menu-con ul li.m-c{
+.menu-con ul li.m-c {
     position: relative;
 }
 
-.menu-con ul li i{
+.menu-con ul li i {
     font-size: 1.2vw;
 }
 
-.menu-con ul li a.capslock{
+.menu-con ul li a.capslock {
     text-decoration: none;
     color: white;
     padding-left: 5px;
@@ -223,12 +257,14 @@
     font-size: 0.95vw;
 }
 
-.menu-con ul li:hover{
+.menu-con ul li:hover {
     background-color: #2163a9;
 }
 
+
 /* menu dọc */
-.menu-con ul li.m-c .danh-muc{
+
+.menu-con ul li.m-c .danh-muc {
     position: absolute;
     border: 1px solid none;
     top: 35px;
@@ -237,15 +273,16 @@
     height: auto;
     padding: 10px;
     background-color: white;
-    /* transition: transform 0.3s;
-    transition: opacity 0.5s;  */
     opacity: 0;
-    animation: fadeIn 0.6s; /* Sử dụng animation để làm cho opacity từ từ hiện ra */
-    animation-fill-mode: forwards; /* Giữ opacity ở 1 sau khi kết thúc animation */
-    display: none;
+    /* animation: fadeIn 0.6s; */
+    /* Sử dụng animation để làm cho opacity từ từ hiện ra */
+    animation-fill-mode: forwards;
+    /* Giữ opacity ở 1 sau khi kết thúc animation */
+    transform: translateY(-1000%);
+    box-shadow: 0 0 25px 0 #969696;
 }
 
-.danh-muc .khung-danh-muc{
+.danh-muc .khung-danh-muc {
     width: 100%;
     height: auto;
     border: 1px solid none;
@@ -253,18 +290,19 @@
     flex-wrap: wrap;
 }
 
-.khung-danh-muc .danh-sach-danh-muc{
+.khung-danh-muc .danh-sach-danh-muc {
     width: 50%;
     height: auto;
     padding: 0px;
     margin-bottom: 15px;
 }
 
-.danh-sach-danh-muc .loai-danh-muc{
+.danh-sach-danh-muc .loai-danh-muc {
     width: 100%;
     height: auto;
 }
-.loai-danh-muc .tieu-de-danh-muc{
+
+.loai-danh-muc .tieu-de-danh-muc {
     width: 35%;
     height: auto;
     border: 1px solid none;
@@ -277,12 +315,12 @@
     margin-bottom: 7px;
 }
 
-.tieu-de-danh-muc a{
+.tieu-de-danh-muc a {
     text-decoration: none;
     color: white;
 }
 
-.loai-danh-muc .san-pham-danh-muc{
+.loai-danh-muc .san-pham-danh-muc {
     width: 100%;
     height: auto;
     display: flex;
@@ -290,35 +328,44 @@
     border: 1px solid none;
 }
 
-.san-pham-danh-muc .san-pham-danh-muc2{
+.san-pham-danh-muc .san-pham-danh-muc2 {
     width: 50%;
     height: 35px;
     padding-right: 20px;
     border: 1px solid none;
 }
 
-.san-pham-danh-muc2 a{
+.san-pham-danh-muc2 a {
     width: 100%;
     border: 1px solid none;
     color: black;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     margin-left: 10px;
     font-weight: normal;
 }
 
-.san-pham-danh-muc2 a:hover{
+.san-pham-danh-muc2 a:hover {
     color: #2b80dd;
 }
 
-.menu-con ul li.m-c:hover .danh-muc{
+.menu-con ul li.m-c:hover .danh-muc {
     display: block;
-    /* opacity: 1;
-    animation: slideFromBottom 0.5s ease-in-out; */
+    z-index: 1;
+    opacity: 1;
+    animation: fadeIn 0.6s;
+    transform: translateY(0);
+}
+
+.menu-con ul li.m-c:not(:hover) .danh-muc{
+    animation: fadeOut 0.6s;
+    opacity: 0;
+    z-index: 1;
 }
 
 /* banner */
-.banner{
+
+.banner {
     display: grid;
     width: 80%;
     height: 300px;
@@ -329,21 +376,22 @@
     border: 1px solid none;
 }
 
-.banner .anh1{
+.banner .anh1 {
     width: 100%;
     height: 100%;
     border: 1px solid none;
-    overflow: hidden; /* Ẩn phần dư thừa nếu hình ảnh vượt quá kích thước của container */
+    overflow: hidden;
+    /* Ẩn phần dư thừa nếu hình ảnh vượt quá kích thước của container */
     position: relative;
 }
 
-.banner .anh1 a{
+.banner .anh1 a {
     width: 100%;
     height: 100%;
     border: 1px solid none;
 }
 
-.banner .anh1 a img{
+.banner .anh1 a img {
     width: 100%;
     height: 100%;
     border: 1px solid none;
@@ -352,9 +400,12 @@
 #anh-tu-dong {
     max-width: 100%;
     max-height: 100%;
-    width: 100%; /* Đảm bảo hình ảnh lấp đầy container */
-    height: 100%; /* Đảm bảo hình ảnh lấp đầy container */
-    transition: transform 0.5s ease; /* Sử dụng transition cho hiệu ứng chuyển đổi */
+    width: 100%;
+    /* Đảm bảo hình ảnh lấp đầy container */
+    height: 100%;
+    /* Đảm bảo hình ảnh lấp đầy container */
+    transition: transform 0.5s ease;
+    /* Sử dụng transition cho hiệu ứng chuyển đổi */
 }
 
 #anh-tu-dong-link {
@@ -363,7 +414,7 @@
     height: 100%;
 }
 
-.banner .anh2{
+.banner .anh2 {
     display: grid;
     grid-template-rows: 49.5% 49.5%;
     grid-gap: 1%;
@@ -371,32 +422,167 @@
     height: 100%;
 }
 
-.banner .anh2 .img1{
+.banner .anh2 .img1 {
     width: 100%;
     height: 100%;
 }
 
-.banner .anh2 .img1 a{
+.banner .anh2 .img1 a {
     width: 100%;
     height: 100%;
 }
 
-.banner .anh2 .img1 a img{
+.banner .anh2 .img1 a img {
     width: 100%;
     height: 100%;
 }
 
-.banner .anh2 .img2{
+.banner .anh2 .img2 {
     width: 100%;
     height: 100%;
 }
 
-.banner .anh2 .img2 a{
+.banner .anh2 .img2 a {
     width: 100%;
     height: 100%;
 }
 
-.banner .anh2 .img2 a img{
+.banner .anh2 .img2 a img {
     width: 100%;
     height: 100%;
+}
+
+
+/* start article */
+
+article {
+    padding-top: 5%;
+    width: 80%;
+    margin: auto;
+}
+
+.header {
+    background-color: #fff;
+}
+
+
+/* MENU THƯƠNG HIỆU */
+
+.header .menu_article {
+    cursor: pointer;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.header .menu_article i {
+    vertical-align: 1.8px;
+}
+
+.header .menu_article span {
+    color: #007bff
+}
+
+
+/* Ẩn menu con ban đầu */
+
+.menu_article {
+    position: relative;
+}
+
+.menu_sanpham {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    padding: 10px 10px;
+    width: 200px;
+    -webkit-box-shadow: 0 0 5px 0 #969696;
+    box-shadow: 0 0 5px 0 #969696;
+    left: 0;
+    top: 80%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+}
+
+.menu_article:hover .menu_sanpham {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.menu_sanpham li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.menu_sanpham a {
+    color: #000;
+    text-decoration: none;
+}
+
+.menu_article:hover .menu_sanpham li {
+    opacity: 1;
+}
+
+.menu_sanpham a:hover {
+    color: #ff9300;
+}
+
+
+/* Sắp xếp */
+
+.sapxep {
+    padding: 1rem;
+    /* margin-left: 10px; */
+}
+
+
+/* main */
+
+.main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.sanpham {
+    border: 5px solid #f5f5f5;
+    text-align: center;
+    background-color: #fff;
+}
+
+.sanpham:hover .img img {
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.main .img img {
+    transition: transform 0.3s;
+    margin: 0.5rem;
+    overflow: hidden;
+    width: 80%;
+}
+
+.main .namesp {
+    margin: 0.5rem;
+}
+
+.namesp a{
+    text-decoration: none;
+    color: black;
+}
+
+.sanpham:hover .namesp a{
+    color: #2b80dd;
+}
+
+.main .price {
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem;
 }
