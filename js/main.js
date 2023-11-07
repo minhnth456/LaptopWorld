@@ -53,20 +53,18 @@ function mo_fo(idFo){
 function chuyen_fo(idFo){
     if(idFo == 'dangki'){
         khung_form.style.transform = 'scale(0)';
-        
         setTimeout(function(){  
             form_dn.style.display = 'none';
             form_dk.style.display = 'block';
             khung_form.style.transform = 'scale(0.8)';
-        },300);
+        },250);
     } else if(idFo == 'dangnhap'){
         khung_form.style.transform = 'scale(0)';
-        
         setTimeout(function(){
             form_dk.style.display = 'none';
             form_dn.style.display = 'block';
             khung_form.style.transform = 'scale(0.8)';
-        },300);
+        },250);
     }
 }
 
