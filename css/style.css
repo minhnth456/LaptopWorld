@@ -170,7 +170,7 @@
 .tai-khoan button:hover {
     color: #2b80dd;
 }
-
+/* lớp phủ đen mờ */
 .lop-phu {
     position: fixed;
     top: 0;
@@ -184,7 +184,7 @@
     z-index: 1;
     border: 1px solid none;
 }
-
+/* khung form */
 .lop-phu .form-dk-dn{
     position: relative;
     background: #fff;
@@ -200,26 +200,6 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
-}
-
-.form-dk-dn button#closeForm{
-    position: absolute;
-    top: 0;
-    right: 0;
-    outline: none;
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color: #e74c3c;
-    padding: 8px 20px;
-    color: white;
-}
-
-.form-dk-dn button#closeForm:hover{
-    background-color: #ca4435;
-    color: white;
 }
 
 .form-dk-dn form#dangki{
@@ -288,7 +268,6 @@
 .link-dk-dn{
     text-align: center;
     font-size: 1.4vw;
-    
 }
 
 .link-dk-dn a{
@@ -297,6 +276,26 @@
 
 .link-dk-dn a:hover{
     text-decoration: underline;
+}
+
+.form-dk-dn button#closeForm{
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #e74c3c;
+    padding: 8px 20px;
+    color: white;
+}
+
+.form-dk-dn button#closeForm:hover{
+    background-color: #ca4435;
+    color: white;
 }
 
 /* giỏ hàng */
