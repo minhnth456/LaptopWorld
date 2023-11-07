@@ -9,12 +9,12 @@
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div class="container-p-0">
+        
         <!-- start header -->
         <header>
             <!-- menu1 -->
@@ -29,9 +29,40 @@
                     </form>
                 </div>
                 <div class="tai-khoan mgl-5">
-                    <a href="http://">Đăng ký</a>
+                    <button id="openForm" onclick="mo_form()">Đăng Ký</button>
                     <p>|</p>
-                    <a href="http://">Đăng nhập</a>
+                    <button id="openForm" onclick="openForm()">Đăng nhập</button>
+                </div>
+                <div class="lop-phu" id="lop-phu">
+                    <div class="form-dk-dn">
+                        <form id="form-dk" action="" method="post">
+                            <h1>Đăng kí</h1>
+                            <div class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="email" placeholder="Email">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Nhập lại mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <button type="submit">Đăng kí</button>
+                            <div class="link-dk-dn">
+                                Đã có tài khoản?<a href="#">Đăng nhập ngay</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="gio-hang mgl-5">
                     <i class="fa-solid fa-cart-shopping"></i><br />
@@ -42,7 +73,7 @@
             <!-- end menu1 -->
 
             <!-- start nav -->
-            <div class="menu-con">
+            <div id="menu-con" class="menu-con">
                 <ul>
                     <li>
                         <i class="fa-solid fa-house"></i><a class="capslock" href="http://">Trang chủ</a>
@@ -168,10 +199,10 @@
                     </div>
                 </div>
             </div>
-            <!-- end banner -->
+            <!-- end banner -->  
         </header>
         <!-- end header -->
-
+        
         <!-- start article -->
         <article>
         <!--lọc sp -->
