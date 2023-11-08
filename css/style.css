@@ -57,6 +57,11 @@
     background-color: #f5f5f5;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 465bcbafa78d0f6879293e5643d507cb50c227dd
 /* header 1 */
 
 .menu {
@@ -173,9 +178,13 @@
 .tai-khoan button:hover {
     color: #2b80dd;
 }
+<<<<<<< HEAD
 
 /* lớp phủ đen mờ */
 
+=======
+/* lớp phủ đen mờ */
+>>>>>>> 465bcbafa78d0f6879293e5643d507cb50c227dd
 .lop-phu {
     position: fixed;
     top: 0;
@@ -189,9 +198,13 @@
     z-index: 1;
     border: 1px solid none;
 }
+<<<<<<< HEAD
 
 /* khung form, form đăng kí, đăng nhập */
 
+=======
+/* khung form */
+>>>>>>> 465bcbafa78d0f6879293e5643d507cb50c227dd
 .lop-phu .form-dk-dn{
     position: relative;
     background: #fff;
