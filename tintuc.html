@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-p-0">
+        <!-- start header -->
+        <header>
+            <!-- menu1 -->
+            <div class="menu">
+                <div class="logo">
+                    <a href="#"><img src="./img/logo.png" alt="" /></a>
+                </div>
+                <div class="tim-kiem mgl-5">
+                    <form action="" method="post" class="tim">
+                        <input type="text" name="" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+                <div class="tai-khoan mgl-5">
+                    <button id="openForm" onclick="mo_fo('dangki')">Đăng kí</button>
+                    <p>|</p>
+                    <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
+                </div>
+                <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
+                    <div class="form-dk-dn" id="form-dk-dn">
+                        <!-- form đăng kí -->
+                        <form id="dangki" action="" method="post">
+                            <h1>Đăng kí</h1>
+                            <div class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="email" placeholder="Email">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Nhập lại mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <button type="submit">Đăng kí</button>
+                            <div class="link-dk-dn">
+                                Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a>
+                            </div>
+                        </form>
+                        <!-- form đăng nhập -->
+                        <form id="dangnhap" action="" method="post">
+                            <h1>Đăng nhập</h1>
+                            <div class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <button type="submit">Đăng nhập</button>
+                            <div class="link-dk-dn">
+                                Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
+                            </div>
+                        </form>
+                        <button id="closeForm" onclick="dong_fo(event)"><i class="fa-solid fa-x"></i></button>    
+                    </div>
+                </div>
+                <div class="gio-hang mgl-5">
+                    <i class="fa-solid fa-cart-shopping"></i><br />
+                    <a href="http://">Giỏ hàng</a><br />
+                    <span class="so-luong-gio-hang">0</span>
+                </div>
+            </div>
+            <!-- end menu1 -->
+
+            <!-- start nav -->
+            <div id="menu-con" class="menu-con">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i><a class="capslock" href="http://">Trang chủ</a>
+                    </li>
+                    <li class="m-c">
+                        <i class="fa-solid fa-laptop"></i>
+                        <a class="capslock" href="http://">Sản phẩm</a>
+                        <!-- menu dọc -->
+                        <div class="danh-muc">
+                            <div class="khung-danh-muc">
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <!-- tiêu đề -->
+                                        <div class="tieu-de-danh-muc">
+                                            <a class="nor-text" href="http://">Laptop Dell</a>
+                                        </div>
+                                        <!-- sản phẩm -->
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <div class="tieu-de-danh-muc">
+                                            <a href="http://">Laptop Dell</a>
+                                        </div>
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <div class="tieu-de-danh-muc">
+                                            <a href="http://">Laptop Dell</a>
+                                        </div>
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <div class="tieu-de-danh-muc">
+                                            <a href="http://">Laptop Dell</a>
+                                        </div>
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- end menu dọc -->
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-newspaper"></i>
+                        <a class="capslock" href="http://">Tin tức</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-building-shield"></i>
+                        <a class="capslock" href="http://">Chính sách</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <a class="capslock" href="http://">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- end nav -->
+
+            <!-- start banner -->
+            <!-- <div class="banner">
+                <div class="anh1">
+                    <a href="#" id="anh-tu-dong-link">
+                        <img src="img/anh0.jpg" alt="" id="anh-tu-dong"/>
+                    </a>
+                </div>
+                <div class="anh2">
+                    <div class="img1">
+                    <a href="#"><img src="img/anh5.jpg" alt="" /></a>
+                    </div>
+                    <div class="img2">
+                    <a href="#"><img src="img/anh4.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div> -->
+            <!-- end banner -->  
+        </header>
+        <!-- nội dung -->
+        
+        <div class="khung">
+            <div class="khung-con">
+                <div class="left">
+                    <div class="anh">
+                        <img src="img/tintuc.jpg" alt="">
+                    </div>
+
+                    <div class="baiviet">
+                        <a href="">MỪNG TỰU TRƯỜNG - GIÁ YÊU THƯƠNG️, GIẢM TỚI 5 TRIỆU ĐỒNG</a>
+                    </div><hr>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/baiviet1.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">CPU AMD Ryzen 7 7735HS và Ryzen 7 7735H có gì khác nhau? </a>
+                            </div>
+                            <div class="nd2">
+                                Tại sự kiện CES 2023, AMD đã ra mắt dòng sản phẩm CPU di động Ryzen 7000 Series mới nhất cho laptop. Tiêu biểu và phổ biến nhất có thể kể đến đó chính là CPU AMD Ryzen 7 7735HS được trang bị trên các mẫu Laptop Gaming mới của năm nay.
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">07-11-2023, 06:48 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img1.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Windows 11 23H2 ra mắt: Windows Copilot đã có sẵn, nhiều cải tiến hữu ích</a>
+                            </div>
+                            <div class="nd2">
+                                Microsoft đang công bố bản cập nhật mùa thu hàng năm cho Windows 11, còn được biết đến với tên gọi Windows 11 23H2. Bản cập nhật này đã được thử nghiệm suốt mùa hè, và giờ đây đã sẵn sàng để tung ra rộng rãi đến người dùng.
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">08-12-2023, 12:48 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img2.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Lenovo LOQ 2023 RTX 4060 - 4060 rẻ nhất???</a>
+                            </div>
+                            <div class="nd2">
+                                Nếu bạn muốn tìm mua cho mình 1 chiếc laptop gaming có sở hữu RTX 4060 rẻ nhất, thậm chí rẻ ngang những mẫu chỉ có RTX 4050 thì lựa chọn hàng đầu chính là Lenovo LOQ 2023 với R7 7840HS + RTX 4060. Vậy Lenovo LOQ 2023 có xứng đáng với số tiền ...
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">19-10-2023, 16:22 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img3.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Dell Inspiron Plus 7620 - Ultrabook đáng mua nhất 20 triệu!!!</a>
+                            </div>
+                            <div class="nd2">
+                                Hai mươi triệu là mức giá vừa đủ để chúng ta có thể mua cho mình 1 chiếc ultrabook đáp ứng được các yếu tố: học tập, làm việc, giải trí… Và chiếc máy phù hợp nhất trong tầm giá này không ai khác là Dell Inspiron Plus 7620. Vậy nó có ...
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">07-07-2023, 06:48 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img4.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Snapdragon X Elite - Kỷ Nguyên Mới Của Laptop Sắp Tới?</a>
+                            </div>
+                            <div class="nd2">
+                                Qualcomm vừa ra mắt Snapdragon X Elite, một bước tiến mới trong hệ thống vi xử lý cao cấp cho laptop Windows dựa trên kiến trúc ARM. Bộ vi xử lý Windows mới nhất này ra đời song song với việc giới thiệu chip Snapdragon 8 Gen 3 tại Hội nghị ...
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">15-05-2023, 22:48 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img2.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Lenovo LOQ 2023 RTX 4060 - 4060 rẻ nhất???</a>
+                            </div>
+                            <div class="nd2">
+                                Nếu bạn muốn tìm mua cho mình 1 chiếc laptop gaming có sở hữu RTX 4060 rẻ nhất, thậm chí rẻ ngang những mẫu chỉ có RTX 4050 thì lựa chọn hàng đầu chính là Lenovo LOQ 2023 với R7 7840HS + RTX 4060. Vậy Lenovo LOQ 2023 có xứng đáng với số tiền ...
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">19-10-2023, 16:22 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img3.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Dell Inspiron Plus 7620 - Ultrabook đáng mua nhất 20 triệu!!!</a>
+                            </div>
+                            <div class="nd2">
+                                Hai mươi triệu là mức giá vừa đủ để chúng ta có thể mua cho mình 1 chiếc ultrabook đáp ứng được các yếu tố: học tập, làm việc, giải trí… Và chiếc máy phù hợp nhất trong tầm giá này không ai khác là Dell Inspiron Plus 7620. Vậy nó có ...
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">07-07-2023, 06:48 pm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="khung-bv">
+                        <div class="baiviet-1">
+                            <div class="anh1">
+                                <img src="img/img4.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="nd">
+                            <div class="nd1">
+                                <a href="">Snapdragon X Elite - Kỷ Nguyên Mới Của Laptop Sắp Tới?</a>
+                            </div>
+                            <div class="nd2">
+                                Qualcomm vừa ra mắt Snapdragon X Elite, một bước tiến mới trong hệ thống vi xử lý cao cấp cho laptop Windows dựa trên kiến trúc ARM. Bộ vi xử lý Windows mới nhất này ra đời song song với việc giới thiệu chip Snapdragon 8 Gen 3 tại Hội nghị ...
+                            </div>
+                            <div class="time">
+                                <span class="thoigian">15-05-2023, 22:48 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+                <div class="right">
+                    <div class="khung-tinnb">
+                        <div class="tin">TIN NỔI BẬT</div>
+                    </div>
+
+                    <div class="menu-tin">
+                        <ul class="tinnb">
+                            <li><a href="" class="title">Dell Inspiron 14 7435 2in1 2023 - ĐẸP, ĐỘC LẠ, ĐA NĂNG mà lại còn RẺ</a></li>
+                            <li><a href="" class="title">MỪNG TỰU TRƯỜNG - GIÁ YÊU THƯƠNG️, GIẢM TỚI 5 TRIỆU ĐỒNG</a></li>
+                            <li><a href="" class="title">CPU AMD Ryzen 7 7735HS và Ryzen 7 7735H có gì khác nhau? </a></li>
+                            <li><a href="" class="title">Windows 11 23H2 ra mắt: Windows Copilot đã có sẵn, nhiều cải tiến hữu ích</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="khuyenmai">
+                        <div class="tin">TIN KHUYẾN MÃI</div>
+
+                        <div class="conten">
+                            <div class="first">
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/tintuc.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">MỪNG TỰU TRƯỜNG - GIÁ YÊU THƯƠNG️, GIẢM TỚI 5 TRIỆU ĐỒNG</a>
+                                    </div>    
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km1.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 4 Laptop Gaming Dell Đáng Mua Nhất Tầm Giá 23 - 29 Triệu Thời Điểm Hiện Tại!!!</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km2.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 4 Laptop Gaming Sở Hữu Card Đồ Họa RTX 4060 Không Thể Bỏ Lỡ</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km3.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 4 Ultrabook 2-in-1 HOT Nhất Mùa Tựu Trường 2023</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km4.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 3 Ultrabook Cảm Ứng HOT Nhất Mùa Tựu Trường 2023</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km1.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 4 Laptop Gaming Dell Đáng Mua Nhất Tầm Giá 23 - 29 Triệu Thời Điểm Hiện Tại!!!</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km2.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 4 Laptop Gaming Sở Hữu Card Đồ Họa RTX 4060 Không Thể Bỏ Lỡ</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km3.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 4 Ultrabook 2-in-1 HOT Nhất Mùa Tựu Trường 2023</a>
+                                </div>    
+                            </div>
+
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href=""><img src="img/km4.jpg" alt=""></a>
+                                </div>
+                                <div class="item-tittle">
+                                    <a href="">TOP 3 Ultrabook Cảm Ứng HOT Nhất Mùa Tựu Trường 2023</a>
+                                </div>    
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- end nội dung -->
+        
+    </div>
+    
+</body>
+</html>
