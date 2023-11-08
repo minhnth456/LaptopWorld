@@ -48,6 +48,18 @@
     }
 }
 
+@keyframes zoom {
+    0%,
+    100% {
+        transform: scale(1);
+        /* Kích thước ban đầu */
+    }
+    50% {
+        transform: scale(1.2);
+        /* Kích thước phóng to lên 1.2 lần */
+    }
+}
+
 .container-p-0 {
     width: 100%;
     height: auto;
@@ -55,13 +67,25 @@
     margin: auto;
     /* border: 1px solid none; */
     background-color: #f5f5f5;
+    /* bắt đầu với trang web bị ẩn */
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
-<<<<<<< HEAD
-=======
+.preload-image {
+    background-image: url(../img/wepik-duotone-laptop-logo-20231105063901MInv.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    width: 600px;
+    margin-left: 500px;
+    /* Điều chỉnh kích thước hình ảnh preload */
+    height: 100%;
+    /* Điều chỉnh kích thước hình ảnh preload */
+    position: fixed;
+    z-index: 9999;
+    animation: zoom 5s ease-in-out infinite;
+}
 
-
->>>>>>> 465bcbafa78d0f6879293e5643d507cb50c227dd
 /* header 1 */
 
 .menu {
@@ -151,7 +175,7 @@
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1vw;
+    font-size: 16px;
 }
 
 .tai-khoan p {
@@ -178,13 +202,9 @@
 .tai-khoan button:hover {
     color: #2b80dd;
 }
-<<<<<<< HEAD
 
 /* lớp phủ đen mờ */
 
-=======
-/* lớp phủ đen mờ */
->>>>>>> 465bcbafa78d0f6879293e5643d507cb50c227dd
 .lop-phu {
     position: fixed;
     top: 0;
@@ -198,13 +218,12 @@
     z-index: 1;
     border: 1px solid none;
 }
-<<<<<<< HEAD
+
 
 /* khung form, form đăng kí, đăng nhập */
 
-=======
 /* khung form */
->>>>>>> 465bcbafa78d0f6879293e5643d507cb50c227dd
+
 .lop-phu .form-dk-dn{
     position: relative;
     background: #fff;
@@ -468,7 +487,7 @@
     border: 1px solid none;
     background-color: #2b80dd;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.4vw;
+    font-size: 21px;
     font-weight: bold;
     padding: 5px 25px 5px 10px;
     border-radius: 0px 0px 10px 0px;

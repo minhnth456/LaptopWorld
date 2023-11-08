@@ -1,3 +1,4 @@
+// banner ảnh tự động
 var slide = null;
 var soAnh = 0;
 
@@ -17,6 +18,9 @@ function tudong() {
     }, 2000);
 }
 tudong();
+// end banner ảnh tự động
+
+// form đăng kí đăng nhập
 
 //lớp phủ
 var lopphu = document.getElementById('lop-phu');
@@ -78,3 +82,17 @@ function dong_fo(e){
         },300);
     };
 }
+// end form đăng kí đăng nhập
+
+// Loading
+window.addEventListener('load', function() {
+    // Đợi 3 giây trước khi hiển thị nội dung trang web
+    setTimeout(function() {
+        const preloadImage = document.querySelector('.preload-image');
+        preloadImage.style.display = 'none';
+
+        const content = document.querySelector('.container-p-0');
+        content.style.opacity = 1;
+    }, 500); 
+});
+// end Loading
