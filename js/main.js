@@ -17,7 +17,11 @@ function tudong() {
         }, 200);
     }, 2000);
 }
-tudong();
+
+if (document.getElementById('anh-tu-dong')) {
+    tudong();
+} else {}
+
 // end banner ảnh tự động
 
 // form đăng kí đăng nhập
@@ -30,6 +34,10 @@ var openForm = document.getElementById('openForm');
 var closeForm = document.getElementById('closeForm');
 // khung form
 var khung_form = document.getElementById('form-dk-dn');
+// khung chi tiết cấu hình
+var khung_thong_so_ki_thuat = document.getElementById('khung-thong-so-ki-thuat');
+// chi tiết cấu hình
+var thong_so_ki_thuat = document.getElementById('thong-so-ki-thuat');
 // form dang ki
 var form_dk = document.getElementById('dangki');
 // form dang nhap
@@ -44,14 +52,25 @@ function mo_fo(idFo){
     if(idFo == 'dangki'){
         form_dk.style.display = 'block';
         form_dn.style.display = 'none';
+        thong_so_ki_thuat.style.display = 'none';
+        setTimeout(function(){
+            khung_form.style.transform = 'scale(0.8)';
+        },100);
     } else if(idFo == 'dangnhap'){
         form_dn.style.display = 'block';
         form_dk.style.display = 'none';
+        thong_so_ki_thuat.style.display = 'none';
+        setTimeout(function(){
+            khung_form.style.transform = 'scale(0.8)';
+        },100);
+    } else if(idFo == 'chitietcauhinh'){
+        form_dn.style.display = 'none';
+        form_dk.style.display = 'none';
+        thong_so_ki_thuat.style.display = 'block';
+        setTimeout(function(){
+            khung_thong_so_ki_thuat.style.transform = 'scale(0.8)';
+        },100);
     }
-    setTimeout(function(){
-        khung_form.style.transform = 'scale(0.8)';
-    },100);
-    
 }
 
 function chuyen_fo(idFo){
@@ -75,10 +94,12 @@ function chuyen_fo(idFo){
 function dong_fo(e){
     if(e.target === lopphu || e.target === closeForm || e.target === elI){
         khung_form.style.transform = 'scale(0)';
+        khung_thong_so_ki_thuat.style.transform = 'scale(0)';
         setTimeout(function(){
             lopphu.style.display = 'none';
             form_dk.style.display = 'none';
             form_dn.style.display = 'none';
+            thong_so_ki_thuat.style.display = 'none';
         },300);
     };
 }
@@ -96,3 +117,39 @@ window.addEventListener('load', function() {
     }, 500); 
 });
 // end Loading
+
+//Chi tiết sản phẩm
+
+//chọn ảnh trong chi tiết sản phẩm
+// var anh_chinh = document.getElementById('anh-chinh');
+
+// var anhPhu = document.querySelectorAll('.anh-phu ul li a img');
+// console.log(anhPhu);
+// function chon_anh(anh){
+//     const img = anh.target.querySelectorAll('img');
+//     if(img){
+//         console.log(img);
+//     }
+// }
+
+// Lấy danh sách các thẻ <a> trong thẻ ul
+var thumbnailLinks = document.querySelectorAll('.anh-phu ul li a');
+
+// Lấy thẻ <img> trong .anh-chinh
+var mainImage = document.querySelector('.anh-chinh img');
+
+// Thêm sự kiện click cho mỗi thẻ <a> trong thẻ ul
+thumbnailLinks.forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // Ngăn chặn hành vi mặc định khi nhấp vào liên kết
+
+    mainImage.style.opacity = 0;
+    setTimeout(function() {
+        mainImage.style.opacity = 1;
+        // Thay đổi nguồn hình ảnh trong .anh-chinh bằng nguồn của liên kết đã nhấp vào
+        mainImage.src = link.getAttribute('href');
+    },350);
+  });
+});
+
+//end Chi tiết sản phẩm

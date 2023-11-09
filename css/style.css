@@ -62,6 +62,7 @@
 
 .container-p-0 {
     width: 100%;
+    max-width: 100%;
     height: auto;
     padding: 0px;
     margin: auto;
@@ -73,6 +74,7 @@
 }
 
 .preload-image {
+    display: block;
     background-image: url(../img/wepik-duotone-laptop-logo-20231105063901MInv.png);
     background-position: left center;
     background-repeat: no-repeat;
@@ -116,6 +118,7 @@
     width: 100%;
     height: auto;
     margin: 7px 0px;
+    transform: scale(1.2);
 }
 
 
@@ -211,7 +214,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -636,7 +640,7 @@
 
 article {
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
@@ -649,6 +653,405 @@ article {
     background-color: #fff;
 }
 
+/* Chi tiết sản phẩm */
+
+.khung-chi-tiet-sp{
+    width: 1200px !important;
+    max-width: 1200px !important;
+    height: auto;
+    border: 1px solid none;
+    margin: 0 auto;
+}
+
+.head-chi-tiet-sp{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.head-chi-tiet-sp h4{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0px;
+    padding: 20px;
+}
+
+.body-chi-tiet-sp{
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    background-color: #fff;
+}
+
+.body-chi-tiet-sp .anh-sp{
+    max-width: 400px;
+    margin-left: 10px;
+    height: auto;
+    border: 1px solid none;
+}
+
+.anh-sp .anh-chinh{
+    max-width: 330px;
+    max-height: 275px;
+    border: 1px solid none;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.anh-chinh a{
+    width: 100%;
+    border: 1px solid none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anh-chinh a img{
+    width: 80%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    opacity: 1;
+    transition: 0.4s;
+}
+
+.anh-sp .anh-phu{
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    text-align: center;
+}
+
+.anh-phu ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    padding: 20px 20px 20px 35px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.anh-phu ul li{
+    width: 30%;
+    height: auto;
+    box-shadow: 0px 0px 10px #ccc;
+    margin: 0px 10px 10px 0px;
+    border: none;
+    outline: none;
+}
+
+.anh-phu ul li a{
+    width: 100%;
+    height: 100%;
+}
+
+.anh-phu ul li a img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.38s ease;
+}
+
+.anh-phu ul li a:focus img{
+    transform: scale(1.1);
+    border: 1px solid rgb(43, 128, 221);
+}
+
+.body-chi-tiet-sp .thong-tin-sp{
+    max-width: 37%;
+    margin-left: 10px;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    border: 1px solid none;
+}
+
+.thong-tin-sp .gia-sp{
+    display: flex;
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    border: 1px solid none;
+}
+
+.gia-sp p{
+    width: 100%;
+    height: 100%;
+    height: auto;
+    font-style: italic;
+    color: red;
+    border: 1px solid none;
+    margin: 0px;
+}
+
+.thong-tin-sp .bao-hanh{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.bao-hanh p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 0px;
+    margin-right: 3px;
+    
+}
+
+.thong-tin-sp .tinh-trang{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.tinh-trang p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.thong-tin-sp .chi-tiet-cau-hinh{
+    border: 1px solid none;
+}
+
+.chi-tiet-cau-hinh a{
+    color: #2b80dd;
+}
+
+.body-chi-tiet-sp .qua-tang{
+    width: 100%;
+    border: 1px solid #16c60c;
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.qua-tang p{
+    margin: 0px;
+    font-size: 14px;
+}
+
+.qua-tang .icon-qua-tang{
+    position: absolute;
+    top: -16px;
+    width: 60%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid none;
+    color: white;
+    background-color: #16c60c;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.icon-qua-tang i{
+    margin-right: 10px;
+}
+
+.thong-tin-sp .mua-hang{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #ec1c24;
+    border-radius: 5px;
+}
+
+.mua-hang a{
+    width: 100%;
+    height: 100%;
+    border: 1px solid none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 2px 0px 0px 0px;
+}
+
+.mua-hang span{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 0px 5px 0px;
+}
+
+.thong-tin-sp .them-gio-hang{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #2b80dd;
+    border-radius: 5px;
+}
+
+.them-gio-hang a{
+    width: 100%;
+    height: 100%;
+    border: 1px solid none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 2px 0px 0px 0px;
+}
+
+.them-gio-hang span{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 0px 5px 0px;
+}
+
+.body-chi-tiet-sp .chinh-sach-sp{
+    max-width: 315px;
+    margin-left: 10px;
+    height: auto;
+    border: 1px solid none;
+}
+
+.chinh-sach-sp .khung-thong-tin{
+    width: 100%;
+    height: auto;
+    border: 1px solid #aaa;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.khung-thong-tin p{
+    color: #ec1c24;
+}
+
+.khung-thong-tin b{
+    color: #2b80dd;
+}
+
+.khung-thong-tin ul{
+    width: 100%;
+    min-height: 50px;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid none;
+}
+
+.khung-thong-tin ul li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.khung-thong-tin ul li i{
+    color: rgb(244, 244, 0);
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.khung-thong-tin ul li span{
+    font-weight: normal;
+    padding-bottom: 1px;
+}
+
+.khung-thong-tin2 ul li i{
+    color: #2b80dd;
+    font-size: 18px;
+    margin-right: 7px;
+    margin-left: 4px;
+}
+
+.lop-phu .khung-thong-so-ki-thuat{
+    width: 100%;
+    min-height: 350px;
+    position: relative;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    display: none;
+    z-index: 1;
+}
+
+.khung-thong-so-ki-thuat .thong-so-ki-thuat{
+    width: 35%;
+    min-height: 30px;
+    border: 1px solid none;
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.thong-so-ki-thuat h3{
+    margin: 0px;
+}
+
+.thong-so-ki-thuat p{
+    color:#007bff;
+}
+
+.thong-so-ki-thuat table{
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+.thong-so-ki-thuat table th{
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: left;
+}
+
+.thong-so-ki-thuat table td{
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: left;
+}
+
+.thong-so-ki-thuat table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.thong-so-ki-thuat table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
 
 /* MENU THƯƠNG HIỆU */
 
