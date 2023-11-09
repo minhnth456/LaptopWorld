@@ -3,16 +3,16 @@ var slide = null;
 var soAnh = 0;
 
 function tudong() {
-    slide = setInterval(function () {
+    slide = setInterval(function() {
         document.getElementById('anh-tu-dong').style.transform = 'scale(1.1)'; /* Tăng tỷ lệ hình ảnh */
-        setTimeout(function () {
+        setTimeout(function() {
             document.getElementById('anh-tu-dong').src = `img/anh${soAnh}.jpg`;
             soAnh++;
             if (soAnh > 3) {
                 soAnh = 0;
             }
         }, 200); /* Đợi một chút trước khi thay đổi hình ảnh */
-        setTimeout(function () {
+        setTimeout(function() {
             document.getElementById('anh-tu-dong').style.transform = 'scale(1)'; /* Trả về tỷ lệ ban đầu */
         }, 200);
     }, 2000);
@@ -39,47 +39,47 @@ var closeForm = document.getElementById('closeForm');
 // thẻ i đóng
 var elI = closeForm.children[0];
 
-function mo_fo(idFo){
+function mo_fo(idFo) {
     lopphu.style.display = 'flex';
-    if(idFo == 'dangki'){
+    if (idFo == 'dangki') {
         form_dk.style.display = 'block';
         form_dn.style.display = 'none';
-    } else if(idFo == 'dangnhap'){
+    } else if (idFo == 'dangnhap') {
         form_dn.style.display = 'block';
         form_dk.style.display = 'none';
     }
-    setTimeout(function(){
+    setTimeout(function() {
         khung_form.style.transform = 'scale(0.8)';
-    },100);
-    
+    }, 100);
+
 }
 
-function chuyen_fo(idFo){
-    if(idFo == 'dangki'){
+function chuyen_fo(idFo) {
+    if (idFo == 'dangki') {
         khung_form.style.transform = 'scale(0)';
-        setTimeout(function(){  
+        setTimeout(function() {
             form_dn.style.display = 'none';
             form_dk.style.display = 'block';
             khung_form.style.transform = 'scale(0.8)';
-        },250);
-    } else if(idFo == 'dangnhap'){
+        }, 250);
+    } else if (idFo == 'dangnhap') {
         khung_form.style.transform = 'scale(0)';
-        setTimeout(function(){
+        setTimeout(function() {
             form_dk.style.display = 'none';
             form_dn.style.display = 'block';
             khung_form.style.transform = 'scale(0.8)';
-        },250);
+        }, 250);
     }
 }
 
-function dong_fo(e){
-    if(e.target === lopphu || e.target === closeForm || e.target === elI){
+function dong_fo(e) {
+    if (e.target === lopphu || e.target === closeForm || e.target === elI) {
         khung_form.style.transform = 'scale(0)';
-        setTimeout(function(){
+        setTimeout(function() {
             lopphu.style.display = 'none';
             form_dk.style.display = 'none';
             form_dn.style.display = 'none';
-        },300);
+        }, 300);
     };
 }
 // end form đăng kí đăng nhập
@@ -93,6 +93,17 @@ window.addEventListener('load', function() {
 
         const content = document.querySelector('.container-p-0');
         content.style.opacity = 1;
-    }, 500); 
+    }, 1000);
 });
 // end Loading
+// Start số lượng cart
+function increment() {
+    var input = document.getElementById('form1');
+    input.stepUp();
+}
+
+function decrement() {
+    var input = document.getElementById('form1');
+    input.stepDown();
+}
+// end số lượng cart
