@@ -53,7 +53,9 @@ function mo_fo(idFo){
         lopphu.style.display = 'flex';
         form_dk.style.display = 'block';
         form_dn.style.display = 'none';
-        thong_so_ki_thuat.style.display = 'none';
+        if(thong_so_ki_thuat){
+            thong_so_ki_thuat.style.display = 'none';
+        }
         setTimeout(function(){
             khung_form.style.transform = 'scale(0.8)';
         },100);
@@ -61,7 +63,9 @@ function mo_fo(idFo){
         lopphu.style.display = 'flex';
         form_dn.style.display = 'block';
         form_dk.style.display = 'none';
-        thong_so_ki_thuat.style.display = 'none';
+        if(thong_so_ki_thuat){
+            thong_so_ki_thuat.style.display = 'none';
+        }
         setTimeout(function(){
             khung_form.style.transform = 'scale(0.8)';
         },100);
@@ -97,13 +101,17 @@ function chuyen_fo(idFo){
 function dong_fo(e){
     if(e.target === lopphu || e.target === closeForm || e.target === elI || e.target === lopphu2){
         khung_form.style.transform = 'scale(0)';
-        khung_thong_so_ki_thuat.style.transform = 'scale(0)';
+        if(thong_so_ki_thuat){
+            khung_thong_so_ki_thuat.style.transform = 'scale(0)';
+        }
         setTimeout(function(){
             lopphu.style.display = 'none';
             lopphu2.style.display = 'none';
             form_dk.style.display = 'none';
             form_dn.style.display = 'none';
-            thong_so_ki_thuat.style.display = 'none';
+            if(thong_so_ki_thuat){
+                thong_so_ki_thuat.style.display = 'none';
+            }
         },300);
     };
 }
@@ -117,7 +125,14 @@ window.addEventListener('load', function() {
         preloadImage.style.display = 'none';
 
         const content = document.querySelector('.container-p-0');
-        content.style.opacity = 1;
+        const content2 = document.querySelector('.container-p-1');
+        if(content){
+            content.style.opacity = 1;
+        }
+        if(content2){
+            content2.style.opacity = 1;
+        }
+        
     }, 500); 
 });
 // end Loading

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="preload-image"></div>
+    <div class="container-p-1">
+        <!-- Start header -->
+        <header style="background-color: #f5f5f5;">
+            <!-- menu1 -->
+            <div class="menu">
+                <div class="logo">
+                    <a href="./index.html"><img src="./img/logo.png" alt="" /></a>
+                </div>
+                <div class="tim-kiem mgl-5">
+                    <form action="" method="post" class="tim">
+                        <input type="text" name="" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
+                        <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+                    </form>
+                </div>
+                <div class="tai-khoan mgl-5">
+                    <button id="openForm" onclick="mo_fo('dangki')">Đăng kí</button>
+                    <p>|</p>
+                    <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
+                </div>
+                <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
+                    <div class="form-dk-dn" id="form-dk-dn">
+                        <!-- form đăng kí -->
+                        <form id="dangki" action="" method="post">
+                            <h1>Đăng kí</h1>
+                            <div class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập" />
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="email" placeholder="Email" />
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Mật khẩu" />
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Nhập lại mật khẩu" />
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <button type="submit">Đăng kí</button>
+                            <div class="link-dk-dn">
+                                Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a
+                  >
+                </div>
+              </form>
+              <!-- form đăng nhập -->
+              <form id="dangnhap" action="" method="post">
+                <h1>Đăng nhập</h1>
+                <div class="o-input">
+                  <input type="text" placeholder="Tên đăng nhập" />
+                  <small></small>
+                  <span></span>
+                </div>
+                <div class="o-input">
+                  <input type="password" placeholder="Mật khẩu" />
+                  <small></small>
+                  <span></span>
+                </div>
+                <button type="submit">Đăng nhập</button>
+                <div class="link-dk-dn">
+                  Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')"
+                    >Đăng kí ngay</a
+                  >
+                </div>
+              </form>
+              <button id="closeForm" onclick="dong_fo(event)">
+                <i class="fa-solid fa-x"></i>
+              </button>
+            </div>
+          </div>
+          <div class="gio-hang mgl-5">
+            <i class="fa-solid fa-cart-shopping"></i><br />
+            <a href="./cart.html">Giỏ hàng</a><br />
+                                <span class="so-luong-gio-hang">0</span>
+                            </div>
+                    </div>
+                    <!-- end menu1 -->
+
+                    <!-- start nav -->
+                    <div id="menu-con" class="menu-con">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-house"></i
+              ><a class="capslock" href="./index.html">Trang chủ</a>
+            </li>
+            <li class="m-c">
+              <i class="fa-solid fa-laptop"></i>
+                                <a class="capslock" href="http://">Sản phẩm</a>
+                                <!-- menu dọc -->
+                                <div class="danh-muc">
+                                    <div class="khung-danh-muc">
+                                        <div class="danh-sach-danh-muc">
+                                            <div class="loai-danh-muc">
+                                                <!-- tiêu đề -->
+                                                <div class="tieu-de-danh-muc">
+                                                    <a class="nor-text" href="http://">Laptop Dell</a>
+                                                </div>
+                                                <!-- sản phẩm -->
+                                                <div class="san-pham-danh-muc">
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="danh-sach-danh-muc">
+                                            <div class="loai-danh-muc">
+                                                <div class="tieu-de-danh-muc">
+                                                    <a href="http://">Laptop Dell</a>
+                                                </div>
+                                                <div class="san-pham-danh-muc">
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="danh-sach-danh-muc">
+                                            <div class="loai-danh-muc">
+                                                <div class="tieu-de-danh-muc">
+                                                    <a href="http://">Laptop Dell</a>
+                                                </div>
+                                                <div class="san-pham-danh-muc">
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="danh-sach-danh-muc">
+                                            <div class="loai-danh-muc">
+                                                <div class="tieu-de-danh-muc">
+                                                    <a href="http://">Laptop Dell</a>
+                                                </div>
+                                                <div class="san-pham-danh-muc">
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                    <div class="san-pham-danh-muc2">
+                                                        <a href="http://">Alien</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end menu dọc -->
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-newspaper"></i>
+                                <a class="capslock" href="./tintuc.html">Tin tức</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-building-shield"></i>
+                                <a class="capslock" href="http://">Chính sách</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-phone-volume"></i>
+                                <a class="capslock" href="http://">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end nav -->
+        </header>
+        <!-- END header -->
+        <!-- Start Cart -->
+        <div class="bang_sanpham pt-4">
+            <table class="table pt-4" style="width: 1200px; margin: auto; border: 1px solid #cccccc; cursor: pointer;">
+                <thead>
+                    <tr>
+                        <th scope="col" class="border-1">STT</th>
+                        <th scope="col" class="border-1">Tên sản phẩm</th>
+                        <th scope="col" class="border-1">Giá</th>
+                        <th scope="col" class="border-1">Số lượng</th>
+                        <th scope="col" class="border-1">Tổng</th>
+                        <th scope="col" class="border-1" style="width: 60px; text-align: center;">Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th class="border-1" scope="row">1</th>
+                        <td class="border-1" style="width: 750px;">
+                            <div class="img_cart" style="display: flex; align-items: center;">
+                                <img src="./img/sanpham1.jpg" width="80px" alt="" />
+                                <div class="text_cart" style="margin-left: 20px;"><a href="#">[New Outlet] Lenovo Slim 7 Pro X (Ryzen 9 6900HS, 32GB, 1TB,RTX 3050 4GB, 14.5'' 3K Touch)</a>
+                                    <div class="baohanh">
+                                        Bảo hành 12 tháng
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="border-1">16.000.000 đ</td>
+                        <td class="border-1">
+                            <div class="number" style="display: flex;">
+                                <button class="btn btn-link px-2" onclick="decrement()">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                                <input style="width: 50px;" id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" />
+                                <button class="btn btn-link px-2" onclick="increment()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            </div>
+                        </td>
+                        <td class="border-1">16.000.000 đ</td>
+                        <td>
+                            <a href="#"><img style="margin-left: 10px;" src="./img/icon_cart_del.png"></a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="border-1" colspan="2"></td>
+                        <td class="border-1" colspan="4">
+                            <h3 style="font-weight: bold; font-size: 16px;">Tổng cộng : 16.000.000 đ</h3>
+                            <div style="color: red; font-weight: bold;" class="thanhtoan">Thanh toán: 16.000.000 VND</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- End cart -->
+        <div class="tieptuc_mua" style="width: 1400px; margin: auto; padding: 20px 0;">
+            <button type="button" class="btn btn-primary" style="margin-left: 81.8%;"><a style="color: white; text-decoration: none;" href="#">Tiếp tục mua hàng</a></button>
+        </div>
+        <!-- Thanh toán -->
+        <div class="thanhtoan" style="width: 1200px; margin: auto; display: grid; grid-template-columns: 750px 450px;">
+            <div class="thongtin_kh" style="border: 1px solid #cccccc;">
+                <div class="text_kh">
+                    <h3 style="font-size: 17px; font-weight: bold;padding: 10px 8px; border-bottom:1px solid #cccccc; ">1. Khách hàng khai báo thông tin</h3>
+                </div>
+                <div class="text_thongtin" style="margin-left: 8px;">
+                    <span style="font-size: 16px; font-weight: bold;">  Thông tin người mua</span>
+                    <div class="text" style="font-size: 14px; padding-top: 5px;">Những phần đánh dấu (*) là bắt buộc</div>
+                </div>
+                <form action="" style="padding: 15px 10px;">
+                    <div class="name">
+                        Họ tên :<input style="margin:4px 50px; width: 400px;" type="text">
+                    </div>
+                    <div class="name">
+                        Điện thoại :<input style="margin:4px 25px; width: 400px;" type="text">
+                    </div>
+                    <div class="name">
+                        Địa chỉ :<input style="margin:4px 50px; width: 400px;" type="text">
+                    </div>
+                    <div class="name">
+                        Email :<input style="margin:4px 59px; width: 400px;" type="text">
+                    </div>
+
+                </form>
+            </div>
+            <div class="phuongthuc_tt" style="border: 1px solid #cccccc; margin-left: 10px;">
+                <div class="text_ghichu">
+                    <h3 style="font-size: 17px; font-weight: bold;border-bottom: 1px solid #cccccc; padding: 10px;">2. Ghi chú cho đơn hàng</h3>
+                </div>
+                <div class="ghi_chu" style="padding: 10px; border-bottom: 1px solid #cccccc;">
+                    <textarea name="" id="" cols="30" rows="10" style="width: 100%; height: 100px;"></textarea>
+                </div>
+                <div class="text_ghichu">
+                    <h3 style="font-size: 17px; font-weight: bold;border-bottom: 1px solid #cccccc; padding: 10px;">3. Phương thức thanh toán</h3>
+                </div>
+                <div class="thanh_toan" style="margin-left: 20px; padding-bottom: 10px;">
+                    <div class="tai_quan">
+                        <input type="radio" id="payment_option_1" name="payment_method">
+                        <label for="payment_option_1">Thanh toán tại cửa hàng</label>
+                    </div>
+                    <div class="tai_quan">
+                        <input type="radio" id="payment_option_2" name="payment_method">
+                        <label for="payment_option_2">Thanh Toán tại cửa hàng</label>
+                    </div>
+                    <div class="tai_quan">
+                        <input type="radio" id="payment_option_3" name="payment_method">
+                        <label for="payment_option_3">Thanh Toán tại cửa hàng</label>
+                    </div>
+                    <div class="tai_quan">
+                        <input type="radio" id="payment_option_4" name="payment_method">
+                        <label for="payment_option_4">Thanh Toán tại cửa hàng</label>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="sumnit" style="width: 1200px; margin: auto; padding: 20px 0;">
+                <button type="button" class="btn btn-warning" style="margin-left: 66%;">Gửi đơn hàng</button>
+            </div>
+        </div>
+        <!-- end thanh toán -->
+        <!-- start footer -->
+        <footer class="bg-light text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a class="btn text-white btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i
+            ></a>
+
+                    <!-- Twitter -->
+                    <a class="btn text-white btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i class="fab fa-twitter"></i
+            ></a>
+
+                    <!-- Google -->
+                    <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39" href="#!" role="button"><i class="fab fa-google"></i
+            ></a>
+
+                    <!-- Instagram -->
+                    <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i class="fab fa-instagram"></i
+            ></a>
+
+                    <!-- Linkedin -->
+                    <a class="btn text-white btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i class="fab fa-linkedin-in"></i
+            ></a>
+                    <!-- Github -->
+                    <a class="btn text-white btn-floating m-1" style="background-color: #333333" href="#!" role="button"><i class="fab fa-github"></i
+            ></a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2020 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a
+          >
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- end footer -->
+    </div>
+  </body>
+  <script src="js/main.js"></script>
+</html>

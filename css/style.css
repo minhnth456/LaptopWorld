@@ -73,6 +73,17 @@
     transition: opacity 0.5s;
 }
 
+.container-p-1 {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 0.5s;
+    /* border: 1px solid none; */
+    background-color: #f5f5f5;
+}
+
 .preload-image {
     display: block;
     background-image: url(../img/wepik-duotone-laptop-logo-20231105063901MInv.png);
