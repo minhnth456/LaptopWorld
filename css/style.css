@@ -993,18 +993,33 @@ article {
     margin-left: 4px;
 }
 
-.lop-phu .khung-thong-so-ki-thuat{
+.lop-phu2 {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 350px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border: 1px solid none;
+}
+
+.lop-phu2 .khung-thong-so-ki-thuat{
+    width: 30%;
+    min-height: 30px;
     position: relative;
     transform: scale(0);
     transition: transform 0.3s ease-in-out;
-    display: none;
+    display: block;
     z-index: 1;
 }
 
 .khung-thong-so-ki-thuat .thong-so-ki-thuat{
-    width: 35%;
+    width: 100%;
     min-height: 30px;
     border: 1px solid none;
     position: absolute;

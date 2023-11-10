@@ -28,6 +28,7 @@ if (document.getElementById('anh-tu-dong')) {
 
 //lớp phủ
 var lopphu = document.getElementById('lop-phu');
+var lopphu2 = document.getElementById('lop-phu2');
 // button mở
 var openForm = document.getElementById('openForm');
 // button đóng
@@ -48,8 +49,8 @@ var closeForm = document.getElementById('closeForm');
 var elI = closeForm.children[0];
 
 function mo_fo(idFo){
-    lopphu.style.display = 'flex';
     if(idFo == 'dangki'){
+        lopphu.style.display = 'flex';
         form_dk.style.display = 'block';
         form_dn.style.display = 'none';
         thong_so_ki_thuat.style.display = 'none';
@@ -57,6 +58,7 @@ function mo_fo(idFo){
             khung_form.style.transform = 'scale(0.8)';
         },100);
     } else if(idFo == 'dangnhap'){
+        lopphu.style.display = 'flex';
         form_dn.style.display = 'block';
         form_dk.style.display = 'none';
         thong_so_ki_thuat.style.display = 'none';
@@ -64,6 +66,7 @@ function mo_fo(idFo){
             khung_form.style.transform = 'scale(0.8)';
         },100);
     } else if(idFo == 'chitietcauhinh'){
+        lopphu2.style.display = 'flex';
         form_dn.style.display = 'none';
         form_dk.style.display = 'none';
         thong_so_ki_thuat.style.display = 'block';
@@ -92,11 +95,12 @@ function chuyen_fo(idFo){
 }
 
 function dong_fo(e){
-    if(e.target === lopphu || e.target === closeForm || e.target === elI){
+    if(e.target === lopphu || e.target === closeForm || e.target === elI || e.target === lopphu2){
         khung_form.style.transform = 'scale(0)';
         khung_thong_so_ki_thuat.style.transform = 'scale(0)';
         setTimeout(function(){
             lopphu.style.display = 'none';
+            lopphu2.style.display = 'none';
             form_dk.style.display = 'none';
             form_dn.style.display = 'none';
             thong_so_ki_thuat.style.display = 'none';
@@ -153,3 +157,15 @@ thumbnailLinks.forEach(function(link) {
 });
 
 //end Chi tiết sản phẩm
+
+// Start số lượng cart
+function increment() {
+    var input = document.getElementById('form1');
+    input.stepUp();
+}
+
+function decrement() {
+    var input = document.getElementById('form1');
+    input.stepDown();
+}
+// end số lượng cart
