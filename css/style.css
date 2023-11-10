@@ -1021,7 +1021,7 @@ article {
 
 .lop-phu2 .khung-thong-so-ki-thuat{
     width: 30%;
-    min-height: 30px;
+    height: auto;
     position: relative;
     transform: scale(0);
     transition: transform 0.3s ease-in-out;
@@ -1031,7 +1031,7 @@ article {
 
 .khung-thong-so-ki-thuat .thong-so-ki-thuat{
     width: 100%;
-    min-height: 30px;
+    height: auto;
     border: 1px solid none;
     position: absolute;
     display: none;
