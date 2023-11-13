@@ -1654,6 +1654,47 @@ article {
     display: flex;
 }
 
+.noi-dung-bl .ten{
+    width: 100%;
+    min-height: 15px;
+    border: 1px solid none;
+}
+
+.noi-dung-bl .ten p{
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    color: #2b80dd;
+}
+
+.noi-dung-bl .nd-bl{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+}
+
+.noi-dung-bl .nd-bl p{
+    margin: 0px;
+    padding: 0px;
+}
+
+.noi-dung-bl .ngay-bl{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+}
+
+.noi-dung-bl .ngay-bl p{
+    margin: 0px;
+    padding: 0px;
+    font-size: 11px;
+    font-style: italic;
+    color: #4b4f56;
+}
+
+/* sản phẩm liên quan */
+
 .khung-sp-lq .tieu-de{
     width: 100%;
     height: auto;
