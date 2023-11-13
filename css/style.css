@@ -890,6 +890,7 @@ article {
     flex-wrap: wrap;
     background-color: #ec1c24;
     border-radius: 5px;
+    padding: 5px 0px;
 }
 
 .mua-hang a{
@@ -902,16 +903,18 @@ article {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 21px;
     font-weight: bold;
-    padding: 2px 0px 0px 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
-.mua-hang span{
+/* .mua-hang span{
     color: white;
     font-size: 13px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 0px 0px 5px 0px;
-}
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 10px;
+} */
 
 .thong-tin-sp .them-gio-hang{
     width: 100%;
@@ -924,6 +927,7 @@ article {
     flex-wrap: wrap;
     background-color: #2b80dd;
     border-radius: 5px;
+    padding: 5px 0px;
 }
 
 .them-gio-hang a{
@@ -967,10 +971,14 @@ article {
 
 .khung-thong-tin p{
     color: #ec1c24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .khung-thong-tin b{
     color: #2b80dd;
+    margin-left: 5px;
 }
 
 .khung-thong-tin ul{
@@ -1025,7 +1033,9 @@ article {
     position: relative;
     transform: scale(0);
     transition: transform 0.3s ease-in-out;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-self: center;
     z-index: 1;
 }
 
@@ -1077,6 +1087,45 @@ article {
 
 .thong-so-ki-thuat table tr:nth-child(odd) {
     background-color: #f1f1f1;
+}
+
+.khung-cau-hinh{
+    width: 100%;
+    height: auto;
+}
+
+.khung-cau-hinh .cau-hinh{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-gap: 2%;
+    border: 1px solid none;
+}
+
+.cau-hinh .tt-cau-hinh{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin-bottom: 5px;
+    background: #dddddd3d;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.tt-cau-hinh a{
+    text-decoration: none;
+}
+
+.tt-cau-hinh a p{
+    color: black;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.tt-cau-hinh a span{
+    color: #ef1200;
 }
 
 /* MENU THƯƠNG HIỆU */
@@ -1423,4 +1472,222 @@ article {
 
 .right .conten .item-tittle a:hover{
     color: blue;
+}
+
+/* Mô tả sản phẩm */
+
+.khung-dd-kt{
+    width: 1200px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 75% 23%;
+    grid-gap: 2%;
+    margin: 0px auto;
+    padding: 0px;
+    border: 1px solid none;
+
+}
+
+.khung-dd-kt .khung-mo-ta{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #fff;
+}
+
+.khung-dd-kt .khung-sp-lq{
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid none;
+    background-color: rgb(245, 245, 245);
+}
+
+.khung-sp-lq .khung .tieu-de p{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: 1px solid none;
+    border-bottom: 2px solid #2b80dd;
+    width: auto;
+    height: 100%;
+    padding: 12px 15px 9px 15px;
+    font-size: 18px;
+    margin-bottom: -1px;
+    margin-top: 2px;
+}
+
+.khung-mo-ta .tieu-de{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    display: flex;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.tieu-de p{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: 1px solid none;
+    border-bottom: 2px solid #2b80dd;
+    width: auto;
+    height: 100%;
+    padding: 12px 15px 10px 15px;
+    font-size: 18px;
+    margin-bottom: -1px;
+}
+
+.khung-mo-ta .mo-ta{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+}
+
+.khung-mo-ta .mo-ta img{
+    max-width: 700px;
+    max-height: 700px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.khung-mo-ta .khung-binh-luan{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    padding: 10px;
+}
+
+.khung-binh-luan .so-bl{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e9ebee;
+}
+
+.so-bl p{
+    width: auto;
+    height: auto;
+    border: 1px solid none;
+    margin-top: 15px;
+}
+
+.so-bl .sap-xep{
+    width: auto;
+    height: auto;
+    border: 1px solid none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.so-bl .sap-xep p{
+    margin: 0px 5px;
+}
+
+.khung-binh-luan .binh-luan{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin: 10px 0px;
+    display: flex;
+}
+
+.binh-luan .noi-dung-bl{
+    width: 100%;
+    height: auto;
+}
+
+.noi-dung-bl form{
+    width: 100%;
+    height: auto;
+}
+
+.noi-dung-bl form input.nd{
+    width: 100%;
+    min-height: 50px;
+    /* min-height: 80px; */
+    padding: 0px 10px;
+    font-size: 16px;
+    border: 1px solid #d3d6db;
+}
+
+.noi-dung-bl form .dn-chat{
+    width: 100%;
+    height: 50px;
+    border-left: 1px solid #d3d6db;
+    border-right: 1px solid #d3d6db;
+    border-bottom: 1px solid #d3d6db;
+    background-color: #f5f6f7;
+    display: none;
+    position: relative;
+}
+
+.noi-dung-bl form .dn-chat input{
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0px 10px;
+    padding: 0px 10px 1px 10px;
+    border: 1px solid #2b80dd;
+    background-color: #2b80dd;
+    color: #fff;
+    border-radius: 2px;
+    opacity: 0.5;
+}
+
+.noi-dung-bl form:focus-within input.nd{
+    outline: none;
+    min-height: 60px;
+}
+
+.noi-dung-bl form:focus-within div.dn-chat{
+    display: flex;
+}
+
+.khung-sp-lq .tieu-de{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    display: flex;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.khung-sp-lq .sp-lq{
+    width: 100%;
+    height: auto;
+    padding: 5px 5px;
+    display: flex;
+    border-bottom: 1px solid #e1e1e1;
+    margin: 5px 10px 0px 10px;
+}
+
+.khung-sp-lq .khung{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sp-lq a{
+    width: auto;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.sp-lq a img{
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
 }

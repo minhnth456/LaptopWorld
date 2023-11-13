@@ -184,3 +184,21 @@ function decrement() {
     input.stepDown();
 }
 // end số lượng cart
+
+// Start Bình luận
+
+var nd = document.getElementById('nd');
+var dn_chat = document.getElementById('dang');
+
+function chat(){
+    if(nd.value.trim() !== ""){
+        dn_chat.removeAttribute("disabled");
+        dn_chat.style.opacity = 1;
+        console.log(dn_chat);
+    } else {
+        dn_chat.style.opacity = 0.5;
+        dn_chat.setAttribute("disabled", "disabled");
+    }
+}
+
+// end Bình luận
