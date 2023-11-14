@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 11:53 AM
+-- Thời gian đã tạo: Th10 14, 2023 lúc 07:25 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -90,6 +90,16 @@ CREATE TABLE `danhmuc` (
   `id_dm` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `danhmuc`
+--
+
+INSERT INTO `danhmuc` (`id_dm`, `name`) VALUES
+(1, 'Acer'),
+(2, 'Dell'),
+(3, 'Lenovo'),
+(4, 'Asus');
 
 -- --------------------------------------------------------
 
@@ -239,7 +249,7 @@ ALTER TABLE `chitiet_giohang`
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
