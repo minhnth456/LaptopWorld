@@ -1209,6 +1209,7 @@ article {
 }
 
 /* trang tin tức */
+
 /* tintuc phai */
 
 .khung{
@@ -1252,7 +1253,7 @@ article {
     color: blue;
     text-decoration: none;
     font-weight: bold;
-    margin: 5px;
+    margin: 10px;
 }
 
 .left .khung-bv{
@@ -1264,12 +1265,16 @@ article {
     grid-gap: 0.25%;
     margin-top: 5px;
     border: 1px solid none;
+    margin-bottom: 15px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid #e1e1e1;
 }
 
 .left .baiviet-1 .anh1 img{
     width: 90%;
-    height: 100%;
+    height: 200px;
     border: 1px solid none;
+    margin-left: 10px;
 }
 
 .left .nd{
@@ -1297,6 +1302,26 @@ article {
     color: #9f9f9f;
     font-size: 13px;
 }
+/* chi tiet tin tuc */
+.left .khung-tintuc{
+    margin: 10px;
+}
+.left .khung-tintuc h1{
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: #2b80dd;
+}
+.left .khung-tintuc p span{
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12pt;
+}
+.left .khung-tintuc span img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* tin tuc trai */
 
@@ -1423,4 +1448,93 @@ article {
 
 .right .conten .item-tittle a:hover{
     color: blue;
+}
+
+/* CSS CHO ADMIN */
+.khung-admin{
+    width: 90%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid none;
+    background-color: white;
+    /* padding-top: 15px; */
+    overflow: hidden;
+}
+.frame{
+    margin: 10px;
+}
+.row_tittle{
+    background-color:#EEE;
+    color: blue;
+    border-radius:5px;
+    margin: 10px;
+}
+.row_tittle h1{
+    color: red;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+.bang_loai table{
+    width: 98%;
+    border-collapse: collapse;
+    background-color: #ccc;
+    margin-left: 10px;
+    border-collapse: collapse;
+}
+.bang_loai table th{
+    text-align: center;
+    background-color: aquamarine;
+}
+.bang_loai table td {
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px #ccc solid;
+    padding: 5px;
+}
+.bang_loai table td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.sua input{
+    background-color: #16c60c;
+    border: 1px;
+    width: 35px;
+    height: 30px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.xoa input{
+    background-color: red;
+    border: 1px;
+    width: 35px;
+    height: 30px;
+    font-weight: 500;
+}
+.sua input:hover{
+    background-color: yellow;
+}
+.xoa input:hover{
+    background-color: yellow;
+}
+.select{
+    margin-left: 10px;
+    margin-top: 35px;
+}
+.select .chon{
+    width: 150px;
+    height: 40px;
+    background-color: aquamarine;
+    border: 1px;
+    margin-left: 5px;
+    font-weight: 500;
+}
+.select .chon:hover{
+    background-color: yellow;
 }
