@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="font/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="preload-image"></div>
+    <div class="container-p-0">
+        <!-- start header -->
+        <header>
+            <!-- menu1 -->
+            <div class="menu">
+                <div class="logo">
+                    <a href="#"><img src="./img/logo.png" alt="" /></a>
+                </div>
+                <div class="tim-kiem mgl-5">
+                    <form action="" method="post" class="tim">
+                        <input type="text" name="" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+                <div class="tai-khoan mgl-5">
+                    <button id="openForm" onclick="mo_fo('dangki')">Đăng kí</button>
+                    <p>|</p>
+                    <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
+                </div>
+                <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
+                    <div class="form-dk-dn" id="form-dk-dn">
+                        <!-- form đăng kí -->
+                        <form id="dangki" action="" method="post">
+                            <h1>Đăng kí</h1>
+                            <div class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="email" placeholder="Email">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Nhập lại mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <button type="submit">Đăng kí</button>
+                            <div class="link-dk-dn">
+                                Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a>
+                            </div>
+                        </form>
+                        <!-- form đăng nhập -->
+                        <form id="dangnhap" action="" method="post">
+                            <h1>Đăng nhập</h1>
+                            <div class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <div class="o-input">
+                                <input type="password" placeholder="Mật khẩu">
+                                <small></small>
+                                <span></span>
+                            </div>
+                            <button type="submit">Đăng nhập</button>
+                            <div class="link-dk-dn">
+                                Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
+                            </div>
+                        </form>
+                        <button id="closeForm" onclick="dong_fo(event)"><i class="fa-solid fa-x"></i></button>    
+                    </div>
+                </div>
+                <div class="gio-hang mgl-5">
+                    <i class="fa-solid fa-cart-shopping"></i><br />
+                    <a href="http://">Giỏ hàng</a><br />
+                    <span class="so-luong-gio-hang">0</span>
+                </div>
+            </div>
+            <!-- end menu1 -->
+
+            <!-- start nav -->
+            <div id="menu-con" class="menu-con">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i><a class="capslock" href="http://">Trang chủ</a>
+                    </li>
+                    <li class="m-c">
+                        <i class="fa-solid fa-laptop"></i>
+                        <a class="capslock" href="http://">Sản phẩm</a>
+                        <!-- menu dọc -->
+                        <div class="danh-muc">
+                            <div class="khung-danh-muc">
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <!-- tiêu đề -->
+                                        <div class="tieu-de-danh-muc">
+                                            <a class="nor-text" href="http://">Laptop Dell</a>
+                                        </div>
+                                        <!-- sản phẩm -->
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <div class="tieu-de-danh-muc">
+                                            <a href="http://">Laptop Dell</a>
+                                        </div>
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <div class="tieu-de-danh-muc">
+                                            <a href="http://">Laptop Dell</a>
+                                        </div>
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="danh-sach-danh-muc">
+                                    <div class="loai-danh-muc">
+                                        <div class="tieu-de-danh-muc">
+                                            <a href="http://">Laptop Dell</a>
+                                        </div>
+                                        <div class="san-pham-danh-muc">
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                            <div class="san-pham-danh-muc2">
+                                                <a href="http://">Alien</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- end menu dọc -->
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-newspaper"></i>
+                        <a class="capslock" href="http://">Tin tức</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-building-shield"></i>
+                        <a class="capslock" href="http://">Chính sách</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <a class="capslock" href="http://">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- end nav -->
+
+            <!-- start banner -->
+            <!-- <div class="banner">
+                <div class="anh1">
+                    <a href="#" id="anh-tu-dong-link">
+                        <img src="img/anh0.jpg" alt="" id="anh-tu-dong"/>
+                    </a>
+                </div>
+                <div class="anh2">
+                    <div class="img1">
+                    <a href="#"><img src="img/anh5.jpg" alt="" /></a>
+                    </div>
+                    <div class="img2">
+                    <a href="#"><img src="img/anh4.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div> -->
+            <!-- end banner -->  
+        </header>
+        <!-- nội dung -->
+
+            <div class="khung">
+                <div class="khung-con">
+                    <div class="left">
+                        <div class="anh">
+                            <img src="img/tintuc.jpg" alt="">
+                        </div>
+
+                        <div class="baiviet">
+                            <a href="">MỪNG TỰU TRƯỜNG - GIÁ YÊU THƯƠNG️, GIẢM TỚI 5 TRIỆU ĐỒNG</a>
+                        </div><hr>
+
+                        <div class="khung-tintuc">
+                            <div>
+                                <h1>CPU AMD Ryzen 7 7735HS và Ryzen 7 7735H có gì khác nhau?</h1>
+                                <p>
+                                    <span>Tại sự kiện CES 2023, AMD đã ra mắt dòng sản phẩm CPU di động Ryzen 7000 Series mới nhất cho laptop. Tiêu biểu và phổ biến nhất có thể kể đến đó chính là CPU AMD Ryzen 7 7735HS được trang bị trên các mẫu Laptop Gaming mới của năm nay. </span>
+                                </p>
+                                <p>
+                                    <span>
+                                        <img src="img/tintuc1.jpg" alt="" style="width: 620px; height: 600px;">
+                                    </span>
+                                </p>
+                                <p>
+                                    <span>Tuy nhiên, trong thời gian vừa qua, chúng ta lại thấy sự xuất hiện của một dòng chip mới tương đương đó chính là CPU AMD Ryzen 7 7735H trên một số mẫu Laptop Gaming thuộc thị trường Trung Quốc. Vậy dòng CPU có đuôi H này có gì khác so với dòng CPU đuôi HS bên trên? </span>
+                                </p>
+                                <p>
+                                    <span>
+                                        <img src="img/tintuc2.jpg" alt="" style="width: 100%; height:400px;" >
+                                    </span>
+                                </p>
+                                <p style="text-align: center;">
+                                    <span><em>Thông tin CPU AMD Ryzen 7 7735H tại trang chủ AMD</em></span>
+                                </p>
+                                <p>
+                                    <span>Theo như LaptopAZ tìm hiểu thì CPU AMD Ryzen 7 7735H và CPU AMD Ryzen 7 7735HS chính là một. Ký hiệu HS hay H phụ thuộc vào tên gọi trên từng thị trường mà chiếc CPU đó lưu thông thôi còn thông số kỹ thuật của 2 chiếc CPU này giống hệt nhau.  </span>
+                                </p>
+                                <p>
+                                    <span>
+                                        <img src="img/tintuc3.jpg" alt="" style="width: 100%; height:400px;">
+                                    </span>
+                                </p>
+                                <p style="text-align: center;">
+                                    <span><em>Thông tin CPU AMD Ryzen 7 7735HS tại trang chủ AMD</em></span>
+                                </p>
+                                <p>
+                                    <span>Theo như hình ảnh bên trên, chúng ta không thấy sự khác biệt nào trên tất cả các thông số của 2 con chip này ngoại trừ thị trường lưu thông của sản phẩm. </span>
+                                </p>
+                                <p><span>HS là tên gọi tại thị trường quốc tế</span></p>
+                                <p><span>Sau đây, chúng ta cùng check qua hiệu năng của AMD Ryzen 7 7735H(HS) nhé</span></p>
+                                <p>
+                                    <span>
+                                        <img src="img/tintuc4.jpg" alt="">
+                                    </span>
+                                </p>
+                                <p><span>Dựa vào bảng so sánh ở trên về Ryzen 7 7735H(HS) Benchmark khi so sánh cùng top 10 chip xử lý thịnh thành, có thể thấy hiệu năng của con chip này ở mức cao. Khả năng hoạt động của chip còn cao hơn cả dòng AMD Ryzen 7 5800H. Mức điểm hiệu năng đạt hơn 24 điểm. </span></p>
+                                <p><span>Với mức điểm đánh giá này, dòng chip Ryzen 7 7735H(HS) có thể dùng để thực hiện các tác vụ phức tạp từ chơi game cấu hình cao cho đến sử dụng cho các công việc đòi hỏi dung lượng lớn. Điển hình như bạn có thể dùng chiếc laptop có con chip Ryzen 7 7735H(HS) để thiết kế đồ họa 2D, 3D hoặc edit video mà không lo giật, lag máy.</span></p>
+                                <p><span>Dưới đây là 1 số mẫu Laptop Gaming sở hữu CPU Ryzen 7 7735H(HS) hiện đang được bán tại LaptopAZ cho anh em tham khảo nhé! </span></p>
+
+                                <p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt; color: #0000ff;">
+                                    1. Lenovo Ideapad Gaming 3 2023
+                                </span></p>
+                                <p><span>
+                                    <img src="img/img5.jpg" alt="" style="width: 750px; height: 400px;">
+                                </span></p>
+                                <p>
+                                    <span>Laptop Lenovo Ideapad Gaming 3 2023 là một trong những dòng laptop thế hệ mới. Gây ấn tượng mạnh với dòng laptop mỏng nhẹ, Lenovo lại một lần nữa khuấy đảo thị trường laptop gaming với Ideapad gaming 3. Lenovo Ideapad Gaming 3 2023 với ngôn ngữ thiết kế đột phá, hiệu năng ấn tượng chính là điểm thu hút một khối lượng lớn người dùng. </span>
+                                </p>
+                                <p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt; color: #0000ff;">
+                                    2. Lenovo Legion 5 R7000 ARP8
+                                </span></p>
+                                <p><span>
+                                    <img src="img/img6.jpg" alt="" style="width: 750px; height: 400px;">
+                                </span></p>
+                                <p><span>Thiết kế của Legion R7000 2023 thay vì có hơi hướng mỏng nhẹ như người anh em Slim thì nó lại là 1 phiên bản đơn giản hóa hơn của chiếc Legion 5 với thiết kế có phần vuông vức và tối giản hơn rất nhiều.</span></p>
+                                <p><span>Mặt trước của Legion R7000 2023 là lớp kim loại nguyên khối, trong khi bên dưới là lớp phủ nhựa ABS được phủ annodyte làm tăng cảm giác cao cấp. Lenovo muốn mọi vẻ đẹp đều xuất phát từ những gì đơn giản nhất, chính điều đó làm nên vẻ đẹp trường tồn trong những thiết kế từ nhà Lenovo.</span></p>
+                                <p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt; color: #0000ff;">
+                                    3. Lenovo Legion 5 15ARP8
+                                </span></p>
+                                <p><span>
+                                    <img src="img/img7.jpg" alt="" style="width: 750px; height: 400px;">
+                                </span></p>
+                                <p><span>Lenovo Legion 5 15ARP8 2023 hứa hẹn là một trong những sự lựa chọn tuyệt vời bởi thiết kế độc đáo, cá tính cùng với hiệu năng và những thông số kĩ thuật ấn tượng. Sở hữu màn hình tuyệt đẹp cùng với cấu hình mạnh mẽ, Legion 5 15ARP8 2023 chắc chắn đủ khả năng chiến tốt mọi tựa Gaming thời thượng cũng như xử lý ngon lành các tác vụ đồ họa nặng. </span></p>
+                                <p><span>Qua bài viết trên, LaptopAZ hi vọng sẽ giúp anh em có thêm kiến thức cũng như giải đáp thắc mắc của anh em trong thời gian qua về 2 chiếc CPU mới đến từ nhà AMD này. Ngoài ra nếu anh em đang cần Laptop để học tập, làm việc hay giải trí một cách tốt nhất thì đừng quên tham khảo tại LaptopAZ nhé. Hiện tại LaptopAZ đang có rất nhiều chương trình ưu đãi dành tới khách hàng khi mua sắm và sử dụng dịch vụ tại LaptopAZ đó ạ!</span></p>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="right">
+                        <div class="khung-tinnb">
+                            <div class="tin">TIN NỔI BẬT</div>
+                        </div>
+
+                        <div class="menu-tin">
+                            <ul class="tinnb">
+                                <li><a href="" class="title">Dell Inspiron 14 7435 2in1 2023 - ĐẸP, ĐỘC LẠ, ĐA NĂNG mà lại còn RẺ</a></li>
+                                <li><a href="" class="title">MỪNG TỰU TRƯỜNG - GIÁ YÊU THƯƠNG️, GIẢM TỚI 5 TRIỆU ĐỒNG</a></li>
+                                <li><a href="" class="title">CPU AMD Ryzen 7 7735HS và Ryzen 7 7735H có gì khác nhau? </a></li>
+                                <li><a href="" class="title">Windows 11 23H2 ra mắt: Windows Copilot đã có sẵn, nhiều cải tiến hữu ích</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="khuyenmai">
+                            <div class="tin">TIN KHUYẾN MÃI</div>
+
+                            <div class="conten">
+                                <div class="first">
+                                    <div class="item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/tintuc.jpg" alt=""></a>
+                                        </div>
+                                        <div class="item-tittle">
+                                            <a href="">MỪNG TỰU TRƯỜNG - GIÁ YÊU THƯƠNG️, GIẢM TỚI 5 TRIỆU ĐỒNG</a>
+                                        </div>    
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 4 Laptop Gaming Dell Đáng Mua Nhất Tầm Giá 23 - 29 Triệu Thời Điểm Hiện Tại!!!</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 4 Laptop Gaming Sở Hữu Card Đồ Họa RTX 4060 Không Thể Bỏ Lỡ</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 4 Ultrabook 2-in-1 HOT Nhất Mùa Tựu Trường 2023</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 3 Ultrabook Cảm Ứng HOT Nhất Mùa Tựu Trường 2023</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 4 Laptop Gaming Dell Đáng Mua Nhất Tầm Giá 23 - 29 Triệu Thời Điểm Hiện Tại!!!</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 4 Laptop Gaming Sở Hữu Card Đồ Họa RTX 4060 Không Thể Bỏ Lỡ</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 4 Ultrabook 2-in-1 HOT Nhất Mùa Tựu Trường 2023</a>
+                                    </div>    
+                                </div>
+
+                                <div class="item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/km4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="item-tittle">
+                                        <a href="">TOP 3 Ultrabook Cảm Ứng HOT Nhất Mùa Tựu Trường 2023</a>
+                                    </div>    
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        <!-- end nội dung -->
+
+    </div>
+
+</body>
+<script src="js/main.js"></script>
+</html>

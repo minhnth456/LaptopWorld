@@ -46,7 +46,9 @@ var form_dn = document.getElementById('dangnhap');
 // button close form
 var closeForm = document.getElementById('closeForm');
 // thẻ i đóng
-var elI = closeForm.children[0];
+if(closeForm){
+    var elI = closeForm.children[0];
+}
 
 function mo_fo(idFo){
     if(idFo == 'dangki'){
