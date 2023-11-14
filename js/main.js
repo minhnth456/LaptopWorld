@@ -46,6 +46,7 @@ var form_dn = document.getElementById('dangnhap');
 // button close form
 var closeForm = document.getElementById('closeForm');
 // thẻ i đóng
+<<<<<<< HEAD
 if (closeForm) {
     var elI = closeForm.children[0];
 }
@@ -82,6 +83,25 @@ function mo_fo(idFo) {
     }
 }
 
+=======
+var elI = closeForm.children[0];
+
+function mo_fo(idFo) {
+    lopphu.style.display = 'flex';
+    if (idFo == 'dangki') {
+        form_dk.style.display = 'block';
+        form_dn.style.display = 'none';
+    } else if (idFo == 'dangnhap') {
+        form_dn.style.display = 'block';
+        form_dk.style.display = 'none';
+    }
+    setTimeout(function() {
+        khung_form.style.transform = 'scale(0.8)';
+    }, 100);
+
+}
+
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c
 function chuyen_fo(idFo) {
     if (idFo == 'dangki') {
         khung_form.style.transform = 'scale(0)';
@@ -101,19 +121,27 @@ function chuyen_fo(idFo) {
 }
 
 function dong_fo(e) {
+<<<<<<< HEAD
     if (e.target === lopphu || e.target === closeForm || e.target === elI || e.target === lopphu2) {
         khung_form.style.transform = 'scale(0)';
         if (thong_so_ki_thuat) {
             khung_thong_so_ki_thuat.style.transform = 'scale(0)';
         }
+=======
+    if (e.target === lopphu || e.target === closeForm || e.target === elI) {
+        khung_form.style.transform = 'scale(0)';
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c
         setTimeout(function() {
             lopphu.style.display = 'none';
             lopphu2.style.display = 'none';
             form_dk.style.display = 'none';
             form_dn.style.display = 'none';
+<<<<<<< HEAD
             if (thong_so_ki_thuat) {
                 thong_so_ki_thuat.style.display = 'none';
             }
+=======
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c
         }, 300);
     };
 }
@@ -127,6 +155,7 @@ window.addEventListener('load', function() {
         preloadImage.style.display = 'none';
 
         const content = document.querySelector('.container-p-0');
+<<<<<<< HEAD
         // const content2 = document.querySelector('.container-p-1');
         if (content) {
             content.style.opacity = 1;
@@ -175,6 +204,12 @@ thumbnailLinks.forEach(function(link) {
 
 //end Chi tiết sản phẩm
 
+=======
+        content.style.opacity = 1;
+    }, 1000);
+});
+// end Loading
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c
 // Start số lượng cart
 function increment() {
     var input = document.getElementById('form1');
@@ -185,6 +220,7 @@ function decrement() {
     var input = document.getElementById('form1');
     input.stepDown();
 }
+<<<<<<< HEAD
 // end số lượng cart
 
 // Start Bình luận
@@ -204,3 +240,6 @@ function chat() {
 }
 
 // end Bình luận
+=======
+// end số lượng cart
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c

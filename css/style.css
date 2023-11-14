@@ -66,11 +66,20 @@
     height: auto;
     padding: 0px;
     margin: auto;
+    opacity: 0;
+    transition: opacity 0.5s;
     /* border: 1px solid none; */
     background-color: #f5f5f5;
     /* bắt đầu với trang web bị ẩn */
-    opacity: 0;
-    transition: opacity 0.5s;
+}
+
+.container-p-1 {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: auto;
+    /* border: 1px solid none; */
+    /* bắt đầu với trang web bị ẩn */
 }
 
 .container-p-1 {
@@ -1274,13 +1283,19 @@ article {
     display: flex;
     justify-content: center;
     background-color: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .khung-con {
+<<<<<<< HEAD
     width: 80%;
+=======
+    width: 1200px;
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c
     height: auto;
     padding: 0px;
-    margin: 0px;
+    margin: auto;
     border: 1px solid none;
     background-color: #f5f5f5;
     /* padding-top: 15px; */
@@ -1489,6 +1504,7 @@ article {
 }
 
 
+<<<<<<< HEAD
 /* Mô tả sản phẩm */
 
 .khung-dd-kt {
@@ -1809,3 +1825,6 @@ article {
     border-radius: 0px;
     background-color: #2163a9;
 }
+=======
+/* Start Thanh toán */
+>>>>>>> b2c6c9e2c3ad5e07f3bebe98bce654724200657c
