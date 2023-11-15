@@ -96,11 +96,11 @@
             <div id="menu-con" class="menu-con">
                 <ul>
                     <li>
-                        <i class="fa-solid fa-house"></i><a class="capslock" href="http://">Trang chủ</a>
+                        <i class="fa-solid fa-house"></i><a class="capslock" href="index.php">Trang chủ</a>
                     </li>
                     <li class="m-c">
                         <i class="fa-solid fa-laptop"></i>
-                        <a class="capslock" href="http://">Sản phẩm</a>
+                        <a class="capslock" href="#">Sản phẩm</a>
                         <!-- menu dọc -->
                         <div class="danh-muc">
                             <div class="khung-danh-muc">
@@ -203,23 +203,6 @@
             </div>
             <!-- end nav -->
 
-            <!-- start banner -->
-            <div class="banner">
-                <div class="anh1">
-                    <a href="#" id="anh-tu-dong-link">
-                        <img src="img/anh0.jpg" alt="" id="anh-tu-dong"/>
-                    </a>
-                </div>
-                <div class="anh2">
-                    <div class="img1">
-                    <a href="#"><img src="img/anh5.jpg" alt="" /></a>
-                    </div>
-                    <div class="img2">
-                    <a href="#"><img src="img/anh4.jpg" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-            <!-- end banner -->  
         </header>
         <!-- end header -->
  

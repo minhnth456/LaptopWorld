@@ -1,3 +1,20 @@
+            <!-- start banner -->
+            <div class="banner">
+                <div class="anh1">
+                    <a href="#" id="anh-tu-dong-link">
+                        <img src="img/anh0.jpg" alt="" id="anh-tu-dong"/>
+                    </a>
+                </div>
+                <div class="anh2">
+                    <div class="img1">
+                    <a href="#"><img src="img/anh5.jpg" alt="" /></a>
+                    </div>
+                    <div class="img2">
+                    <a href="#"><img src="img/anh4.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end banner -->  
         <!-- start article -->
         <article>
             <!--lọc sp -->
@@ -91,7 +108,7 @@
                         <img src="./img/sanpham1.jpg" alt="" />
                     </a>
                     <div class="namesp">
-                        <a href="#">[New Outlet] Lenovo Slim 7 Pro X (Ryzen 9 6900HS, 32GB, 1TB, RTX 3050 4GB, 14.5'' 3K Touch)</a>
+                        <a href="index.php?act=chitietsanpham">[New Outlet] Lenovo Slim 7 Pro X (Ryzen 9 6900HS, 32GB, 1TB, RTX 3050 4GB, 14.5'' 3K Touch)</a>
                     </div>
                     <div class="price">25.000.000</div>
                 </div>
