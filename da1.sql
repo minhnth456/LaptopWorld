@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 14, 2023 lúc 07:25 AM
+-- Thời gian đã tạo: Th10 15, 2023 lúc 12:23 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -145,6 +145,19 @@ CREATE TABLE `sanpham` (
   `id_dm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `sanpham`
+--
+
+INSERT INTO `sanpham` (`id_pro`, `tensp`, `yeuthich`, `id_dm`) VALUES
+(1, 'labtop acer', 0, 1),
+(2, 'Asus 5 ngon ', 0, 4),
+(3, 'laptop acer5', 0, 1),
+(4, 'Del 5', 0, 2),
+(5, 'Labtop acer 5', 1, 1),
+(6, 'Dell 3', 1, 2),
+(7, 'lenovo 2', 1, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -249,7 +262,7 @@ ALTER TABLE `chitiet_giohang`
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
@@ -267,7 +280,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`

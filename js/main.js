@@ -3,16 +3,16 @@ var slide = null;
 var soAnh = 0;
 
 function tudong() {
-    slide = setInterval(function () {
+    slide = setInterval(function() {
         document.getElementById('anh-tu-dong').style.transform = 'scale(1.1)'; /* Tăng tỷ lệ hình ảnh */
-        setTimeout(function () {
+        setTimeout(function() {
             document.getElementById('anh-tu-dong').src = `img/anh${soAnh}.jpg`;
             soAnh++;
             if (soAnh > 3) {
                 soAnh = 0;
             }
         }, 200); /* Đợi một chút trước khi thay đổi hình ảnh */
-        setTimeout(function () {
+        setTimeout(function() {
             document.getElementById('anh-tu-dong').style.transform = 'scale(1)'; /* Trả về tỷ lệ ban đầu */
         }, 200);
     }, 2000);
@@ -46,75 +46,75 @@ var form_dn = document.getElementById('dangnhap');
 // button close form
 var closeForm = document.getElementById('closeForm');
 // thẻ i đóng
-if(closeForm){
+if (closeForm) {
     var elI = closeForm.children[0];
 }
 
-function mo_fo(idFo){
-    if(idFo == 'dangki'){
+function mo_fo(idFo) {
+    if (idFo == 'dangki') {
         lopphu.style.display = 'flex';
         form_dk.style.display = 'block';
         form_dn.style.display = 'none';
-        if(thong_so_ki_thuat){
+        if (thong_so_ki_thuat) {
             thong_so_ki_thuat.style.display = 'none';
         }
-        setTimeout(function(){
+        setTimeout(function() {
             khung_form.style.transform = 'scale(0.8)';
-        },100);
-    } else if(idFo == 'dangnhap'){
+        }, 100);
+    } else if (idFo == 'dangnhap') {
         lopphu.style.display = 'flex';
         form_dn.style.display = 'block';
         form_dk.style.display = 'none';
-        if(thong_so_ki_thuat){
+        if (thong_so_ki_thuat) {
             thong_so_ki_thuat.style.display = 'none';
         }
-        setTimeout(function(){
+        setTimeout(function() {
             khung_form.style.transform = 'scale(0.8)';
-        },100);
-    } else if(idFo == 'chitietcauhinh'){
+        }, 100);
+    } else if (idFo == 'chitietcauhinh') {
         lopphu2.style.display = 'flex';
         form_dn.style.display = 'none';
         form_dk.style.display = 'none';
         thong_so_ki_thuat.style.display = 'block';
-        setTimeout(function(){
+        setTimeout(function() {
             khung_thong_so_ki_thuat.style.transform = 'scale(0.8)';
-        },100);
+        }, 100);
     }
 }
 
-function chuyen_fo(idFo){
-    if(idFo == 'dangki'){
+function chuyen_fo(idFo) {
+    if (idFo == 'dangki') {
         khung_form.style.transform = 'scale(0)';
-        setTimeout(function(){  
+        setTimeout(function() {
             form_dn.style.display = 'none';
             form_dk.style.display = 'block';
             khung_form.style.transform = 'scale(0.8)';
-        },250);
-    } else if(idFo == 'dangnhap'){
+        }, 250);
+    } else if (idFo == 'dangnhap') {
         khung_form.style.transform = 'scale(0)';
-        setTimeout(function(){
+        setTimeout(function() {
             form_dk.style.display = 'none';
             form_dn.style.display = 'block';
             khung_form.style.transform = 'scale(0.8)';
-        },250);
+        }, 250);
     }
 }
 
-function dong_fo(e){
-    if(e.target === lopphu || e.target === closeForm || e.target === elI || e.target === lopphu2){
+function dong_fo(e) {
+    if (e.target === lopphu || e.target === closeForm || e.target === elI || e.target === lopphu2) {
         khung_form.style.transform = 'scale(0)';
-        if(thong_so_ki_thuat){
+        if (thong_so_ki_thuat) {
             khung_thong_so_ki_thuat.style.transform = 'scale(0)';
         }
-        setTimeout(function(){
+        setTimeout(function() {
             lopphu.style.display = 'none';
             lopphu2.style.display = 'none';
             form_dk.style.display = 'none';
             form_dn.style.display = 'none';
-            if(thong_so_ki_thuat){
+            if (thong_so_ki_thuat) {
                 thong_so_ki_thuat.style.display = 'none';
             }
-        },300);
+        }, 300);
     };
 }
 // end form đăng kí đăng nhập
@@ -128,14 +128,14 @@ window.addEventListener('load', function() {
 
         const content = document.querySelector('.container-p-0');
         const content2 = document.querySelector('.container-p-1');
-        if(content){
+        if (content) {
             content.style.opacity = 1;
         }
-        if(content2){
+        if (content2) {
             content2.style.opacity = 1;
         }
-        
-    }, 500); 
+
+    }, 500);
 });
 // end Loading
 
@@ -161,16 +161,16 @@ var mainImage = document.querySelector('.anh-chinh img');
 
 // Thêm sự kiện click cho mỗi thẻ <a> trong thẻ ul
 thumbnailLinks.forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.preventDefault(); // Ngăn chặn hành vi mặc định khi nhấp vào liên kết
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Ngăn chặn hành vi mặc định khi nhấp vào liên kết
 
-    mainImage.style.opacity = 0;
-    setTimeout(function() {
-        mainImage.style.opacity = 1;
-        // Thay đổi nguồn hình ảnh trong .anh-chinh bằng nguồn của liên kết đã nhấp vào
-        mainImage.src = link.getAttribute('href');
-    },350);
-  });
+        mainImage.style.opacity = 0;
+        setTimeout(function() {
+            mainImage.style.opacity = 1;
+            // Thay đổi nguồn hình ảnh trong .anh-chinh bằng nguồn của liên kết đã nhấp vào
+            mainImage.src = link.getAttribute('href');
+        }, 350);
+    });
 });
 
 //end Chi tiết sản phẩm
@@ -192,8 +192,8 @@ function decrement() {
 var nd = document.getElementById('nd');
 var dn_chat = document.getElementById('dang');
 
-function chat(){
-    if(nd.value.trim() !== ""){
+function chat() {
+    if (nd.value.trim() !== "") {
         dn_chat.removeAttribute("disabled");
         dn_chat.style.opacity = 1;
         console.log(dn_chat);

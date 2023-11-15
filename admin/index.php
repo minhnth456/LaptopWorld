@@ -1,5 +1,7 @@
 <?php 
    include "view/header.php";
+   include "../model/pdo.php";
+   include "../model/danhmuc/danhmuc.php";
    if(isset($_GET['act'])&&($_GET['act']!="")){
       $act=$_GET['act'];
       switch($act){
@@ -13,17 +15,34 @@
          case "suasp":
             include "sanpham/adminSuasp.php";
             break;
-         
          //danh mục
          case "danhmuc":
             include "danhmuc/danhmuc.php";
             break;
          case "suadm":
+            if(isset($_POST['suadm'])){
+               $iddm = $_POST['iddm'];
+               $ten = $_POST['tendm'];
+               update_dm($ten,$iddm);
+               $thongbao ="Bạn đã sửa thành công";
+              }
             include "danhmuc/adminSuadm.php";
             break;
          case "adddmuc":
+            if(isset($_POST['themdm'])){
+                $name = $_POST['name_dm'];
+                add_dm($name);
+                $thongbao = "Bạn đã thêm danh mục thành công";
+            }
             include "danhmuc/adminAddDm.php";
             break;
+         case "xoadmuc":
+            if(isset($_GET['iddm'])&&$_GET['iddm'] >0){
+               xoa_dm($_GET['iddm']);
+               $thongbao = "Bạn đã xóa danh mục thành công";
+               include "danhmuc/danhmuc.php";
+           }
+           break;
 
          // tài khoản
          case "taikhoan":

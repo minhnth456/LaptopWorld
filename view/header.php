@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="font/font-awesome/css/all.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
 <body>
     <div class="preload-image"></div>
     <div class="container-p-0">
-        
+
         <!-- start header -->
         <header>
             <!-- menu1 -->
@@ -81,7 +84,7 @@
                                 Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
                             </div>
                         </form>
-                        <button id="closeForm" onclick="dong_fo(event)"><i class="fa-solid fa-x"></i></button>    
+                        <button id="closeForm" onclick="dong_fo(event)"><i class="fa-solid fa-x"></i></button>
                     </div>
                 </div>
                 <div class="gio-hang mgl-5">
@@ -102,89 +105,41 @@
                         <i class="fa-solid fa-laptop"></i>
                         <a class="capslock" href="#">Sản phẩm</a>
                         <!-- menu dọc -->
+
                         <div class="danh-muc">
                             <div class="khung-danh-muc">
-
+                                <?php
+                            
+                                 $list_dm = danhmuc();
+                                 foreach($list_dm as $select_dm){ ?>
                                 <div class="danh-sach-danh-muc">
                                     <div class="loai-danh-muc">
                                         <!-- tiêu đề -->
                                         <div class="tieu-de-danh-muc">
-                                            <a class="nor-text" href="http://">Laptop Dell</a>
+                                            <a class="nor-text" id="<?php echo $select_dm['id_dm'] ?>"
+                                                href="index.php?act=danhmucsp">
+                                                <?php echo $select_dm['name'] ?>
+                                            </a>
+
                                         </div>
                                         <!-- sản phẩm -->
                                         <div class="san-pham-danh-muc">
+                                            <?php
+                                                $load_onesp = load1_sp($select_dm['id_dm']);
+                                            foreach($load_onesp as $sanpham){ ?>
                                             <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
+                                                <a href="http://"><?php echo $sanpham['tensp'] ?></a>
                                             </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <?php } ?>
 
-                                <div class="danh-sach-danh-muc">
-                                    <div class="loai-danh-muc">
-                                        <div class="tieu-de-danh-muc">
-                                            <a href="http://">Laptop Dell</a>
-                                        </div>
-                                        <div class="san-pham-danh-muc">
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="danh-sach-danh-muc">
-                                    <div class="loai-danh-muc">
-                                        <div class="tieu-de-danh-muc">
-                                            <a href="http://">Laptop Dell</a>
-                                        </div>
-                                        <div class="san-pham-danh-muc">
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="danh-sach-danh-muc">
-                                    <div class="loai-danh-muc">
-                                        <div class="tieu-de-danh-muc">
-                                            <a href="http://">Laptop Dell</a>
-                                        </div>
-                                        <div class="san-pham-danh-muc">
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                            <div class="san-pham-danh-muc2">
-                                                <a href="http://">Alien</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php }?>
 
                             </div>
                         </div>
+
                         <!-- end menu dọc -->
                     </li>
                     <li>
@@ -205,4 +160,3 @@
 
         </header>
         <!-- end header -->
- 
