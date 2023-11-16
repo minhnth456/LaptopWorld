@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 12:23 PM
+-- Thời gian đã tạo: Th10 16, 2023 lúc 06:09 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `da1`
+-- Cơ sở dữ liệu: `duan1`
 --
 
 -- --------------------------------------------------------
@@ -33,6 +33,13 @@ CREATE TABLE `anh_sp` (
   `id_pro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `anh_sp`
+--
+
+INSERT INTO `anh_sp` (`id`, `img`, `id_pro`) VALUES
+(0, 'maxresdefault.jpg', 21);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,28 @@ CREATE TABLE `binhluan` (
   `ngaybinhluan` varchar(50) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `chitiet_danhmuc`
+--
+
+CREATE TABLE `chitiet_danhmuc` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `id_dm` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chitiet_danhmuc`
+--
+
+INSERT INTO `chitiet_danhmuc` (`id`, `name`, `id_dm`) VALUES
+(1, 'Acer Nitro', 1),
+(2, 'Acer Aspire', 1),
+(3, 'Dell Alienware', 2),
+(4, 'Dell Vostro', 2);
 
 -- --------------------------------------------------------
 
@@ -74,11 +103,19 @@ CREATE TABLE `chitiet_sanpham` (
   `cpu` varchar(255) NOT NULL,
   `ram` varchar(255) NOT NULL,
   `ssd` varchar(255) NOT NULL,
-  `giasp` double(10,2) NOT NULL,
+  `giasp` varchar(255) NOT NULL,
   `soluong` int(11) NOT NULL,
   `cardVGA` varchar(255) NOT NULL,
-  `id_pro` int(11) NOT NULL
+  `id_pro` int(11) NOT NULL,
+  `id_dmc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chitiet_sanpham`
+--
+
+INSERT INTO `chitiet_sanpham` (`id_chitiet`, `cpu`, `ram`, `ssd`, `giasp`, `soluong`, `cardVGA`, `id_pro`, `id_dmc`) VALUES
+(1, 'Core i5-12450H', '16G', '512G', '16.990.000', 2, 'RTX 3050Ti', 21, 1);
 
 -- --------------------------------------------------------
 
@@ -142,6 +179,7 @@ CREATE TABLE `sanpham` (
   `id_pro` int(11) NOT NULL,
   `tensp` varchar(255) NOT NULL,
   `yeuthich` int(11) NOT NULL,
+  `mota` varchar(255) NOT NULL,
   `id_dm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -149,14 +187,15 @@ CREATE TABLE `sanpham` (
 -- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
-INSERT INTO `sanpham` (`id_pro`, `tensp`, `yeuthich`, `id_dm`) VALUES
-(1, 'labtop acer', 0, 1),
-(2, 'Asus 5 ngon ', 0, 4),
-(3, 'laptop acer5', 0, 1),
-(4, 'Del 5', 0, 2),
-(5, 'Labtop acer 5', 1, 1),
-(6, 'Dell 3', 1, 2),
-(7, 'lenovo 2', 1, 3);
+INSERT INTO `sanpham` (`id_pro`, `tensp`, `yeuthich`, `mota`, `id_dm`) VALUES
+(1, 'labtop acer', 0, '', 1),
+(2, 'Asus 5 ngon ', 0, '', 4),
+(3, 'laptop acer5', 0, '', 1),
+(4, 'Del 5', 0, '', 2),
+(5, 'Labtop acer 5', 1, '', 1),
+(6, 'Dell 3', 1, '', 2),
+(7, 'lenovo 2', 1, '', 3),
+(21, 'Acer Nitro 5 AN515-58-57QW', 0, 'Chiếc laptop Gaming Nitro 5 AN515-58 được Nitro ra mắt mới đây là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12450H Gen 12 mới cùng card rời GeForce RTX 3050Ti 4 GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau ', 1);
 
 -- --------------------------------------------------------
 
@@ -194,6 +233,13 @@ ALTER TABLE `binhluan`
   ADD KEY `fk_tk_bl` (`id_user`);
 
 --
+-- Chỉ mục cho bảng `chitiet_danhmuc`
+--
+ALTER TABLE `chitiet_danhmuc`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_dm_ctdm` (`id_dm`);
+
+--
 -- Chỉ mục cho bảng `chitiet_giohang`
 --
 ALTER TABLE `chitiet_giohang`
@@ -206,7 +252,8 @@ ALTER TABLE `chitiet_giohang`
 --
 ALTER TABLE `chitiet_sanpham`
   ADD PRIMARY KEY (`id_chitiet`),
-  ADD KEY `fk_ctsp_sp` (`id_pro`);
+  ADD KEY `fk_ctsp_sp` (`id_pro`),
+  ADD KEY `fk_ctch_dmc` (`id_dmc`);
 
 --
 -- Chỉ mục cho bảng `danhmuc`
@@ -253,6 +300,12 @@ ALTER TABLE `binhluan`
   MODIFY `id_bl` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `chitiet_danhmuc`
+--
+ALTER TABLE `chitiet_danhmuc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `chitiet_giohang`
 --
 ALTER TABLE `chitiet_giohang`
@@ -280,7 +333,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
@@ -306,6 +359,12 @@ ALTER TABLE `binhluan`
   ADD CONSTRAINT `fk_tk_bl` FOREIGN KEY (`id_user`) REFERENCES `taikhoan` (`id_user`);
 
 --
+-- Các ràng buộc cho bảng `chitiet_danhmuc`
+--
+ALTER TABLE `chitiet_danhmuc`
+  ADD CONSTRAINT `fk_dm_ctdm` FOREIGN KEY (`id_dm`) REFERENCES `danhmuc` (`id_dm`);
+
+--
 -- Các ràng buộc cho bảng `chitiet_giohang`
 --
 ALTER TABLE `chitiet_giohang`
@@ -316,6 +375,7 @@ ALTER TABLE `chitiet_giohang`
 -- Các ràng buộc cho bảng `chitiet_sanpham`
 --
 ALTER TABLE `chitiet_sanpham`
+  ADD CONSTRAINT `fk_ctch_dmc` FOREIGN KEY (`id_dmc`) REFERENCES `chitiet_danhmuc` (`id`),
   ADD CONSTRAINT `fk_ctsp_sp` FOREIGN KEY (`id_pro`) REFERENCES `sanpham` (`id_pro`);
 
 --
