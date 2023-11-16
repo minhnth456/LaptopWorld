@@ -125,10 +125,10 @@
                                         <!-- sản phẩm -->
                                         <div class="san-pham-danh-muc">
                                             <?php
-                                                $load_onesp = load1_sp($select_dm['id_dm']);
-                                            foreach($load_onesp as $sanpham){ ?>
+                                                $load_all_dmct = load_danhmucCt($select_dm['id_dm']);
+                                            foreach($load_all_dmct as $sanpham){ ?>
                                             <div class="san-pham-danh-muc2">
-                                                <a href="http://"><?php echo $sanpham['tensp'] ?></a>
+                                                <a href="http://"><?php echo $sanpham['name'] ?></a>
                                             </div>
                                             <?php } ?>
 
