@@ -32,33 +32,37 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Stt</th>
-                <th scope="col">Tên</th>
-                <th scope="col">Ảnh</th>
-                <th scope="col">Mô tả</th>
-                <th scope="col">Yêu thích</th>
-                <th scope="col">Chức năng</th>
+                <th scope="col">id</th>
+                <th scope="col">CPU</th>
+                <th scope="col">RAM</th>
+                <th scope="col">SSD</th>
+                <th scope="col">CardVGA</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Số lượng</th>
             </tr>
         </thead>
         <tbody>
-            <?php $i = 1; ?>
-            
+            <?php foreach($loadAll_ctch as $a): ?>
             <tr>
-                <td><?php echo $i ?></td>
-                <th scope="row"></th>
-                <th scope="row">
+                <td><?php echo $a['id_chitiet'] ?></td>
+                <th scope="row"><?php echo $a['cpu'] ?></th>
+                <th scope="row"><?php echo $a['ram'] ?></th>
+                <th scope="row"><?php echo $a['ssd'] ?></th>
+                <th scope="row"><?php echo $a['cardVGA'] ?></th>
+                <th scope="row"><?php echo $a['giasp'] ?></th>
+                <th scope="row"><?php echo $a['soluong'] ?></th>
+                <!-- <th scope="row">
                     <img width="100px" src="../img/sanpham1.jpg" alt="" />
                 </th>
                 <th scope="row" style="max-height: 100px; max-width: 300px;"></th>
-                <th scope="row"></th>
+                <th scope="row"></th> -->
                 <th scope="row" style="max-width: 135px;">
                     <a type="button" class="btn btn-danger" href="index.php?act=suasp" style="margin-bottom: 5px">Sửa</a>
                     <a class="btn btn-dark" href="index.php?act=xoasp&id=" style="margin-bottom: 5px" onclick="return confirm('Bạn muốn xóa sản phẩm không?')">Xóa</a>
                     
                 </th>
             </tr>
-            <?php $i++; ?>
-            
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

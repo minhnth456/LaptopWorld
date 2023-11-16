@@ -38,6 +38,10 @@
         pdo_execute($sql);
     }
 
-    
+    // load tất cả chi tiết sản phẩm theo id sản phẩm
+    function loadAll_ctch($id_pro){
+        $sql = "SELECT * FROM `chitiet_sanpham` WHERE id_pro = $id_pro";
+        return pdo_query($sql);
+    }
 
 ?>

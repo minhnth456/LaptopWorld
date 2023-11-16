@@ -16,7 +16,7 @@
                 <th scope="row"><?php echo $select_dm['id_dm'] ?></th>
                 <th scope="row"><?php echo $select_dm['name'] ?></th>
                 <th scope="row">
-                    <a class="btn btn-danger" href="index.php?act=suadm&&iddm=<?php echo $select_dm['id_dm'] ?>">Sửa</a>
+                <a class="btn btn-danger" href="index.php?act=suadm&&iddm=<?php echo $select_dm['id_dm'] ?>">Sửa</a>
                     <a class="btn btn-danger" href="index.php?act=chitietdm&&iddm=<?php echo $select_dm['id_dm'] ?>">Chi tiết</a>
                     <a class="btn btn-dark" href="index.php?act=xoadmuc&&iddm=<?php echo $select_dm['id_dm'] ?>"
                         onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>

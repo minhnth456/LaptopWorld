@@ -37,7 +37,21 @@
     $sql = "INSERT INTO chitiet_danhmuc(name, id_dm) VALUES ('".$name."','".$iddm."')";
     pdo_execute($sql);
   }
-
+  function load_one_dmct($iddm){
+    $sql = "SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddm";
+    $load_dmct = pdo_query($sql);
+    return $load_dmct;
+  }
+  function sua_dmct($name,$idctdanhmuc){
+    $sql = "UPDATE chitiet_danhmuc SET name='$name' WHERE id = $idctdanhmuc";
+    $update_dmct = pdo_query($sql);
+    return $update_dmct;
+  }
+  function hienthi_dmct($idctdanhmuc){
+    $sql = "SELECT * FROM `chitiet_danhmuc` WHERE id = $idctdanhmuc";
+    $chitiet_dm = pdo_query($sql);
+    return $chitiet_dm;
+  }
   //danh mục thêm sản phẩm
   function chitiet_danhmuc(){
     $sql = "SELECT * FROM chitiet_danhmuc";

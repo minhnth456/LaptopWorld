@@ -28,16 +28,22 @@
             </tr>
         </thead>
         <tbody>
-
+            <?php 
+              if(isset($_GET['iddm'])&&$_GET['iddm'] > 0){
+               $load_dmct = load_one_dmct($_GET['iddm']);
+               foreach($load_dmct as $dmct){
+              
+              ?>
             <tr>
-                <th scope="row"></th>
-                <th scope="row"></th>
+                <th scope="row"><?php echo $dmct['id'] ?></th>
+                <th scope="row"><?php echo $dmct['name'] ?></th>
                 <th scope="row">
-                    <a class="btn btn-danger" href="index.php?act=suadm&&iddm=">Sửa</a>
+                    <a class="btn btn-danger" href="index.php?act=suadm&&idchitietdm=<?php echo $dmct['id']?>">Sửa</a>
                     <a class="btn btn-dark" href="index.php?act=xoadmuc&&iddm="
                         onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>
                 </th>
             </tr>
+            <?php }}?>
 
         </tbody>
     </table>

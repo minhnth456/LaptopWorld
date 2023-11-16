@@ -1,4 +1,6 @@
 <?php 
+ob_start();
+session_start();
    include "view/header.php";
    include "../model/pdo.php";
    include "../model/danhmuc/danhmuc.php";
@@ -7,15 +9,19 @@
       $act=$_GET['act'];
       switch($act){
          // sản phẩm
+
+         // danh sách sản phẩm
          case "danhsachsp":
             $loadAll_sp = loadAll_sp(); 
             include "sanpham/adminDssp.php";
             break;
+         // thêm sản phẩm
          case "adminAdd":
             $danhmuc = danhmuc();
             $chitiet_danhmuc = chitiet_danhmuc();
             include "sanpham/adminAddsp.php";
             break;
+         
          case "themsp":
             $danhmuc = danhmuc();
             $chitiet_danhmuc = chitiet_danhmuc();
@@ -41,7 +47,6 @@
                   move_uploaded_file($tempFile,$targetFile);
                }
                themsp($tensp, $mota, $danhmuc, $cpu, $ram, $ssd, $cardVGA, $giasp, $soluong, $danhmuc_con, $fileName);
-               $thongbao = "them sp thanh cong";
             }
             $loadAll_sp = loadAll_sp(); 
             include "sanpham/adminDssp.php";
@@ -60,6 +65,7 @@
          case "cauhinh":
             if(isset($_GET['id_pro']) && $_GET['id_pro'] != ""){
                $id_pro = $_GET['id_pro'];
+               $loadAll_ctch = loadAll_ctch($id_pro);
             }
             include "sanpham/cauhinh.php";
             break;
@@ -74,8 +80,10 @@
                $id_pro = $_POST['id_pro'];
                themch($cpu, $ram, $ssd, $cardVGA, $giasp, $soluong, $id_pro);
             }
-            include "sanpham/cauhinh.php";
+            header('location: index.php?act=cauhinh&id_pro='.$id_pro);
+            // include "sanpham/cauhinh.php";
             break;
+
          //danh mục
          case "danhmuc":
             include "danhmuc/danhmuc.php";
@@ -117,9 +125,25 @@
                $name = $_POST['name_dm_ct'];
                add_dm_ct($name, $iddm);
             }
+            header("location: index.php?act=chitietdm&iddm=".$iddm);
+            break;
+         case "addctdanhmuc":
+            if(isset($_POST['themctdm'])){
+               $iddm = $_POST['iddm'];
+               $name = $_POST['name_dm_ct'];
+               add_dm_ct($name, $iddm);
+            }
             include "danhmuc/chitietDm.php";
             break;
-
+         case "suadm_ct":
+            if(isset($_POST['suadmct'])){
+               $iddm = $_POST['idchitietdm'];
+               $ten = $_POST['tendmct'];
+               sua_dmct($ten,$iddm);
+               $thongbao ="Bạn đã sửa thành công";
+               }
+            include "danhmuc/adminSuadm.php";
+            break;
          // tài khoản
          case "taikhoan":
             include "taikhoan/adminUser.php";

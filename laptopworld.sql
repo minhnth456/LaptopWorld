@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 06:09 AM
+-- Thời gian đã tạo: Th10 16, 2023 lúc 12:51 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `duan1`
+-- Cơ sở dữ liệu: `laptopworld`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,8 @@ CREATE TABLE `anh_sp` (
 --
 
 INSERT INTO `anh_sp` (`id`, `img`, `id_pro`) VALUES
-(0, 'maxresdefault.jpg', 21);
+(0, 'maxresdefault.jpg', 21),
+(0, 'greenBG 1.png', 22);
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,21 @@ INSERT INTO `chitiet_danhmuc` (`id`, `name`, `id_dm`) VALUES
 (1, 'Acer Nitro', 1),
 (2, 'Acer Aspire', 1),
 (3, 'Dell Alienware', 2),
-(4, 'Dell Vostro', 2);
+(4, 'Dell Vostro', 2),
+(5, 'Lenovo Ideapad', 3),
+(6, 'Lenovo Ideapad', 3),
+(7, 'HP Omen', 9),
+(8, 'HP Envy', 9),
+(9, 'HP moi', 9),
+(10, 'HP moi', 9),
+(11, 'HP con', 9),
+(12, 'HP con', 9),
+(13, 'HP con', 9),
+(14, 'HP con', 9),
+(15, 'HP con2', 9),
+(16, 'HP con2222', 9),
+(17, 'HP con333', 9),
+(18, 'HP oiw', 9);
 
 -- --------------------------------------------------------
 
@@ -115,7 +130,8 @@ CREATE TABLE `chitiet_sanpham` (
 --
 
 INSERT INTO `chitiet_sanpham` (`id_chitiet`, `cpu`, `ram`, `ssd`, `giasp`, `soluong`, `cardVGA`, `id_pro`, `id_dmc`) VALUES
-(1, 'Core i5-12450H', '16G', '512G', '16.990.000', 2, 'RTX 3050Ti', 21, 1);
+(1, 'Core i5-12450H', '16G', '512G', '16.990.000', 2, 'RTX 3050Ti', 21, 1),
+(2, 'Core i9-13900HX', '64G', '4T', '84.990.000', 8, 'RTX 4090 16GB', 22, 3);
 
 -- --------------------------------------------------------
 
@@ -136,7 +152,8 @@ INSERT INTO `danhmuc` (`id_dm`, `name`) VALUES
 (1, 'Acer'),
 (2, 'Dell'),
 (3, 'Lenovo'),
-(4, 'Asus');
+(4, 'Asus'),
+(9, 'HP');
 
 -- --------------------------------------------------------
 
@@ -195,7 +212,8 @@ INSERT INTO `sanpham` (`id_pro`, `tensp`, `yeuthich`, `mota`, `id_dm`) VALUES
 (5, 'Labtop acer 5', 1, '', 1),
 (6, 'Dell 3', 1, '', 2),
 (7, 'lenovo 2', 1, '', 3),
-(21, 'Acer Nitro 5 AN515-58-57QW', 0, 'Chiếc laptop Gaming Nitro 5 AN515-58 được Nitro ra mắt mới đây là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12450H Gen 12 mới cùng card rời GeForce RTX 3050Ti 4 GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau ', 1);
+(21, 'Acer Nitro 5 AN515-58-57QW', 0, 'Chiếc laptop Gaming Nitro 5 AN515-58 được Nitro ra mắt mới đây là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12450H Gen 12 mới cùng card rời GeForce RTX 3050Ti 4 GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau ', 1),
+(22, 'Dell Alienware M16 R1 2023', 0, 'Nếu bạn là một tín đồ của Alienware thì chắn hẳn bạn không thể bỏ qua thông tin Alienware đã cho ra mắt Alienware M16 R1 2023 – sản phẩm Laptop Gaming thế hệ mới nhất với CPU thế hệ 13. Hãy cùng LaptopAZ đi tìm hiểu chi tiết về chiếc máy này để xem sự tha', 2);
 
 -- --------------------------------------------------------
 
@@ -303,7 +321,7 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT cho bảng `chitiet_danhmuc`
 --
 ALTER TABLE `chitiet_danhmuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet_giohang`
@@ -315,7 +333,7 @@ ALTER TABLE `chitiet_giohang`
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_dm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
@@ -333,7 +351,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
