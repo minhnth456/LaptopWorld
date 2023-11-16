@@ -25,7 +25,7 @@
                 </div>
                 <div class="tim-kiem mgl-5">
                     <form action="" method="post" class="tim">
-                        <input type="text" name="" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
+                        <input type="text" name="" placeholder="Bạn muốn tìm sản phẩm gì?" />
                         <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>

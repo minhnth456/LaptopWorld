@@ -497,24 +497,26 @@
 }
 
 .danh-sach-danh-muc .loai-danh-muc {
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
 .loai-danh-muc .tieu-de-danh-muc {
-    width: 35%;
+    width: auto;
     height: auto;
     border: 1px solid none;
-    background-color: #2b80dd;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 21px;
     font-weight: bold;
-    padding: 5px 25px 5px 10px;
     border-radius: 0px 0px 10px 0px;
     margin-bottom: 7px;
 }
 
 .tieu-de-danh-muc a {
+    border-radius: 0px 0px 10px 0px;
+    padding: 5px 25px 5px 10px;
+    margin: 0px;
+    background-color: #2b80dd;
     text-decoration: none;
     color: white;
 }
@@ -540,6 +542,7 @@
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
+    margin: 0px;
     margin-left: 10px;
     font-weight: normal;
 }

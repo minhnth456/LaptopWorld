@@ -7,6 +7,7 @@
         </div>
         <div class="form-floating mb-3">
             <input type="file" class="form-control" id="floatingPassword" placeholder="Password" name="hinh" require>
+            <label for="floatingPassword" style="left: 10px">Ảnh</label>
             <img width="100px" src="../img/sanpham1.jpg" alt="" />
         </div>
         <div class="form-floating mb-3">

@@ -86,7 +86,7 @@
             <!-- sắp xếp -->
             <div class="sapxep">
                 <span> Sắp xếp theo </span>
-                <select name="" id="">
+                <select name="">
                     <option value="1">Mới nhất</option>
                     <option value="1">Mới nhất</option>
                     <option value="1">Mới nhất</option>

@@ -117,7 +117,7 @@
                                         <!-- tiêu đề -->
                                         <div class="tieu-de-danh-muc">
                                             <a class="nor-text" id="<?php echo $select_dm['id_dm'] ?>"
-                                                href="index.php?act=danhmucsp">
+                                                href="index.php?act=danhmucsp">Laptop
                                                 <?php echo $select_dm['name'] ?>
                                             </a>
 

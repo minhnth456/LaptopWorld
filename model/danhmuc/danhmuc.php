@@ -24,10 +24,23 @@
     return $sua_dm;
   }
   function xoa_dm($iddm){
-    $sql = "DELETE FROM `danhmuc` WHERE id_dm = $iddm";
+    $sql = "DELETE FROM danhmuc WHERE id_dm = $iddm";
     $xoadm = pdo_query($sql);
     return $xoadm;
   }
   // load sản phẩm danh mục
 
+
+  
+  //Thêm danh mục chi tiết
+  function add_dm_ct($name, $iddm){
+    $sql = "INSERT INTO chitiet_danhmuc(name, id_dm) VALUES ('".$name."','".$iddm."')";
+    pdo_execute($sql);
+  }
+
+  //danh mục thêm sản phẩm
+  function chitiet_danhmuc(){
+    $sql = "SELECT * FROM chitiet_danhmuc";
+    return pdo_query($sql);
+  }
 ?>
