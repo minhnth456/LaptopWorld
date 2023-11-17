@@ -126,7 +126,11 @@
                                         <div class="san-pham-danh-muc">
                                             <?php
                                                 $load_all_dmct = load_danhmucCt($select_dm['id_dm']);
+<<<<<<< HEAD
                                                 foreach($load_all_dmct as $sanpham){ ?>
+=======
+                                            foreach($load_all_dmct as $sanpham){ ?>
+>>>>>>> 1db36efed918f7d8b9c0c03af0f71a744c3c7a3c
                                             <div class="san-pham-danh-muc2">
                                                 <a href="http://"><?php echo $sanpham['name'] ?></a>
                                             </div>

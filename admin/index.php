@@ -265,7 +265,11 @@ session_start();
                $ten = $_POST['tendmct'];
                sua_dmct($ten,$iddm);
                $thongbao ="Bạn đã sửa thành công";
+<<<<<<< HEAD
             }
+=======
+               }
+>>>>>>> 1db36efed918f7d8b9c0c03af0f71a744c3c7a3c
                // Thêm phần này
             include "danhmuc/adminChitietSuadm.php";
             break;
