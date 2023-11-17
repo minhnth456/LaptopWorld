@@ -30,6 +30,11 @@
   }
   // load sản phẩm danh mục
 
+  function load_danhmucCt($iddmct){
+    $sql ="SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddmct";
+    $load_all_dmct = pdo_query($sql);
+    return $load_all_dmct;
+   }
 
   
   //Thêm danh mục chi tiết
@@ -52,9 +57,24 @@
     $chitiet_dm = pdo_query($sql);
     return $chitiet_dm;
   }
-  //danh mục thêm sản phẩm
+
+
+
+  //danh mục con của thêm sản phẩm
   function chitiet_danhmuc(){
     $sql = "SELECT * FROM chitiet_danhmuc";
+    return pdo_query($sql);
+  }
+
+  // danh mục con của "thêm cấu hình sản phẩm" theo ID danh mục thông qua ID sản phẩm (load danh mục con liên quan đến sản phẩm)
+  function chitiet_danhmuc_con($id_pro){
+    $sql = "SELECT * FROM chitiet_danhmuc WHERE id_dm = (SELECT id_dm FROM `sanpham` WHERE id_pro = $id_pro)";
+    return pdo_query($sql);
+  }
+
+  // danh mục con của "sửa chi tiết cấu hình"
+  function chitiet_danhmuc_con2($id_chitiet){
+    $sql = "SELECT * FROM chitiet_danhmuc WHERE id_dm = (SELECT id_dm FROM `sanpham` WHERE id_pro = (SELECT id_pro FROM `chitiet_sanpham` WHERE id_chitiet = $id_chitiet))";
     return pdo_query($sql);
   }
 ?>

@@ -5,8 +5,8 @@
             <label for="floatingInput" style="left: 10px;">Tên sản phẩm</label>
         </div>
         <div class="form-floating mb-3 col-6">
-            <input type="file" class="form-control" id="hinh" placeholder="" name="hinh" multiple require>
-            <label for="floatingPassword" style="left: 10px">Ảnh</label>
+            <input type="file" class="form-control" id="hinh" placeholder="" name="hinh" require>
+            <label for="floatingPassword" style="left: 10px">Ảnh chính</label>
         </div>
         <div class="form-floating mb-3 col-6">
             <input type="text" class="form-control" id="cpu" placeholder="" name="cpu" require>
@@ -46,7 +46,7 @@
             </select>
         </div>
         <div class="form-floating mb-3 col-3">
-            <select class="form-select form-select-lg mb-3" style="margin-bottom: 15px; padding-top: .625rem; font-size: 1rem;" aria-label="Large select example" name="danhmuc_con">
+            <select class="form-select form-select-lg mb-3" style="margin-bottom: 15px; padding-top: .625rem; font-size: 1rem;" aria-label="Large select example" name="id_dmc">
                 <option value="0" selected>Chọn danh mục con</option>
                 <?php foreach($chitiet_danhmuc as $c): ?>
                 <option value="<?php echo $c['id']; ?>"><?php echo $c['name']; ?></option>

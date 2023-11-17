@@ -208,7 +208,7 @@ function chat() {
 // end Bình luận
 
 
-// Check form thêm sản phẩm
+// Check form thêm ảnh sản phẩm trong admin
 
 function checkForm_themsp() {
     var fileAnh = document.getElementById("hinh").files;
@@ -229,3 +229,19 @@ function checkForm_themsp() {
 }
 
 // end Check form thêm sản phẩm
+
+
+// start kiểm tra số lượng ảnh của sản phẩm trong admin
+
+function check_anh(){
+    var tr = document.querySelectorAll('.table tbody tr');
+    var button = document.getElementById('themanhsp');
+    console.log(button.style.display);
+    if(tr.length >= 5){
+        button.setAttribute("disabled", "disabled");
+    } else {
+        button.removeAttribute("disabled");
+    }
+}
+
+// end kiểm tra số lượng ảnh của sản phẩm trong admin
