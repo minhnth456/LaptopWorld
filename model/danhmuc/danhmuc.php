@@ -29,12 +29,7 @@
     return $xoadm;
   }
   // load sản phẩm danh mục
-<<<<<<< HEAD
-
-  function load_danhmucCt($iddmct){
-=======
    function load_danhmucCt($iddmct){
->>>>>>> 1db36efed918f7d8b9c0c03af0f71a744c3c7a3c
     $sql ="SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddmct";
     $load_all_dmct = pdo_query($sql);
     return $load_all_dmct;
