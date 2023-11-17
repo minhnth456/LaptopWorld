@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 10:53 AM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 06:16 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -47,7 +47,12 @@ INSERT INTO `anh_sp` (`id`, `img`, `id_pro`) VALUES
 (18, 'nitro2.jpg', 28),
 (19, 'nitro3.jpg', 28),
 (20, 'nitro4.jpg', 28),
-(21, 'nitro5.jpg', 28);
+(21, 'nitro5.jpg', 28),
+(22, 'aspire1.png', 29),
+(23, 'aspire5.png', 29),
+(24, 'aspire4.png', 29),
+(25, 'aspire3.png', 29),
+(26, 'aspire2.png', 29);
 
 -- --------------------------------------------------------
 
@@ -132,7 +137,9 @@ INSERT INTO `chitiet_sanpham` (`id_chitiet`, `cpu`, `ram`, `ssd`, `giasp`, `solu
 (10, 'Core i10-14500H', '64G', '4T', '16.990.000', 2, 'RTX 3050Ti', 27, 5),
 (11, 'Core i5 - 12500H', '4G', '255G', '21.590.000', 2, 'RTX 4050 6GB', 28, 1),
 (12, 'Ryzen 5-5600U', '16G', '512G', '17.900.000', 1, 'RTX 1650Ti', 28, 1),
-(13, 'Ryzen 5-7500U', '32G', '1T', '13.990.00', 1, 'RTX 2050', 28, 1);
+(13, 'Ryzen 5-7500U', '32G', '1T', '13.990.00', 1, 'RTX 2050', 28, 1),
+(14, 'Core i5-1135G7', '8G', '256G', '7.890.000', 5, 'Iris Xe Graphics', 29, 2),
+(15, 'Core i3-1115G4', '8G', '128G', '8.990.000', 1, 'Iris Xe Graphics', 29, 2);
 
 -- --------------------------------------------------------
 
@@ -207,7 +214,8 @@ CREATE TABLE `sanpham` (
 
 INSERT INTO `sanpham` (`id_pro`, `tensp`, `yeuthich`, `mota`, `id_dm`) VALUES
 (27, 'Lenovo IdeaPad 5 Pro 14ACN6', 0, 'Laptop văn phòng xử lý mọi tác vụ và chơi game nhẹ nhàng', 3),
-(28, 'Acer Nitro 5 AN515-58-56CH ', 0, 'Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm h', 1);
+(28, 'Acer Nitro 5 AN515-58-56HM', 0, 'Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào.', 1),
+(29, 'Acer Aspire 5 A515-56T-55FB', 0, 'Thiết kế thanh lịch, tinh tế trong từng chi tiết với chất liệu kim loại sang trọng kết hợp cùng nhiều sự lựa chọn màu sắc, Aspire 5 hứa hẹn thể hiện đậm nét cá tính riêng dù bạn theo đuổi phong cách nào.', 1);
 
 -- --------------------------------------------------------
 
@@ -310,7 +318,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `anh_sp`
 --
 ALTER TABLE `anh_sp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
@@ -334,7 +342,7 @@ ALTER TABLE `chitiet_giohang`
 -- AUTO_INCREMENT cho bảng `chitiet_sanpham`
 --
 ALTER TABLE `chitiet_sanpham`
-  MODIFY `id_chitiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_chitiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -358,7 +366,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
