@@ -1,20 +1,29 @@
         <!-- start article -->
         <article>
+            <?php extract($loadOneSpCt); ?>
             <div class="lop-phu2" id="lop-phu2" onclick="dong_fo(event)">
                 <div id="khung-thong-so-ki-thuat" class="khung-thong-so-ki-thuat">
                     <div id="thong-so-ki-thuat" class="thong-so-ki-thuat">
                         <h3>Thông số kĩ thuật</h3>
                         <br>
-                        <p><b>Lenovo Slim 7 Pro X</b></p>
+                        <p><b><?php echo $tensp ?></b></p>
                         <table>
                             <tbody>
                                 <tr>
                                     <th>CPU</th>
-                                    <td>Ryzen 9 6900HS (3.3 GHz up to 4.9 GHz, 8 Cores, 16 Threads, 16MB Cache)</td>
+                                    <td><?php echo $cpu ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Cổng kết nối</th>
-                                    <td>Ryzen 9 6900HS (3.3 GHz up to 4.9 GHz, 8 Cores, 16 Threads, 16MB Cache)</td>
+                                    <th>Ram</th>
+                                    <td><?php echo $ram ?></td>
+                                </tr>
+                                <tr>
+                                    <th>SSD</th>
+                                    <td><?php echo $ssd ?></td>
+                                </tr>
+                                <tr>
+                                    <th>CardVGA</th>
+                                    <td><?php echo $cardVGA ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -24,26 +33,26 @@
             <div class="khung-chi-tiet-sp">
 
                 <div class="head-chi-tiet-sp">
-                    <h4>[New Outlet] Lenovo Slim 7 Pro X (Ryzen 9 6900HS, 32GB, 1TB, RTX 3050 4GB, 14.5'' 3K Touch)</h4>
+                    <h4>[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)</h4>
                 </div>
 
                 <div class="body-chi-tiet-sp">
                     <div class="anh-sp">
+                        <?php extract($anhsp); ?>
                         <div  class="anh-chinh">
-                            <a href="img/sanpham/anhsp1.jpg"><img id="anh-chinh" src="img/sanpham/anhsp1.jpg" alt=""></a>
+                            <a href="img/sanpham/<?php echo $img ?>"><img id="anh-chinh" src="img/sanpham/<?php echo $img ?>" alt=""></a>
                         </div>
                         <div id="anh-phu" class="anh-phu">
                             <ul onclick="">
-                                <li><a href="img/sanpham/anhsp1.jpg"><img src="img/sanpham/anhsp1.jpg" alt=""></a></li>
-                                <li><a href="img/sanpham/anhsp2.jpg"><img src="img/sanpham/anhsp2.jpg" alt=""></a></li>
-                                <li><a href="img/sanpham/anhsp3.jpg"><img src="img/sanpham/anhsp3.jpg" alt=""></a></li>
-                                <li><a href="img/sanpham/anhsp4.jpg"><img src="img/sanpham/anhsp4.jpg" alt=""></a></li>
+                            <?php foreach($loadAllImgSp as $d): ?>
+                                <li><a href="img/sanpham/<?php echo $d['img'] ?>"><img src="img/sanpham/<?php echo $d['img'] ?>" alt=""></a></li>
+                            <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
                     <div class="thong-tin-sp">
                         <div class="gia-sp">
-                            <p>22.890.000</p>
+                            <p><?php echo $giasp ?> VNĐ</p>
                         </div>
                         <div class="bao-hanh">
                             <p>Bảo hành:</p>
@@ -54,41 +63,40 @@
                             <span>Còn hàng</span>
                         </div>
                         <div class="chi-tiet-cau-hinh">
-                            <a href="#" onclick="mo_fo('chitietcauhinh')">Xem chi tiết cấu hình</a>
+                            <a href="#" onclick="mo_fo('chitietcauhinh')">Thông số kĩ thuật</a>
                         </div>
                         <div class="khung-cau-hinh">
                             <b>CẤU HÌNH:</b><br>
                             <div class="cau-hinh">
-                                <div class="tt-cau-hinh">
-                                    <a href="#">
-                                        <p>cau hinh san pham</p>
-                                        <span>gia tien</span>
-                                    </a>
-                                </div>
-                                <div class="tt-cau-hinh">
-                                    <a href="#">
-                                        <p>cau hinh san pham</p>
-                                        <span>1.000đ</span>
-                                    </a>
-                                </div>
-                                <div class="tt-cau-hinh">
-                                    <a href="#">
-                                        <p>cau hinh san pham sieu cuc ki la chi tiet</p>
-                                        <span>25.000đ</span>
-                                    </a>
-                                </div>
-                                <div class="tt-cau-hinh">
-                                    <a href="#">
-                                        <p>cau hinh san pham</p>
-                                        <span>100.000đ</span>
-                                    </a>
-                                </div>
-                                <div class="tt-cau-hinh">
-                                    <a href="#">
-                                        <p>cau hinh san pham</p>
-                                        <span>2.199.000đ</span>
-                                    </a>
-                                </div>
+                                <?php
+                                    // lấy id trên URL
+                                    if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
+                                        $id_chitiet = $_GET['id_chitiet'];
+                                    }
+                                ?>
+                                <?php foreach($loadAllSpCt as $e): ?>
+                                <?php
+                                    // so sánh id URL và id chi tiết
+                                    if($id_chitiet == $e['id_chitiet']){ ?>
+                                        <!-- nếu trùng, thêm class act -->
+                                        <div class="tt-cau-hinh act">
+                                            <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
+                                                <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
+                                                <span><?php echo $e['giasp'] ?></span>
+                                            </a>
+                                        </div>
+                                    <?php } else{ ?>
+                                        <div class="tt-cau-hinh">
+                                            <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
+                                                <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
+                                                <span><?php echo $e['giasp'] ?></span>
+                                            </a>
+                                        </div>
+                                    <?php }; ?>
+                                
+                                
+                                <?php endforeach; ?>
+                                
                             </div>
                         </div>
                         <div class="qua-tang">

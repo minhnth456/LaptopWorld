@@ -5,7 +5,7 @@ session_start();
    include "../model/pdo.php";
    include "../model/danhmuc/danhmuc.php";
    include "../model/sanpham/sanpham.php";
-
+   include "../model/taikhoan.php";
    if(isset($_GET['act'])&&($_GET['act']!="")){
       $act=$_GET['act'];
       switch($act){
@@ -272,11 +272,39 @@ session_start();
             break;
          // tài khoản
          case "taikhoan":
-            include "taikhoan/adminUser.php";
+            include "taikhoan/ListUser.php";
             break;
+         // trang sua tk
          case "suaUser":
-            include "taikhoan/updateUser.php";
+            if(isset($_GET['id_user']) && ($_GET['id_user']) > 0){
+               $id_user = $_GET['id_user'];
+               $taikhoan = loadone_taikhoan($id_user);
+            }
+         include "taikhoan/SuaUser.php";
+         break;
+         // chức năng sửa thông tin tk
+         case "fixUser":
+            if(isset($_POST['fixUser'])){
+               $id_user = $_POST['id_user'];
+               $name = $_POST['name'];
+               $email = $_POST['email'];
+               $pass = $_POST['pass'];
+               $address = $_POST['address'];
+               $tel = $_POST['tel'];
+               $role = $_POST['role'];
+               update_tk($name,$email,$pass,$address,$tel,$role,$id_user);
+               $thongbao ="Bạn đã sửa thành công";
+              }
+              include "taikhoan/ListUser.php";
             break;
+         // xóa user
+         case "xoaUser":
+            if(isset($_GET['id_user'])&&$_GET['id_user'] >0){
+               xoa_User($_GET['id_user']);
+               $thongbao = "Bạn đã xóa tài khoản thành công";
+               include "taikhoan/ListUser.php";
+            }
+         break;
 
          // bình luận
          case "binhluan":

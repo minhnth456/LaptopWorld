@@ -29,11 +29,12 @@
     return $xoadm;
   }
   // load sản phẩm danh mục
-   function load_danhmucCt($iddmct){
+  function load_danhmucCt($iddmct){
     $sql ="SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddmct";
     $load_all_dmct = pdo_query($sql);
     return $load_all_dmct;
-   }
+  }
+
 
   
   //Thêm danh mục chi tiết

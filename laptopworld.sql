@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 06:16 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 06:08 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -48,7 +48,7 @@ INSERT INTO `anh_sp` (`id`, `img`, `id_pro`) VALUES
 (19, 'nitro3.jpg', 28),
 (20, 'nitro4.jpg', 28),
 (21, 'nitro5.jpg', 28),
-(22, 'aspire1.png', 29),
+(22, 'aspire6.jpg', 29),
 (23, 'aspire5.png', 29),
 (24, 'aspire4.png', 29),
 (25, 'aspire3.png', 29),
@@ -137,7 +137,7 @@ INSERT INTO `chitiet_sanpham` (`id_chitiet`, `cpu`, `ram`, `ssd`, `giasp`, `solu
 (10, 'Core i10-14500H', '64G', '4T', '16.990.000', 2, 'RTX 3050Ti', 27, 5),
 (11, 'Core i5 - 12500H', '4G', '255G', '21.590.000', 2, 'RTX 4050 6GB', 28, 1),
 (12, 'Ryzen 5-5600U', '16G', '512G', '17.900.000', 1, 'RTX 1650Ti', 28, 1),
-(13, 'Ryzen 5-7500U', '32G', '1T', '13.990.00', 1, 'RTX 2050', 28, 1),
+(13, 'Ryzen 5-7500U', '32G', '1T', '13.990.000', 1, 'RTX 2050', 28, 1),
 (14, 'Core i5-1135G7', '8G', '256G', '7.890.000', 5, 'Iris Xe Graphics', 29, 2),
 (15, 'Core i3-1115G4', '8G', '128G', '8.990.000', 1, 'Iris Xe Graphics', 29, 2);
 
@@ -233,6 +233,13 @@ CREATE TABLE `taikhoan` (
   `tel` int(11) NOT NULL,
   `role` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`id_user`, `name`, `img`, `email`, `pass`, `address`, `tel`, `role`) VALUES
+(1, 'hoangMinh', '', 'minh@gmail.com', '24042004', '230 me tri', 123, 2);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -372,7 +379,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

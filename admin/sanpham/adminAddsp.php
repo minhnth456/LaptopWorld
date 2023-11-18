@@ -39,17 +39,17 @@
         
         <div class="form-floating mb-3 col-3">
             <select class="form-select form-select-lg mb-3" style="margin-bottom: 15px; padding-top: .625rem; font-size: 1rem;" aria-label="Large select example" name="danhmuc">
-                <option value="0" selected>Chọn danh mục</option>    
+                <option value="" selected disabled >Chọn danh mục</option>    
                 <?php foreach($danhmuc as $a): ?>
-                <option value="<?php echo $a['id_dm']; ?>"><?php echo $a['name']; ?></option>
+                <option value="<?php echo $a['id_dm']; ?>" required><?php echo $a['name']; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="form-floating mb-3 col-3">
             <select class="form-select form-select-lg mb-3" style="margin-bottom: 15px; padding-top: .625rem; font-size: 1rem;" aria-label="Large select example" name="id_dmc">
-                <option value="0" selected>Chọn danh mục con</option>
+                <option value="0" selected disabled>Chọn danh mục con</option>
                 <?php foreach($chitiet_danhmuc as $c): ?>
-                <option value="<?php echo $c['id']; ?>"><?php echo $c['name']; ?></option>
+                <option value="<?php echo $c['id']; ?>" required><?php echo $c['name']; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

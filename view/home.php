@@ -119,11 +119,11 @@
                 ?>
                 <?php foreach($loadAllSpIndex as $a): ?>
                 <div class="sanpham">
-                    <a href="#" class="img">
+                    <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $a['id_chitiet']; ?>&id_pro=<?php echo $a['id_pro']; ?>" class="img">
                         <img src="./img/sanpham/<?php echo $a['img']; ?>" alt="" />
                     </a>
                     <div class="namesp">
-                        <a href="#"><?php echo $a['tensp'] ?></a>
+                        <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $a['id_chitiet']; ?>&id_pro=<?php echo $a['id_pro']; ?>">[New Outlet] <?php echo $a['tensp'] ?> (<?php echo $a['cpu'] ?>, <?php echo $a['ram'] ?>, <?php echo $a['ssd'] ?>, <?php echo $a['cardVGA'] ?>)</a>
                     </div>
                     <div class="price"><?php echo $a['giasp'] ?></div>
                 </div>

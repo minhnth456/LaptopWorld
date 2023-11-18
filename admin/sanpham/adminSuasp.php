@@ -7,16 +7,16 @@
             <label for="floatingInput" style="left: 10px;" >Tên sản phẩm</label>
         </div>
         <div class="form-floating mb-3 col-6">
-            <select class="form-select form-select-lg mb-3" style="margin-bottom: 15px; padding-top: .625rem; font-size: 1rem;" aria-label="Large select example" name="id_dm">
-                <option value="0" selected>Chọn danh mục</option>    
+            <select class="form-select form-select-lg mb-3" style="margin-bottom: 15px; padding-top: .625rem; font-size: 1rem;" aria-label="Large select example" name="id_dm" required>
+                <option value="" selected disabled>Chọn danh mục</option>    
                 <?php foreach($danhmuc as $a): ?>
-                <option value="<?php echo $a['id_dm']; ?>"><?php echo $a['name']; ?></option>
+                <option value="<?php echo $a['id_dm']; ?>" required><?php echo $a['name']; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="form-floating mb-3 col-12">
-            <textarea class="form-control" id="floatingTextarea" placeholder="Mô tả sản phẩm" name="mota" required
-                cols="30" rows="10"><?php echo $mota; ?></textarea>
+            <textarea class="form-control" id="floatingTextarea" placeholder="Mô tả sản phẩm" name="mota"
+                cols="30" rows="10" required><?php echo $mota; ?></textarea>
             <label for="floatingTextarea" style="left: 10px;">Mô tả sản phẩm</label>
         </div>
         <div class="d-grid">

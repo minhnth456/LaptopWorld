@@ -103,8 +103,26 @@
 
     // Lấy tất cả 3 bảng sanpham anh_sp và chitiet_sanpham
     function loadAllSpIndex(){
-        $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY a.id_pro";
+        $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY b.id_chitiet";
         // SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY a.id_pro
+        return pdo_query($sql);
+    }
+
+    // lấy thông tin chi tiết cấu hình (chitietsanpham)
+    function loadOneSpCt($id_chitiet){
+        $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro WHERE id_chitiet = $id_chitiet";
+        return pdo_query_one($sql);
+    }
+
+    // lấy tất cả thông tin chi tiết cấu hình liên quan của sản phẩm (chitietsanpham)
+    function loadAllSpCt($id_pro){
+        $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro WHERE a.id_pro = $id_pro GROUP BY b.id_chitiet;";
+        return pdo_query($sql);
+    }
+
+    // lấy tất cả ảnh của sản phẩm
+    function loadAllImgSp($id_pro){
+        $sql = "SELECT * FROM anh_sp WHERE id_pro = $id_pro";
         return pdo_query($sql);
     }
 ?>

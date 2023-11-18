@@ -844,6 +844,7 @@ article {
     margin-right: 3px;
 }
 
+
 .thong-tin-sp .chi-tiet-cau-hinh {
     border: 1px solid none;
 }
@@ -1115,7 +1116,7 @@ article {
 .cau-hinh .tt-cau-hinh {
     width: 100%;
     height: auto;
-    border: 1px solid none;
+    border: 1px solid #dddddd3d;
     margin-bottom: 5px;
     background: #dddddd3d;
     padding: 5px;
@@ -1135,6 +1136,22 @@ article {
 
 .tt-cau-hinh a span {
     color: #ef1200;
+}
+
+.cau-hinh .act{
+    border: 1px solid #2b80dd;
+}
+
+.cau-hinh .act p{
+    color: #2b80dd;
+}
+
+.cau-hinh .tt-cau-hinh:hover {
+    border: 1px solid #2b80dd;
+}
+
+.cau-hinh .tt-cau-hinh:hover p {
+    color: #2b80dd;
 }
 
 
