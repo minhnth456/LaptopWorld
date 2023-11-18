@@ -142,7 +142,8 @@ session_start();
                sua_dmct($ten,$iddm);
                $thongbao ="Bạn đã sửa thành công";
                }
-            include "danhmuc/adminSuadm.php";
+               // Thêm phần này
+            include "danhmuc/adminChitietSuadm.php";
             break;
          // tài khoản
          case "taikhoan":

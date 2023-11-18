@@ -32,54 +32,104 @@
                     </form>
                 </div>
                 <div class="tai-khoan mgl-5">
+                    <?php 
+                    if(!isset($_SESSION['name'])){ ?>
                     <button id="openForm" onclick="mo_fo('dangki')">Đăng kí</button>
                     <p>|</p>
                     <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
+                    <?php } if(isset($_SESSION['name'])){
+                            if(($_SESSION['role'])== 1){ ?>
+                    <div class="dropdown">
+                        <button style="width:auto;height:40px;display: flex; align-items: center;"
+                            class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <div style="text-align: center; margin-right: 5px;">
+                                <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
+                            </div>
+
+                        </button>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-light">
+                            <li><a class="dropdown-item " href="index.php?act=capnhattaikhoan">Cập nhật tài
+                                    khoản</a>
+                            </li>
+                            <li><a class="dropdown-item" href="index.php?act=dangxuat">Đăng Xuất</a></li>
+                        </ul>
+
+
+                    </div>
+                    <?php } else{ ?>
+                    <div class="dropdown">
+                        <button style="width:auto;height:40px;display: flex; align-items: center;"
+                            class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <div style="text-align: center; margin-right: 5px;">
+                                <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
+                            </div>
+
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-light">
+                            <li><a class="dropdown-item " href="admin/index.php?act=danhsachsp">Quản
+                                    Trị</a>
+                            </li>
+                            <li><a class="dropdown-item" href="index.php?act=dangxuat">Đăng Xuất</a></li>
+                            <!-- <li><a class="dropdown-item" href="index.php?act=capnhattaikhoan">Cập nhật tài khoản</a></li> -->
+                        </ul>
+
+
+                    </div>
+                    <?php } } ?>
                 </div>
                 <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
                     <div class="form-dk-dn" id="form-dk-dn">
                         <!-- form đăng kí -->
-                        <form id="dangki" action="" method="post">
+                        <form id="dangki" action="index.php?act=dangky" method="post">
                             <h1>Đăng kí</h1>
                             <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập">
+                                <input type="text" placeholder="Tên đăng nhập" name="user">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="email" placeholder="Email">
+                                <input type="email" placeholder="Email" name="email">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu">
+                                <input type="password" placeholder="Mật khẩu" name="pass">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Nhập lại mật khẩu">
+                                <input type="password" placeholder="Nhập lại mật khẩu" name="pass">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <button type="submit">Đăng kí</button>
+                            <button type="submit" name="dangkytk">Đăng kí</button>
                             <div class="link-dk-dn">
                                 Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a>
                             </div>
                         </form>
                         <!-- form đăng nhập -->
-                        <form id="dangnhap" action="" method="post">
+                        <form id="dangnhap" action="index.php?act=dangnhap  " method="post">
                             <h1>Đăng nhập</h1>
                             <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập">
+                                <input type="text" name="user" placeholder="Tên đăng nhập">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu">
+                                <input type="password" name="pass" placeholder="Mật khẩu">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <button type="submit">Đăng nhập</button>
+                            <button type="submit" name="dangnhap">Đăng nhập</button>
+                            <h2 style="color: red;font-size:20px;color: greeen">
+                                <?php 
+                                    if(isset($thongbao)&&$thongbao !=""){
+                                        echo $thongbao;
+                                    }  ?>
+                            </h2>
                             <div class="link-dk-dn">
                                 Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
                             </div>
@@ -125,10 +175,10 @@
                                         <!-- sản phẩm -->
                                         <div class="san-pham-danh-muc">
                                             <?php
-                                                $load_onesp = load1_sp($select_dm['id_dm']);
-                                            foreach($load_onesp as $sanpham){ ?>
+                                                $load_all_dmct = load_danhmucCt($select_dm['id_dm']);
+                                            foreach($load_all_dmct as $sanpham){ ?>
                                             <div class="san-pham-danh-muc2">
-                                                <a href="http://"><?php echo $sanpham['tensp'] ?></a>
+                                                <a href="http://"><?php echo $sanpham['name'] ?></a>
                                             </div>
                                             <?php } ?>
 

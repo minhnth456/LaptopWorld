@@ -21,7 +21,7 @@
             <!-- menu1 -->
             <div class="menu" style="margin-bottom:10px">
                 <div class="logo">
-                    <a href="#"><img src="../img/logo.png" alt="" /></a>
+                    <a href="../index.php"><img src="../img/logo.png" alt="" /></a>
                 </div>
                 <div class="tim-kiem mgl-5">
                     <form action="" method="post" class="tim">
@@ -32,144 +32,167 @@
                     </form>
                 </div>
                 <div class="tai-khoan mgl-5">
+                    <?php if(!isset($_SESSION['name'])) { ?>
                     <button id="openForm" onclick="mo_fo('dangki')">Đăng kí</button>
                     <p>|</p>
                     <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
+
                 </div>
-                <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
-                    <div class="form-dk-dn" id="form-dk-dn">
-                        <!-- form đăng kí -->
-                        <form id="dangki" action="" method="post">
-                            <h1>Đăng kí</h1>
-                            <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập" />
-                                <small></small>
-                                <span></span>
-                            </div>
-                            <div class="o-input">
-                                <input type="email" placeholder="Email" />
-                                <small></small>
-                                <span></span>
-                            </div>
-                            <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu" />
-                                <small></small>
-                                <span></span>
-                            </div>
-                            <div class="o-input">
-                                <input type="password" placeholder="Nhập lại mật khẩu" />
-                                <small></small>
-                                <span></span>
-                            </div>
-                            <button type="submit">Đăng kí</button>
-                            <div class="link-dk-dn">
-                                Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a>
-                            </div>
-                        </form>
-                        <!-- form đăng nhập -->
-                        <form id="dangnhap" action="" method="post">
-                            <h1>Đăng nhập</h1>
-                            <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập" />
-                                <small></small>
-                                <span></span>
-                            </div>
-                            <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu" />
-                                <small></small>
-                                <span></span>
-                            </div>
-                            <button type="submit">Đăng nhập</button>
-                            <div class="link-dk-dn">
-                                Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
-                            </div>
-                        </form>
-                        <button id="closeForm" onclick="dong_fo(event)">
-                            <i class="fa-solid fa-x"></i>
-                        </button>
-                    </div>
+                <?php } else {?>
+                <div class="dropdown">
+                    <button style="width:80px;height:40px;display: flex; align-items: center;"
+                        class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <div style="text-align: center; margin-right: 5px;">
+                            <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
+                        </div>
+
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-light">
+                        <li><a class="dropdown-item " href="index.php?act=danhsachsp">Quản Trị</a></li>
+                        <li><a class="dropdown-item" href="index.php?act=dangxuat">Đăng Xuất</a></li>
+                        <!-- <li><a class="dropdown-item" href="index.php?act=">Cập nhật tài khoản</a></li> -->
+                    </ul>
+
+
                 </div>
-                <div class="gio-hang mgl-5">
-                    <i class="fa-solid fa-cart-shopping"></i><br />
-                    <a href="http://">Giỏ hàng</a><br />
-                    <span class="so-luong-gio-hang">0</span>
+                <?php } ?>
+            </div>
+            <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
+                <div class="form-dk-dn" id="form-dk-dn">
+                    <!-- form đăng kí -->
+                    <form id="dangki" action="" method="post">
+                        <h1>Đăng kí</h1>
+                        <div class="o-input">
+                            <input type="text" placeholder="Tên đăng nhập" />
+                            <small></small>
+                            <span></span>
+                        </div>
+                        <div class="o-input">
+                            <input type="email" placeholder="Email" />
+                            <small></small>
+                            <span></span>
+                        </div>
+                        <div class="o-input">
+                            <input type="password" placeholder="Mật khẩu" />
+                            <small></small>
+                            <span></span>
+                        </div>
+                        <div class="o-input">
+                            <input type="password" placeholder="Nhập lại mật khẩu" />
+                            <small></small>
+                            <span></span>
+                        </div>
+                        <button type="submit">Đăng kí</button>
+                        <div class="link-dk-dn">
+                            Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a>
+                        </div>
+                    </form>
+                    <!-- form đăng nhập -->
+                    <form id="dangnhap" action="" method="post">
+                        <h1>Đăng nhập</h1>
+                        <div class="o-input">
+                            <input type="text" placeholder="Tên đăng nhập" />
+                            <small></small>
+                            <span></span>
+                        </div>
+                        <div class="o-input">
+                            <input type="password" placeholder="Mật khẩu" />
+                            <small></small>
+                            <span></span>
+                        </div>
+                        <button type="submit">Đăng nhập</button>
+                        <div class="link-dk-dn">
+                            Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
+                        </div>
+                    </form>
+                    <button id="closeForm" onclick="dong_fo(event)">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
                 </div>
             </div>
-            <!-- end menu1 -->
+            <div class="gio-hang mgl-5">
+                <i class="fa-solid fa-cart-shopping"></i><br />
+                <a href="http://">Giỏ hàng</a><br />
+                <span class="so-luong-gio-hang">0</span>
+            </div>
+    </div>
+    <!-- end menu1 -->
 
-            <!-- start nav -->
-            <div class="menu_quantri">
-                <div class="menu_admin">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Sản phẩm
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=danhsachsp">Danh sách</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=adminAdd">Thêm sản phẩm</a>
-                            </li>
-                        </ul>
-                    </div>
-
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Bình luận
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=binhluan">Danh sách bình luận</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Danh mục
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=danhmuc">Danh sách</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=adddmuc">Thêm danh mục sản phẩm</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Khách hàng
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=taikhoan">Danh sách khách hàng</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Biểu đồ
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=danhsachsp">Danh sách</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- start nav -->
+    <div class="menu_quantri">
+        <div class="menu_admin">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Sản phẩm
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=danhsachsp">Danh sách</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=adminAdd">Thêm sản phẩm</a>
+                    </li>
+                </ul>
             </div>
 
 
-            <!-- end nav -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Bình luận
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=binhluan">Danh sách bình luận</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Danh mục
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=danhmuc">Danh sách</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=adddmuc">Thêm danh mục sản phẩm</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Khách hàng
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=taikhoan">Danh sách khách hàng</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Biểu đồ
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="index.php?act=danhsachsp">Danh sách</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
-            <!-- end banner -->
-        </header>
+    <!-- end nav -->
+
+
+    <!-- end banner -->
+    </header>
     </div>

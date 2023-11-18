@@ -124,10 +124,10 @@ window.addEventListener('load', function() {
     // Đợi 3 giây trước khi hiển thị nội dung trang web
     setTimeout(function() {
         const preloadImage = document.querySelector('.preload-image');
-        if(preloadImage){
+        if (preloadImage) {
             preloadImage.style.display = 'none';
         }
-        
+
         const content = document.querySelector('.container-p-0');
         const content2 = document.querySelector('.container-p-1');
         if (content) {
@@ -212,14 +212,14 @@ function chat() {
 
 function checkForm_themsp() {
     var fileAnh = document.getElementById("hinh").files;
-    
+
     // Kiểm tra số lượng tập tin đã chọn
     if (fileAnh.length > 5) {
         alert("Chỉ được phép chọn tối đa 5 ảnh");
         return false;
     }
-    
-    if (fileAnh.length == 0){
+
+    if (fileAnh.length == 0) {
         alert("Bạn chưa chọn ảnh");
         return false;
     }
