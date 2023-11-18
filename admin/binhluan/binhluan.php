@@ -10,19 +10,23 @@
             </tr>
         </thead>
         <tbody>
-
+            <?php
+                $listbl=loadadd_binhluan(); 
+                foreach($listbl as $binhluan){ 
+            ?>
             <tr>
-                <th scope="row">1</th>
-                <th scope="row">adu cang tit</th>
-                <th scope="row"><img width="100px" src="../img/sanpham1.jpg" alt="" /></th>
-                <th scope="row">22/2/2023</th>
+                <th scope="row"><?php echo $taikhoan['id_bl']?></th>
+                <th scope="row"><?php echo $taikhoan['noidung']?></th>
+                <th scope="row"><?php echo $taikhoan['id_pro']?></th>
+                <th scope="row"><?php echo $taikhoan['ngaybinhluan']?></th>
+                <th scope="row"><?php echo $taikhoan['id_user ']?></th>
                 <th scope="row">
-                    <a class="btn btn-dark" href="index.php?act=binhluan&idbl=<?php echo $bl['id'] ?>"
+                    <a class="btn btn-dark" href="index.php?act=binhluan&id_bl=<?php echo $bl['id_bl'] ?>"
                         onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>
                 </th>
 
             </tr>
-
+            <?php }?>
         </tbody>
     </table>
 </div>

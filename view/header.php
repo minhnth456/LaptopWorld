@@ -27,59 +27,68 @@
                 </div>
                 <div class="tim-kiem mgl-5">
                     <form action="" method="post" class="tim">
-                        <input type="text" name="" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
+                        <input type="text" name=""  placeholder="Bạn muốn tìm sản phẩm gì?" />
                         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
+
                 <div class="tai-khoan mgl-5">
                     <button id="openForm" onclick="mo_fo('dangki')">Đăng kí</button>
                     <p>|</p>
                     <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
                 </div>
+
                 <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
                     <div class="form-dk-dn" id="form-dk-dn">
                         <!-- form đăng kí -->
-                        <form id="dangki" action="" method="post">
+                        <form id="dangki" action="index.php?act=dangky" method="post">
                             <h1>Đăng kí</h1>
                             <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập">
+                                <input type="text" placeholder="Tên đăng nhập" name="name">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="email" placeholder="Email">
+                                <input type="email" placeholder="Email" name="email">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu">
+                                <input type="password" placeholder="Mật khẩu" name="pass">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Nhập lại mật khẩu">
+                                <input type="password" placeholder="Nhập lại mật khẩu" name="re-pass">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <button type="submit">Đăng kí</button>
+                            <button type="submit" name="dangky">Đăng kí</button>
                             <div class="link-dk-dn">
                                 Đã có tài khoản?<a href="#" onclick="chuyen_fo('dangnhap')">Đăng nhập ngay</a>
                             </div>
                         </form>
+
+                        <?php
+                            if(isset($thongbao)&&($thongbao!="")){
+                                echo $thongbao;
+                            }
+                        ?>
+
                         <!-- form đăng nhập -->
                         <form id="dangnhap" action="" method="post">
                             <h1>Đăng nhập</h1>
                             <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập">
+                                <input type="text" placeholder="Tên đăng nhập" name="name">
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu">
+                                <input type="password" placeholder="Mật khẩu" name="pass">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <button type="submit">Đăng nhập</button>
+                            <button type="submit" name="dangnhap">Đăng nhập</button>
                             <div class="link-dk-dn">
                                 Chưa có tài khoản?<a href="#" onclick="chuyen_fo('dangki')">Đăng kí ngay</a>
                             </div>
