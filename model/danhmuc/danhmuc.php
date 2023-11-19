@@ -28,6 +28,11 @@
     $xoadm = pdo_query($sql);
     return $xoadm;
   }
+  function xoa_dm_ct($iddm){
+    $sql = "DELETE FROM chitiet_danhmuc WHERE id = $iddm";
+    pdo_query($sql);
+
+  }
   // load sản phẩm danh mục
   function load_danhmucCt($iddmct){
     $sql ="SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddmct";

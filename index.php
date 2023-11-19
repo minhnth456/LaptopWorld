@@ -30,8 +30,8 @@
                 if(isset($_POST['dangnhap'])){
                  $thongbao = dangnhap($_POST['user'], $_POST['pass']);
                 }
-                include 'view/home.php';
-                 break; 
+                header('location: index.php');
+                break; 
             case 'dangxuat':
                 dangxuat();
                 include 'view/home.php';

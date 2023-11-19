@@ -16,12 +16,14 @@ session_start();
             $loadAll_sp = loadAll_sp(); 
             include "sanpham/adminDssp.php";
             break;
+
          // trang thêm sản phẩm
          case "adminAdd":
             $danhmuc = danhmuc();
             $chitiet_danhmuc = chitiet_danhmuc();
             include "sanpham/adminAddsp.php";
             break;
+
          // chức năng thêm sản phẩm
          case "themsp":
             $danhmuc = danhmuc();
@@ -52,6 +54,7 @@ session_start();
             $loadAll_sp = loadAll_sp(); 
             include "sanpham/adminDssp.php";
             break;
+
          // trang sửa sản phẩm
          case "suasp":
             $danhmuc = danhmuc();
@@ -83,6 +86,36 @@ session_start();
             $loadAll_sp = loadAll_sp(); 
             include "sanpham/adminDssp.php";
             break;
+
+         // chức năng xóa sản phẩm chi tiết
+         case "xoaspCT":
+            if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
+               $id_chitiet = $_GET['id_chitiet'];
+               xoaspCT($id_chitiet);
+            }
+            if(isset($_GET['id_pro']) && $_GET['id_pro'] != ""){
+               $id_pro = $_GET['id_pro'];
+               // load toàn bộ chi tiết cấu hình
+               $loadAll_ctch = loadAll_ctch($id_pro);
+               // load danh mục con liên quan đến sản phẩm
+               $chitiet_danhmuc_con = chitiet_danhmuc_con($id_pro);
+            }
+            include "sanpham/cauhinh.php";
+            break;
+         
+         // chức năng xóa ảnh sản phẩm
+         case "xoaAnhsp":
+            if(isset($_GET['id']) && ($_GET['id']) != ""){
+               $id = $_GET['id'];
+               xoaAnhsp($id);
+            }
+            if(isset($_GET['id_pro']) && ($_GET['id_pro']) != ""){
+               $id_pro = $_GET['id_pro'];
+               $allAnhsp = allAnhsp($id_pro);
+            }
+            include "sanpham/themanh.php";
+            break;
+
          // hiển thị trang thêm cấu hình
          case "cauhinh":
             if(isset($_GET['id_pro']) && $_GET['id_pro'] != ""){
@@ -94,6 +127,7 @@ session_start();
             }
             include "sanpham/cauhinh.php";
             break;
+
          // chức năng thêm cấu hình cho sản phẩm
          case "themch":
             if(isset($_POST['themch'])){
@@ -121,7 +155,6 @@ session_start();
             break;
 
          // chức năng sửa cấu hình
-         
          case "fixch":
             if(isset($_POST['fixch'])){
                $id_pro = $_POST['id_pro'];
@@ -251,25 +284,33 @@ session_start();
             }
             header("location: index.php?act=chitietdm&iddm=".$iddm);
             break;
-         case "addctdanhmuc":
-            if(isset($_POST['themctdm'])){
-               $iddm = $_POST['iddm'];
-               $name = $_POST['name_dm_ct'];
-               add_dm_ct($name, $iddm);
-            }
-            include "danhmuc/chitietDm.php";
-            break;
+         
          case "suadm_ct":
-            if(isset($_POST['suadmct'])){
+            if(isset($_GET['idchitietdm']) && ($_GET['idchitietdm']) != ""){
+               $iddm = $_GET['idchitietdm'];
+            }
+            include "danhmuc/adminChitietSuadm.php";
+            break;
+         
+         case "fixdm_ct":
+            if(isset($_POST['fixdmct'])){
                $iddm = $_POST['idchitietdm'];
                $ten = $_POST['tendmct'];
                sua_dmct($ten,$iddm);
                $thongbao ="Bạn đã sửa thành công";
             }
-
-            // Thêm phần này
-            include "danhmuc/adminChitietSuadm.php";
+            include "danhmuc/chitietDm.php";
             break;
+
+         case "xoadm_ct":
+            if(isset($_GET['iddm']) && ($_GET['iddm']) != ""){
+               $iddm = $_GET['iddm'];
+               xoa_dm_ct($iddm);
+               
+            }
+            include "danhmuc/chitietDm.php";
+            break;   
+
          // tài khoản
          case "taikhoan":
             include "taikhoan/ListUser.php";

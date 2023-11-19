@@ -69,7 +69,7 @@
                 <th scope="row"></th> -->
                 <th scope="row" style="max-width: 135px;">
                     <a type="button" class="btn btn-danger" href="index.php?act=suacauhinh&id_chitiet=<?php echo $a['id_chitiet'] ?>" style="margin-bottom: 5px">Sửa</a>
-                    <a class="btn btn-dark" href="index.php?act=xoasp&id=" style="margin-bottom: 5px" onclick="return confirm('Bạn muốn xóa sản phẩm không?')">Xóa</a>
+                    <a class="btn btn-dark" href="index.php?act=xoaspCT&id_chitiet=<?php echo $a['id_chitiet'] ?>&id_pro=<?php echo $a['id_pro'] ?>" style="margin-bottom: 5px" onclick="return confirm('Bạn muốn xóa sản phẩm không?')">Xóa</a>
                     
                 </th>
             </tr>

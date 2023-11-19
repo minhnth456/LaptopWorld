@@ -5,7 +5,7 @@
         $chitiet_dm = hienthi_dmct($_GET['idchitietdm']);
         foreach($chitiet_dm as $dm_chitiet){
     ?>
-    <form action="index.php?act=suadm_ct" method="post" enctype="multipart/form-data">
+    <form action="index.php?act=fixdm_ct&iddm=<?php echo $dm_chitiet['id'];?>" method="post" enctype="multipart/form-data">
 
         <input type="hidden" name="idchitietdm" value="<?php echo $dm_chitiet['id'] ?>">
         <div class="form-floating mb-3">
@@ -16,7 +16,7 @@
 
         <div class="d-grid">
             <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit"
-                name="suadmct">Sửa
+                name="fixdmct">Sửa
                 danh mục</button>
         </div>
 

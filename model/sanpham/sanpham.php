@@ -33,13 +33,13 @@
         pdo_execute($sql);
     }
 
-    // Thêm cấu hình sản phẩm
+    // chức năng Thêm cấu hình sản phẩm
     function themch($cpu, $ram, $ssd, $cardVGA, $giasp, $soluong, $id_pro, $id_dmc){
         $sql= "INSERT INTO chitiet_sanpham(cpu, ram, ssd, giasp, soluong, cardVGA, id_pro, id_dmc) VALUES ('".$cpu."', '".$ram."', '".$ssd."','".$giasp."', '".$soluong."', '".$cardVGA."', '".$id_pro."', '".$id_dmc."');"; 
         pdo_execute($sql);
     }
 
-    // Xóa sản phẩm
+    // chức năng Xóa sản phẩm
     function xoasp($id){
         $sql = "DELETE FROM chitiet_sanpham WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_pro = $id);";
         $sql.= "DELETE FROM anh_sp WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_pro = $id);";
@@ -47,9 +47,21 @@
         pdo_execute($sql);
     }
 
+    // chức năng xóa chi tiết sản phẩm
+    function xoaspCT($id_chitiet){
+        $sql = "DELETE FROM chitiet_sanpham WHERE id_chitiet = $id_chitiet";
+        pdo_execute($sql);
+    }
+
+    // chức năng xóa ảnh sản phẩm
+    function xoaAnhsp($id){
+        $sql = "DELETE FROM anh_sp WHERE id = $id";
+        pdo_execute($sql);
+    }
+
     // load tất cả chi tiết sản phẩm theo id sản phẩm
     function loadAll_ctch($id_pro){
-        $sql = "SELECT * FROM chitiet_sanpham as a INNER JOIN chitiet_danhmuc as b ON a.id_dmc = b.id WHERE id_pro = $id_pro";
+        $sql = "SELECT * FROM chitiet_sanpham as a INNER JOIN chitiet_danhmuc as b ON a.id_dmc = b.id WHERE id_pro = $id_pro ORDER BY a.id_chitiet DESC";
         return pdo_query($sql);
     }
 

@@ -27,7 +27,7 @@
                 </th>
                 <th scope="row" style="max-width: 135px;">
                     <a type="button" class="btn btn-danger" href="index.php?act=suaanh&id=<?php echo $a['id'];?>&id_pro=<?php echo $id_pro; ?>" style="margin-bottom: 5px">Sửa</a>
-                    <a class="btn btn-dark" href="index.php?act=xoasp&id=" style="margin-bottom: 5px" onclick="return confirm('Bạn muốn xóa sản phẩm không?')">Xóa</a>
+                    <a class="btn btn-dark" href="index.php?act=xoaAnhsp&id=<?php echo $a['id'];?>&id_pro=<?php echo $id_pro; ?>" style="margin-bottom: 5px" onclick="return confirm('Bạn muốn xóa sản phẩm không?')">Xóa</a>
                 </th>
             </tr>
             <?php $i++; ?>
