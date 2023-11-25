@@ -5,6 +5,8 @@ session_start();
    include "../model/pdo.php";
    include "../model/danhmuc/danhmuc.php";
    include "../model/sanpham/sanpham.php";
+   include "../model/giohang/giohang.php";
+   include "../model/user/user.php";
    include "../model/taikhoan.php";
    if(isset($_GET['act'])&&($_GET['act']!="")){
       $act=$_GET['act'];
@@ -350,6 +352,33 @@ session_start();
          // bình luận
          case "binhluan":
             include "binhluan/binhluan.php";
+            break;
+
+         //hiển thị trang hóa đơn
+         case "donhang":
+            $loadAllHoaDon = loadAllHoaDon();
+            include "donhang/donhang.php";
+            break;
+
+         //hiển thị trang chi tiết hóa đơn
+         case "chitietHD":
+            if(isset($_GET['id_hoadon']) && ($_GET['id_hoadon']) > 0){
+               $id_hoadon = $_GET['id_hoadon'];
+               $loadAllHoaDonCT = loadAllHoaDonCT($id_hoadon);
+            }
+            include "donhang/chitietdonhang.php";
+            break;
+         
+         //chức năng cập nhật trạng thái đơn hàng
+         case "capnhat_trangthai":
+            if(isset($_POST['capnhat_trangthai'])){
+               $id_hoadon = $_POST['id_hoadon'];
+               $trangthai = $_POST['tt'];
+               capnhat_trangthai($id_hoadon, $trangthai);
+            }
+            //hiển thị lại trang hóa đơn
+            $loadAllHoaDon = loadAllHoaDon();
+            include "donhang/donhang.php";
             break;
 
          }

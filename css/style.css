@@ -346,9 +346,9 @@
     font-weight: bold;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    background-color: #e74c3c;
+    background-color: white;
     padding: 8px 20px;
-    color: white;
+    color: black;
 }
 
 .form-dk-dn button#closeForm:hover {
@@ -1122,6 +1122,7 @@ article {
     padding: 5px;
     text-align: center;
     border-radius: 5px;
+    
 }
 
 .tt-cau-hinh a {
@@ -1132,6 +1133,7 @@ article {
     color: black;
     margin: 0px;
     margin-bottom: 5px;
+    
 }
 
 .tt-cau-hinh a span {
@@ -1626,6 +1628,8 @@ article {
     margin: 0px 5px;
 }
 
+/* bình luận sản phẩm */
+
 .khung-binh-luan .binh-luan {
     width: 100%;
     height: auto;
@@ -1715,12 +1719,14 @@ article {
 }
 
 .noi-dung-bl .ngay-bl {
-    width: 100%;
+    width: auto;
     height: auto;
     border: 1px solid none;
+    margin-right: 10px;
 }
 
 .noi-dung-bl .ngay-bl p {
+    width: auto;
     margin: 0px;
     padding: 0px;
     font-size: 11px;
@@ -1728,6 +1734,9 @@ article {
     color: #4b4f56;
 }
 
+.khung-binh-luan .rep-com{
+    display: none;
+}
 
 /* sản phẩm liên quan */
 
@@ -1786,6 +1795,7 @@ article {
 .left .khung-tintuc p span {
     font-family: arial, helvetica, sans-serif;
     font-size: 12pt;
+    
 }
 
 .left .khung-tintuc span img {

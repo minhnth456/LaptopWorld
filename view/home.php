@@ -103,16 +103,7 @@
 
             <!-- Hiện sp -->
             <div class="main">
-                <div class="sanpham">
-                    <a href="#" class="img">
-                        <img src="./img/sanpham1.jpg" alt="" />
-                    </a>
-                    <div class="namesp">
-                        <a href="index.php?act=chitietsanpham">[New Outlet] Lenovo Slim 7 Pro X (Ryzen 9 6900HS, 32GB, 1TB, RTX 3050 4GB, 14.5'' 3K Touch)</a>
-                    </div>
-                    <div class="price">25.000.000</div>
-                </div>
-
+                
                 <?php 
                     // load tất cả sản phẩm index
                     $loadAllSpIndex = loadAllSpIndex();
@@ -125,7 +116,7 @@
                     <div class="namesp">
                         <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $a['id_chitiet']; ?>&id_pro=<?php echo $a['id_pro']; ?>">[New Outlet] <?php echo $a['tensp'] ?> (<?php echo $a['cpu'] ?>, <?php echo $a['ram'] ?>, <?php echo $a['ssd'] ?>, <?php echo $a['cardVGA'] ?>)</a>
                     </div>
-                    <div class="price"><?php echo $a['giasp'] ?></div>
+                    <div class="price"><?php echo $a['giasp'] ?> </div>
                 </div>
                 <?php endforeach; ?>
 

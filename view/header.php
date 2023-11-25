@@ -39,10 +39,14 @@
                     <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
                     <?php } if(isset($_SESSION['name'])){
                             if(($_SESSION['role'])== 1){ ?>
+                    
                     <div class="dropdown">
                         <button style="width:auto;height:40px;display: flex; align-items: center;"
                             class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
+                            <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
+                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt="" style="border-radius: 25px; width: 100%; height: 100%;">
+                            </div>
                             <div style="text-align: center; margin-right: 5px;">
                                 <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
                             </div>
@@ -58,11 +62,14 @@
 
 
                     </div>
-                    <?php } else{ ?>
+                    <?php } elseif (($_SESSION['role'])== 2){ ?>
                     <div class="dropdown">
                         <button style="width:auto;height:40px;display: flex; align-items: center;"
                             class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
+                            <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
+                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt="" style="border-radius: 25px; width: 100%; height: 100%;">
+                            </div>
                             <div style="text-align: center; margin-right: 5px;">
                                 <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
                             </div>
@@ -139,8 +146,8 @@
                 </div>
                 <div class="gio-hang mgl-5">
                     <i class="fa-solid fa-cart-shopping"></i><br />
-                    <a href="http://">Giỏ hàng</a><br />
-                    <span class="so-luong-gio-hang">0</span>
+                    <a href="index.php?act=giohang" onclick="in_gio_hang()">Giỏ hàng</a><br />
+                    <span class="so-luong-gio-hang"><?php if(isset($_SESSION['slgh'])){echo $_SESSION['slgh'];}else{echo '0';}  ?></span>
                 </div>
             </div>
             <!-- end menu1 -->

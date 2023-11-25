@@ -1,5 +1,10 @@
         <!-- start article -->
         <article>
+        <?php
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $current_time_in_vietnam = new DateTime();
+            $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
+        ?>
             <?php extract($loadOneSpCt); ?>
             <div class="lop-phu2" id="lop-phu2" onclick="dong_fo(event)">
                 <div id="khung-thong-so-ki-thuat" class="khung-thong-so-ki-thuat">
@@ -31,140 +36,156 @@
                 </div>
             </div>
             <div class="khung-chi-tiet-sp">
-
-                <div class="head-chi-tiet-sp">
-                    <h4>[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)</h4>
-                </div>
-
-                <div class="body-chi-tiet-sp">
-                    <div class="anh-sp">
-                        <?php extract($anhsp); ?>
-                        <div  class="anh-chinh">
-                            <a href="img/sanpham/<?php echo $img ?>"><img id="anh-chinh" src="img/sanpham/<?php echo $img ?>" alt=""></a>
-                        </div>
-                        <div id="anh-phu" class="anh-phu">
-                            <ul onclick="">
-                            <?php foreach($loadAllImgSp as $d): ?>
-                                <li><a href="img/sanpham/<?php echo $d['img'] ?>"><img src="img/sanpham/<?php echo $d['img'] ?>" alt=""></a></li>
-                            <?php endforeach; ?>
-                            </ul>
-                        </div>
+                <form action="index.php?act=giohang" method="post">
+                    <!-- tên sản phẩm -->
+                    <input type="hidden" name="tensp" value="[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)">
+                    <!-- giá sản phẩm -->
+                    <input type="hidden" name="giasp" value="<?php echo $giasp ?>">
+                    <input type="hidden" name="giasp2" value="<?php echo $giasp2 ?>">
+                    <!-- số lượng -->
+                    <input type="hidden" name="soluong" value="1">
+                    <!-- total -->
+                    <input type="hidden" name="total" value="<?php echo $giasp ?>">
+                    <!-- id sản phẩm -->
+                    <input type="hidden" name="id_pro" value="<?php echo $id_pro ?>">
+                    <!-- id chi tiết sản phẩm -->
+                    <input type="hidden" name="id_chitiet" value="<?php echo $id_chitiet ?>">
+                    <div class="head-chi-tiet-sp">
+                        <h4 id="ten-san-pham">[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)</h4>
                     </div>
-                    <div class="thong-tin-sp">
-                        <div class="gia-sp">
-                            <p><?php echo $giasp ?> VNĐ</p>
-                        </div>
-                        <div class="bao-hanh">
-                            <p>Bảo hành:</p>
-                            <span>12 tháng LaptopWorld</span>
-                        </div>
-                        <div class="tinh-trang">
-                            <p>Trạng thái:</p>
-                            <span>Còn hàng</span>
-                        </div>
-                        <div class="chi-tiet-cau-hinh">
-                            <a href="#" onclick="mo_fo('chitietcauhinh')">Thông số kĩ thuật</a>
-                        </div>
-                        <div class="khung-cau-hinh">
-                            <b>CẤU HÌNH:</b><br>
-                            <div class="cau-hinh">
-                                <?php
-                                    // lấy id trên URL
-                                    if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
-                                        $id_chitiet = $_GET['id_chitiet'];
-                                    }
-                                ?>
-                                <?php foreach($loadAllSpCt as $e): ?>
-                                <?php
-                                    // so sánh id URL và id chi tiết
-                                    if($id_chitiet == $e['id_chitiet']){ ?>
-                                        <!-- nếu trùng, thêm class act -->
-                                        <div class="tt-cau-hinh act">
-                                            <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
-                                                <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
-                                                <span><?php echo $e['giasp'] ?></span>
-                                            </a>
-                                        </div>
-                                    <?php } else{ ?>
-                                        <div class="tt-cau-hinh">
-                                            <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
-                                                <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
-                                                <span><?php echo $e['giasp'] ?></span>
-                                            </a>
-                                        </div>
-                                    <?php }; ?>
-                                
-                                
+
+                    <div class="body-chi-tiet-sp">
+                        <div class="anh-sp">
+                            <?php extract($anhsp); ?>
+                            <div  class="anh-chinh">
+                                <input type="hidden" name="img_spct" value="<?php echo $img ?>">
+                                <a href="img/sanpham/<?php echo $img ?>"><img id="anh-chinh" src="img/sanpham/<?php echo $img ?>" alt=""></a>
+                            </div>
+                            <div id="anh-phu" class="anh-phu">
+                                <ul onclick="">
+                                <?php foreach($loadAllImgSp as $d): ?>
+                                    <li><a href="img/sanpham/<?php echo $d['img'] ?>"><img src="img/sanpham/<?php echo $d['img'] ?>" alt=""></a></li>
                                 <?php endforeach; ?>
-                                
+                                </ul>
                             </div>
                         </div>
-                        <div class="qua-tang">
-                            <p>✅ Tặng Windows 11 bản quyền theo máy</p>
-                            <p>✅ Miễn phí cân màu màn hình công nghệ cao</p>
-                            <p>✅ Balo thời trang AZ</p>
-                            <p>✅ Chuột không dây + Bàn di cao cấp</p>
-                            <p>✅ Tặng gói cài đặt, bảo dưỡng, vệ sinh máy trọn đời</p>
-                            <p>✅ Tặng Voucher giảm giá cho lần mua tiếp theo</p>
-                            <div class="icon-qua-tang">
-                                <i class="fa-solid fa-gift"></i>
-                                <p>QUÀ TẶNG/KHUYẾN MẠI</p>
+                        <div class="thong-tin-sp">
+                            <div class="gia-sp">
+                                <p id="gia-san-pham"><?php echo $giasp ?> VNĐ</p>
+                            </div>
+                            <div class="bao-hanh">
+                                <p>Bảo hành:</p>
+                                <span>12 tháng LaptopWorld</span>
+                            </div>
+                            <div class="tinh-trang">
+                                <p>Trạng thái:</p>
+                                <span>Còn hàng</span>
+                            </div>
+                            <div class="chi-tiet-cau-hinh">
+                                <a href="#" onclick="mo_fo('chitietcauhinh')">Thông số kĩ thuật</a>
+                            </div>
+                            <div class="khung-cau-hinh">
+                                <b>CẤU HÌNH:</b><br>
+                                <div class="cau-hinh">
+                                    <?php
+                                        // lấy id trên URL
+                                        if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
+                                            $id_chitiet = $_GET['id_chitiet'];
+                                        }
+                                    ?>
+                                    <?php foreach($loadAllSpCt as $e): ?>
+                                    <?php
+                                        // so sánh id URL và id chi tiết
+                                        if($id_chitiet == $e['id_chitiet']){ ?>
+                                            <!-- nếu trùng, thêm class act -->
+                                            <div class="tt-cau-hinh act">
+                                                <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
+                                                    <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
+                                                    <span><?php echo $e['giasp'] ?></span>
+                                                </a>
+                                            </div>
+                                        <?php } else{ ?>
+                                            <div class="tt-cau-hinh">
+                                                <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
+                                                    <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
+                                                    <span><?php echo $e['giasp'] ?></span>
+                                                </a>
+                                            </div>
+                                        <?php }; ?>
+                                    
+                                    
+                                    <?php endforeach; ?>
+                                    
+                                </div>
+                            </div>
+                            <div class="qua-tang">
+                                <p>✅ Tặng Windows 11 bản quyền theo máy</p>
+                                <p>✅ Miễn phí cân màu màn hình công nghệ cao</p>
+                                <p>✅ Balo thời trang AZ</p>
+                                <p>✅ Chuột không dây + Bàn di cao cấp</p>
+                                <p>✅ Tặng gói cài đặt, bảo dưỡng, vệ sinh máy trọn đời</p>
+                                <p>✅ Tặng Voucher giảm giá cho lần mua tiếp theo</p>
+                                <div class="icon-qua-tang">
+                                    <i class="fa-solid fa-gift"></i>
+                                    <p>QUÀ TẶNG/KHUYẾN MẠI</p>
+                                </div>
+                            </div>
+                            <div class="mua-hang">
+                                <button type="submit" name="muaNgay" style="outline:none; border:none; background-color: #ec1c24; color:#fff; font-family: arial, helvetica, sans-serif; font-weight: bold; font-size: 20px;">Mua ngay</button>
+                            </div>
+                            <div class="them-gio-hang">
+                                <button type="submit" name="themVaoGioHang" style="outline:none; border:none; background-color: #2b80dd; color:#fff; font-family: arial, helvetica, sans-serif; font-weight: bold; font-size: 20px;">Thêm vào giỏ hàng</button>
                             </div>
                         </div>
-                        <div class="mua-hang">
-                            <a href="#">Mua ngay</a>
-                        </div>
-                        <div class="them-gio-hang">
-                            <a href="#">Thêm giỏ hàng</a>
-                        </div>
-                    </div>
 
-                    <div class="chinh-sach-sp">
-                        <div class="khung-thong-tin">
-                            <p>YÊN TÂM MUA HÀNG TẠI<b>LAPTOPWORLD</b></p>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>Chất lượng sản phẩm là hàng đầu</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>Dùng test máy 15 ngày đầu lỗi 1 đổi 1</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>Hỗ trợ và hậu mãi sau bán hàng tốt nhất</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>Bảo hành chính hãng</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>Giao hàng miễn phí toàn quốc nhanh nhất</span>
-                                </li>
-                            </ul>
+                        <div class="chinh-sach-sp">
+                            <div class="khung-thong-tin">
+                                <p>YÊN TÂM MUA HÀNG TẠI<b>LAPTOPWORLD</b></p>
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span>Chất lượng sản phẩm là hàng đầu</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span>Dùng test máy 15 ngày đầu lỗi 1 đổi 1</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span>Hỗ trợ và hậu mãi sau bán hàng tốt nhất</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span>Bảo hành chính hãng</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span>Giao hàng miễn phí toàn quốc nhanh nhất</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="khung-thong-tin khung-thong-tin2">
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span>13 P. Trịnh Văn Bô, Xuân Phương</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-phone-volume"></i>
+                                        <span>0925.233.233 <b>(Tư vấn miễn phí)</b></span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <span>minhnthph33626@fpt.edu.vn</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="khung-thong-tin khung-thong-tin2">
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>13 P. Trịnh Văn Bô, Xuân Phương</span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-phone-volume"></i>
-                                    <span>0925.233.233 <b>(Tư vấn miễn phí)</b></span>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <span>minhnthph33626@fpt.edu.vn</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
 
-                </div>
+                    </div>
+                </form>
             </div>
+                
             <div class="khung-dd-kt">
                 <div class="khung-mo-ta">
                     <div class="tieu-de">
@@ -205,67 +226,110 @@
                                 </select>
                             </div>
                         </div>
+                        <!-- khung nguoi dung binh luan -->
+                        <?php if(isset($_SESSION['role']) && ($_SESSION['role']) > 0){ ?>
+                        
                         <div class="binh-luan">
+                            <!-- người dùng bình luận -->
                             <div class="img">
-                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
+                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/<?php echo $_SESSION['img'] ?>" alt="">
                             </div>
                             <div class="noi-dung-bl">
-                                <form action="http://localhost/LaptopWorld/index.php" method="post" oninput="chat()">
+                                <form action="index.php?act=binhluan&id_chitiet=<?php echo $id_chitiet ?>&id_pro=<?php echo $id_pro ?>" method="post" oninput="chat()">
                                     <input id="nd" class="nd" type="text" name="noidung" id="" placeholder="Viết bình luận...">
+                                    <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>">
+                                    <input type="hidden" name="ngaybinhluan" value="<?php echo $real_time ?>">
+                                    <input type="hidden" name="id_pro" value = "<?php echo $id_pro ?>">
                                     <div class="dn-chat">
-                                        <input id="dang" type="submit" value="Đăng" disabled>
+                                        <input id="dang" type="submit" value="Đăng" name="binhluan" disabled>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        <!-- end khung người dùng bình luận  -->
+                        
+                        <?php } else { ?>
+                            <div class="binh-luan">
+                            <!-- người dùng bình luận -->
+                            <div class="noi-dung-bl">
+                                <form action="index.php?act=binhluan&id_chitiet=<?php echo $id_chitiet ?>&id_pro=<?php echo $id_pro ?>" method="post" oninput="chat()">
+                                    <input id="nd" class="nd" type="text" name="noidung" id="" placeholder="Vui lòng đăng nhập để bình luận..." disabled>
+                                </form>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <?php $loadAllBl = loadAllBl($id_pro); ?>
+                        <?php foreach($loadAllBl as $bl): ?>
+                        <!-- bình luận của mọi người  -->
                         <div class="binh-luan">
                             <div class="img">
-                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
+                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/<?php echo $bl['img'] ?>" alt="">
                             </div>
                             <div class="noi-dung-bl">
                                 <div class="ten">
-                                    <p>Hoàng Minh</p>
+                                    <p><?php echo $bl['name'] ?></p>
                                 </div>
                                 <div class="nd-bl">
-                                    <p>LƯU Ý!!! Bài viết và hình ảnh chỉ có tính chất tham khảo vì cấu hình và đặc tính sản phẩm có thể thay đổi theo thị trường và từng phiên bản. Quý khách cần cấu hình + hình ảnh cụ thể vui lòng liên hệ với các tư vấn viên để được trợ giúp.</p>
+                                    <p><?php echo $bl['noidung'] ?></p>
                                 </div>
-                                <div class="ngay-bl">
-                                    <p>13/11/2023</p>
+
+                                <div class="rep-ngay-bl" style="width: 100%; height: auto; display: flex; align-items: center;">
+                                <?php if(isset($_SESSION['role']) && ($_SESSION['role']) > 0){ ?>
+                                    <div class="ngay-bl" style = "display: flex; align-items: center;">
+                                        <input type="button" value="Trả lời" onclick="tra_loi('<?php echo $bl['id_bl'] ?>')" style="font-size: 12px; border: none; outline: none; background: none; font-weight: bold; font-family: inherit; color: #4d4d4d;">
+                                    </div>
+                                <?php } else {} ?>
+                                    <div class="ngay-bl" style="display: flex; align-items: center;">
+                                        <p style="width: auto; height: 100%;"><?php echo $bl['ngaybinhluan'] ?></p>
+                                    </div>
                                 </div>
+                                
+                                <!-- người dùng trả lời bình luận  -->
+                                <div id="rep-com-<?php echo $bl['id_bl'] ?>" class="binh-luan rep-com">
+                                    <!-- người dùng bình luận -->
+                                    <div class="img">
+                                        <img width="40px" height="40px" style="margin-right: 10px;" src="img/<?php echo $_SESSION['img'] ?>" alt="">
+                                    </div>
+                                    <div class="noi-dung-bl">
+                                        <form action="index.php?act=repCom&id_chitiet=<?php echo $id_chitiet ?>&id_pro=<?php echo $id_pro ?>" method="post" oninput="rep_chat('<?php echo $bl['id_bl'] ?>')">
+                                            <input id="rep-nd-<?php echo $bl['id_bl'] ?>" class="nd" type="text" name="noi_dung" placeholder="Trả lời bình luận của <?php echo $bl['name'] ?>...">
+                                            <input type="hidden" name="date" value="<?php echo $real_time ?>">
+                                            <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>">
+                                            <input type="hidden" name="id_bl" value="<?php echo $bl['id_bl'] ?>">
+                                            <div class="dn-chat">
+                                                <input id="rep-dang-<?php echo $bl['id_bl'] ?>" type="submit" name="repCom" value="Đăng" disabled>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- người dùng trả lời bình luận -->
+                                <?php $loadAllRepBl = loadAllRepBl($bl['id_bl']); ?>
+                                <?php foreach($loadAllRepBl as $rep): ?>
+                                <div class="binh-luan">
+                                    <div class="img">
+                                        <img width="40px" height="40px" style="margin-right: 10px;" src="img/<?php echo $rep['img'] ?>" alt="">
+                                    </div>
+                                    <div class="noi-dung-bl">
+                                        <div class="ten">
+                                            <p><?php echo $rep['name'] ?></p>
+                                        </div>
+                                        <div class="nd-bl">
+                                            <p><?php echo $rep['noi_dung'] ?></p>
+                                        </div>
+                                        <div class="rep-ngay-bl" style="width: 100%; height: auto; display: flex; align-items: center;">
+                                            <div class="ngay-bl" style="display: flex; align-items: center;">
+                                                <p style="width: auto; height: 100%;"><?php echo $rep['date'] ?></p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                                <!-- end khung người dùng bình luận  -->
                             </div>
                         </div>
-                        <div class="binh-luan">
-                            <div class="img">
-                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
-                            </div>
-                            <div class="noi-dung-bl">
-                                <div class="ten">
-                                    <p>Hải</p>
-                                </div>
-                                <div class="nd-bl">
-                                    <p>Máy ngon, chất lượng, nhân viên tư vấn nhiệt tình, đã vậy còn được ưu đãi vệ sinh laptop free khi mua máy ở đây. Sẽ tiếp tục ủng hộ</p>
-                                </div>
-                                <div class="ngay-bl">
-                                    <p>12/11/2023</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="binh-luan">
-                            <div class="img">
-                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
-                            </div>
-                            <div class="noi-dung-bl">
-                                <div class="ten">
-                                    <p>Hằng</p>
-                                </div>
-                                <div class="nd-bl">
-                                    <p>Hôm nay là siêu SALE SHOPPEE 11/11</p>
-                                </div>
-                                <div class="ngay-bl">
-                                    <p>11/11/2023</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                        
                     </div>
                 </div>
                 <div class="khung-sp-lq">

@@ -30,12 +30,15 @@
         $sql.= "INSERT INTO chitiet_sanpham(cpu, ram, ssd, giasp, soluong, cardVGA, id_pro, id_dmc) VALUES ('".$cpu."', '".$ram."', '".$ssd."','".$giasp."', '".$soluong."', '".$cardVGA."', @last_id_sp, '".$id_dmc."');"; 
         // thêm ảnh sản phẩm (thêm 1 ảnh)
         $sql.= "INSERT INTO anh_sp(img, id_pro) VALUES ('".$fileName."', @last_id_sp);";
+        //thêm giá sp 2
+        $sql.= "UPDATE chitiet_sanpham SET giasp2 = CAST(REPLACE(giasp, '.', '') AS DOUBLE (10, 2));";
         pdo_execute($sql);
     }
 
     // chức năng Thêm cấu hình sản phẩm
     function themch($cpu, $ram, $ssd, $cardVGA, $giasp, $soluong, $id_pro, $id_dmc){
         $sql= "INSERT INTO chitiet_sanpham(cpu, ram, ssd, giasp, soluong, cardVGA, id_pro, id_dmc) VALUES ('".$cpu."', '".$ram."', '".$ssd."','".$giasp."', '".$soluong."', '".$cardVGA."', '".$id_pro."', '".$id_dmc."');"; 
+        $sql.= "UPDATE chitiet_sanpham SET giasp2 = CAST(REPLACE(giasp, '.', '') AS DOUBLE (10, 2));";
         pdo_execute($sql);
     }
 
@@ -74,6 +77,11 @@
     // Lấy ảnh sản phẩm (ảnh chính)
     function anhsp($id_pro){
         $sql = "SELECT * FROM anh_sp WHERE id_pro = $id_pro ORDER BY id ASC";
+        return pdo_query_one($sql);
+    }
+    // Lấy ảnh sản phẩm (ảnh chính) theo id_giohang
+    function anhsp2($id_giohang){
+        $sql = "SELECT * FROM anh_sp WHERE id_pro IN (SELECT id_pro FROM chitiet_giohang WHERE id_giohang = $id_giohang) ORDER BY id_pro ASC";
         return pdo_query_one($sql);
     }
 
@@ -115,7 +123,7 @@
 
     // Lấy tất cả 3 bảng sanpham anh_sp và chitiet_sanpham
     function loadAllSpIndex(){
-        $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY b.id_chitiet";
+        $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY RAND(b.id_chitiet)";
         // SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY a.id_pro
         return pdo_query($sql);
     }
