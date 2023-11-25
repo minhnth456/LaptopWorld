@@ -287,14 +287,13 @@
 
                         // làm trống giỏ hàng sau khi gửi đơn hàng và tạo hóa đơn
                         delete_ctgiohang($id_giohang);
-
+                        include 'view/donhang_thanhcong.php';
                     } else {
                         // nếu giỏ hàng rỗng
                         include 'view/giohang_trong.php';
                         break;
                     }
                 }
-                include 'view/home.php';
                 break;
             
             //chức năng xóa sản phẩm trong giỏ hàng

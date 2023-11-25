@@ -1840,3 +1840,143 @@ article {
     border-radius: 0px;
     background-color: #2163a9;
 }
+
+/* cập nhập tài khoản */
+
+.capnhap{
+    width: 95%;
+    margin: 20px auto;
+    padding: 10px 15px;
+}
+.tieudecapnhap{
+    background-color: white;
+    padding: 1.125rem 30px
+}
+.tieudecapnhap h1{
+    margin: 10px;
+    font-size: 2.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+    color: #333;
+
+}
+.tieudecapnhap .quanli{
+    margin-top: 10px;
+    font-size: .875rem;
+    line-height: 2.0625rem;
+    color: #555;
+    padding-bottom: 20px;
+    border-bottom: .0625rem solid #2b80dd;
+}
+.khungcapnhap{
+    padding-top: 1.875rem;
+    background-color: white;
+    height: 500px;
+}
+.capnhapphai{    
+    float: left;
+    width: 70%;
+    padding-left: 60px;
+    margin-top: 20px;   
+    
+}
+.capnhapphai form table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.capnhapphai  form table .tieudemuc{
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    overflow: hidden;
+    padding-bottom: 30px;
+    white-space: nowrap;
+    min-width: 20%;
+}
+.capnhapphai form table .thongtin{
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+.capnhapphai form table .thongtin input{
+    padding-left: 5px;
+    width: 500px;
+    height: 34px;
+    border: aliceblue;
+}
+.capnhapphai form table .tenUser{
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+.capnhapphai form table .tenUser input{
+
+    padding-left: 5px;
+    width: 500px;
+    height: 34px;
+}
+.capnhapphai form table .them{
+    border: 0;
+    outline: none;
+    background: none;
+    color: #05a;
+    font-size: 15px;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+.capnhapphai .luu{
+    color: #fff;
+    position: relative;
+    overflow: visible;
+    outline: 0;
+    width: 130px;
+    height: 40px;
+    border: 1px;
+    background: #2d87e8;
+    margin-left: 120px;
+    font-size: large;
+}
+.capnhapphai .luu:hover{
+    background: #2879d0;
+}
+.capnhaptrai{
+    width: 30%;
+    overflow: hidden;
+    border-left: 0.0625rem solid #939292;
+    padding-left: 70px;
+    margin-top: -30px;
+}
+.capnhapphai .khunganh{
+    flex-direction: column;
+}
+.capnhaptrai .anh img{
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    margin-left: 25px;
+}
+.capnhaptrai .chonanh{
+    outline: 0;
+    background: #fff;
+    color: black;
+    border: 1px solid rgba(0,0,0,.09);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.03);
+    position: relative;
+    overflow: visible;
+    width: 90px;
+    height: 40px;
+    margin-left: 55px;
+}
+.capnhaptrai .chonanh:hover{
+    background:  #b4b6b9;
+}
+.capnhaptrai .chuy{
+    margin-top: 0.75rem;
+    display: block;
+    margin-left: 20px;
+}
+.capnhaptrai .chuy .chuy1{
+    color: #999;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
