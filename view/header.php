@@ -39,14 +39,10 @@
                     <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
                     <?php } if(isset($_SESSION['name'])){
                             if(($_SESSION['role'])== 1){ ?>
-                    
                     <div class="dropdown">
                         <button style="width:auto;height:40px;display: flex; align-items: center;"
                             class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
-                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt="" style="border-radius: 25px; width: 100%; height: 100%;">
-                            </div>
                             <div style="text-align: center; margin-right: 5px;">
                                 <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
                             </div>
@@ -62,14 +58,11 @@
 
 
                     </div>
-                    <?php } elseif (($_SESSION['role'])== 2){ ?>
+                    <?php } else{ ?>
                     <div class="dropdown">
                         <button style="width:auto;height:40px;display: flex; align-items: center;"
                             class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
-                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt="" style="border-radius: 25px; width: 100%; height: 100%;">
-                            </div>
                             <div style="text-align: center; margin-right: 5px;">
                                 <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
                             </div>
@@ -93,22 +86,22 @@
                         <form id="dangki" action="index.php?act=dangky" method="post">
                             <h1>Đăng kí</h1>
                             <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập" name="user">
+                                <input type="text" placeholder="Tên đăng nhập" name="user" required>
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="email" placeholder="Email" name="email">
+                                <input type="email" placeholder="Email" name="email" required>
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu" name="pass">
+                                <input type="password" placeholder="Mật khẩu" name="pass" required>
                                 <small></small>
                                 <span></span>
                             </div>
                             <div class="o-input">
-                                <input type="password" placeholder="Nhập lại mật khẩu" name="pass">
+                                <input type="text" placeholder="Địa chỉ" name="address" required>
                                 <small></small>
                                 <span></span>
                             </div>
@@ -144,11 +137,21 @@
                         <button id="closeForm" onclick="dong_fo(event)"><i class="fa-solid fa-x"></i></button>
                     </div>
                 </div>
+                <?php
+                   if(isset($_SESSION['id_user'])&&$_SESSION['id_user'] != ""){
+                ?>
                 <div class="gio-hang mgl-5">
                     <i class="fa-solid fa-cart-shopping"></i><br />
-                    <a href="index.php?act=giohang" onclick="in_gio_hang()">Giỏ hàng</a><br />
-                    <span class="so-luong-gio-hang"><?php if(isset($_SESSION['slgh'])){echo $_SESSION['slgh'];}else{echo '0';}  ?></span>
+                    <a href="index.php?act=updateCart">Giỏ hàng</a><br />
+                    <span class="so-luong-gio-hang">0</span>
                 </div>
+                <?php } else{ ?>
+                <div class="gio-hang mgl-5">
+                    <i class="fa-solid fa-cart-shopping"></i><br />
+                    <a href="">Giỏ hàng</a><br />
+                    <span class="so-luong-gio-hang">0</span>
+                </div>
+                <?php } ?>
             </div>
             <!-- end menu1 -->
 

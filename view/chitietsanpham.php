@@ -1,10 +1,5 @@
         <!-- start article -->
         <article>
-        <?php
-            date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $current_time_in_vietnam = new DateTime();
-            $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
-        ?>
             <?php extract($loadOneSpCt); ?>
             <div class="lop-phu2" id="lop-phu2" onclick="dong_fo(event)">
                 <div id="khung-thong-so-ki-thuat" class="khung-thong-so-ki-thuat">
@@ -36,42 +31,37 @@
                 </div>
             </div>
             <div class="khung-chi-tiet-sp">
-                <form action="index.php?act=giohang" method="post">
-                    <!-- tên sản phẩm -->
-                    <input type="hidden" name="tensp" value="[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)">
-                    <!-- giá sản phẩm -->
-                    <input type="hidden" name="giasp" value="<?php echo $giasp ?>">
-                    <input type="hidden" name="giasp2" value="<?php echo $giasp2 ?>">
-                    <!-- số lượng -->
-                    <input type="hidden" name="soluong" value="1">
-                    <!-- total -->
-                    <input type="hidden" name="total" value="<?php echo $giasp ?>">
-                    <!-- id sản phẩm -->
-                    <input type="hidden" name="id_pro" value="<?php echo $id_pro ?>">
-                    <!-- id chi tiết sản phẩm -->
-                    <input type="hidden" name="id_chitiet" value="<?php echo $id_chitiet ?>">
+                <form action="index.php?act=add_cart" method="post">
                     <div class="head-chi-tiet-sp">
-                        <h4 id="ten-san-pham">[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)</h4>
+                        <input type="hidden" name="tensp" value="[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>,
+                            <?php echo $ssd ?>,
+                            <?php echo $cardVGA ?>)">
+                        <h4>[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>,
+                            <?php echo $ssd ?>,
+                            <?php echo $cardVGA ?>)</h4>
                     </div>
 
                     <div class="body-chi-tiet-sp">
                         <div class="anh-sp">
                             <?php extract($anhsp); ?>
-                            <div  class="anh-chinh">
-                                <input type="hidden" name="img_spct" value="<?php echo $img ?>">
-                                <a href="img/sanpham/<?php echo $img ?>"><img id="anh-chinh" src="img/sanpham/<?php echo $img ?>" alt=""></a>
+                            <div class="anh-chinh">
+                                <input type="hidden" value="img/sanpham/<?php echo $img ?>" name="img">
+                                <a href="img/sanpham/<?php echo $img ?>"><img id="anh-chinh"
+                                        src="img/sanpham/<?php echo $img ?>" alt=""></a>
                             </div>
                             <div id="anh-phu" class="anh-phu">
                                 <ul onclick="">
-                                <?php foreach($loadAllImgSp as $d): ?>
-                                    <li><a href="img/sanpham/<?php echo $d['img'] ?>"><img src="img/sanpham/<?php echo $d['img'] ?>" alt=""></a></li>
-                                <?php endforeach; ?>
+                                    <?php foreach($loadAllImgSp as $d): ?>
+                                    <li><a href="img/sanpham/<?php echo $d['img'] ?>"><img
+                                                src="img/sanpham/<?php echo $d['img'] ?>" alt=""></a></li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </div>
                         <div class="thong-tin-sp">
                             <div class="gia-sp">
-                                <p id="gia-san-pham"><?php echo $giasp ?> VNĐ</p>
+                                <input type="hidden" name="giasp" value="<?php echo $giasp ?>">
+                                <p><?php echo $giasp ?> VNĐ</p>
                             </div>
                             <div class="bao-hanh">
                                 <p>Bảo hành:</p>
@@ -80,6 +70,7 @@
                             <div class="tinh-trang">
                                 <p>Trạng thái:</p>
                                 <span>Còn hàng</span>
+                                <input type="hidden" name="soluong" value="1">
                             </div>
                             <div class="chi-tiet-cau-hinh">
                                 <a href="#" onclick="mo_fo('chitietcauhinh')">Thông số kĩ thuật</a>
@@ -88,34 +79,54 @@
                                 <b>CẤU HÌNH:</b><br>
                                 <div class="cau-hinh">
                                     <?php
-                                        // lấy id trên URL
-                                        if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
-                                            $id_chitiet = $_GET['id_chitiet'];
-                                        }
-                                    ?>
+                                    // lấy id trên URL
+                                    if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
+                                        $id_chitiet = $_GET['id_chitiet'];
+                                    }
+                                ?>
                                     <?php foreach($loadAllSpCt as $e): ?>
                                     <?php
-                                        // so sánh id URL và id chi tiết
-                                        if($id_chitiet == $e['id_chitiet']){ ?>
-                                            <!-- nếu trùng, thêm class act -->
-                                            <div class="tt-cau-hinh act">
-                                                <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
-                                                    <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
-                                                    <span><?php echo $e['giasp'] ?></span>
-                                                </a>
-                                            </div>
-                                        <?php } else{ ?>
-                                            <div class="tt-cau-hinh">
-                                                <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
-                                                    <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>, <?php echo $e['ssd'] ?>, <?php echo $e['cardVGA'] ?></p>
-                                                    <span><?php echo $e['giasp'] ?></span>
-                                                </a>
-                                            </div>
-                                        <?php }; ?>
-                                    
-                                    
+                                    // so sánh id URL và id chi tiết
+                                    if($id_chitiet == $e['id_chitiet']){ ?>
+                                    <!-- nếu trùng, thêm class act -->
+                                    <div class="tt-cau-hinh act">
+                                        <input type="hidden" name="id_pro" value="<?php echo $e['id_pro']; ?>">
+                                        <?php if(isset($_GET['id_chitiet'])&&$_GET['id_chitiet'] != ""){
+                                                  $id_chitiet = $_GET['id_chitiet'];
+                                            ?>
+                                        <input type="hidden" name="id_ctiet" value="<?php echo $id_chitiet ?>">
+                                        <?php } ?>
+                                        <?php 
+                                        if(isset($_SESSION['id_user']) && $_SESSION['id_user'] != ""){
+                                            $id_user = $_SESSION['id_user'];
+                                        
+                                            ?>
+                                        <input type="hidden" name="id_user" value="<?php echo $id_user ?>">
+                                        <?php } ?>
+
+                                        <a
+                                            href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
+                                            <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>,
+                                                <?php echo $e['ssd'] ?>,
+                                                <?php echo $e['cardVGA'] ?></p>
+                                            <span><?php echo $e['giasp'] ?></span>
+                                        </a>
+                                    </div>
+                                    <?php } else{ ?>
+                                    <div class="tt-cau-hinh">
+                                        <a
+                                            href="index.php?act=chitietsanpham&id_chitiet=<?php echo $e['id_chitiet']; ?>&id_pro=<?php echo $e['id_pro']; ?>">
+                                            <p><?php echo $e['cpu'] ?>, <?php echo $e['ram'] ?>,
+                                                <?php echo $e['ssd'] ?>,
+                                                <?php echo $e['cardVGA'] ?></p>
+                                            <span><?php echo $e['giasp'] ?></span>
+                                        </a>
+                                    </div>
+                                    <?php }; ?>
+
+
                                     <?php endforeach; ?>
-                                    
+
                                 </div>
                             </div>
                             <div class="qua-tang">
@@ -131,10 +142,20 @@
                                 </div>
                             </div>
                             <div class="mua-hang">
-                                <button type="submit" name="muaNgay" style="outline:none; border:none; background-color: #ec1c24; color:#fff; font-family: arial, helvetica, sans-serif; font-weight: bold; font-size: 20px;">Mua ngay</button>
+                                <?php 
+                             if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) != ""){
+                                $id_chitiet = $_GET['id_chitiet'];
+                            }
+                            if(isset($_GET['id_pro']) && ($_GET['id_pro']) != ""){
+                                $id_pro = $_GET['id_pro'];
+                            }
+                            ?>
+                                <a href="index.php?act=add_cart&id_pro=<?php echo $id_pro ?>"><button name="muahang">Mua
+                                        ngay</button></a>
+
                             </div>
                             <div class="them-gio-hang">
-                                <button type="submit" name="themVaoGioHang" style="outline:none; border:none; background-color: #2b80dd; color:#fff; font-family: arial, helvetica, sans-serif; font-weight: bold; font-size: 20px;">Thêm vào giỏ hàng</button>
+                                <a href="#">Thêm giỏ hàng</a>
                             </div>
                         </div>
 
@@ -183,9 +204,8 @@
                         </div>
 
                     </div>
-                </form>
             </div>
-                
+            </form>
             <div class="khung-dd-kt">
                 <div class="khung-mo-ta">
                     <div class="tieu-de">
@@ -193,27 +213,52 @@
                     </div>
                     <div class="mo-ta">
                         <h3>Laptop Acer hướng đến đối tượng nào?</h3>
-                        <p>Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro 5 có gì đáng được mong chờ nào.</p>
+                        <p>Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ
+                            CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất
+                            đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro
+                            5 có gì đáng được mong chờ nào.</p>
                         <img src="img/sanpham/anhsp1.jpg" alt="">
                         <h3>THIẾT KẾ</h3>
-                        <p>Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro 5 có gì đáng được mong chờ nào.</p>
+                        <p>Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ
+                            CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất
+                            đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro
+                            5 có gì đáng được mong chờ nào.</p>
                         <img src="img/sanpham/anhsp2.jpg" alt="">
                         <h3>HIỆU NĂNG MẠNH MẼ</h3>
-                        <p>Acer Nitro 5 AN515-58 là lựa chọn tuyệt vời cho mọi tựa game nặng hiện nay. Chiếc laptop gaming này được trang bị bộ vi xử lý mới nhất, sản xuất trên kiến trúc Intel Alder Lake với các lõi P hỗ trợ siêu phân luồng còn hiệu suất lõi E tương tự như các lõi Skylake thế hệ trước. Kiến trúc mới này giúp tăng hiệu suất sử dụng, xử lý mọi tác vụ đơn nhân và đa nhân cực khỏe.
+                        <p>Acer Nitro 5 AN515-58 là lựa chọn tuyệt vời cho mọi tựa game nặng hiện nay. Chiếc laptop
+                            gaming này được trang bị bộ vi xử lý mới nhất, sản xuất trên kiến trúc Intel Alder Lake với
+                            các lõi P hỗ trợ siêu phân luồng còn hiệu suất lõi E tương tự như các lõi Skylake thế hệ
+                            trước. Kiến trúc mới này giúp tăng hiệu suất sử dụng, xử lý mọi tác vụ đơn nhân và đa nhân
+                            cực khỏe.
 
-                            Cụ thể chiếc laptop này sở hữu sức mạnh đến từ bộ vi xử lý Intel Core i5 12500H với 12 nhân 16 luồng, xung nhịp giao động từ 3.30 GHz đến 4.50 GHz cực khỏe cho phép bạn có thể thoải mái phát trực tuyến, chơi game, đồ họa siêu mượt mà.</p>
+                            Cụ thể chiếc laptop này sở hữu sức mạnh đến từ bộ vi xử lý Intel Core i5 12500H với 12 nhân
+                            16 luồng, xung nhịp giao động từ 3.30 GHz đến 4.50 GHz cực khỏe cho phép bạn có thể thoải
+                            mái phát trực tuyến, chơi game, đồ họa siêu mượt mà.</p>
                         <img src="img/sanpham/anhsp3.jpg" alt="">
                         <h3>TẢN NHIỆT MẠNH MẼ</h3>
-                        <p>Một điểm nữa mà Acer tự hào đó là hệ thống tản nhiệt trang bị trên Nitro 5 AN515-58 (7100 vòng trên phút). Quạt to, mạnh và tất nhiên rồi, mát vô cùng. Đây sẽ là sự lựa chọn tuyệt vời dành cho Game thủ thích quạt to và máy mát. 
+                        <p>Một điểm nữa mà Acer tự hào đó là hệ thống tản nhiệt trang bị trên Nitro 5 AN515-58 (7100
+                            vòng trên phút). Quạt to, mạnh và tất nhiên rồi, mát vô cùng. Đây sẽ là sự lựa chọn tuyệt
+                            vời dành cho Game thủ thích quạt to và máy mát.
 
-                            Khung gầm của Acer Nitro 5 AN515-58 được tinh chỉnh thoáng hơn, 2 quạt tản đi kèm với công nghệ Acer CoolBoost™ giúp tăng 10% tốc độ quạt. Giảm nhiệt độ CPU/GPU thêm 9%. Phần mềm Nitro Sense chủ động theo dõi nhiệt độ, điều chỉnh tốc độ quạt. So với phiên bản trước khả năng tản nhiệt tốt hơn 25%. Thiết kế tản nhiệt mới với 4 khe hút gió/thoát nhiệt thông minh.
-                            
-                            Với sự cải tiến cả về hệ thống làm mát, chiếc laptop Acer Nitro 5 AN515-58 này luôn giữ vị trí vô địch trong "làng tản nhiệt" với nhiệt độ mát mẻ, kể cả ở những tác vụ nặng. Điều này sẽ giúp cho hiệu suất máy được duy trì ổn định, luôn tạo cảm giác thoải mái khi làm việc, chơi game của các game thủ.</p>
+                            Khung gầm của Acer Nitro 5 AN515-58 được tinh chỉnh thoáng hơn, 2 quạt tản đi kèm với công
+                            nghệ Acer CoolBoost™ giúp tăng 10% tốc độ quạt. Giảm nhiệt độ CPU/GPU thêm 9%. Phần mềm
+                            Nitro Sense chủ động theo dõi nhiệt độ, điều chỉnh tốc độ quạt. So với phiên bản trước khả
+                            năng tản nhiệt tốt hơn 25%. Thiết kế tản nhiệt mới với 4 khe hút gió/thoát nhiệt thông minh.
+
+                            Với sự cải tiến cả về hệ thống làm mát, chiếc laptop Acer Nitro 5 AN515-58 này luôn giữ vị
+                            trí vô địch trong "làng tản nhiệt" với nhiệt độ mát mẻ, kể cả ở những tác vụ nặng. Điều này
+                            sẽ giúp cho hiệu suất máy được duy trì ổn định, luôn tạo cảm giác thoải mái khi làm việc,
+                            chơi game của các game thủ.</p>
                         <img src="img/sanpham/anhsp4.jpg" alt="">
                         <h3>KẾT LUẬN:</h3>
-                        <p>Acer Nitro 5 AN515-58 là một sản phẩm gaming phổ thông đáng mua. Ưu điểm lớn nhất của sản phẩm này là hệ thống tản nhiệt đồ sộ, tốc độ quạt gió lớn, thiết kế hầm hố, phù hợp với những game thủ cá tính mạnh. Anh em có thể chơi các tựa game phổ thông như League of Legends, Shadow of Tomb Raider hay là Valorant… vô cùng mượt mà. </p>
+                        <p>Acer Nitro 5 AN515-58 là một sản phẩm gaming phổ thông đáng mua. Ưu điểm lớn nhất của sản
+                            phẩm này là hệ thống tản nhiệt đồ sộ, tốc độ quạt gió lớn, thiết kế hầm hố, phù hợp với
+                            những game thủ cá tính mạnh. Anh em có thể chơi các tựa game phổ thông như League of
+                            Legends, Shadow of Tomb Raider hay là Valorant… vô cùng mượt mà. </p>
                         <h5>LƯU Ý!</h3>
-                        <p style="font-style: italic;">Bài viết và hình ảnh chỉ có tính chất tham khảo vì cấu hình và đặc tính sản phẩm có thể thay đổi theo thị trường và từng phiên bản. Quý khách cần cấu hình + hình ảnh cụ thể vui lòng liên hệ với các tư vấn viên để được trợ giúp.</p>
+                            <p style="font-style: italic;">Bài viết và hình ảnh chỉ có tính chất tham khảo vì cấu hình
+                                và đặc tính sản phẩm có thể thay đổi theo thị trường và từng phiên bản. Quý khách cần
+                                cấu hình + hình ảnh cụ thể vui lòng liên hệ với các tư vấn viên để được trợ giúp.</p>
                     </div>
                     <div class="khung-binh-luan">
                         <div class="so-bl">
@@ -226,110 +271,72 @@
                                 </select>
                             </div>
                         </div>
-                        <!-- khung nguoi dung binh luan -->
-                        <?php if(isset($_SESSION['role']) && ($_SESSION['role']) > 0){ ?>
-                        
                         <div class="binh-luan">
-                            <!-- người dùng bình luận -->
                             <div class="img">
-                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/<?php echo $_SESSION['img'] ?>" alt="">
+                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
                             </div>
                             <div class="noi-dung-bl">
-                                <form action="index.php?act=binhluan&id_chitiet=<?php echo $id_chitiet ?>&id_pro=<?php echo $id_pro ?>" method="post" oninput="chat()">
-                                    <input id="nd" class="nd" type="text" name="noidung" id="" placeholder="Viết bình luận...">
-                                    <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>">
-                                    <input type="hidden" name="ngaybinhluan" value="<?php echo $real_time ?>">
-                                    <input type="hidden" name="id_pro" value = "<?php echo $id_pro ?>">
+                                <form action="http://localhost/LaptopWorld/index.php" method="post" oninput="chat()">
+                                    <input id="nd" class="nd" type="text" name="noidung" id=""
+                                        placeholder="Viết bình luận...">
                                     <div class="dn-chat">
-                                        <input id="dang" type="submit" value="Đăng" name="binhluan" disabled>
+                                        <input id="dang" type="submit" value="Đăng" disabled>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <!-- end khung người dùng bình luận  -->
-                        
-                        <?php } else { ?>
-                            <div class="binh-luan">
-                            <!-- người dùng bình luận -->
-                            <div class="noi-dung-bl">
-                                <form action="index.php?act=binhluan&id_chitiet=<?php echo $id_chitiet ?>&id_pro=<?php echo $id_pro ?>" method="post" oninput="chat()">
-                                    <input id="nd" class="nd" type="text" name="noidung" id="" placeholder="Vui lòng đăng nhập để bình luận..." disabled>
-                                </form>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <?php $loadAllBl = loadAllBl($id_pro); ?>
-                        <?php foreach($loadAllBl as $bl): ?>
-                        <!-- bình luận của mọi người  -->
                         <div class="binh-luan">
                             <div class="img">
-                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/<?php echo $bl['img'] ?>" alt="">
+                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
                             </div>
                             <div class="noi-dung-bl">
                                 <div class="ten">
-                                    <p><?php echo $bl['name'] ?></p>
+                                    <p>Hoàng Minh</p>
                                 </div>
                                 <div class="nd-bl">
-                                    <p><?php echo $bl['noidung'] ?></p>
+                                    <p>LƯU Ý!!! Bài viết và hình ảnh chỉ có tính chất tham khảo vì cấu hình và đặc tính
+                                        sản phẩm có thể thay đổi theo thị trường và từng phiên bản. Quý khách cần cấu
+                                        hình + hình ảnh cụ thể vui lòng liên hệ với các tư vấn viên để được trợ giúp.
+                                    </p>
                                 </div>
-
-                                <div class="rep-ngay-bl" style="width: 100%; height: auto; display: flex; align-items: center;">
-                                <?php if(isset($_SESSION['role']) && ($_SESSION['role']) > 0){ ?>
-                                    <div class="ngay-bl" style = "display: flex; align-items: center;">
-                                        <input type="button" value="Trả lời" onclick="tra_loi('<?php echo $bl['id_bl'] ?>')" style="font-size: 12px; border: none; outline: none; background: none; font-weight: bold; font-family: inherit; color: #4d4d4d;">
-                                    </div>
-                                <?php } else {} ?>
-                                    <div class="ngay-bl" style="display: flex; align-items: center;">
-                                        <p style="width: auto; height: 100%;"><?php echo $bl['ngaybinhluan'] ?></p>
-                                    </div>
+                                <div class="ngay-bl">
+                                    <p>13/11/2023</p>
                                 </div>
-                                
-                                <!-- người dùng trả lời bình luận  -->
-                                <div id="rep-com-<?php echo $bl['id_bl'] ?>" class="binh-luan rep-com">
-                                    <!-- người dùng bình luận -->
-                                    <div class="img">
-                                        <img width="40px" height="40px" style="margin-right: 10px;" src="img/<?php echo $_SESSION['img'] ?>" alt="">
-                                    </div>
-                                    <div class="noi-dung-bl">
-                                        <form action="index.php?act=repCom&id_chitiet=<?php echo $id_chitiet ?>&id_pro=<?php echo $id_pro ?>" method="post" oninput="rep_chat('<?php echo $bl['id_bl'] ?>')">
-                                            <input id="rep-nd-<?php echo $bl['id_bl'] ?>" class="nd" type="text" name="noi_dung" placeholder="Trả lời bình luận của <?php echo $bl['name'] ?>...">
-                                            <input type="hidden" name="date" value="<?php echo $real_time ?>">
-                                            <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>">
-                                            <input type="hidden" name="id_bl" value="<?php echo $bl['id_bl'] ?>">
-                                            <div class="dn-chat">
-                                                <input id="rep-dang-<?php echo $bl['id_bl'] ?>" type="submit" name="repCom" value="Đăng" disabled>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- người dùng trả lời bình luận -->
-                                <?php $loadAllRepBl = loadAllRepBl($bl['id_bl']); ?>
-                                <?php foreach($loadAllRepBl as $rep): ?>
-                                <div class="binh-luan">
-                                    <div class="img">
-                                        <img width="40px" height="40px" style="margin-right: 10px;" src="img/<?php echo $rep['img'] ?>" alt="">
-                                    </div>
-                                    <div class="noi-dung-bl">
-                                        <div class="ten">
-                                            <p><?php echo $rep['name'] ?></p>
-                                        </div>
-                                        <div class="nd-bl">
-                                            <p><?php echo $rep['noi_dung'] ?></p>
-                                        </div>
-                                        <div class="rep-ngay-bl" style="width: 100%; height: auto; display: flex; align-items: center;">
-                                            <div class="ngay-bl" style="display: flex; align-items: center;">
-                                                <p style="width: auto; height: 100%;"><?php echo $rep['date'] ?></p>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                                <!-- end khung người dùng bình luận  -->
                             </div>
                         </div>
-                        <?php endforeach; ?>
-                        
+                        <div class="binh-luan">
+                            <div class="img">
+                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
+                            </div>
+                            <div class="noi-dung-bl">
+                                <div class="ten">
+                                    <p>Hải</p>
+                                </div>
+                                <div class="nd-bl">
+                                    <p>Máy ngon, chất lượng, nhân viên tư vấn nhiệt tình, đã vậy còn được ưu đãi vệ sinh
+                                        laptop free khi mua máy ở đây. Sẽ tiếp tục ủng hộ</p>
+                                </div>
+                                <div class="ngay-bl">
+                                    <p>12/11/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="binh-luan">
+                            <div class="img">
+                                <img width="50px" height="50px" style="margin-right: 10px;" src="img/user.png" alt="">
+                            </div>
+                            <div class="noi-dung-bl">
+                                <div class="ten">
+                                    <p>Hằng</p>
+                                </div>
+                                <div class="nd-bl">
+                                    <p>Hôm nay là siêu SALE SHOPPEE 11/11</p>
+                                </div>
+                                <div class="ngay-bl">
+                                    <p>11/11/2023</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="khung-sp-lq">

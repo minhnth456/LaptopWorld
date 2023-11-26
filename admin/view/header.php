@@ -160,19 +160,6 @@
                             </li>
                         </ul>
                     </div>
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Đơn hàng
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="index.php?act=donhang">Danh sách</a>
-                            </li>
-                        </ul>
-                    </div>
-
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -184,7 +171,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">

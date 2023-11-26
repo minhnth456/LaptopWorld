@@ -6,7 +6,6 @@
     include 'model/sanpham/sanpham.php';
     include 'model/user/user.php';
     include 'model/giohang/giohang.php';
-    include 'model/binhluan.php';
     include 'view/header.php';
     if(isset($_GET['act']) && ($_GET['act'])){
         $act = $_GET['act'];
@@ -30,8 +29,7 @@
                 break;  
             case 'dangnhap':
                 if(isset($_POST['dangnhap'])){
-                    $thongbao = dangnhap($_POST['user'], $_POST['pass']);
-                 
+                 $thongbao = dangnhap($_POST['user'], $_POST['pass']);
                 }
                 header('location: index.php');
                 break; 
@@ -41,284 +39,54 @@
                 break; 
             case 'dangky':
                 if(isset($_POST['dangkytk'])){
-                dangky($_POST['user'],$_POST['email'],$_POST['pass']);
+                dangky($_POST['user'],$_POST['email'],$_POST['pass'],$_POST['address']);
                 }
                 include 'view/home.php';
                 break;
-
-            // chức năng bình luận
-            case 'binhluan':
-                if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) > 0){
-                    $id_chitiet = $_GET['id_chitiet'];
-                }
-
-                if(isset($_GET['id_pro']) && ($_GET['id_pro']) > 0){
-                    $id_pro = $_GET['id_pro'];
-                }
-
-                if(isset($_POST['binhluan'])){
-                    $id_user = $_POST['id_user'];
-                    $ngaybinhluan = $_POST['ngaybinhluan'];
-                    $id_pro = $_POST['id_pro'];
-                    $noidung = $_POST['noidung'];
-                    binhluan($noidung, $id_pro, $ngaybinhluan, $id_user);
-                    header('location: index.php?act=chitietsanpham&id_chitiet='.$id_chitiet.'&id_pro='.$id_pro);
-                }
-
-            // chức năng trả lời bình luận
-            case 'repCom':
-                if(isset($_GET['id_chitiet']) && ($_GET['id_chitiet']) > 0){
-                    $id_chitiet = $_GET['id_chitiet'];
-                }
-
-                if(isset($_GET['id_pro']) && ($_GET['id_pro']) > 0){
-                    $id_pro = $_GET['id_pro'];
-                }
-
-                if(isset($_POST['repCom'])){
-                    $noi_dung = $_POST['noi_dung'];
-                    $date = $_POST['date'];
-                    $id_user = $_POST['id_user'];
-                    $id_bl = $_POST['id_bl'];
-                    repCom($noi_dung, $date, $id_user, $id_bl);
-                    header('location: index.php?act=chitietsanpham&id_chitiet='.$id_chitiet.'&id_pro='.$id_pro);
-                }
-                break;
-
-            // hiển thị trang giỏ hàng
-            case 'giohang':
-                if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){
-                    //check id user
-                    $id_user = $_SESSION['id_user'];
-                    //check giỏ hàng
-                    $check_giohang = check_giohang($id_user);
-                    if(empty($check_giohang)){
-                        // ko có thì tạo
-                        tao_giohang($id_user);
-                    } else {
-                        // có rồi thì thôi
-                    }
-                } else {
-                    // tạo tài khoản và lấy id_clone của tài khoản
-                    $id_clone = taotk_clone();
-                    
-                    //id_user cua acc clone
-                    $get_id_user = taotk($id_clone);
-                    $_SESSION['id_user'] = $get_id_user;
-                    $id_user = $_SESSION['id_user'];
-                    
-                    $check_giohang = check_giohang($id_user);
-                    if(empty($check_giohang)){
-                        // ko có thì tạo
-                        tao_giohang($id_user);
-                    } else {
-                        // có rồi thì thôi
-                    }
-                }
-
-                // lấy id_giohang
-                $lay_id_giohang = id_giohang($id_user);
-                $id_giohang = $lay_id_giohang[0]['id_giohang'];
-
-                if(isset($_POST['muaNgay'])){
-                    $img_spct = $_POST['img_spct'];
+            case 'add_cart':
+                if(isset($_POST['muahang'])){
                     $tensp = $_POST['tensp'];
+                    $id_chitiet = $_POST['id_ctiet'];
+                    $id_user = $_POST['id_user'];
+                    $img = $_POST['img'];
                     $giasp = $_POST['giasp'];
-                    $giasp2 = $_POST['giasp2'];
                     $soluong = $_POST['soluong'];
-                    $total = $_POST['total'];
                     $id_pro = $_POST['id_pro'];
-                    $id_chitiet = $_POST['id_chitiet'];
-                    // $id_giohang = id_giohang($id_user);
-                    
-                    //kiểm tra sản phẩm trùng lặp trong giỏ hàng
-                    $check_sanpham = check_sanpham($id_chitiet,$id_giohang);
-                    if(empty($check_sanpham)){
-                        //sản phẩm ko trùng -> thêm vào giỏ hàng
-                        them_giohang($img_spct, $tensp, $giasp, $giasp2, $soluong, $total, $id_pro, $id_chitiet, $id_giohang);
-                    } else {
-                        //sản phẩm trùng -> số lượng + 1
-                        them_soluong_sanpham($id_chitiet);
-                    }
-                    // đếm số lượng sản phẩm trong giỏ hàng
-                    $lay_soluong_spgh = soluong_spgh($id_giohang);
-                    foreach ($lay_soluong_spgh as $a):
-                    $soluong_spgh = $a['id_ctgiohang'];
-                    endforeach;
-                    
-                    // lấy total của từng sản phẩm trong giỏ hàng
-                    $allTotal = allTotal($id_giohang);
-                    $tongtien = 0;
-
-                    // dùng vòng lăp for để tính tổng tiền tất cả sp trong giỏ hàng
-                    for ($i = 0; $i < $soluong_spgh; $i++) {
-                        $tong = 0;
-                        $total = $allTotal[$i]['total'];
-                        $tong = $tong + $total;
-                        $tongtien = $tongtien + $tong;
-                    }
-                    tongtien($tongtien, $id_giohang);
-
+                    $total = $_POST['giasp'];
+                    add_cart($id_user, $tensp, $img, $giasp, $soluong, $total, $id_pro,$id_chitiet);
                 }
-
-                //lấy tất cả thông tin trong chitiet_giohang theo id_giohang
-                $loadAllGioHangCT = loadAllGioHangCT($id_giohang);
                 include 'view/cart.php';
                 break;
-            
-            
-            //cập nhật số lượng và giá tiền trong giỏ hàng
-            case'capnhatgiohang':
-                //người dùng nhấn tiếp tục mua
-                if(isset($_POST['capnhatgiohang'])){
-                    // lấy id_user
-                    if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){
-                        $id_user = $_SESSION['id_user'];
-                    }
-                    // lấy id_giohang
-                    $lay_id_giohang = id_giohang($id_user);
-                    $id_giohang = $lay_id_giohang[0]['id_giohang'];
-                    
-                    // đếm số lượng sản phẩm trong giỏ hàng
-                    $lay_soluong_spgh = soluong_spgh($id_giohang);
-                    foreach ($lay_soluong_spgh as $a):
-                    $soluong_spgh = $a['id_ctgiohang'];
-                    $_SESSION['slgh'] = $a['id_ctgiohang'];
-                    endforeach;
-                    // cập nhật số lượng và giá tiền theo số lượng
-                    for ($i = 0; $i < $soluong_spgh; $i++){
-                        $soluong = $_POST['quantity_'.$i];
-                        $id_ctgiohang = $_POST['id_ctgiohang_'.$i];
-                        capnhatgiohang($soluong, $id_ctgiohang);
-                    }
-
-                    // lấy total của từng sản phẩm trong giỏ hàng
-                    $allTotal = allTotal($id_giohang);
-                    $tongtien = 0;
-
-                    // dùng vòng lăp for để tính tổng tiền tất cả sp trong giỏ hàng
-                    for ($i = 0; $i < $soluong_spgh; $i++) {
-                        $tong = 0;
-                        $total = $allTotal[$i]['total'];
-                        $tong = $tong + $total;
-                        $tongtien = $tongtien + $tong;
-                    }
-                    tongtien($tongtien, $id_giohang);
-
-
+            case 'updateCart':
+                if(isset($_POST['submit'])){
+                    $giasp = $_POST['giasp'];
+                    $soluong = $_POST['quantily'];
+                    $id_cart = $_POST['id_cart'];
+                    upload_cart($giasp,$soluong,$id_cart);
                 }
+                include 'view/cart.php';
 
+                break; 
+            case 'oder_sp':
                 if(isset($_POST['guidonhang'])){
-                    if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){
-                        $id_user = $_SESSION['id_user'];
+                    $nn_name = $_POST['name'];
+                    $id_user = $_POST['id_user'];
+                    $nn_tel = $_POST['sdt'];
+                    $nn_address = $_POST['diachi'];
+                    $phuong_thuc_tt = $_POST['COD'];
+                    $tong_tien = $_POST['tong_tien'];
+                    $id_ctgiohang = $_POST['id_chitiet_gh'] ?? null; 
+                    // var_dump($id_ctgiohang);
+                    if(!empty($id_ctgiohang)) {
+                     $id_ctgiohang = $_POST['id_chitiet_gh'];  
+                     $odder = add_to_order($id_user, $nn_name, $nn_address, $nn_tel, $phuong_thuc_tt, $tong_tien, $id_ctgiohang);
+                     xoa_giohang($id_user);
+                     include 'view/donhang.php';
                     }
-                    $nn_name = $_POST['nn_name'];
-                    $nn_address = $_POST['nn_address'];
-                    $nn_tel = $_POST['nn_tel'];
-                    $nn_email = $_POST['nn_email'];
-                    if(isset($_POST['COD'])){
-                        $pttt = 1;
-                    }
-                    $date = $_POST['date'];
-                    $ghichu = $_POST['ghichu'];
-
-                    // cập nhật giỏ hàng trc khi gửi đơn hàng
-                    // lấy id_giohang
-                    $lay_id_giohang = id_giohang($id_user);
-                    $id_giohang = $lay_id_giohang[0]['id_giohang'];
-                    
-                    // đếm số lượng sản phẩm trong giỏ hàng
-                    $lay_soluong_spgh = soluong_spgh($id_giohang);
-                    foreach ($lay_soluong_spgh as $a):
-                    $soluong_spgh = $a['id_ctgiohang'];
-                    $_SESSION['slgh'] = $a['id_ctgiohang'];
-                    endforeach;
-
-                    // nếu trong giỏ hàng ko rỗng
-                    if($soluong_spgh > 0){
-                        // cập nhật số lượng và giá tiền theo số lượng
-                        for ($i = 0; $i < $soluong_spgh; $i++){
-                            $soluong = $_POST['quantity_'.$i];
-                            $id_ctgiohang = $_POST['id_ctgiohang_'.$i];
-                            capnhatgiohang($soluong, $id_ctgiohang);
-                        }
-
-                        // lấy total của từng sản phẩm trong giỏ hàng
-                        $allTotal = allTotal($id_giohang);
-                        $tongtien = 0;
-
-                        // dùng vòng lăp for để tính tổng tiền tất cả sp trong giỏ hàng
-                        for ($i = 0; $i < $soluong_spgh; $i++) {
-                            $tong = 0;
-                            $total = $allTotal[$i]['total'];
-                            $tong = $tong + $total;
-                            $tongtien = $tongtien + $tong;
-                        }
-                        tongtien($tongtien, $id_giohang);
-                        // end cập nhật giỏ hàng trc khi gửi đơn hàng
-
-                        // sau khi cập cập nhật xong mới bắt đầu gửi hóa đơn
-                        guiDonHang($nn_name, $nn_address, $nn_tel, $nn_email, $date, $pttt, $ghichu, $id_user);
-
-                        //lấy id hóa đơn
-                        $get_idhoadon = get_idhoadon($id_user);
-                        $id_hoadon = $get_idhoadon[0]['id_hoadon'];
-                        
-                        // dùng vòng lặp để lấy tất cả sản phẩm và thêm vào hóa đơn chi tiết
-                        for ($i = 0; $i < $soluong_spgh; $i++) {
-                            $img_sp = $_POST['img_sp_'.$i];
-                            $tensp = $_POST['tensp_'.$i];
-                            $giasp = $_POST['giasp_'.$i];
-                            $soluong = $_POST['quantity_'.$i];
-                            them_hoadonCT($img_sp, $tensp, $giasp, $soluong, $id_hoadon);
-                        }
-                        // lấy tất cả thông tin trong chi tiết hóa đơn
-                        $allTotal_CTHD = allTotal_CTHD($id_hoadon);
-                        $tongtien_hd = 0;
-
-                        // dùng vòng lăp for để tính tổng tiền tất cả sp trong hóa đơn (total và total_vn)
-                        for ($i = 0; $i < $soluong_spgh; $i++) {
-                            $tong = 0;
-                            $total = $allTotal_CTHD[$i]['total'];
-                            $tong = $tong + $total;
-                            $tongtien_hd = $tongtien_hd + $tong;
-                        }
-                        tongtien_hd($tongtien_hd, $id_hoadon);
-
-                        // làm trống giỏ hàng sau khi gửi đơn hàng và tạo hóa đơn
-                        delete_ctgiohang($id_giohang);
-                        include 'view/donhang_thanhcong.php';
-                    } else {
-                        // nếu giỏ hàng rỗng
+                    else{
                         include 'view/giohang_trong.php';
-                        break;
                     }
                 }
-                break;
-            
-            //chức năng xóa sản phẩm trong giỏ hàng
-            case 'xoasp':
-                if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){
-                    $id_user = $_SESSION['id_user'];
-                    // lấy id_giohang
-                    $lay_id_giohang = id_giohang($id_user);
-                    $id_giohang = $lay_id_giohang[0]['id_giohang'];
-                }
-                if(isset($_GET['id_ctgiohang']) && ($_GET['id_ctgiohang']) > 0){
-                    $id_ctgiohang = $_GET['id_ctgiohang'];
-                }
-                // xóa sản phẩm trong giỏ hàng
-                xoaSpGh($id_giohang, $id_ctgiohang);
-
-                //lấy tất cả thông tin trong chitiet_giohang theo id_giohang
-                $loadAllGioHangCT = loadAllGioHangCT($id_giohang);
-                include 'view/cart.php';
-                break;
-            
-            case'tkclone':
-                $taotk_clone = taotk_clone();
-                //đăng nhập
-                
                 
                 break;
         } 

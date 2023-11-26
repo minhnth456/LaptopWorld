@@ -124,10 +124,10 @@ window.addEventListener('load', function() {
     // Đợi 3 giây trước khi hiển thị nội dung trang web
     setTimeout(function() {
         const preloadImage = document.querySelector('.preload-image');
-        if(preloadImage){
+        if (preloadImage) {
             preloadImage.style.display = 'none';
         }
-        
+
         const content = document.querySelector('.container-p-0');
         const content2 = document.querySelector('.container-p-1');
         if (content) {
@@ -178,112 +178,29 @@ thumbnailLinks.forEach(function(link) {
 //end Chi tiết sản phẩm
 
 // Start số lượng cart
-function increment(id) {
-    var input = document.getElementById('soluongsp-'+id);
-    input.value = parseInt(input.value) + 1;
+function increment(index) {
+    var input = document.getElementById(index);
+    input.stepUp();
 }
 
-function decrement(id) {
-    var input = document.getElementById('soluongsp-'+id);
-    if(parseInt(input.value) < 2){
-
-    } else {
-        input.value = parseInt(input.value) - 1;
-    }
-    
+function decrement(index, element) {
+    var input = document.getElementById(index);
+    input.stepDown();
 }
+
+
 // end số lượng cart
-
-// start tính tổng tiền
-
-function chuyenDoiGia(gia) {
-    // Loại bỏ các ký tự không phải số
-    const giaSo = parseInt(gia.replace(/\D/g, ''), 10);
-    return giaSo;
-}
-
-function formatTongTien(tongtien) {
-    // Chuyển đổi số sang chuỗi
-    let tongtienString = tongtien.toString();
-
-    // Chia thành phần nguyên và phần thập phân (nếu có)
-    let [nguyen, thapphan] = tongtienString.split('.');
-
-    // Thêm dấu chấm hàng nghìn
-    nguyen = nguyen.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-
-    // Nếu có phần thập phân, thêm dấu chấm đỏ
-    if (thapphan) {
-        tongtienString = nguyen + '.' + thapphan;
-    } else {
-        tongtienString = nguyen;
-    }
-
-    return tongtienString + ' đ';
-}
-
-function tinhtongtien(){
-    const dssp = document.getElementById('body-cart');
-    const tr = dssp.children;
-    let tong = 0;
-    for(i = 0; i < tr.length; i++){
-        const td = tr[i].getElementsByTagName('td');
-        const gia = td[1].innerText;
-        const soluong = parseInt(td[2].getElementsByTagName('input')[0].value);
-        const giaSo = chuyenDoiGia(gia);
-        ttien = giaSo * soluong;
-        tong += ttien; 
-        // let tongtien = td[3].innerHTML;
-        // tongtien = 0;
-        // tongtien = ttien;
-        // tongtien = formatTongTien(tongtien);
-        // console.log(tongtien);
-        td[3].innerText = formatTongTien(ttien);
-        // document.getElementById('tongtien').innerText = tongtien;
-        document.getElementById('tongcong').value = formatTongTien(tong);
-        document.getElementById('thanhtoan').value = formatTongTien(tong);
-
-    }
-    
-    
-}
-
-window.addEventListener('beforeunload', function() {
-    // Tạo đối tượng XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    // Cấu hình yêu cầu
-    xhr.open('POST', 'path/to/your/php/script.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    // Gửi yêu cầu
-    xhr.send("action=beforeUnload"); // action có thể làm thay đổi dựa trên logic của bạn
-});
-
-// end tính tổng tiền
 
 // Start Bình luận
 
+var nd = document.getElementById('nd');
+var dn_chat = document.getElementById('dang');
+
 function chat() {
-    var nd = document.getElementById('nd');
-    var dn_chat = document.getElementById('dang');
     if (nd.value.trim() !== "") {
         dn_chat.removeAttribute("disabled");
         dn_chat.style.opacity = 1;
         console.log(dn_chat);
-    } else {
-        dn_chat.style.opacity = 0.5;
-        dn_chat.setAttribute("disabled", "disabled");
-    }
-}
-
-function rep_chat(id_bl) {
-    const nd = document.getElementById('rep-nd-'+id_bl);
-    const dn_chat = document.getElementById('rep-dang-'+id_bl);
-
-    if (nd.value.trim() !== "") {
-        dn_chat.removeAttribute("disabled");
-        dn_chat.style.opacity = 1;
     } else {
         dn_chat.style.opacity = 0.5;
         dn_chat.setAttribute("disabled", "disabled");
@@ -297,14 +214,14 @@ function rep_chat(id_bl) {
 
 function checkForm_themsp() {
     var fileAnh = document.getElementById("hinh").files;
-    
+
     // Kiểm tra số lượng tập tin đã chọn
     if (fileAnh.length > 5) {
         alert("Chỉ được phép chọn tối đa 5 ảnh");
         return false;
     }
-    
-    if (fileAnh.length == 0){
+
+    if (fileAnh.length == 0) {
         alert("Bạn chưa chọn ảnh");
         return false;
     }
@@ -318,11 +235,11 @@ function checkForm_themsp() {
 
 // start kiểm tra số lượng ảnh của sản phẩm trong admin
 
-function check_anh(){
+function check_anh() {
     var tr = document.querySelectorAll('.table tbody tr');
     var button = document.getElementById('themanhsp');
     console.log(button.style.display);
-    if(tr.length >= 5){
+    if (tr.length >= 5) {
         button.setAttribute("disabled", "disabled");
     } else {
         button.removeAttribute("disabled");
@@ -330,55 +247,3 @@ function check_anh(){
 }
 
 // end kiểm tra số lượng ảnh của sản phẩm trong admin
-
-
-// start khung trả lời bình luận
-
-function tra_loi(id_bl){
-    const rep_com = document.getElementById('rep-com-'+id_bl);
-    rep_com.style.display = "flex";
-}
-
-// end khung trả lời bình luận
-
-
-// var gioHang = [];
-
-// function giohang(){
-//     const anh = document.getElementById('anh-chinh').src;
-//     const tensp = document.getElementById('ten-san-pham').innerText;
-//     const gia = document.getElementById('gia-san-pham').innerText;
-//     // console.log(anh, tensp, gia);
-//     them_gio_hang(anh, tensp, gia);
-// }
-
-// function them_gio_hang(anh, tensp, gia){
-//     var san_pham = {
-//         anh: anh,
-//         tensp: tensp,
-//         gia: gia,
-//         soluong: 1
-//     }
-
-//     gioHang.push(san_pham);
-
-// }
-
-
-
-// function in_gio_hang(){
-//     if(gioHang.length > 0){
-//         for (var i = 0; i < gioHang.length; i++) {
-//             console.log(gioHang[i]);
-//             var tr = document.createElement('tr');
-//             var thongtin = '<th class="border-1" scope="row">'+(i+1)+'</th><td class="border-1" style="width: 750px;"><div class="img_cart" style="display: flex; align-items: center;"><img src="./img/'+gioHang[i].anh+'" width="80px" alt="" /><div class="text_cart" style="margin-left: 20px;"><a href="#">'+gioHang[i].tensp+'</a><div class="baohanh">Bảo hành 12 tháng</div></div></div></td><td class="border-1">'+gioHang[i].gia+' đ</td><td class="border-1"><div class="number" style="display: flex;"><button class="btn btn-link px-2" onclick="decrement()"><i class="fas fa-minus"></i></button><input style="width: 50px;" id="form1" min="1" name="quantity" value="1" type="number" class="form-control form-control-sm" /><button class="btn btn-link px-2" onclick="increment()"><i class="fas fa-plus"></i></button></div></td><td class="border-1">16.000.000 đ</td><td><a href="#"><img style="margin-left: 10px;" src="./img/icon_cart_del.png"></a></td>';
-//             tr.innerHTML = thongtin;
-//             var tbody = document.getElementById('body-cart');
-//             if (tbody !== null) {
-//                 tbody.appendChild(tr);
-//             }
-
-//             console.log(tbody);
-//         }
-//     }
-// }
