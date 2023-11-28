@@ -145,6 +145,14 @@
         $sql = "SELECT * FROM anh_sp WHERE id_pro = $id_pro";
         return pdo_query($sql);
     }
+
+    //lấy id_dmc qua id_chitiet
+    function get_iddmc($id_chitiet){
+        $sql = "SELECT id_dmc FROM chitiet_sanpham WHERE id_chitiet = $id_chitiet";
+        return pdo_query($sql);
+    }
+
+
 ?>
 
 <!-- <input type="file" name="anh[]" multiple> -->

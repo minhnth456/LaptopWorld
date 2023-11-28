@@ -8,6 +8,8 @@
     include 'model/giohang/giohang.php';
     include 'model/binhluan.php';
     include 'view/header.php';
+    
+
     if(isset($_GET['act']) && ($_GET['act'])){
         $act = $_GET['act'];
         switch ($act) {
@@ -26,6 +28,11 @@
                     // lấy tất cả cấu hình của sản phẩm
                     $loadAllSpCt = loadAllSpCt($id_pro);
                 }
+                $get_iddmc = get_iddmc($id_chitiet);
+                foreach ($get_iddmc as $a):
+                    $id_dmc = $a['id_dmc'];
+                endforeach;
+                top10_sp($id_chitiet,$id_pro);
                 include 'view/chitietsanpham.php';
                 break;  
             case 'dangnhap':
@@ -37,6 +44,7 @@
                 break; 
             case 'dangxuat':
                 dangxuat();
+                $_SESSION['slgh'] = 0;
                 include 'view/home.php';
                 break; 
             case 'dangky':
@@ -129,6 +137,8 @@
                     $total = $_POST['total'];
                     $id_pro = $_POST['id_pro'];
                     $id_chitiet = $_POST['id_chitiet'];
+                    $id_dmc = $_POST['id_dmc'];
+                    
                     // $id_giohang = id_giohang($id_user);
                     
                     //kiểm tra sản phẩm trùng lặp trong giỏ hàng
@@ -144,6 +154,7 @@
                     $lay_soluong_spgh = soluong_spgh($id_giohang);
                     foreach ($lay_soluong_spgh as $a):
                     $soluong_spgh = $a['id_ctgiohang'];
+                    $_SESSION['slgh'] = $a['id_ctgiohang'];
                     endforeach;
                     
                     // lấy total của từng sản phẩm trong giỏ hàng
@@ -185,7 +196,7 @@
                     $soluong_spgh = $a['id_ctgiohang'];
                     $_SESSION['slgh'] = $a['id_ctgiohang'];
                     endforeach;
-                    // cập nhật số lượng và giá tiền theo số lượng
+                    // cập nhật số lượng và giá tiền 
                     for ($i = 0; $i < $soluong_spgh; $i++){
                         $soluong = $_POST['quantity_'.$i];
                         $id_ctgiohang = $_POST['id_ctgiohang_'.$i];
@@ -204,8 +215,8 @@
                         $tongtien = $tongtien + $tong;
                     }
                     tongtien($tongtien, $id_giohang);
-
-
+                    include 'view/home.php';
+                    break;
                 }
 
                 if(isset($_POST['guidonhang'])){
@@ -217,7 +228,7 @@
                     $nn_tel = $_POST['nn_tel'];
                     $nn_email = $_POST['nn_email'];
                     if(isset($_POST['COD'])){
-                        $pttt = 1;
+                        $pttt = $_POST['COD'];
                     }
                     $date = $_POST['date'];
                     $ghichu = $_POST['ghichu'];
@@ -270,7 +281,12 @@
                             $tensp = $_POST['tensp_'.$i];
                             $giasp = $_POST['giasp_'.$i];
                             $soluong = $_POST['quantity_'.$i];
-                            them_hoadonCT($img_sp, $tensp, $giasp, $soluong, $id_hoadon);
+                            $id_chitiet = $_POST['id_chitiet_'.$i];
+                            $get_iddmc = get_iddmc($id_chitiet);
+                            foreach ($get_iddmc as $ad):
+                                $id_dmc = $ad['id_dmc'];
+                            endforeach;
+                            them_hoadonCT($img_sp, $tensp, $giasp, $soluong, $id_hoadon, $id_chitiet, $id_dmc);
                         }
                         // lấy tất cả thông tin trong chi tiết hóa đơn
                         $allTotal_CTHD = allTotal_CTHD($id_hoadon);
@@ -310,20 +326,108 @@
                 // xóa sản phẩm trong giỏ hàng
                 xoaSpGh($id_giohang, $id_ctgiohang);
 
+                // đếm số lượng sản phẩm trong giỏ hàng
+                $lay_soluong_spgh = soluong_spgh($id_giohang);
+                foreach ($lay_soluong_spgh as $a):
+                $soluong_spgh = $a['id_ctgiohang'];
+                $_SESSION['slgh'] = $a['id_ctgiohang'];
+                endforeach;
+
                 //lấy tất cả thông tin trong chitiet_giohang theo id_giohang
                 $loadAllGioHangCT = loadAllGioHangCT($id_giohang);
                 include 'view/cart.php';
                 break;
-            
-            case'tkclone':
-                $taotk_clone = taotk_clone();
-                //đăng nhập
-                
-                
+
+            //hien trang cap nhap tai khoan
+            case 'capnhaptaikhoan':
+                if(isset($_SESSION['id_user'])&&($_SESSION['id_user']) >0){
+                    $id_user = $_SESSION['id_user'];
+                    $load_tk = load_tk($id_user);
+                }
+                include 'view/capnhaptaikhoan.php';
                 break;
+
+            case 'luutk':
+                if(isset($_POST['luutk'])){
+                    $id_user=$_POST['id_user'];
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    update_tk($name,$email,$address,$tel,$id_user);
+                }
+                $load_tk = load_tk($id_user);
+                include 'view/capnhaptaikhoan.php';
+                break;
+            
+            case 'chonanh':
+                if(isset($_POST['chonanh'])){
+                    $id_user=$_POST['id_user'];
+                    $targetDir = "img/";
+                    $tempFile = $_FILES['img']['tmp_name'];
+                    $fileName = $_FILES['img']['name'];
+                    $targetFile = $targetDir . $fileName;
+                    $imgType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
+                    $allow = array("jpg","jpeg","png","gif");
+                    if(in_array($imgType,$allow)){
+                        move_uploaded_file($tempFile,$targetFile);
+                        update_anh($fileName, $id_user);
+                        $_SESSION['img'] = $fileName;
+                    }
+                }
+                
+                $load_tk = load_tk($id_user);
+                include 'view/capnhaptaikhoan.php';
+                break;
+
+            case 'order':
+                if(isset($_GET['id_user']) && ($_GET['id_user']) > 0){
+                    $id_user = $_GET['id_user'];
+                    $loadALlHD = loadALlHD($id_user);
+                }
+                include 'view/order.php';
+                break;
+
+            case 'xacnhan_mua_huy':
+                if(isset($_POST['huydon'])){
+                    $id_hoadon = $_POST['id_hoadon'];
+                    huyDon($id_hoadon);
+                }
+                if(isset($_POST['danhan'])){
+                    $id_hoadon = $_POST['id_hoadon'];
+                    $date4 = $_POST['date4'];
+                    daGiao($date4, $id_hoadon);
+                }
+                if(isset($_SESSION['id_user'])&&($_SESSION['id_user']) >0){
+                    $id_user = $_SESSION['id_user'];
+                    $loadALlHD = loadALlHD($id_user);
+                }
+                header('location: index.php?act=order&id_user='.$id_user);
+                break;
+
+            default:
+                if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){
+                    $id_user = $_SESSION['id_user'];
+                    // lấy id_giohang
+                    $lay_id_giohang = id_giohang($id_user);
+                    if(is_array($lay_id_giohang)){
+                        $id_giohang = $lay_id_giohang[0]['id_giohang'];
+                    
+                        // đếm số lượng sản phẩm trong giỏ hàng
+                        $lay_soluong_spgh = soluong_spgh($id_giohang);
+                        foreach ($lay_soluong_spgh as $a):
+                        $soluong_spgh = $a['id_ctgiohang'];
+                        $_SESSION['slgh'] = $a['id_ctgiohang'];
+                        endforeach;
+                    }
+                }
+                include 'view/home.php';
+                break;    
+        
         } 
     } else {
         include 'view/home.php';
+
     }
     include 'view/footer.php';
 ?>

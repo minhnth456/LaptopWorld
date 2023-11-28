@@ -62,4 +62,53 @@
     //     pdo_query($sql);
     // }
 
+    //load thong tin cap nhap tai khoan
+    function load_tk($id_user){
+        $sql = "SELECT * FROM taikhoan WHERE id_user = $id_user";
+        return pdo_query_one($sql);
+    }
+    //cap nhap tai khoan
+    function update_tk($name,$email,$address,$tel,$id_user){
+        $sql="UPDATE taikhoan SET name='$name',email='$email',address='$address',tel='$tel' WHERE id_user = $id_user";
+        pdo_execute($sql);
+    }
+    //cap nhap anh tai khoan
+    function update_anh($fileName, $id_user){
+        $sql = "UPDATE taikhoan SET img='".$fileName."' WHERE id_user = $id_user";
+        pdo_execute($sql);
+    }
+
+    
+    //danh sach tai khoan
+    function loadadd_taikhoan(){
+        $sql="SELECT * FROM taikhoan Order by id_user DESC";
+        return pdo_query($sql);
+    }
+
+    //danh sach tai khoan theo id
+    function loadone_taikhoan($id_user){
+        $sql="SELECT * FROM taikhoan WHERE id_user = $id_user";
+        return pdo_query_one($sql);
+    }
+
+    //sua tai khoan
+    function updatetk($name,$email,$pass,$address,$tel,$role,$id_user){
+        $sql = "UPDATE taikhoan SET name='$name', email='$email', pass='$pass', address='$address',tel='$tel', role='$role' WHERE id_user = $id_user";
+        $suaUser = pdo_query($sql);
+        return $suaUser;
+    }
+
+    // xoa tai khoan
+    function xoa_User($id_user){
+        $sql = "DELETE FROM taikhoan WHERE id_user = $id_user";
+        $xoaUser = pdo_query($sql);
+        return $xoaUser;
+    }
+
+    //them tai khoan
+    function insert_taikhoan($name,$email,$pass){
+        $sql = "INSERT INTO taikhoan(name, email, pass) VALUES ('".$name."','".$email."','".$pass."')";
+        pdo_execute($sql);
+    }
+
 ?>

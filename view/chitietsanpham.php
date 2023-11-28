@@ -37,6 +37,8 @@
             </div>
             <div class="khung-chi-tiet-sp">
                 <form action="index.php?act=giohang" method="post">
+                    <!-- id danh mục con  -->
+                    <input type="hidden" name="id_dmc" value="<?php echo $id_dmc ?>">
                     <!-- tên sản phẩm -->
                     <input type="hidden" name="tensp" value="[New Outlet] <?php echo $tensp ?> (<?php echo $cpu ?>, <?php echo $ram ?>, <?php echo $ssd ?>, <?php echo $cardVGA ?>)">
                     <!-- giá sản phẩm -->

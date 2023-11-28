@@ -54,9 +54,8 @@
                         </button>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item " href="index.php?act=capnhattaikhoan">Cập nhật tài
-                                    khoản</a>
-                            </li>
+                            <li><a class="dropdown-item " href="index.php?act=capnhaptaikhoan">Cập nhật tài khoản</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=order&id_user=<?php echo $_SESSION['id_user'] ?>">Đơn mua</a></li>
                             <li><a class="dropdown-item" href="index.php?act=dangxuat">Đăng Xuất</a></li>
                         </ul>
 

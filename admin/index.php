@@ -374,7 +374,41 @@ session_start();
             if(isset($_POST['capnhat_trangthai'])){
                $id_hoadon = $_POST['id_hoadon'];
                $trangthai = $_POST['tt'];
-               capnhat_trangthai($id_hoadon, $trangthai);
+               $date = $_POST['real_time'];
+               //bấm cập nhật chờ lấy hàng Admin
+               if ($trangthai == 2){
+                  capnhat_trangthai2($id_hoadon, $trangthai, $date);
+               }
+               //bấm cập nhật chờ giao hàng
+               if ($trangthai == 3){
+                  capnhat_trangthai3($id_hoadon, $trangthai, $date);
+                  $check_date2 = check_date2($id_hoadon);
+                  foreach($check_date2 as $a):
+                     $check = $a['date2'];
+                  endforeach;
+                  if($check == ""){
+                     update_date2($id_hoadon, $date);
+                  }
+               }
+               //bấm cập nhật đã giao
+               if ($trangthai == 4){
+                  capnhat_trangthai4($id_hoadon, $trangthai, $date);
+                  $check_date2 = check_date2($id_hoadon);
+                  $check_date3 = check_date3($id_hoadon);
+                  foreach($check_date2 as $a):
+                     $check = $a['date2'];
+                  endforeach;
+                  foreach($check_date3 as $b):
+                     $check2 = $b['date3'];
+                  endforeach;
+                  if($check == ""){
+                     update_date2($id_hoadon, $date);
+                  }
+                  if($check2 == ""){
+                     update_date3($id_hoadon, $date);
+                  }
+               }
+               
             }
             //hiển thị lại trang hóa đơn
             $loadAllHoaDon = loadAllHoaDon();

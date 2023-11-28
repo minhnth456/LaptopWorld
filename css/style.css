@@ -233,7 +233,7 @@
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 11;
     border: 1px solid none;
 }
 
@@ -257,7 +257,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 12;
 }
 
 .form-dk-dn form#dangki {
@@ -553,7 +553,7 @@
 
 .menu-con ul li.m-c:hover .danh-muc {
     display: block;
-    z-index: 1;
+    z-index: 9;
     opacity: 1;
     animation: fadeIn 0.4s;
     transform: translateY(0);
@@ -1033,7 +1033,7 @@ article {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 11;
     border: 1px solid none;
 }
 
@@ -1643,6 +1643,10 @@ article {
     height: auto;
 }
 
+.binh-luan .img img{
+    border-radius: 25px;
+}
+
 .noi-dung-bl form {
     width: 100%;
     height: auto;
@@ -1979,4 +1983,122 @@ article {
     color: #999;
     font-size: .875rem;
     line-height: 1.25rem;
+}
+
+/* Đơn mua của tôi */
+
+.donhang {
+    margin: auto;
+    max-width: 980px;
+    height: auto;
+    background: #f5f5f5;
+    border-radius: 0.125rem;
+}
+
+.donhang .thanhtoan {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
+}
+
+.donhang .thanhtoan .tatca {
+    width: 100%;
+    margin: auto;
+    height: auto;
+    padding: 15px;
+}
+
+.donhang .thanhtoan .tatca a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    
+}
+
+.donhang .thanhtoan .tatca a:hover {
+    color: #007bff;
+}
+
+/* .tim-kiem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid none;
+    margin: 20px 0px 20px 0px;
+} */
+
+.form-donhang {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    border-radius: 0.125rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.sanpham_donhang {
+    display: flex;
+    /* grid-template-columns: 15% 70% 15%; */
+    width: 980px;
+    
+}
+
+.chuc-nang {
+    display: flex;
+    margin-left: 71.7%;
+    background-color: #fffefb;
+    padding: 40px 0px 20px 0px;
+}
+
+.mualai button,
+.lien-he button {
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #e1e1e1;
+    color: white;
+    font-size: 17px;
+    background-color: #007BFF;
+    border-radius: 5px;
+}
+
+.mualai button:hover {
+    background-color: #006bdd;
+}
+
+.lien-he button:hover {
+    background-color: #006bdd;
+}
+
+
+/* Chi tiết đơn hàng */
+
+.khungCTDH{
+    width: 100%;
+    height: auto;
+    border: 1px solid none;
+    margin: 20px auto 0px auto;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+}
+
+.khungCTDH .khung-trolai{
+    width: 100%;
+    border: 1px solid none;
+    border-bottom: 1px dotted rgba(0,0,0,.09);
+}
+
+.tiendo{
+    position: relative;
+    justify-content: space-between;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    display: flex;
+    
 }

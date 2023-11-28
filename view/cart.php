@@ -23,6 +23,8 @@
                         <?php $i=0; ?>
                         <?php foreach($loadAllGioHangCT as $a): ?>
                         <tr onmouseover="tinhtongtien()">
+                            <!-- lấy id_chitiet -->
+                            <input type="hidden" name="id_chitiet_<?php echo $i ?>" value="<?php echo $a['id_chitiet'] ?>">
                             <!-- lấy id_ctgiohang của từng sản phẩm -->
                             <input type="hidden" name="id_ctgiohang_<?php echo $i ?>" value="<?php echo $a['id_ctgiohang'] ?>">
                             <!-- số thứ tự -->
@@ -82,7 +84,7 @@
             </div>
             <!-- End cart -->
             <div class="tieptuc_mua" style="width: 1200px; margin: auto; padding: 20px 0;">
-                <button type="submit" name="capnhatgiohang" class="btn btn-primary" style="margin-left: 86.8%;"><a style="color: white; text-decoration: none;" href="#">Tiếp tục mua hàng</a></button>
+                <!-- <button type="submit" name="capnhatgiohang" class="btn btn-primary" style="margin-left: 86.8%;"><a style="color: white; text-decoration: none;" href="#">Tiếp tục mua hàng</a></button> -->
             </div>
         
             <!-- Thanh toán -->
@@ -131,14 +133,13 @@
                     <!-- phương thức thanh toán -->
                     <div class="thanh_toan" style="margin-left: 20px; padding-bottom: 10px;">
                         <div class="tai_quan">
-                            <input type="radio" id="payment_option_1" name="COD">
+                            <input type="radio" id="payment_option_1" name="COD" value="1" required>
                             <label for="payment_option_1">Thanh toán khi nhận hàng</label>
                         </div>
                         <div class="tai_quan">
-                            <input type="radio" id="payment_option_1" name="tttaicuahang">
-                            <label for="payment_option_1">Thanh toán tại cửa hàng</label>
+                            <input type="radio" id="payment_option_2" name="COD" value="2" required>
+                            <label for="payment_option_2">Thanh Toán tại cửa hàng</label>
                         </div>
-
                     </div>
 
 

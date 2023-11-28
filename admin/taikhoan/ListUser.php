@@ -14,8 +14,8 @@
         </thead>
         <tbody>
             <?php
-                $listtaikhoan=loadadd_taikhoan();
-                foreach($listtaikhoan as $taikhoan){ 
+                $loadadd_taikhoan = loadadd_taikhoan();
+                foreach($loadadd_taikhoan as $taikhoan){ 
             ?>
             <tr>
                 <td><?php echo $taikhoan['id_user']?></td>

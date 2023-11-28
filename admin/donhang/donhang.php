@@ -1,3 +1,9 @@
+<?php
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $current_time_in_vietnam = new DateTime();
+    //thời gian
+    $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
+?>
 <div class="container" style="padding-top: 20px">
     <table class="table">
         <thead>
@@ -28,6 +34,7 @@
                 <tr>
                     <!-- id hóa đơn -->
                     <input type="hidden" name="id_hoadon" value="<?php echo $a['id_hoadon'] ?>">
+                    <input type="hidden" name="real_time" value="<?php echo $real_time; ?>">
                     <td><?php echo $a['id_hoadon'] ?></td>
                     <!-- id acc clone  -->
                     <td style="color:red; font-weight: bold;"><?php echo $a['id_clone'] ?></td>
@@ -39,6 +46,7 @@
                     <!-- phương thức thanh toán  -->
                     <th scope="row" style="max-width:120px;"><?php echo $pttt ?></th>
                     <th scope="row" style="max-width:120px;"><?php echo $a['ghichu'] ?></th>
+                    <th scope="row"><?php echo $a['tongtien_vn'] ?>đ</th>
                     <!-- trạng thái  -->
                     <th scope="row" style="max-width:180px;">
                         <select class="form-select form-select-lg mb-3" style="font-size: 1rem;" aria-label="Large select example" name="tt">
@@ -58,7 +66,6 @@
                             <?php } }?>
                         </select>
                     </th>
-                    <th scope="row"><?php echo $a['tongtien_vn'] ?>đ</th>
                     <!-- chức năng  -->
                     <th scope="row" style="max-width: 155px;">
                         <a type="button" class="btn btn-danger" href="index.php?act=chitietHD&id_hoadon=<?php echo $a['id_hoadon'] ?>" style="margin-bottom: 5px">Chi tiết</a>
