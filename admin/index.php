@@ -375,6 +375,7 @@ session_start();
                $id_hoadon = $_POST['id_hoadon'];
                $trangthai = $_POST['tt'];
                $date = $_POST['real_time'];
+               $date5 = $_POST['real_time2'];
                //bấm cập nhật chờ lấy hàng Admin
                if ($trangthai == 2){
                   capnhat_trangthai2($id_hoadon, $trangthai, $date);
@@ -392,7 +393,7 @@ session_start();
                }
                //bấm cập nhật đã giao
                if ($trangthai == 4){
-                  capnhat_trangthai4($id_hoadon, $trangthai, $date);
+                  capnhat_trangthai4($id_hoadon, $trangthai, $date, $date5);
                   $check_date2 = check_date2($id_hoadon);
                   $check_date3 = check_date3($id_hoadon);
                   foreach($check_date2 as $a):
@@ -414,7 +415,19 @@ session_start();
             $loadAllHoaDon = loadAllHoaDon();
             include "donhang/donhang.php";
             break;
-
+         case "sanpham_daban":
+            $trangthai = 4;
+            $sanpham_daban = sanpham_sell($trangthai);
+            $loadAllHoaDon = loadAllHoaDon();
+               include "sanpham_daban/sanpham.php";
+               break;
+         case "sanpham_duocqtam":
+            include "sanpham_daban/topsanpham_ngon.php";
+            break;
+         case "thongke":
+            include "sanpham_daban/bieudo.php";
+            
+            break;
          }
       } 
    include "view/footer.php";

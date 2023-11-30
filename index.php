@@ -35,24 +35,72 @@
                 top10_sp($id_chitiet,$id_pro);
                 include 'view/chitietsanpham.php';
                 break;  
-            case 'dangnhap':
-                if(isset($_POST['dangnhap'])){
-                    $thongbao = dangnhap($_POST['user'], $_POST['pass']);
-                 
-                }
-                header('location: index.php');
-                break; 
+                case 'dangnhap':
+                    if(isset($_POST['dangnhap'])){
+                        $load_tk_user = loadadd_taikhoan();
+                        $check_var = false;
+                        if(isset($_POST['user']) && $_POST['user'] != ""){
+                            $user = $_POST['user'];
+                        }
+    
+                        if(isset($_POST['pass']) && $_POST['pass'] != ""){
+                            $pass = $_POST['pass'];
+                        }
+        
+                        foreach ($load_tk_user as $row) {
+                            $name = $row['name'];
+                            $mk = $row['pass'];
+                            if ($user == $name && $pass == $mk) {
+                                // Tên đăng nhập và mật khẩu trùng khớp -> kết thúc vòng lặp
+                                $check_var = true;
+                                break;
+                            }
+                        }
+        
+                        if ($check_var) { //check var == true
+                            // đăng nhập
+                            dangnhap($_POST['user'], $_POST['pass']);
+                        } else {
+                            // Hiện thông báo nếu tài khoản hoặc mật khẩu không đúng
+                            echo '<script> alert("Đăng nhập thất bại. Tên tài khoản hoặc Mật khẩu không đúng!"); </script>';
+                        }
+        
+                    }
+                    include 'view/home.php';
+                    break;
             case 'dangxuat':
-                dangxuat();
-                $_SESSION['slgh'] = 0;
-                include 'view/home.php';
-                break; 
+                    dangxuat();
+                    $_SESSION['slgh'] = 0;
+                    include 'view/home.php';
+                    break; 
             case 'dangky':
-                if(isset($_POST['dangkytk'])){
-                dangky($_POST['user'],$_POST['email'],$_POST['pass']);
+                if (isset($_POST['dangkytk'])) {
+                    $load_tk_user = loadadd_taikhoan();
+                    $emailExists = false;
+                
+                    foreach ($load_tk_user as $row) {
+                        if (($_POST['email'] != "") && $row['email'] == $_POST['email']) {
+                            // Địa chỉ email đã tồn tại kết thúc vòng lặp
+                            $emailExists = true;
+                            break;
+                        }
+                    }
+                
+                    if ($emailExists) {
+                        // Xuất thông báo lỗi khi email đã tồn tại
+                        echo '<script> alert("Đăng ký thất bại. Email đã tồn tại!"); </script>';
+                    } else {
+                        // Nếu địa chỉ email không tồn tại, thực hiện đăng ký
+                        if($_POST['user'] != "" && $_POST['email'] != "" && $_POST['pass'] != ""){
+                            dangky($_POST['user'], $_POST['email'], $_POST['pass']);
+                            dangnhap($_POST['user'], $_POST['pass']);
+                        }
+    
+                    }
                 }
                 include 'view/home.php';
                 break;
+                
 
             // chức năng bình luận
             case 'binhluan':
@@ -379,7 +427,8 @@
                 $load_tk = load_tk($id_user);
                 include 'view/capnhaptaikhoan.php';
                 break;
-
+            
+            // hiển thị trang đơn mua
             case 'order':
                 if(isset($_GET['id_user']) && ($_GET['id_user']) > 0){
                     $id_user = $_GET['id_user'];
@@ -388,6 +437,7 @@
                 include 'view/order.php';
                 break;
 
+            //chức năng hủy đơn hàng, xác nhận đã giao của user
             case 'xacnhan_mua_huy':
                 if(isset($_POST['huydon'])){
                     $id_hoadon = $_POST['id_hoadon'];
@@ -396,7 +446,8 @@
                 if(isset($_POST['danhan'])){
                     $id_hoadon = $_POST['id_hoadon'];
                     $date4 = $_POST['date4'];
-                    daGiao($date4, $id_hoadon);
+                    $date5 = $_POST['date5'];
+                    daGiao($date4, $id_hoadon, $date5);
                 }
                 if(isset($_SESSION['id_user'])&&($_SESSION['id_user']) >0){
                     $id_user = $_SESSION['id_user'];

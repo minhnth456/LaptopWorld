@@ -136,7 +136,6 @@ function loadAllHoaDonCT($id_hoadon){
     $sql = "SELECT * FROM chitiet_hoadon WHERE id_hoadon = $id_hoadon";
     return pdo_query($sql);
 }
-
 //chức năng cập nhật trạng thái đơn hàng
 function capnhat_trangthai($id_hoadon, $trangthai){
     $sql = "UPDATE hoadon SET trangthai = $trangthai WHERE id_hoadon = $id_hoadon";
@@ -167,8 +166,8 @@ function update_date2($id_hoadon, $date){
 }
 
 //chức năng cập nhật trạng thái và thời gian chờ giao hàng
-function capnhat_trangthai4($id_hoadon, $trangthai, $date){
-    $sql = "UPDATE hoadon SET trangthai = $trangthai, date4 = '$date' WHERE id_hoadon = $id_hoadon";
+function capnhat_trangthai4($id_hoadon, $trangthai, $date, $date5){
+    $sql = "UPDATE hoadon SET trangthai = $trangthai, date4 = '$date', date5 = '$date5' WHERE id_hoadon = $id_hoadon";
     pdo_execute($sql);
 }
 //kiểm tra thời gian chờ lấy hàng
@@ -202,16 +201,43 @@ function huyDon($id_hoadon){
 }
 
 //chức năng người dùng xác nhận đã nhận hàng
-function daGiao($date4, $id_hoadon){
-    $sql = "UPDATE hoadon SET trangthai = 4, date4 = '$date4' WHERE id_hoadon = $id_hoadon";
+function daGiao($date4, $id_hoadon, $date5){
+    $sql = "UPDATE hoadon SET trangthai = 4, date4 = '$date4', date5 = '$date5' WHERE id_hoadon = $id_hoadon";
     pdo_execute($sql);
+}
+// SẢN PHẨM ĐÃ BÁN == ĐÃ GIAO 
+function sanpham_sell($trangthai){
+    $sql = "SELECT id_dmc, id_chitiet, tensp, giasp, giasp2,img_sp,chitiet_danhmuc.name, SUM(soluong) AS tong_soluong
+    FROM chitiet_hoadon
+    JOIN chitiet_danhmuc ON chitiet_danhmuc.id = chitiet_hoadon.id_dmc
+    JOIN hoadon AS a ON chitiet_hoadon.id_hoadon = a.id_hoadon
+    JOIN taikhoan AS b ON a.id_user = b.id_user
+    WHERE a.trangthai = '$trangthai'
+    GROUP BY id_dmc, id_chitiet, tensp, giasp, giasp2
+    ORDER BY a.id_hoadon DESC
+    LIMIT 0, 25;";
+    return pdo_query($sql);
+}
+
+//
+function bieudo(){
+    $sql = "SELECT * FROM `hoadon` JOIN chitiet_hoadon ON chitiet_hoadon.id_hoadon = hoadon.id_hoadon WHERE  hoadon.trangthai = 4;";
+    $bieudo = pdo_query($sql);
+    return $bieudo;
+}
+
+
+// lấy danh mục con ra biểu đồ
+function load_dm($id_dm){
+    $sql = "SELECT * FROM chitiet_hoadon
+    JOIN chitiet_danhmuc ON chitiet_hoadon.id_dmc = chitiet_danhmuc.id
+    WHERE chitiet_hoadon.id_dmc in ($id_dm)";
+    return pdo_query($sql);
 }
 
 //hiển thị top 10 sản phẩm có lượt xem cao 
 function select_top10(){
-    $sql = "SELECT * FROM chitiet_sanpham
-    ORDER BY top10_sp DESC
-    LIMIT 0, 10";
+    $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY RAND(b.id_chitiet) ORDER BY luotxem DESC";
     return pdo_query($sql);
 }
 
@@ -241,6 +267,7 @@ function get_ttdh($n){
     }
     return $tt;
 }
+
 
 //phương thức thanh toán
 function get_pttt($n){

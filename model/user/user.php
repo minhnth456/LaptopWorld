@@ -42,7 +42,7 @@
         $sql = "INSERT INTO taikhoan (name, pass, email) VALUES ('".$user."' , '".$pass."' , '".$email."')";
         $dki = pdo_query($sql);
         return $dki;
-    }
+}
 
     //tạo tài khoản clone, tạo tài khoản dựa theo id clone và lấy id tài khoản
     function taotk_clone() {

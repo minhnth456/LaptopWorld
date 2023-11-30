@@ -26,9 +26,10 @@
                 <th scope="row"><?php echo $taikhoan['tel']?></th>
                 <th scope="row"><?php echo $taikhoan['role']?></th>
                 <th scope="row">
-                    <a type="button" class="btn btn-danger" href="index.php?act=suaUser&id_user=<?php echo $taikhoan['id_user'] ?>">Sửa</a>
+                    <a type="button" class="btn btn-danger"
+                        href="index.php?act=suaUser&id_user=<?php echo $taikhoan['id_user'] ?>">Sửa</a>
                     <a class="btn btn-dark" href="index.php?act=xoaUser&&id_user=<?php echo $taikhoan['id_user'] ?>"
-                        onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>
+                        onclick="return confirm('Bạn muốn xóa tài khoản này không?')">Xóa</a>
                 </th>
             </tr>
 

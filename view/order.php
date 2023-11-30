@@ -2,6 +2,7 @@
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $current_time_in_vietnam = new DateTime();
     $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
+    $real_time2 = $current_time_in_vietnam->format('d-m-Y');
 ?>
 <div style="padding:10px" class="khoangtrang">
 
@@ -266,6 +267,7 @@
             <div class="a" style="background-color: #fffefb; margin-bottom: 30px;">
             <input type="hidden" name="id_hoadon" value="<?php echo $a['id_hoadon'] ?>">
             <input type="hidden" name="date4" value="<?php echo $real_time; ?>">
+            <input type="hidden" name="date5" value="<?php echo $real_time2; ?>">
                 <div class="chuc-nang">
                     <div class="mualai">
                         <!-- người dùng có thể hủy đơn khi chưa xác nhận -->

@@ -159,8 +159,17 @@
     margin: 0px;
     border: 1px solid #2b80dd;
     font-family: Arial, Helvetica, sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     font-size: 15px;
     padding: 0 10px;
+}
+
+.tim input:focus {
+    border: none;
+    border-color: #007BFF;
+    outline: none;
+    border-radius: 3px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .tim button {
@@ -844,7 +853,6 @@ article {
     margin-right: 3px;
 }
 
-
 .thong-tin-sp .chi-tiet-cau-hinh {
     border: 1px solid none;
 }
@@ -1122,7 +1130,6 @@ article {
     padding: 5px;
     text-align: center;
     border-radius: 5px;
-    
 }
 
 .tt-cau-hinh a {
@@ -1133,18 +1140,17 @@ article {
     color: black;
     margin: 0px;
     margin-bottom: 5px;
-    
 }
 
 .tt-cau-hinh a span {
     color: #ef1200;
 }
 
-.cau-hinh .act{
+.cau-hinh .act {
     border: 1px solid #2b80dd;
 }
 
-.cau-hinh .act p{
+.cau-hinh .act p {
     color: #2b80dd;
 }
 
@@ -1628,6 +1634,7 @@ article {
     margin: 0px 5px;
 }
 
+
 /* bình luận sản phẩm */
 
 .khung-binh-luan .binh-luan {
@@ -1643,7 +1650,7 @@ article {
     height: auto;
 }
 
-.binh-luan .img img{
+.binh-luan .img img {
     border-radius: 25px;
 }
 
@@ -1738,9 +1745,10 @@ article {
     color: #4b4f56;
 }
 
-.khung-binh-luan .rep-com{
+.khung-binh-luan .rep-com {
     display: none;
 }
+
 
 /* sản phẩm liên quan */
 
@@ -1799,7 +1807,6 @@ article {
 .left .khung-tintuc p span {
     font-family: arial, helvetica, sans-serif;
     font-size: 12pt;
-    
 }
 
 .left .khung-tintuc span img {
@@ -1845,27 +1852,30 @@ article {
     background-color: #2163a9;
 }
 
+
 /* cập nhập tài khoản */
 
-.capnhap{
+.capnhap {
     width: 95%;
     margin: 20px auto;
     padding: 10px 15px;
 }
-.tieudecapnhap{
+
+.tieudecapnhap {
     background-color: white;
     padding: 1.125rem 30px
 }
-.tieudecapnhap h1{
+
+.tieudecapnhap h1 {
     margin: 10px;
     font-size: 2.125rem;
     font-weight: 500;
     line-height: 1.5rem;
     text-transform: capitalize;
     color: #333;
-
 }
-.tieudecapnhap .quanli{
+
+.tieudecapnhap .quanli {
     margin-top: 10px;
     font-size: .875rem;
     line-height: 2.0625rem;
@@ -1873,53 +1883,60 @@ article {
     padding-bottom: 20px;
     border-bottom: .0625rem solid #2b80dd;
 }
-.khungcapnhap{
+
+.khungcapnhap {
     padding-top: 1.875rem;
     background-color: white;
     height: 500px;
 }
-.capnhapphai{    
+
+.capnhapphai {
     float: left;
     width: 70%;
     padding-left: 60px;
-    margin-top: 20px;   
-    
+    margin-top: 20px;
 }
-.capnhapphai form table{
+
+.capnhapphai form table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-.capnhapphai  form table .tieudemuc{
+
+.capnhapphai form table .tieudemuc {
     text-align: right;
-    color: rgba(85,85,85,.8);
+    color: rgba(85, 85, 85, .8);
     overflow: hidden;
     padding-bottom: 30px;
     white-space: nowrap;
     min-width: 20%;
 }
-.capnhapphai form table .thongtin{
+
+.capnhapphai form table .thongtin {
     box-sizing: border-box;
     padding-left: 20px;
     padding-bottom: 30px;
 }
-.capnhapphai form table .thongtin input{
+
+.capnhapphai form table .thongtin input {
     padding-left: 5px;
     width: 500px;
     height: 34px;
     border: aliceblue;
 }
-.capnhapphai form table .tenUser{
+
+.capnhapphai form table .tenUser {
     box-sizing: border-box;
     padding-left: 20px;
     padding-bottom: 30px;
 }
-.capnhapphai form table .tenUser input{
 
+.capnhapphai form table .tenUser input {
     padding-left: 5px;
     width: 500px;
     height: 34px;
 }
-.capnhapphai form table .them{
+
+.capnhapphai form table .them {
     border: 0;
     outline: none;
     background: none;
@@ -1928,7 +1945,8 @@ article {
     text-transform: capitalize;
     text-decoration: underline;
 }
-.capnhapphai .luu{
+
+.capnhapphai .luu {
     color: #fff;
     position: relative;
     overflow: visible;
@@ -1940,50 +1958,59 @@ article {
     margin-left: 120px;
     font-size: large;
 }
-.capnhapphai .luu:hover{
+
+.capnhapphai .luu:hover {
     background: #2879d0;
 }
-.capnhaptrai{
+
+.capnhaptrai {
     width: 30%;
     overflow: hidden;
     border-left: 0.0625rem solid #939292;
     padding-left: 70px;
     margin-top: -30px;
 }
-.capnhapphai .khunganh{
+
+.capnhapphai .khunganh {
     flex-direction: column;
 }
-.capnhaptrai .anh img{
+
+.capnhaptrai .anh img {
     height: 200px;
     width: 200px;
     border-radius: 100px;
     margin-left: 25px;
 }
-.capnhaptrai .chonanh{
+
+.capnhaptrai .chonanh {
     outline: 0;
     background: #fff;
     color: black;
-    border: 1px solid rgba(0,0,0,.09);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.03);
+    border: 1px solid rgba(0, 0, 0, .09);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
     position: relative;
     overflow: visible;
     width: 90px;
     height: 40px;
     margin-left: 55px;
 }
-.capnhaptrai .chonanh:hover{
-    background:  #b4b6b9;
+
+.capnhaptrai .chonanh:hover {
+    background: #b4b6b9;
 }
-.capnhaptrai .chuy{
+
+.capnhaptrai .chuy {
     margin-top: 0.75rem;
     display: block;
     margin-left: 20px;
 }
-.capnhaptrai .chuy .chuy1{
+
+.capnhaptrai .chuy .chuy1 {
     color: #999;
     font-size: .875rem;
     line-height: 1.25rem;
 }
+
 
 /* Đơn mua của tôi */
 
@@ -2013,12 +2040,12 @@ article {
     text-decoration: none;
     color: black;
     font-size: 17px;
-    
 }
 
 .donhang .thanhtoan .tatca a:hover {
     color: #007bff;
 }
+
 
 /* .tim-kiem {
     display: flex;
@@ -2045,7 +2072,6 @@ article {
     display: flex;
     /* grid-template-columns: 15% 70% 15%; */
     width: 980px;
-    
 }
 
 .chuc-nang {
@@ -2077,28 +2103,72 @@ article {
 
 /* Chi tiết đơn hàng */
 
-.khungCTDH{
+.khungCTDH {
     width: 100%;
     height: auto;
     border: 1px solid none;
     margin: 20px auto 0px auto;
     border-radius: 2px;
     background-color: #fff;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
 }
 
-.khungCTDH .khung-trolai{
+.khungCTDH .khung-trolai {
     width: 100%;
     border: 1px solid none;
-    border-bottom: 1px dotted rgba(0,0,0,.09);
+    border-bottom: 1px dotted rgba(0, 0, 0, .09);
 }
 
-.tiendo{
+.tiendo {
     position: relative;
     justify-content: space-between;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     flex-wrap: nowrap;
     display: flex;
-    
+}
+
+
+/* CSs Giỏ hàng */
+
+.name {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 11px 0px -4px 9px;
+}
+
+.name input:focus {
+    border: none;
+    border-color: #007BFF;
+    outline: none;
+    border-radius: 3px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.ghi_chu textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ghi_chu textarea:focus {
+    border: none;
+    border-color: #007BFF;
+    outline: none;
+    border-radius: 3px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+/* đăng kí đăng nhập */
+
+.o-input span.error {
+    border-bottom: 3px solid #ff0707;
+}
+
+.o-input span.success {
+    border-bottom: 3px solid #18e015;
+}
+
+.o-input small {
+    color: #ff0707;
+    font-weight: bold;
+    font-size: 0.9rem;
 }

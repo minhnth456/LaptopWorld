@@ -39,13 +39,14 @@
                     <button id="openForm" onclick="mo_fo('dangnhap')">Đăng nhập</button>
                     <?php } if(isset($_SESSION['name'])){
                             if(($_SESSION['role'])== 1){ ?>
-                    
+
                     <div class="dropdown">
                         <button style="width:auto;height:40px;display: flex; align-items: center;"
                             class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
-                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt="" style="border-radius: 25px; width: 100%; height: 100%;">
+                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt=""
+                                    style="border-radius: 25px; width: 100%; height: 100%;">
                             </div>
                             <div style="text-align: center; margin-right: 5px;">
                                 <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
@@ -54,8 +55,11 @@
                         </button>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item " href="index.php?act=capnhaptaikhoan">Cập nhật tài khoản</a></li>
-                            <li><a class="dropdown-item" href="index.php?act=order&id_user=<?php echo $_SESSION['id_user'] ?>">Đơn mua</a></li>
+                            <li><a class="dropdown-item " href="index.php?act=capnhaptaikhoan">Cập nhật tài khoản</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="index.php?act=order&id_user=<?php echo $_SESSION['id_user'] ?>">Đơn mua</a>
+                            </li>
                             <li><a class="dropdown-item" href="index.php?act=dangxuat">Đăng Xuất</a></li>
                         </ul>
 
@@ -67,7 +71,8 @@
                             class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
-                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt="" style="border-radius: 25px; width: 100%; height: 100%;">
+                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt=""
+                                    style="border-radius: 25px; width: 100%; height: 100%;">
                             </div>
                             <div style="text-align: center; margin-right: 5px;">
                                 <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
@@ -89,25 +94,25 @@
                 <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
                     <div class="form-dk-dn" id="form-dk-dn">
                         <!-- form đăng kí -->
-                        <form id="dangki" action="index.php?act=dangky" method="post">
+                        <form id="dangki" action="index.php?act=dangky" method="post" onsubmit="return check_dk()">
                             <h1>Đăng kí</h1>
-                            <div class="o-input">
-                                <input type="text" placeholder="Tên đăng nhập" name="user">
+                            <div id="input-1" class="o-input">
+                                <input type="text" placeholder="Tên đăng nhập" name="user" id="tendn">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <div class="o-input">
-                                <input type="email" placeholder="Email" name="email">
+                            <div id="input-2" class="o-input">
+                                <input type="email" placeholder="Email" name="email" id="email">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <div class="o-input">
-                                <input type="password" placeholder="Mật khẩu" name="pass">
+                            <div id="input-3" class="o-input">
+                                <input type="password" placeholder="Mật khẩu" name="pass" id="password">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <div class="o-input">
-                                <input type="password" placeholder="Nhập lại mật khẩu" name="pass">
+                            <div id="input-4" class="o-input">
+                                <input type="password" placeholder="Nhập lại mật khẩu" name="re-pass" id="re-password">
                                 <small></small>
                                 <span></span>
                             </div>
@@ -117,15 +122,15 @@
                             </div>
                         </form>
                         <!-- form đăng nhập -->
-                        <form id="dangnhap" action="index.php?act=dangnhap" method="post">
+                        <form id="dangnhap" action="index.php?act=dangnhap" method="post" onsubmit="return check_dn()">
                             <h1>Đăng nhập</h1>
-                            <div class="o-input">
-                                <input type="text" name="user" placeholder="Tên đăng nhập">
+                            <div id="input-5" class="o-input">
+                                <input type="text" name="user" placeholder="Tên đăng nhập" id="tendangnhap">
                                 <small></small>
                                 <span></span>
                             </div>
-                            <div class="o-input">
-                                <input type="password" name="pass" placeholder="Mật khẩu">
+                            <div id="input-6" class="o-input">
+                                <input type="password" name="pass" placeholder="Mật khẩu" id="matkhau">
                                 <small></small>
                                 <span></span>
                             </div>
@@ -146,7 +151,8 @@
                 <div class="gio-hang mgl-5">
                     <i class="fa-solid fa-cart-shopping"></i><br />
                     <a href="index.php?act=giohang" onclick="in_gio_hang()">Giỏ hàng</a><br />
-                    <span class="so-luong-gio-hang"><?php if(isset($_SESSION['slgh'])){echo $_SESSION['slgh'];}else{echo '0';}  ?></span>
+                    <span
+                        class="so-luong-gio-hang"><?php if(isset($_SESSION['slgh'])){echo $_SESSION['slgh'];}else{echo '0';}  ?></span>
                 </div>
             </div>
             <!-- end menu1 -->

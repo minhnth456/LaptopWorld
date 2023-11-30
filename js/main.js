@@ -124,10 +124,10 @@ window.addEventListener('load', function() {
     // Đợi 3 giây trước khi hiển thị nội dung trang web
     setTimeout(function() {
         const preloadImage = document.querySelector('.preload-image');
-        if(preloadImage){
+        if (preloadImage) {
             preloadImage.style.display = 'none';
         }
-        
+
         const content = document.querySelector('.container-p-0');
         const content2 = document.querySelector('.container-p-1');
         if (content) {
@@ -179,18 +179,18 @@ thumbnailLinks.forEach(function(link) {
 
 // Start số lượng cart
 function increment(id) {
-    var input = document.getElementById('soluongsp-'+id);
+    var input = document.getElementById('soluongsp-' + id);
     input.value = parseInt(input.value) + 1;
 }
 
 function decrement(id) {
-    var input = document.getElementById('soluongsp-'+id);
-    if(parseInt(input.value) < 2){
+    var input = document.getElementById('soluongsp-' + id);
+    if (parseInt(input.value) < 2) {
 
     } else {
         input.value = parseInt(input.value) - 1;
     }
-    
+
 }
 // end số lượng cart
 
@@ -222,17 +222,17 @@ function formatTongTien(tongtien) {
     return tongtienString + ' đ';
 }
 
-function tinhtongtien(){
+function tinhtongtien() {
     const dssp = document.getElementById('body-cart');
     const tr = dssp.children;
     let tong = 0;
-    for(i = 0; i < tr.length; i++){
+    for (i = 0; i < tr.length; i++) {
         const td = tr[i].getElementsByTagName('td');
         const gia = td[1].innerText;
         const soluong = parseInt(td[2].getElementsByTagName('input')[0].value);
         const giaSo = chuyenDoiGia(gia);
         ttien = giaSo * soluong;
-        tong += ttien; 
+        tong += ttien;
         // let tongtien = td[3].innerHTML;
         // tongtien = 0;
         // tongtien = ttien;
@@ -244,8 +244,8 @@ function tinhtongtien(){
         document.getElementById('thanhtoan').value = formatTongTien(tong);
 
     }
-    
-    
+
+
 }
 
 window.addEventListener('beforeunload', function() {
@@ -278,8 +278,8 @@ function chat() {
 }
 
 function rep_chat(id_bl) {
-    const nd = document.getElementById('rep-nd-'+id_bl);
-    const dn_chat = document.getElementById('rep-dang-'+id_bl);
+    const nd = document.getElementById('rep-nd-' + id_bl);
+    const dn_chat = document.getElementById('rep-dang-' + id_bl);
 
     if (nd.value.trim() !== "") {
         dn_chat.removeAttribute("disabled");
@@ -297,14 +297,14 @@ function rep_chat(id_bl) {
 
 function checkForm_themsp() {
     var fileAnh = document.getElementById("hinh").files;
-    
+
     // Kiểm tra số lượng tập tin đã chọn
     if (fileAnh.length > 5) {
         alert("Chỉ được phép chọn tối đa 5 ảnh");
         return false;
     }
-    
-    if (fileAnh.length == 0){
+
+    if (fileAnh.length == 0) {
         alert("Bạn chưa chọn ảnh");
         return false;
     }
@@ -318,11 +318,11 @@ function checkForm_themsp() {
 
 // start kiểm tra số lượng ảnh của sản phẩm trong admin
 
-function check_anh(){
+function check_anh() {
     var tr = document.querySelectorAll('.table tbody tr');
     var button = document.getElementById('themanhsp');
     console.log(button.style.display);
-    if(tr.length >= 5){
+    if (tr.length >= 5) {
         button.setAttribute("disabled", "disabled");
     } else {
         button.removeAttribute("disabled");
@@ -334,10 +334,136 @@ function check_anh(){
 
 // start khung trả lời bình luận
 
-function tra_loi(id_bl){
-    const rep_com = document.getElementById('rep-com-'+id_bl);
+function tra_loi(id_bl) {
+    const rep_com = document.getElementById('rep-com-' + id_bl);
     rep_com.style.display = "flex";
 }
+// check form đăng ký và đăng nhập
+function check_dk() {
+    const tendn = document.getElementById('tendn');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const re_password = document.getElementById('re-password');
+    const email_check = document.getElementById('email_check');
+    const re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; // biểu thức chính quy
+
+    //check tên đăng nhập
+    const input_1 = document.getElementById('input-1');
+    const small_1 = input_1.children[1];
+    const span_1 = input_1.children[2];
+
+    if (tendn.value == "") {
+        small_1.innerHTML = "Không được để trống !";
+        span_1.setAttribute("class", "error");
+        span_1.style.width = "100%";
+        return false;
+    } else {
+        small_1.innerHTML = "";
+        span_1.removeAttribute("class");
+        span_1.setAttribute("class", "success");
+        span_1.style.width = "100%";
+    }
+
+    //check email
+    const input_2 = document.getElementById('input-2');
+    const small_2 = input_2.children[1];
+    const span_2 = input_2.children[2];
+
+    if (email.value == "") { //check email rỗng
+        small_2.innerHTML = "Không được để trống !";
+        span_2.setAttribute("class", "error");
+        span_2.style.width = "100%";
+        return false;
+    } else if (!re.test(email.value)) { //check định dạng email
+        small_2.innerHTML = "Email không hợp lệ !";
+        span_2.setAttribute("class", "error");
+        span_2.style.width = "100%";
+        return false;
+    } else {
+        small_2.innerHTML = "";
+        span_2.removeAttribute("class");
+        span_2.setAttribute("class", "success");
+        span_1.style.width = "100%";
+    }
+
+    //check mat khau
+    const input_3 = document.getElementById('input-3');
+    const small_3 = input_3.children[1];
+    const span_3 = input_3.children[2];
+
+    if (password.value == "") {
+        small_3.innerHTML = "Không được để trống !";
+        span_3.setAttribute("class", "error");
+        span_3.style.width = "100%";
+        return false;
+    } else {
+        small_3.innerHTML = "";
+        span_3.removeAttribute("class");
+        span_3.setAttribute("class", "success");
+        span_3.style.width = "100%";
+    }
+
+    //check nhap lai mat khau
+    const input_4 = document.getElementById('input-4');
+    const small_4 = input_4.children[1];
+    const span_4 = input_4.children[2];
+
+    if (re_password.value != password.value) {
+        small_4.innerHTML = "Mật khẩu không trùng khớp";
+        span_4.setAttribute("class", "error");
+        span_4.style.width = "100%";
+        return false;
+    } else {
+        small_4.innerHTML = "";
+        span_4.removeAttribute("class");
+        span_4.setAttribute("class", "success");
+        span_3.style.width = "100%";
+    }
+
+    return true;
+}
+
+// check form đăng nhập
+function check_dn() {
+    const tendangnhap = document.getElementById('tendangnhap');
+    const matkhau = document.getElementById('matkhau');
+
+    //check tên đăng nhập
+    const input_5 = document.getElementById('input-5');
+    const small_5 = input_5.children[1];
+    const span_5 = input_5.children[2];
+
+    if (tendangnhap.value == "") {
+        small_5.innerHTML = "Không được để trống !";
+        span_5.setAttribute("class", "error");
+        span_5.style.width = "100%";
+        return false;
+    } else {
+        small_5.innerHTML = "";
+        span_5.removeAttribute("class");
+    }
+
+    //check mật khẩu
+    const input_6 = document.getElementById('input-6');
+    const small_6 = input_6.children[1];
+    const span_6 = input_6.children[2];
+
+    if (matkhau.value == "") {
+        small_6.innerHTML = "Không được để trống !";
+        span_6.setAttribute("class", "error");
+        span_6.style.width = "100%";
+        return false;
+    } else {
+        small_6.innerHTML = "";
+        span_6.removeAttribute("class");
+    }
+
+    return true;
+}
+
+// test biểu đồ
+
+// end check form đăng ký đăng nhập
 
 // end khung trả lời bình luận
 
