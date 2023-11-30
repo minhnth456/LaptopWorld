@@ -3,7 +3,7 @@
     $current_time_in_vietnam = new DateTime();
     //thời gian
     $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
-    $real_time2 = $current_time_in_vietnam->format('d-m-Y');
+    $real_time2 = $current_time_in_vietnam->format('Y-m-d');
 ?>
 
 <div class="container-fluid p-0" style="padding-top: 20px; width: 95%; margin: 0 auto;">

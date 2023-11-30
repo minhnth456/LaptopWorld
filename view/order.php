@@ -2,7 +2,7 @@
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $current_time_in_vietnam = new DateTime();
     $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
-    $real_time2 = $current_time_in_vietnam->format('d-m-Y');
+    $real_time2 = $current_time_in_vietnam->format('Y-m-d');
 ?>
 <div style="padding:10px" class="khoangtrang">
 
