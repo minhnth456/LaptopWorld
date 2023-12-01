@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2023 lúc 08:20 AM
+-- Thời gian đã tạo: Th12 01, 2023 lúc 02:23 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `laptopworld`
+-- Cơ sở dữ liệu: `thegioi_laptop`
 --
 
 -- --------------------------------------------------------
@@ -131,8 +131,7 @@ CREATE TABLE `chitiet_giohang` (
 --
 
 INSERT INTO `chitiet_giohang` (`id_ctgiohang`, `img_spct`, `tensp`, `giasp`, `giasp2`, `soluong`, `total`, `total_vn`, `id_pro`, `id_chitiet`, `id_giohang`) VALUES
-(88, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 1, 25890000.00, '25.890.000', 30, 22, 48),
-(90, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 1, 21980000.00, '21.980.000', 30, 20, 18);
+(88, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 1, 25890000.00, '25.890.000', 30, 22, 48);
 
 -- --------------------------------------------------------
 
@@ -159,17 +158,28 @@ CREATE TABLE `chitiet_hoadon` (
 --
 
 INSERT INTO `chitiet_hoadon` (`id_cthoadon`, `img_sp`, `tensp`, `giasp`, `giasp2`, `soluong`, `total`, `total_vn`, `id_dmc`, `id_chitiet`, `id_hoadon`) VALUES
-(17, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 2, 43960000.00, '43.960.000', NULL, NULL, 13),
-(18, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 3, 29670000.00, '29.670.000', NULL, NULL, 13),
-(19, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 1, 9890000.00, '9.890.000', NULL, NULL, 14),
-(20, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 3, 29670000.00, '29.670.000', NULL, NULL, 15),
-(42, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 4, 31560000.00, '31.560.000', NULL, NULL, 28),
-(43, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 1, 21980000.00, '21.980.000', NULL, NULL, 29),
-(44, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 4, 31560000.00, '31.560.000', NULL, NULL, 29),
-(45, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 3, 65940000.00, '65.940.000', NULL, NULL, 30),
-(49, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 3, 23670000.00, '23.670.000', NULL, NULL, 33),
 (50, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 1, 9890000.00, '9.890.000', 2, 19, 34),
-(51, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 3, 23670000.00, '23.670.000', 2, 14, 34);
+(51, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 3, 23670000.00, '23.670.000', 2, 14, 34),
+(52, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 1, 21980000.00, '21.980.000', 1, 20, 35),
+(53, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 1, 25890000.00, '25.890.000', 1, 22, 35),
+(54, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 2, 43960000.00, '43.960.000', 1, 20, 36),
+(55, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 2, 19780000.00, '19.780.000', 2, 21, 37),
+(56, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 AN515-58-56HM (Ryzen 5-7500U, 32G, 1T, RTX 2050)', '1.200', 1200.00, 1, 1200.00, '1.200', 1, 13, 38),
+(57, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 1, 9890000.00, '9.890.000', 2, 19, 39),
+(58, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 AN515-58-56HM (Ryzen 5-5600U, 16G, 512G, RTX 1650Ti)', '17.900.000', 17900000.00, 1, 17900000.00, '17.900.000', 1, 12, 40),
+(59, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 2, 51780000.00, '51.780.000', 1, 22, 41),
+(60, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 3, 29670000.00, '29.670.000', 2, 21, 42),
+(61, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 2, 51780000.00, '51.780.000', 1, 22, 43),
+(62, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 1, 7890000.00, '7.890.000', 2, 14, 44),
+(63, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 2, 51780000.00, '51.780.000', 1, 22, 45),
+(64, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 5-5600U, 16G, 512G, RTX 3050Ti)', '21.980.000', 21980000.00, 3, 65940000.00, '65.940.000', 1, 20, 46),
+(65, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 AN515-58-56HM (Ryzen 5-5600U, 16G, 512G, RTX 1650Ti)', '17.900.000', 17900000.00, 1, 17900000.00, '17.900.000', 1, 12, 47),
+(66, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 3, 29670000.00, '29.670.000', 2, 19, 48),
+(67, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 1, 7890000.00, '7.890.000', 2, 14, 49),
+(68, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i3-1135G7, 16G, 512G, Iris Xe Graphics)', '9.890.000', 9890000.00, 3, 29670000.00, '29.670.000', 2, 19, 50),
+(69, 'aspire6.jpg', '[New Outlet] Acer Aspire 5 A515-56T-55FB (Core i5-1135G7, 8G, 256G, Iris Xe Graphics)', '7.890.000', 7890000.00, 1, 7890000.00, '7.890.000', 2, 14, 51),
+(70, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 AN515-58-56HM (Core i5 - 12500H, 4G, 255G, RTX 4050 6GB)', '21.590.000', 21590000.00, 1, 21590000.00, '21.590.000', 1, 11, 52),
+(71, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 AN515-58-56HM (Ryzen 5-5600U, 16G, 512G, RTX 1650Ti)', '17.900.000', 17900000.00, 1, 17900000.00, '17.900.000', 1, 12, 53);
 
 -- --------------------------------------------------------
 
@@ -196,14 +206,14 @@ CREATE TABLE `chitiet_sanpham` (
 --
 
 INSERT INTO `chitiet_sanpham` (`id_chitiet`, `cpu`, `ram`, `ssd`, `giasp`, `giasp2`, `soluong`, `cardVGA`, `luotxem`, `id_pro`, `id_dmc`) VALUES
-(11, 'Core i5 - 12500H', '4G', '255G', '21.590.000', 21590000.00, 2, 'RTX 4050 6GB', 0, 28, 1),
-(12, 'Ryzen 5-5600U', '16G', '512G', '17.900.000', 17900000.00, 1, 'RTX 1650Ti', 1, 28, 1),
-(13, 'Ryzen 5-7500U', '32G', '1T', '1200', 1200.00, 1, 'RTX 2050', 0, 28, 1),
-(14, 'Core i5-1135G7', '8G', '256G', '7.890.000', 7890000.00, 5, 'Iris Xe Graphics', 3, 29, 2),
-(19, 'Core i3-1135G7', '16G', '512G', '9.890.000', 9890000.00, 1, 'Iris Xe Graphics', 2, 29, 2),
-(20, 'Ryzen 5-5600U', '16G', '512G', '21.980.000', 21980000.00, 1, 'RTX 3050Ti', 1, 30, 1),
-(21, 'Core i3-1135G7', '16G', '512G', '9.890.000', 9890000.00, 2, 'Iris Xe Graphics', 0, 30, 2),
-(22, 'Ryzen 7-7800U', '32G', '2T', '25.890.000', 25890000.00, 3, 'RTX 4050Ti', 0, 30, 1);
+(11, 'Core i5 - 12500H', '4G', '255G', '21.590.000', 21590000.00, 2, 'RTX 4050 6GB', 5, 28, 1),
+(12, 'Ryzen 5-5600U', '16G', '512G', '17.900.000', 17900000.00, 1, 'RTX 1650Ti', 11, 28, 1),
+(13, 'Ryzen 5-7500U', '32G', '1T', '1200', 1200.00, 1, 'RTX 2050', 4, 28, 1),
+(14, 'Core i5-1135G7', '8G', '256G', '7.890.000', 7890000.00, 5, 'Iris Xe Graphics', 16, 29, 2),
+(19, 'Core i3-1135G7', '16G', '512G', '9.890.000', 9890000.00, 1, 'Iris Xe Graphics', 11, 29, 2),
+(20, 'Ryzen 5-5600U', '16G', '512G', '21.980.000', 21980000.00, 1, 'RTX 3050Ti', 10, 30, 1),
+(21, 'Core i3-1135G7', '16G', '512G', '9.890.000', 9890000.00, 2, 'Iris Xe Graphics', 5, 30, 2),
+(22, 'Ryzen 7-7800U', '32G', '2T', '25.890.000', 25890000.00, 3, 'RTX 4050Ti', 6, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -248,12 +258,11 @@ CREATE TABLE `giohang` (
 --
 
 INSERT INTO `giohang` (`id_giohang`, `tongtien`, `tongtien_vn`, `ghichu`, `pttt`, `id_user`) VALUES
-(11, 33560000.00, '33.560.000', NULL, 1, 2),
-(17, 7890000.00, '7.890.000', NULL, 1, 1),
-(18, 21980000.00, '21.980.000', NULL, 1, 4),
-(47, 65550000.00, '65.550.000', NULL, 1, 3),
+(18, 9890000.00, '9.890.000', NULL, 1, 4),
+(47, 51780000.00, '51.780.000', NULL, 1, 3),
 (48, 53680000.00, '53.680.000', NULL, 1, 80),
-(49, 21980000.00, '21.980.000', NULL, 1, 81);
+(49, 21980000.00, '21.980.000', NULL, 1, 81),
+(50, 17900000.00, '17.900.000', NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -265,12 +274,13 @@ CREATE TABLE `hoadon` (
   `id_hoadon` int(11) NOT NULL,
   `nn_name` varchar(255) NOT NULL,
   `nn_address` varchar(255) NOT NULL,
-  `nn_tel` int(11) NOT NULL,
+  `nn_tel` varchar(250) NOT NULL,
   `nn_email` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `date2` varchar(255) DEFAULT NULL,
   `date3` varchar(255) DEFAULT NULL,
   `date4` varchar(255) DEFAULT NULL,
+  `date5` varchar(255) DEFAULT NULL,
   `trangthai` tinyint(4) NOT NULL DEFAULT 1,
   `pttt` tinyint(11) NOT NULL,
   `tongtien` double(12,2) DEFAULT NULL,
@@ -283,15 +293,27 @@ CREATE TABLE `hoadon` (
 -- Đang đổ dữ liệu cho bảng `hoadon`
 --
 
-INSERT INTO `hoadon` (`id_hoadon`, `nn_name`, `nn_address`, `nn_tel`, `nn_email`, `date`, `date2`, `date3`, `date4`, `trangthai`, `pttt`, `tongtien`, `tongtien_vn`, `ghichu`, `id_user`) VALUES
-(13, 'minh', 'ha noi', 963987818, 'minh@gmail.com', '15:59 24-11-2023', '14:22 27-11-2023', '14:22 27-11-2023', '', 3, 1, 73630000.00, '73.630.000', 'lej lej', 1),
-(14, 'minh', 'ha noi', 963987818, 'minh@gmail.com', '16:01 24-11-2023', '14:43 27-11-2023', '14:43 27-11-2023', '14:43 27-11-2023', 4, 1, 9890000.00, '9.890.000', 'mua thêm', 1),
-(15, 'minh', 'ha noi', 963987818, 'minh@gmail.com', '16:08 24-11-2023', '13:45 27-11-2023', '13:48 27-11-2023', NULL, 3, 1, 29670000.00, '29.670.000', 'test', 1),
-(28, 'minh2', 'xuan phuong ha noi', 963987818, 'minh@gmail.com', '12:13 25-11-2023', '17:06 27-11-2023', '17:06 27-11-2023', '17:06 27-11-2023', 4, 1, 31560000.00, '31.560.000', 'minh22222', 2),
-(29, 'vanhai', 'ha noi', 963987818, 'vanhai@gmail.com', '12:18 25-11-2023', '13:41 27-11-2023', '10:42 28-11-2023', '12:06 28-11-2023', 4, 1, 53540000.00, '53.540.000', 'vanhai gui tang lai minh', 2),
-(30, 'vanhai', 'xuan phuong ha noi', 963987818, 'vanhai@gmail.com', '12:20 25-11-2023', '17:04 27-11-2023', NULL, NULL, 2, 1, 65940000.00, '65.940.000', 'adadwwa', 2),
-(33, 'minh', 'xuan phuong ha noi', 963987818, 'minh@gmail.com', '13:22 25-11-2023', '16:38 27-11-2023', '16:38 27-11-2023', '16:38 27-11-2023', 0, 1, 23670000.00, '23.670.000', 'minh gui tang lai vanhai', 2),
-(34, 'hoangminh', 'me tri ha noi', 90909009, 'hoangminh@gmail.com', '14:18 28-11-2023', NULL, NULL, NULL, 1, 1, 33560000.00, '33.560.000', 'test id dmc va id chi tiet', 2);
+INSERT INTO `hoadon` (`id_hoadon`, `nn_name`, `nn_address`, `nn_tel`, `nn_email`, `date`, `date2`, `date3`, `date4`, `date5`, `trangthai`, `pttt`, `tongtien`, `tongtien_vn`, `ghichu`, `id_user`) VALUES
+(34, 'hoangminh', 'me tri ha noi', '090909009', 'hoangminh@gmail.com', '14:18 28-11-2023', '16:08 28-11-2023', '16:08 28-11-2023', '17:45 30-11-2023', '2023-01-25', 4, 1, 33560000.00, '33.560.000', 'test id dmc va id chi tiet', 2),
+(35, 'hia', 'ha noi', '091039013', 'hai@gmail.com', '14:42 28-11-2023', '16:08 28-11-2023', '16:08 28-11-2023', '17:45 30-11-2023', '2023-04-24', 4, 1, 47870000.00, '47.870.000', '', 4),
+(36, 'van hai', 'ha noi', '0989898753', 'hai@gmail.com', '18:20 28-11-2023', '18:21 28-11-2023', '18:21 28-11-2023', '17:45 30-11-2023', '2023-02-23', 4, 1, 43960000.00, '43.960.000', '', 4),
+(37, 'luong', 'ha noi', '0102392323', 'luong@gmail.com', '13:26 30-11-2023', '13:26 30-11-2023', '13:27 30-11-2023', '17:45 30-11-2023', '2023-12-5', 4, 1, 19780000.00, '19.780.000', 'hang ngon', 2),
+(38, 'luong', 'ha noi', '0102392323', 'luong@gmail.com', '15:26 30-11-2023', '15:27 30-11-2023', '15:27 30-11-2023', '17:45 30-11-2023', '2023-11-4', 4, 1, 1200.00, '1.200', 'dep nna', 4),
+(39, 'luong', 'ha noi', '0102392323', 'luong@gmail.com', '18:17 30-11-2023', '18:18 30-11-2023', '18:18 30-11-2023', '18:18 30-11-2023', '2023-03-12', 4, 1, 9890000.00, '9.890.000', 'adu tang tit', 4),
+(40, 'minh', 'ha noi', '0909090099', 'minh@gmail.com', '20:51 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '2023-05-18', 4, 1, 17900000.00, '17.900.000', '', 3),
+(41, 'minh', '230 me tri', '0909090909', 'minh@gmail.com', '20:51 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '2023-06-24', 4, 1, 51780000.00, '51.780.000', '', 3),
+(42, 'vanhai', 'me tri ha noi', '0963987818', 'minhnthph33626@fpt.edu.vn', '20:51 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '2023-07-13', 4, 1, 29670000.00, '29.670.000', '', 3),
+(43, 'minh', '230 me tri', '0909090909', 'minh@gmail.com', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '2023-08-15', 4, 1, 51780000.00, '51.780.000', '', 3),
+(44, 'minh', 'ha noi', '0963987818', 'vanhai@gmail.com', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '20:52 30-11-2023', '2023-09-02', 4, 1, 7890000.00, '7.890.000', '', 3),
+(45, 'minh', '230 me tri', '0909090909', 'minh@gmail.com', '20:52 30-11-2023', '20:53 30-11-2023', '20:53 30-11-2023', '20:53 30-11-2023', '2023-10-10', 4, 1, 51780000.00, '51.780.000', '', 3),
+(46, 'minh', 'ha noi', '0963987818', 'xinphepgiauten456@gmail.com', '09:50 01-12-2023', '09:51 01-12-2023', '14:25 01-12-2023', '14:25 01-12-2023', '2023-01-10', 4, 1, 65940000.00, '65.940.000', '', 2),
+(47, 'minh', 'ha noi', '0909090099', 'minh@gmail.com', '18:55 01-12-2023', '18:56 01-12-2023', '18:56 01-12-2023', '18:56 01-12-2023', '2023-07-24', 4, 1, 17900000.00, '17.900.000', '', 2),
+(48, 'vanhai', 'me tri ha noi', '0963987818', 'minhnthph33626@fpt.edu.vn', '18:55 01-12-2023', '18:56 01-12-2023', '18:56 01-12-2023', '18:56 01-12-2023', '2023-07-26', 4, 1, 29670000.00, '29.670.000', '', 2),
+(49, 'minh', 'ha noi', '0963987818', 'vanhai@gmail.com', '19:01 01-12-2023', '19:02 01-12-2023', '19:02 01-12-2023', '19:02 01-12-2023', '2023-01-01', 4, 1, 7890000.00, '7.890.000', '', 2),
+(50, 'vanhai', 'me tri ha noi', '0963987818', 'minhnthph33626@fpt.edu.vn', '19:01 01-12-2023', '19:02 01-12-2023', '19:02 01-12-2023', '19:02 01-12-2023', '2023-01-19', 4, 1, 29670000.00, '29.670.000', '', 2),
+(51, 'minh', 'ha noi', '0963987818', 'vanhai@gmail.com', '19:54 01-12-2023', '19:56 01-12-2023', '19:56 01-12-2023', '19:56 01-12-2023', '2023-07-01', 4, 1, 7890000.00, '7.890.000', '', 2),
+(52, 'minh', 'me tri ha noi', '0909090909', 'vanhai@gmail.com', '19:57 01-12-2023', '19:57 01-12-2023', '19:57 01-12-2023', '19:57 01-12-2023', '2023-07-05', 4, 1, 21590000.00, '21.590.000', '', 2),
+(53, 'minh', 'ha noi', '0909090099', 'minh@gmail.com', '19:59 01-12-2023', '19:59 01-12-2023', '19:59 01-12-2023', '19:59 01-12-2023', '2023-07-19', 4, 1, 17900000.00, '17.900.000', '', 2);
 
 -- --------------------------------------------------------
 
@@ -371,7 +393,7 @@ INSERT INTO `taikhoan` (`id_user`, `id_clone`, `name`, `img`, `email`, `pass`, `
 (1, NULL, 'hoangMinh', 'user.png', 'minh@gmail.com', '24042004', '230 me tri', 123, 2),
 (2, NULL, 'user', 'c6f7bcdb37f9dba782e8.jpg', 'user@gmail.com', '123', '', 0, 1),
 (3, NULL, 'hoangminh2', 'user.png', 'hoangminh2@gmail.com', '123', NULL, NULL, 1),
-(4, NULL, 'vanhai', 'user.png', 'vanhai@gmail.com', '123', NULL, NULL, 1),
+(4, NULL, 'hai', 'user.png', 'vanhai@gmail.com', '123', NULL, NULL, 2),
 (80, 45, NULL, 'user.png', NULL, 'LaptopWorld', NULL, NULL, 1),
 (81, 46, NULL, 'user.png', NULL, 'LaptopWorld', NULL, NULL, 1);
 
@@ -517,19 +539,19 @@ ALTER TABLE `chitiet_danhmuc`
 -- AUTO_INCREMENT cho bảng `chitiet_giohang`
 --
 ALTER TABLE `chitiet_giohang`
-  MODIFY `id_ctgiohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id_ctgiohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet_hoadon`
 --
 ALTER TABLE `chitiet_hoadon`
-  MODIFY `id_cthoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_cthoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet_sanpham`
 --
 ALTER TABLE `chitiet_sanpham`
-  MODIFY `id_chitiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_chitiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -541,13 +563,13 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id_hoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_hoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT cho bảng `rep_bl`
@@ -565,7 +587,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan_clone`

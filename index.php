@@ -6,6 +6,7 @@
     include 'model/sanpham/sanpham.php';
     include 'model/user/user.php';
     include 'model/giohang/giohang.php';
+    include 'model/bieudo/bieudo.php';
     include 'model/binhluan.php';
     include 'view/header.php';
     

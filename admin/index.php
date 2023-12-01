@@ -7,6 +7,7 @@ session_start();
    include "../model/sanpham/sanpham.php";
    include "../model/giohang/giohang.php";
    include "../model/user/user.php";
+   include "../model/bieudo/bieudo.php";
    include "../model/taikhoan.php";
    if(isset($_GET['act'])&&($_GET['act']!="")){
       $act=$_GET['act'];
@@ -426,7 +427,42 @@ session_start();
             break;
          case "thongke":
             include "sanpham_daban/bieudo.php";
-            
+            break;
+         case "thongke_tuan":
+            $thang = 0;
+            $nam = 0;
+            $bieudo = bieudo_tuan($thang, $nam);
+            include "sanpham_daban/bieudo_tuan.php";
+            break;
+         case "thongke_thang":
+            $nam = 0;
+            $bieudo = bieudo_thang($nam);
+            include "sanpham_daban/bieudo_thang.php";
+            break;
+         case "thongke_nam":
+            include "sanpham_daban/bieudo_nam.php";
+            break;
+         case "thongke_soluongsp":
+            include "sanpham_daban/bieudo_soluongsp.php";
+            break;
+
+         //Chức năng lọc thời gian biểu đồ
+         case "xacdinh_thoigian":
+            if(isset($_POST['bieudo_tuan'])){
+               $thang = $_POST['thang'];
+               $nam = $_POST['nam'];
+               $bieudo = bieudo_tuan($thang, $nam);
+               include "sanpham_daban/bieudo_tuan.php";
+               break;
+            }
+
+            if(isset($_POST['bieudo_thang'])){
+               $nam = $_POST['nam'];
+               $bieudo = bieudo_thang($nam);
+               include "sanpham_daban/bieudo_thang.php";
+               break;
+            }
+
             break;
          }
       } 

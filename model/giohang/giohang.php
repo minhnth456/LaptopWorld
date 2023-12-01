@@ -205,47 +205,6 @@ function daGiao($date4, $id_hoadon, $date5){
     $sql = "UPDATE hoadon SET trangthai = 4, date4 = '$date4', date5 = '$date5' WHERE id_hoadon = $id_hoadon";
     pdo_execute($sql);
 }
-// SẢN PHẨM ĐÃ BÁN == ĐÃ GIAO 
-function sanpham_sell($trangthai){
-    $sql = "SELECT id_dmc, id_chitiet, tensp, giasp, giasp2,img_sp,chitiet_danhmuc.name, SUM(soluong) AS tong_soluong
-    FROM chitiet_hoadon
-    JOIN chitiet_danhmuc ON chitiet_danhmuc.id = chitiet_hoadon.id_dmc
-    JOIN hoadon AS a ON chitiet_hoadon.id_hoadon = a.id_hoadon
-    JOIN taikhoan AS b ON a.id_user = b.id_user
-    WHERE a.trangthai = '$trangthai'
-    GROUP BY id_dmc, id_chitiet, tensp, giasp, giasp2
-    ORDER BY a.id_hoadon DESC
-    LIMIT 0, 25;";
-    return pdo_query($sql);
-}
-
-//
-function bieudo(){
-    $sql = "SELECT * FROM `hoadon` JOIN chitiet_hoadon ON chitiet_hoadon.id_hoadon = hoadon.id_hoadon WHERE  hoadon.trangthai = 4;";
-    $bieudo = pdo_query($sql);
-    return $bieudo;
-}
-
-
-// lấy danh mục con ra biểu đồ
-function load_dm($id_dm){
-    $sql = "SELECT * FROM chitiet_hoadon
-    JOIN chitiet_danhmuc ON chitiet_hoadon.id_dmc = chitiet_danhmuc.id
-    WHERE chitiet_hoadon.id_dmc in ($id_dm)";
-    return pdo_query($sql);
-}
-
-//hiển thị top 10 sản phẩm có lượt xem cao 
-function select_top10(){
-    $sql = "SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY RAND(b.id_chitiet) ORDER BY luotxem DESC";
-    return pdo_query($sql);
-}
-
-//chức năng tăng lượt xem sản phẩm
-function top10_sp($id_chitiet,$id_pro){
-    $sql = "UPDATE `chitiet_sanpham` SET `luotxem`= `luotxem` + 1 WHERE id_chitiet = $id_chitiet AND id_pro = $id_pro";
-    pdo_execute($sql);
-}
 
 //trạng thái đơn hàng
 function get_ttdh($n){

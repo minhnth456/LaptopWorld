@@ -10,9 +10,9 @@ $(document).ready(function() {
           ?>
 
         {
-            year: '<?php echo $date4; ?>',
-            value: <?php echo $soluong; ?>,
-            doanhthu: '<?php echo $giasp2; ?>',
+            year: '<?php echo $date5; ?>',
+            value: <?php echo $soluongmoi; ?>,
+            doanhthu: '<?php echo $tongdoanhthu; ?>',
         },
         <?php endforeach; ?>
 

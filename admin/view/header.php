@@ -197,7 +197,11 @@
                         <a class="dropdown-item" href="index.php?act=sanpham_daban">Sản phẩm đã bán</a>
                         <a class="dropdown-item" href="index.php?act=sanpham_duocqtam">Top những sản phẩm được quan tâm
                             nhất</a>
-                        <a class="dropdown-item" href="index.php?act=thongke">Biểu đồ</a>
+                        <!-- <a class="dropdown-item" href="index.php?act=thongke">Biểu đồ theo ngày</a> -->
+                        <a class="dropdown-item" href="index.php?act=thongke_tuan">Biểu đồ theo tuần</a>
+                        <a class="dropdown-item" href="index.php?act=thongke_thang">Biểu đồ theo tháng</a>
+                        <a class="dropdown-item" href="index.php?act=thongke_nam">Biểu đồ theo năm</a>
+                        <a class="dropdown-item" href="index.php?act=thongke_soluongsp">Biểu đồ số lượng sản phẩm</a>
 
                     </li>
                 </ul>

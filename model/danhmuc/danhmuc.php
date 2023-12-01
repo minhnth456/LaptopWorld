@@ -82,4 +82,11 @@
     $sql = "SELECT * FROM chitiet_danhmuc WHERE id_dm = (SELECT id_dm FROM `sanpham` WHERE id_pro = (SELECT id_pro FROM `chitiet_sanpham` WHERE id_chitiet = $id_chitiet))";
     return pdo_query($sql);
   }
+
+  // lấy tất cả id danh mục chi tiết (thực hiện chức năng trong thống kê)
+  function get_all_id_dmc(){
+    $sql = "SELECT id FROM chitiet_danhmuc";
+    return pdo_query($sql);
+  }
+
 ?>
