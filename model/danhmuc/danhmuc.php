@@ -29,10 +29,18 @@
     return $xoadm;
   }
   function xoa_dm_ct($iddm){
-    $sql = "DELETE FROM chitiet_danhmuc WHERE id = $iddm";
+    $sql = 
+      "DELETE FROM chitiet_sanpham
+      WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_dm IN (SELECT id_dm FROM chitiet_danhmuc WHERE id = $iddm));
+       
+      DELETE FROM anh_sp
+      WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_dm IN (SELECT id_dm FROM chitiet_danhmuc WHERE id = $iddm));
+       
+      DELETE FROM sanpham WHERE id_dm IN (SELECT id_dm FROM chitiet_danhmuc WHERE id = $iddm);
+       
+      DELETE FROM chitiet_danhmuc WHERE id = $iddm;";
     pdo_query($sql);
-
-  }
+}
   // load sản phẩm danh mục
   function load_danhmucCt($iddmct){
     $sql ="SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddmct";
@@ -67,7 +75,7 @@
 
   //danh mục con của thêm sản phẩm
   function chitiet_danhmuc(){
-    $sql = "SELECT * FROM chitiet_danhmuc";
+    $sql = "SELECT * FROM chitiet_danhmuc ORDER BY id_dm";
     return pdo_query($sql);
   }
 

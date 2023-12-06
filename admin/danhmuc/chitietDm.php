@@ -40,7 +40,7 @@
                 <th scope="row">
                     <a class="btn btn-danger" href="index.php?act=suadm_ct&&idchitietdm=<?php echo $dmct['id']?>">Sửa</a>
                     <a class="btn btn-dark" href="index.php?act=xoadm_ct&&iddm=<?php echo $dmct['id']?>"
-                        onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>
+                        onclick="return confirm('Bạn muốn xóa danh mục sản phẩm không?')">Xóa</a>
                 </th>
             </tr>
             <?php }}?>

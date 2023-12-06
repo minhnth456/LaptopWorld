@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Clone</th>
+                <th scope="col">Acc</th>
                 <th scope="col">Tên</th>
                 <th scope="col">Địa chỉ</th>
                 <th scope="col" style="max-width:80px">Điện thoại</th>
@@ -40,7 +40,11 @@
                     <input type="hidden" name="real_time2" value="<?php echo $real_time2; ?>">
                     <td><?php echo $a['id_hoadon'] ?></td>
                     <!-- id acc clone  -->
-                    <td style="color:red; font-weight: bold;"><?php echo $a['id_clone'] ?></td>
+                    <td style="color:red; font-weight: bold;">
+                        <?php if(isset($a['id_clone']) && ($a['id_clone']) != ""){ ?>
+                        <?php echo '<b style="color: red;">No(</b>'.$a['id_user'].')' ?>
+                        <?php } else {} ?>
+                    </td>
                     <td scope="row"><?php echo $a['nn_name'] ?></td>
                     <td scope="row"><?php echo $a['nn_address'] ?></td>
                     <td scope="row"><?php echo $a['nn_tel'] ?></td>
@@ -77,8 +81,10 @@
                         <a type="button" class="btn btn-danger"
                             href="index.php?act=chitietHD&id_hoadon=<?php echo $a['id_hoadon'] ?>"
                             style="margin-bottom: 5px">Chi tiết</a>
+                        <?php if($a['trangthai'] > 0 && $a['trangthai'] < 4){ ?>
                         <button type="submit" class="btn btn-success" style="background-color: #28a745;"
                             name="capnhat_trangthai">Cập nhật</button>
+                        <?php } else {} ?>
                     </th>
                 </tr>
             </form>

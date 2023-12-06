@@ -9,9 +9,10 @@ session_start();
    include "../model/user/user.php";
    include "../model/bieudo/bieudo.php";
    include "../model/taikhoan.php";
+   include "../model/binhluan.php";
    if(isset($_GET['act'])&&($_GET['act']!="")){
       $act=$_GET['act'];
-      switch($act){
+      switch($act){  
          // sản phẩm
 
          // danh sách sản phẩm
@@ -336,7 +337,7 @@ session_start();
                $address = $_POST['address'];
                $tel = $_POST['tel'];
                $role = $_POST['role'];
-               update_tk($name,$email,$pass,$address,$tel,$role,$id_user);
+               updatetk($name,$email,$pass,$address,$tel,$role,$id_user);
                $thongbao ="Bạn đã sửa thành công";
               }
               include "taikhoan/ListUser.php";
@@ -345,7 +346,6 @@ session_start();
          case "xoaUser":
             if(isset($_GET['id_user'])&&$_GET['id_user'] >0){
                xoa_User($_GET['id_user']);
-               $thongbao = "Bạn đã xóa tài khoản thành công";
                include "taikhoan/ListUser.php";
             }
          break;
@@ -354,6 +354,10 @@ session_start();
          case "binhluan":
             include "binhluan/binhluan.php";
             break;
+
+         //chức năng xóa bình luận
+         case "xoaBl":
+            
 
          //hiển thị trang hóa đơn
          case "donhang":

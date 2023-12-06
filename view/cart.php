@@ -5,7 +5,7 @@
             //thời gian
             $real_time = $current_time_in_vietnam->format('H:i d-m-Y');
         ?>
-        <form action="index.php?act=capnhatgiohang" method="post">
+        <form action="index.php?act=capnhatgiohang" method="post" enctype="application/x-www-form-urlencoded">
             <div class="bang_sanpham pt-4">
                 <table class="table pt-4" style="width: 1200px; margin: auto; border: 1px solid #cccccc;">
                     <thead>
@@ -163,6 +163,10 @@
                         <div class="tai_quan">
                             <input type="radio" id="payment_option_2" name="COD" value="2" required>
                             <label for="payment_option_2">Thanh Toán tại cửa hàng</label>
+                        </div>
+                        <div class="tai_quan">
+                            <input type="radio" id="payment_option_3" name="COD" value="3" required>
+                            <label for="payment_option_3">Thanh Toán qua Momo</label>
                         </div>
                     </div>
 

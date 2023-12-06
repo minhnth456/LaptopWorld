@@ -33,7 +33,7 @@ $(document).ready(function() {
           ?>
 
         {
-            year:'Th<?php echo $thang;?>',
+            year:'<?php echo $thang;?>',
             nam: '<?php echo $nam; ?>',
             thang: '<?php echo $thang; ?>',
             value: <?php echo $tongsoluong; ?>,

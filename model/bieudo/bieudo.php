@@ -55,9 +55,9 @@ function bieudo_tuan($thang, $nam){
         $sql.= "";
     }
     
-    $sql.= " 
+    $sql.= "  
     GROUP BY 
-        WEEK(hoadon.date5)
+        tuan
     ORDER BY 
         hoadon.date5 ASC;
     ";

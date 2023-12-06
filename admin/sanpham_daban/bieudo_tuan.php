@@ -1,5 +1,11 @@
+<?php
+    foreach($bieudo as $a){
+        var_dump($a);
+    }  
+?>
+
 <div class="chontg" style="width: auto; height: auto; display: flex; padding:20px;">
-    <P style="padding: 7px; margin: 0px;">Mốc thời gian : </P>
+    <P style="padding: 7px; margin: 0px;">Mốc giời gian: </P>
     <form action="index.php?act=xacdinh_thoigian" method="post" style="display: flex; height: auto;">
         <select class="form-select form-select-lg" name="thang" style="font-size: 1rem; width: auto; margin-right: 7px;" aria-label="Large select example" name="tt">
             <option value="0">--Tất cả các tháng--</option>
@@ -44,17 +50,17 @@
     ?>
     <P style="padding: 7px; margin: 0px;">Thống kê : <b>Biểu đồ theo tuần</b> - <i><?php echo $time_thang ?></i> - <i><?php echo $time_nam ?></i></P>
 </div>
-<div id="myfirstchart" style="height: auto; max-width: 1200px; margin: 50px auto;"></div>
+<div id="myfirstchart" style="height: auto; width: auto; margin: 50px auto;"></div>
 <script>
 $(document).ready(function() {
     var sampleData = [
         <?php
-        foreach($bieudo as $a) :
+        foreach($bieudo as $a):
             
         ?>
 
         {
-            tuan: '<?php echo $a['tuan']; ?>',
+            tuan: <?php echo $a['tuan']; ?>,
             doanhthu: '<?php echo $a['tongdoanhthu']; ?>',
         },
         <?php endforeach; ?>

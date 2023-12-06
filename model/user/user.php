@@ -68,10 +68,10 @@
         return pdo_query_one($sql);
     }
     //cap nhap tai khoan
-    function update_tk($name,$email,$address,$tel,$id_user){
-        $sql="UPDATE taikhoan SET name='$name',email='$email',address='$address',tel='$tel' WHERE id_user = $id_user";
-        pdo_execute($sql);
-    }
+    // function update_tk($name,$email,$address,$tel,$id_user){
+    //     $sql="UPDATE taikhoan SET name='$name',email='$email',address='$address',tel='$tel' WHERE id_user = $id_user";
+    //     pdo_execute($sql);
+    // }
     //cap nhap anh tai khoan
     function update_anh($fileName, $id_user){
         $sql = "UPDATE taikhoan SET img='".$fileName."' WHERE id_user = $id_user";
@@ -93,16 +93,18 @@
 
     //sua tai khoan
     function updatetk($name,$email,$pass,$address,$tel,$role,$id_user){
-        $sql = "UPDATE taikhoan SET name='$name', email='$email', pass='$pass', address='$address',tel='$tel', role='$role' WHERE id_user = $id_user";
-        $suaUser = pdo_query($sql);
-        return $suaUser;
+        $sql = "UPDATE taikhoan SET name='$name', email='$email', pass='$pass', address='$address',tel='$tel', role='$role' WHERE id_user = $id_user;";
+        $sql.= "UPDATE taikhoan SET id_clone = NULL WHERE id_user = $id_user;";
+        pdo_execute($sql);
     }
 
     // xoa tai khoan
     function xoa_User($id_user){
-        $sql = "DELETE FROM taikhoan WHERE id_user = $id_user";
-        $xoaUser = pdo_query($sql);
-        return $xoaUser;
+        $sql = "DELETE FROM chitiet_giohang WHERE id_giohang IN (SELECT id_giohang FROM giohang WHERE id_user = $id_user);";
+        $sql.= "DELETE FROM rep_bl WHERE id_user = $id_user;";
+        $sql.= "DELETE FROM binhluan WHERE id_user = $id_user;";
+        $sql.= "DELETE FROM taikhoan WHERE id_user = $id_user;";
+        pdo_execute($sql);
     }
 
     //them tai khoan

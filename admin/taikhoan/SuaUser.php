@@ -18,11 +18,11 @@
             <label for="floatingInput">Pass</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="address" value="<?php echo $address ?>" required>
+            <input type="text" class="form-control" id="floatingInput" name="address" value="<?php echo $address ?>">
             <label for="floatingInput">Address</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="tel" value="<?php echo $tel ?>" required>
+            <input type="text" class="form-control" id="floatingInput" name="tel" value="<?php echo $tel ?>">
             <label for="floatingInput">Tel</label>
         </div>
         <div class="form-floating mb-3">

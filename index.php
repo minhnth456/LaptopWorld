@@ -8,6 +8,7 @@
     include 'model/giohang/giohang.php';
     include 'model/bieudo/bieudo.php';
     include 'model/binhluan.php';
+    include 'model/bo_loc.php';
     include 'view/header.php';
     
 
@@ -352,6 +353,12 @@
 
                         // làm trống giỏ hàng sau khi gửi đơn hàng và tạo hóa đơn
                         delete_ctgiohang($id_giohang);
+                        $_SESSION['slgh'] = 0;
+                        // Thanh toán bằng momo
+                        if(isset($_POST['COD'])&$_POST['COD']==3){
+                            header('Location: view/thanhtoanbangMomo.php?id_hoadon=' . $tongtien_hd);
+
+                        }
                         include 'view/donhang_thanhcong.php';
                     } else {
                         // nếu giỏ hàng rỗng
@@ -360,7 +367,12 @@
                     }
                 }
                 break;
-            
+                
+            // ???
+            case 'thanhcong':
+                include 'view/donhang_thanhcong.php';
+                break;
+        
             //chức năng xóa sản phẩm trong giỏ hàng
             case 'xoasp':
                 if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){
@@ -456,6 +468,13 @@
                 }
                 header('location: index.php?act=order&id_user='.$id_user);
                 break;
+
+            // chức năng tìm kiếm sản phẩm
+            case 'timkiem':
+                if(isset($_POST['timkiem'])){
+                    $keyw = $_POST['keyw'];
+                }
+                header('location:index.php?keyword='.$keyw.'&');
 
             default:
                 if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){

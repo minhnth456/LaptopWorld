@@ -2,7 +2,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">stt</th>
+                <th scope="col">STT</th>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Pass</th>

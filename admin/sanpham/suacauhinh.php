@@ -13,7 +13,7 @@
         </div>
         <div class="form-floating mb-3 col-6">
             <input type="text" class="form-control" id="ssd" placeholder="" name="ssd" value="<?php echo $ssd ?>" require>
-            <label for="floatingPassword" style="left: 10px">SSD (Ổ cứng)</label>
+            <label for="floatingPassword" style="left: 10px">SSD</label>
         </div>
         <div class="form-floating mb-3 col-6">
             <input type="text" class="form-control" id="cardVGA" placeholder="" name="cardVGA" value="<?php echo $cardVGA ?>" require>

@@ -11,7 +11,7 @@
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Document</title>
+    <title>LaptopWorld</title>
 </head>
 
 <body>
@@ -26,9 +26,9 @@
                     <a href="#"><img src="./img/logo.png" alt="" /></a>
                 </div>
                 <div class="tim-kiem mgl-5">
-                    <form action="" method="post" class="tim">
-                        <input type="text" name="" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <form action="index.php?act=timkiem" method="post" class="tim">
+                        <input type="text" name="keyw" id="" placeholder="Bạn muốn tìm sản phẩm gì?" />
+                        <button type="submit" name="timkiem"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
                 <div class="tai-khoan mgl-5">
@@ -89,7 +89,31 @@
 
 
                     </div>
-                    <?php } } ?>
+                    <?php } elseif (($_SESSION['role'])== 3){ ?>
+                    <div class="dropdown">
+                        <button style="width:auto;height:40px;display: flex; align-items: center;"
+                            class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <div class="anhtk" style="margin-right: 7px; width: 100%; height: 100%;">
+                                <img src="./img/<?php echo $_SESSION['img'] ?>" alt=""
+                                    style="border-radius: 25px; width: 100%; height: 100%;">
+                            </div>
+                            <div style="text-align: center; margin-right: 5px;">
+                                <h2 style="font-size: 15px; margin: 0;"><?php echo $_SESSION['name'] ?></h2>
+                            </div>
+
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-light">
+                            <li><a class="dropdown-item " href="admin/index.php?act=danhsachsp">Quản
+                                    Trị</a>
+                            </li>
+                            <li><a class="dropdown-item" href="index.php?act=dangxuat">Đăng Xuất</a></li>
+                            <!-- <li><a class="dropdown-item" href="index.php?act=capnhattaikhoan">Cập nhật tài khoản</a></li> -->
+                        </ul>
+
+
+                    </div>
+                    <?php }} ?>
                 </div>
                 <div class="lop-phu" id="lop-phu" onclick="dong_fo(event)">
                     <div class="form-dk-dn" id="form-dk-dn">

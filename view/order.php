@@ -188,6 +188,10 @@
             </div>
             <?php $loadAllHDCT = loadAllHDCT($a['id_hoadon']) ?>
             <?php foreach($loadAllHDCT as $b): ?>
+            <?php $get_id_pro = get_id_pro($b['id_chitiet']) ?>
+                <?php foreach ($get_id_pro as $ab): ?>
+                    <?php $id_pro = $ab['id_pro']; ?>
+                <?php endforeach; ?>
             <div class="sanpham_donhang" style="
                 padding: 10px;
                 border-bottom: 1px dotted rgba(0,0,0,.09);">
@@ -201,7 +205,7 @@
                 </div>
                 <!-- TÊN SP -->
                 <div class="tensanpham" style="padding-top: 22px; width: 735px; margin-left: 5px;">
-                    <a style="text-decoration: none" href=""><?php echo $b['tensp'] ?></a>
+                    <a style="text-decoration: none" href="index.php?act=chitietsanpham&id_chitiet=<?php echo $b['id_chitiet'] ?>&id_pro=<?php echo $id_pro; ?>"><?php echo $b['tensp'] ?></a>
                     <br />
                     <br />
                     <div class="soluong">

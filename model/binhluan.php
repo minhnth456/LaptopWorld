@@ -25,4 +25,15 @@ function repCom($noi_dung, $date, $id_user, $id_bl){
     pdo_execute($sql);
 }
 
+//load tất cả bình luận
+function load_Allbl(){
+    $sql = "SELECT * FROM binhluan INNER JOIN rep_bl ON binhluan.id_bl = rep_bl.id_bl GROUP BY binhluan.id_bl ORDER BY binhluan.id_bl DESC";
+    return pdo_query($sql);
+}
+
+//chức năng xóa bình luận
+function del_bl($id_bl){
+    $sql = "";
+}
+
 ?>
