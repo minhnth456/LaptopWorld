@@ -122,11 +122,71 @@
     }
 
     //Đếm số lượng sản phẩm
-    function dem_so_luong_sp(){
-        $sql = "SELECT * FROM sanpham as a 
-        INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro 
-        INNER JOIN anh_sp as c ON a.id_pro = c.id_pro 
-        GROUP BY RAND(b.id_chitiet)";
+    function dem_so_luong_sp($brand, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep){
+        $sql = "SELECT * FROM sanpham  
+        INNER JOIN chitiet_sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro 
+        INNER JOIN anh_sp ON sanpham.id_pro = anh_sp.id_pro 
+        INNER JOIN danhmuc ON sanpham.id_dm = danhmuc.id_dm
+        INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm";
+        if($brand != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
+            $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
+        }
+
+        if($brand != ""){
+            $sql.=" AND danhmuc.name LIKE '%$brand%'";
+        }
+        if($MIN != ""){
+            $sql.=" AND chitiet_sanpham.giasp2 > $MIN";
+        }
+        if($MAX != ""){
+            $sql.=" AND chitiet_sanpham.giasp2 < $MAX";
+        }    
+        if($cpu != ""){
+            $sql.=" AND chitiet_sanpham.cpu LIKE '%$cpu%'";
+        }
+        if($card != ""){
+            $sql.=" AND chitiet_sanpham.cardVGA LIKE '%$card%'";
+        }
+        if($ram != ""){
+            $sql.=" AND chitiet_sanpham.ram LIKE '%$ram%'";
+        }
+        if($ssd != ""){
+            $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
+        }
+        if($keyword != ""){
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
+        
+        $sql.=" GROUP BY RAND(chitiet_sanpham.id_chitiet)";
+
+        if($sapxep != ""){
+            //sắp xếp theo mới nhất
+            if($sapxep == 2){
+                $sql.=" ORDER BY chitiet_sanpham.id_chitiet DESC";
+            }
+            //sắp xếp theo cũ nhất
+            if($sapxep == 3){
+                $sql.=" ORDER BY chitiet_sanpham.id_chitiet ASC";
+            }
+            //sắp xếp theo giá tăng dần
+            if($sapxep == 4){
+                $sql.=" ORDER BY chitiet_sanpham.giasp2 ASC";
+            }
+            //sắp xếp theo giá giảm dần
+            if($sapxep == 5){
+                $sql.=" ORDER BY chitiet_sanpham.giasp2 DESC";
+            }
+            //sắp xếp theo tên sản phẩm từ A -> Z
+            if($sapxep == 6){
+                $sql.=" ORDER BY sanpham.tensp ASC";
+            }
+            //sắp xếp theo TOP lượt xem 
+            if($sapxep == 7){
+                $sql.=" ORDER BY chitiet_sanpham.luotxem DESC";
+            }
+        }
+        
+        // SELECT * FROM sanpham as a INNER JOIN chitiet_sanpham as b ON a.id_pro = b.id_pro INNER JOIN anh_sp as c ON a.id_pro = c.id_pro GROUP BY a.id_pro
         return pdo_query($sql);
     }
 

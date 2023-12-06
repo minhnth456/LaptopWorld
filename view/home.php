@@ -426,8 +426,13 @@
             <div class="main">
                 
                 <?php 
+                    if(isset($_GET['sapxep']) && ($_GET['sapxep']) > 0){
+                        $sapxep = $_GET['sapxep'];
+                    } else {
+                        $sapxep = "";
+                    }
                     // đếm số lượng sản phẩm
-                    $dem_so_luong_sp = dem_so_luong_sp();
+                    $dem_so_luong_sp = dem_so_luong_sp($brand, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep);
                     $tongsp = count($dem_so_luong_sp);
                     // số trang dựa theo tổng sản phẩm (mỗi trang 24 sp)
                     $sotrang = ceil($tongsp / 24);
@@ -435,12 +440,6 @@
                         $page = $_GET['page'];
                     } else {
                         $page = 1;
-                    }
-
-                    if(isset($_GET['sapxep']) && ($_GET['sapxep']) > 0){
-                        $sapxep = $_GET['sapxep'];
-                    } else {
-                        $sapxep = "";
                     }
                     
                     // load tất cả sản phẩm index
