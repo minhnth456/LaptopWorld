@@ -37,6 +37,9 @@
             </div>
             <div class="khung-chi-tiet-sp">
                 <form action="index.php?act=giohang" method="post">
+                    <!-- id danh mục  -->
+                    <input type="hidden" name="id_dm" value="<?php echo $id_dm ?>">
+                    <?php $id_dm = $id_dm; ?>
                     <!-- id danh mục con  -->
                     <input type="hidden" name="id_dmc" value="<?php echo $id_dmc ?>">
                     <!-- tên sản phẩm -->
@@ -194,26 +197,33 @@
                         <p>Đặc điểm nổi bật</p>
                     </div>
                     <div class="mo-ta">
-                        <h3>Laptop Acer hướng đến đối tượng nào?</h3>
-                        <p>Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro 5 có gì đáng được mong chờ nào.</p>
-                        <img src="img/sanpham/anhsp1.jpg" alt="">
+                        <?php if(isset($_GET['id_pro']) && ($_GET['id_pro']) > 0 ){
+                            $id_pro = $_GET['id_pro'];
+                            // mô tả sản phẩm
+                            $motasp = loadOne_sp($id_pro);
+                            extract($motasp);
+                        } ?>
+                        <h3>Laptop <?php echo $tensp ?> hướng đến đối tượng nào?</h3>
+                        <p><?php echo $mota ?></p>
+                        
+                        <img src="img/sanpham/<?php echo $img ?>" alt="">
                         <h3>THIẾT KẾ</h3>
-                        <p>Chiếc laptop Gaming Nitro 5 AN515-58 là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro 5 có gì đáng được mong chờ nào.</p>
-                        <img src="img/sanpham/anhsp2.jpg" alt="">
+                        <p>Là chiếc laptop sở hữu cấu hình siêu khủng với với bộ CPU Intel Core i5 12500H Gen 12 mới nhất cùng card rời GeForce RTX 4050 6GB. Một miền đất đứa đối với các game thủ đúng không nào. Ngay sau đây chúng ta sẽ đi tìm hiểu xem con Nitro 5 có gì đáng được mong chờ nào.</p>
+                        <img src="img/sanpham/<?php echo $img ?>" alt="">
                         <h3>HIỆU NĂNG MẠNH MẼ</h3>
-                        <p>Acer Nitro 5 AN515-58 là lựa chọn tuyệt vời cho mọi tựa game nặng hiện nay. Chiếc laptop gaming này được trang bị bộ vi xử lý mới nhất, sản xuất trên kiến trúc Intel Alder Lake với các lõi P hỗ trợ siêu phân luồng còn hiệu suất lõi E tương tự như các lõi Skylake thế hệ trước. Kiến trúc mới này giúp tăng hiệu suất sử dụng, xử lý mọi tác vụ đơn nhân và đa nhân cực khỏe.
+                        <p>Là lựa chọn tuyệt vời cho mọi tựa game nặng hiện nay. Chiếc laptop gaming này được trang bị bộ vi xử lý mới nhất, sản xuất trên kiến trúc Intel Alder Lake với các lõi P hỗ trợ siêu phân luồng còn hiệu suất lõi E tương tự như các lõi Skylake thế hệ trước. Kiến trúc mới này giúp tăng hiệu suất sử dụng, xử lý mọi tác vụ đơn nhân và đa nhân cực khỏe.
 
                             Cụ thể chiếc laptop này sở hữu sức mạnh đến từ bộ vi xử lý Intel Core i5 12500H với 12 nhân 16 luồng, xung nhịp giao động từ 3.30 GHz đến 4.50 GHz cực khỏe cho phép bạn có thể thoải mái phát trực tuyến, chơi game, đồ họa siêu mượt mà.</p>
-                        <img src="img/sanpham/anhsp3.jpg" alt="">
+                        <img src="img/sanpham/<?php echo $img ?>" alt="">
                         <h3>TẢN NHIỆT MẠNH MẼ</h3>
-                        <p>Một điểm nữa mà Acer tự hào đó là hệ thống tản nhiệt trang bị trên Nitro 5 AN515-58 (7100 vòng trên phút). Quạt to, mạnh và tất nhiên rồi, mát vô cùng. Đây sẽ là sự lựa chọn tuyệt vời dành cho Game thủ thích quạt to và máy mát. 
+                        <p>Là hệ thống tản nhiệt trang bị trên Nitro 5 AN515-58 (7100 vòng trên phút). Quạt to, mạnh và tất nhiên rồi, mát vô cùng. Đây sẽ là sự lựa chọn tuyệt vời dành cho Game thủ thích quạt to và máy mát. 
 
                             Khung gầm của Acer Nitro 5 AN515-58 được tinh chỉnh thoáng hơn, 2 quạt tản đi kèm với công nghệ Acer CoolBoost™ giúp tăng 10% tốc độ quạt. Giảm nhiệt độ CPU/GPU thêm 9%. Phần mềm Nitro Sense chủ động theo dõi nhiệt độ, điều chỉnh tốc độ quạt. So với phiên bản trước khả năng tản nhiệt tốt hơn 25%. Thiết kế tản nhiệt mới với 4 khe hút gió/thoát nhiệt thông minh.
                             
                             Với sự cải tiến cả về hệ thống làm mát, chiếc laptop Acer Nitro 5 AN515-58 này luôn giữ vị trí vô địch trong "làng tản nhiệt" với nhiệt độ mát mẻ, kể cả ở những tác vụ nặng. Điều này sẽ giúp cho hiệu suất máy được duy trì ổn định, luôn tạo cảm giác thoải mái khi làm việc, chơi game của các game thủ.</p>
-                        <img src="img/sanpham/anhsp4.jpg" alt="">
+                        <img src="img/sanpham/<?php echo $img ?>" alt="">
                         <h3>KẾT LUẬN:</h3>
-                        <p>Acer Nitro 5 AN515-58 là một sản phẩm gaming phổ thông đáng mua. Ưu điểm lớn nhất của sản phẩm này là hệ thống tản nhiệt đồ sộ, tốc độ quạt gió lớn, thiết kế hầm hố, phù hợp với những game thủ cá tính mạnh. Anh em có thể chơi các tựa game phổ thông như League of Legends, Shadow of Tomb Raider hay là Valorant… vô cùng mượt mà. </p>
+                        <p>Ưu điểm lớn nhất của sản phẩm này là hệ thống tản nhiệt đồ sộ, tốc độ quạt gió lớn, thiết kế hầm hố, phù hợp với những game thủ cá tính mạnh. Anh em có thể chơi các tựa game phổ thông như League of Legends, Shadow of Tomb Raider hay là Valorant… vô cùng mượt mà. </p>
                         <h5>LƯU Ý!</h3>
                         <p style="font-style: italic;">Bài viết và hình ảnh chỉ có tính chất tham khảo vì cấu hình và đặc tính sản phẩm có thể thay đổi theo thị trường và từng phiên bản. Quý khách cần cấu hình + hình ảnh cụ thể vui lòng liên hệ với các tư vấn viên để được trợ giúp.</p>
                     </div>
@@ -335,45 +345,24 @@
                     </div>
                 </div>
                 <div class="khung-sp-lq">
+                    <!-- Sản phẩm tương đương  -->
                     <div class="khung">
                         <div class="tieu-de">
                             <p>Sản phẩm tương đương</p>
                         </div>
+                        <?php $sanpham_tuongduong = sanpham_tuongduong($id_dm); ?>
+                        <?php foreach($sanpham_tuongduong as $sptd): ?>
+                            <?php $id_pro = $sptd['id_pro'] ?>
+                            <?php $anh_chinh = anhsp($id_pro); ?>
+                            <?php extract($anh_chinh); ?>
                         <div class="sp-lq">
-                            <a href="#"><img src="img/sanpham/anhsp1.jpg" alt=""></a>
-                            <a href="#" style="font-size: 14px;">
-                                [Like New] Acer Nitro 5 2022 AN515-58 <br>
-                                <span style="color: red; font-style: italic;">16.590.000</span>
+                            <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $sptd['id_chitiet'] ?>&id_pro=<?php echo $sptd['id_pro'] ?>"><img src="img/sanpham/<?php echo $img ?>" alt=""></a>
+                            <a href="index.php?act=chitietsanpham&id_chitiet=<?php echo $sptd['id_chitiet'] ?>&id_pro=<?php echo $sptd['id_pro'] ?>" style="font-size: 14px;">
+                                <?php echo $sptd['tensp'] ?> <br>
+                                <span style="color: red; font-style: italic;"><?php echo $sptd['giasp'] ?> VNĐ</span>
                             </a>
                         </div>
-                        <div class="sp-lq">
-                            <a href="#"><img src="img/sanpham/anhsp1.jpg" alt=""></a>
-                            <a href="#" style="font-size: 14px;">
-                                [Like New] Acer Nitro 5 2022 AN515-58 <br>
-                                <span style="color: red; font-style: italic;">16.590.000</span>
-                            </a>
-                        </div>
-                        <div class="sp-lq">
-                            <a href="#"><img src="img/sanpham/anhsp1.jpg" alt=""></a>
-                            <a href="#" style="font-size: 14px;">
-                                [Like New] Acer Nitro 5 2022 AN515-58 <br>
-                                <span style="color: red; font-style: italic;">16.590.000</span>
-                            </a>
-                        </div>
-                        <div class="sp-lq">
-                            <a href="#"><img src="img/sanpham/anhsp1.jpg" alt=""></a>
-                            <a href="#" style="font-size: 14px;">
-                                [Like New] Acer Nitro 5 2022 AN515-58 <br>
-                                <span style="color: red; font-style: italic;">16.590.000</span>
-                            </a>
-                        </div>
-                        <div class="sp-lq">
-                            <a href="#"><img src="img/sanpham/anhsp1.jpg" alt=""></a>
-                            <a href="#" style="font-size: 14px;">
-                                [Like New] Acer Nitro 5 2022 AN515-58 <br>
-                                <span style="color: red; font-style: italic;">16.590.000</span>
-                            </a>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

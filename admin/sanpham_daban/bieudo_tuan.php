@@ -1,9 +1,3 @@
-<?php
-    foreach($bieudo as $a){
-        var_dump($a);
-    }  
-?>
-
 <div class="chontg" style="width: auto; height: auto; display: flex; padding:20px;">
     <P style="padding: 7px; margin: 0px;">Mốc giời gian: </P>
     <form action="index.php?act=xacdinh_thoigian" method="post" style="display: flex; height: auto;">

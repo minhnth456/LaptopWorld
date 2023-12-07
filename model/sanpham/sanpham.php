@@ -295,7 +295,12 @@
         $sql = "SELECT * FROM chitiet_sanpham WHERE id_chitiet = $id_chitiet";
         return pdo_query($sql);
     }
-
+    
+    //Lấy tất cả sản phẩm tương đương
+    function sanpham_tuongduong($id_dm){
+        $sql = "SELECT sanpham.id_pro, sanpham.tensp, sanpham.id_dm, chitiet_sanpham.id_chitiet, chitiet_sanpham.id_dmc, chitiet_sanpham.giasp FROM sanpham INNER JOIN chitiet_sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro WHERE sanpham.id_dm = $id_dm ORDER BY RAND(chitiet_sanpham.id_chitiet);";
+        return pdo_query($sql);
+    }
 
 ?>
 
