@@ -100,11 +100,13 @@
 
     // xoa tai khoan
     function xoa_User($id_user){
-        $sql = "DELETE FROM chitiet_giohang WHERE id_giohang IN (SELECT id_giohang FROM giohang WHERE id_user = $id_user);";
-        $sql.= "DELETE FROM rep_bl WHERE id_user = $id_user;";
-        $sql.= "DELETE FROM binhluan WHERE id_user = $id_user;";
-        $sql.= "DELETE FROM taikhoan WHERE id_user = $id_user;";
+        $sql = "DELETE FROM chitiet_giohang WHERE id_giohang IN (SELECT id_giohang FROM giohang WHERE id_user = $id_user); 
+        DELETE FROM rep_bl WHERE id_user = $id_user; 
+        DELETE FROM giohang WHERE id_user = $id_user; 
+        DELETE FROM binhluan WHERE id_user = $id_user; 
+        DELETE FROM taikhoan WHERE id_user = $id_user; ";
         pdo_execute($sql);
+        // var_dump($sql);
     }
 
     //them tai khoan

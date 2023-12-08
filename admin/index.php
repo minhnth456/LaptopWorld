@@ -310,7 +310,6 @@ session_start();
             if(isset($_GET['iddm']) && ($_GET['iddm']) != ""){
                $iddm = $_GET['iddm'];
                xoa_dm_ct($iddm);
-               
             }
             include "danhmuc/chitietDm.php";
             break;   
@@ -344,8 +343,9 @@ session_start();
             break;
          // xóa user
          case "xoaUser":
-            if(isset($_GET['id_user'])&&$_GET['id_user'] >0){
-               xoa_User($_GET['id_user']);
+            if(isset($_GET['id_user'])&&$_GET['id_user'] != ""){
+               $id = $_GET['id_user'];
+               xoa_User($id);
                include "taikhoan/ListUser.php";
             }
          break;

@@ -19,7 +19,7 @@
                 <th scope="row">vanhai@gmail.com</th>
                 <th scope="row">
                     <a type="button" class="btn btn-danger" href="index.php?act=suaUser">Sửa</a>
-                    <a class="btn btn-dark" href="index.php?act=adminXoauser&&iduser=<?php echo $user['id'] ?>"
+                    <a class="btn btn-dark" href="index.php?act=xoaUser&&iduser=<?php echo $user['id'] ?>"
                         onclick="return confirm('Bạn muốn xóa tài khoản này không?')">Xóa</a>
                 </th>
 

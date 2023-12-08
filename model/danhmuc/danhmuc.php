@@ -24,7 +24,16 @@
     return $sua_dm;
   }
   function xoa_dm($iddm){
-    $sql = "DELETE FROM danhmuc WHERE id_dm = $iddm";
+    $sql = "DELETE FROM chitiet_sanpham
+      WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_dm IN (SELECT id_dm FROM chitiet_danhmuc WHERE id_dm = $iddm));
+       
+      DELETE FROM anh_sp
+      WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_dm IN (SELECT id_dm FROM chitiet_danhmuc WHERE id_dm = $iddm));
+       
+      DELETE FROM sanpham WHERE id_dm IN (SELECT id_dm FROM chitiet_danhmuc WHERE id_dm = $iddm);
+       
+      DELETE FROM chitiet_danhmuc WHERE id_dm = $iddm;
+      DELETE FROM danhmuc WHERE id_dm = $iddm;";
     $xoadm = pdo_query($sql);
     return $xoadm;
   }
