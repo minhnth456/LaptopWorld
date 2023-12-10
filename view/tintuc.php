@@ -1,6 +1,6 @@
 <!-- nội dung -->
         
-            <div class="khung">
+            <div class="khung" style="margin: 20px 0px;">
                 <div class="khung-con">
                     <div class="left">
                         <div class="anh">

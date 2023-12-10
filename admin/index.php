@@ -350,14 +350,42 @@ session_start();
             }
          break;
 
-         // bình luận
+         // hiển thị trang bình luận
          case "binhluan":
             include "binhluan/binhluan.php";
             break;
 
+         // hiển thị trang phản hồi bình luận
+         case "phanhoi_binhluan":
+            if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0){
+               $id_bl = $_GET['id_bl'];
+               $listbl=load_All_ph_bl($id_bl); 
+            }
+            include "binhluan/phanhoi_binhluan.php";
+            break;
+
+         //chức năng xóa phản hồi bình luận
+         case "xoa_repbl":
+            if(isset($_GET['id_repbl']) && $_GET['id_repbl'] > 0){
+               $id_repbl = $_GET['id_repbl'];
+            }
+            del_repbl($id_repbl);
+
+            if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0){
+               $id_bl = $_GET['id_bl'];
+               $listbl=load_All_ph_bl($id_bl);
+            }
+            include "binhluan/phanhoi_binhluan.php";
+            break;
+
          //chức năng xóa bình luận
          case "xoaBl":
-            
+            if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0){
+               $id_bl = $_GET['id_bl'];
+            }
+            del_bl($id_bl);
+            include "binhluan/binhluan.php";
+            break;
 
          //hiển thị trang hóa đơn
          case "donhang":

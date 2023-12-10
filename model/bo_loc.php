@@ -1,7 +1,7 @@
 <?php
 
 //bộ lọc danh mục
-function boloc_chitiet_danhmuc($MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword){
+function boloc_chitiet_danhmuc($brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword){
     $sql = "SELECT
     sanpham.tensp,
     danhmuc.id_dm, 
@@ -20,10 +20,13 @@ function boloc_chitiet_danhmuc($MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword){
     FROM danhmuc INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm 
     INNER JOIN chitiet_sanpham ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
     INNER JOIN sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro";
-    if($MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
+    if($brand_con != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
         $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
     }
 
+    if($brand_con!= ""){
+        $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
+    }
     if($MIN != ""){
         $sql.=" AND chitiet_sanpham.giasp2 > $MIN";
     }
@@ -51,7 +54,7 @@ function boloc_chitiet_danhmuc($MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword){
 }
 
 //bộ lọc giá sản phẩm
-function boloc_giasp($brand, $cpu, $card, $ram, $ssd, $keyword){
+function boloc_giasp($brand, $brand_con, $cpu, $card, $ram, $ssd, $keyword){
     $sql = "SELECT 
     sanpham.tensp,
     danhmuc.id_dm, 
@@ -73,12 +76,15 @@ function boloc_giasp($brand, $cpu, $card, $ram, $ssd, $keyword){
     FROM danhmuc INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm 
     INNER JOIN chitiet_sanpham ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
     INNER JOIN sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro";
-    if($brand != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
+    if($brand != "" || $brand_con != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
         $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
     }
 
     if($brand != ""){
         $sql.=" AND danhmuc.name LIKE '%$brand%'";
+    }
+    if($brand_con!= ""){
+        $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
     }
     if($cpu != ""){
         $sql.=" AND chitiet_sanpham.cpu LIKE '%$cpu%'";
@@ -100,7 +106,7 @@ function boloc_giasp($brand, $cpu, $card, $ram, $ssd, $keyword){
 }
 
 //bộ lọc CPU sản phẩm
-function boloc_cpu($brand, $MIN, $MAX, $card, $ram, $ssd, $keyword){
+function boloc_cpu($brand, $brand_con, $MIN, $MAX, $card, $ram, $ssd, $keyword){
     $sql = "SELECT 
     sanpham.tensp,
     danhmuc.id_dm, 
@@ -126,12 +132,15 @@ function boloc_cpu($brand, $MIN, $MAX, $card, $ram, $ssd, $keyword){
     FROM danhmuc INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm 
     INNER JOIN chitiet_sanpham ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
     INNER JOIN sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro";
-    if($brand != "" || $MIN != "" || $MAX != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
+    if($brand != "" || $brand_con != "" || $MIN != "" || $MAX != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
         $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
     }
 
     if($brand != ""){
         $sql.=" AND danhmuc.name LIKE '%$brand%'";
+    }
+    if($brand_con!= ""){
+        $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
     }
     if($MIN != ""){
         $sql.=" AND chitiet_sanpham.giasp2 > $MIN";
@@ -156,7 +165,7 @@ function boloc_cpu($brand, $MIN, $MAX, $card, $ram, $ssd, $keyword){
 }
 
 //bộ lọc Card VGA sản phẩm 
-function boloc_cardVGA($brand, $MIN, $MAX, $cpu, $ram, $ssd, $keyword){
+function boloc_cardVGA($brand, $brand_con, $MIN, $MAX, $cpu, $ram, $ssd, $keyword){
     $sql = "SELECT 
     sanpham.tensp,
     danhmuc.id_dm, 
@@ -175,12 +184,15 @@ function boloc_cardVGA($brand, $MIN, $MAX, $cpu, $ram, $ssd, $keyword){
     FROM danhmuc INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm 
     INNER JOIN chitiet_sanpham ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
     INNER JOIN sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro";
-    if($brand != "" || $MIN != "" || $MAX != "" || $cpu != "" || $ram != "" || $ssd != "" || $keyword != ""){
+    if($brand != "" || $brand_con != "" || $MIN != "" || $MAX != "" || $cpu != "" || $ram != "" || $ssd != "" || $keyword != ""){
         $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
     }
 
     if($brand != ""){
         $sql.=" AND danhmuc.name LIKE '%$brand%'";
+    }
+    if($brand_con!= ""){
+        $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
     }
     if($MIN != ""){
         $sql.=" AND chitiet_sanpham.giasp2 > $MIN";
@@ -207,7 +219,7 @@ function boloc_cardVGA($brand, $MIN, $MAX, $cpu, $ram, $ssd, $keyword){
 }
 
 //bộ lọc Ram sản phẩm 
-function boloc_ram($brand, $MIN, $MAX, $cpu, $card, $ssd, $keyword) {
+function boloc_ram($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ssd, $keyword) {
     $sql = "SELECT 
     sanpham.tensp,
     danhmuc.id_dm, 
@@ -226,12 +238,15 @@ function boloc_ram($brand, $MIN, $MAX, $cpu, $card, $ssd, $keyword) {
     FROM danhmuc INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm 
     INNER JOIN chitiet_sanpham ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
     INNER JOIN sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro";
-    if($brand != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ssd != "" || $keyword != ""){
+    if($brand != "" || $brand_con != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ssd != "" || $keyword != ""){
         $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
     }
 
     if($brand != ""){
         $sql.=" AND danhmuc.name LIKE '%$brand%'";
+    }
+    if($brand_con!= ""){
+        $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
     }
     if($MIN != ""){
         $sql.=" AND chitiet_sanpham.giasp2 > $MIN";
@@ -258,7 +273,7 @@ function boloc_ram($brand, $MIN, $MAX, $cpu, $card, $ssd, $keyword) {
 }
 
 //bộ lọc SSD sản phẩm 
-function boloc_ssd($brand, $MIN, $MAX, $cpu, $card, $ram, $keyword){
+function boloc_ssd($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $keyword){
     $sql = "SELECT 
     sanpham.tensp,
     danhmuc.id_dm, 
@@ -277,12 +292,15 @@ function boloc_ssd($brand, $MIN, $MAX, $cpu, $card, $ram, $keyword){
     FROM danhmuc INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm 
     INNER JOIN chitiet_sanpham ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
     INNER JOIN sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro";
-    if($brand != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $keyword != ""){
+    if($brand != "" || $brand_con != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $keyword != ""){
         $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
     }
 
     if($brand != ""){
         $sql.=" AND danhmuc.name LIKE '%$brand%'";
+    }
+    if($brand_con!= ""){
+        $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
     }
     if($MIN != ""){
         $sql.=" AND chitiet_sanpham.giasp2 > $MIN";

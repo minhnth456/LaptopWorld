@@ -44,8 +44,17 @@
 
     // chức năng Xóa sản phẩm
     function xoasp($id){
-        $sql = "DELETE FROM chitiet_sanpham WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_pro = $id);";
+        //xóa sp trong giỏ hàng
+        $sql = "DELETE FROM chitiet_giohang WHERE id_pro IN (SELECT id_pro FROM chitiet_giohang WHERE id_pro = $id);";
+        //xóa tất cả cấu hình sp
+        $sql.= "DELETE FROM chitiet_sanpham WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_pro = $id);";
+        //xóa tất cả ảnh sp
         $sql.= "DELETE FROM anh_sp WHERE id_pro IN (SELECT id_pro FROM sanpham WHERE id_pro = $id);";
+        //xóa tất cả rep bình luận
+        $sql.= "DELETE FROM rep_bl WHERE id_bl IN (SELECT id_bl FROM binhluan WHERE id_pro IN (SELECT id_pro FROM binhluan WHERE id_pro = $id));";
+        //xóa tất cả bình luận
+        $sql.= "DELETE FROM binhluan WHERE id_pro IN (SELECT id_pro FROM binhluan WHERE id_pro = $id);";
+        //xóa sp
         $sql.= "DELETE FROM sanpham WHERE id_pro = $id;"; 
         pdo_execute($sql);
     }
@@ -122,18 +131,21 @@
     }
 
     //Đếm số lượng sản phẩm
-    function dem_so_luong_sp($brand, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep){
+    function dem_so_luong_sp($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep){
         $sql = "SELECT * FROM sanpham  
         INNER JOIN chitiet_sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro 
         INNER JOIN anh_sp ON sanpham.id_pro = anh_sp.id_pro 
         INNER JOIN danhmuc ON sanpham.id_dm = danhmuc.id_dm
         INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm";
-        if($brand != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
+        if($brand != "" || $brand_con != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
             $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
         }
 
         if($brand != ""){
             $sql.=" AND danhmuc.name LIKE '%$brand%'";
+        }
+        if($brand_con!= ""){
+            $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
         }
         if($MIN != ""){
             $sql.=" AND chitiet_sanpham.giasp2 > $MIN";
@@ -190,19 +202,22 @@
         return pdo_query($sql);
     }
 
-    // Lấy tất cả 3 bảng sanpham anh_sp và chitiet_sanpham
-    function loadAllSpIndex($page, $brand, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep){
+    // Lấy tất cả thông tin bảng sanpham anh_sp và chitiet_sanpham, danh muc và chitiet_danhmuc
+    function loadAllSpIndex($page, $brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep){
         $sql = "SELECT * FROM sanpham  
         INNER JOIN chitiet_sanpham ON sanpham.id_pro = chitiet_sanpham.id_pro 
         INNER JOIN anh_sp ON sanpham.id_pro = anh_sp.id_pro 
         INNER JOIN danhmuc ON sanpham.id_dm = danhmuc.id_dm
         INNER JOIN chitiet_danhmuc ON danhmuc.id_dm = chitiet_danhmuc.id_dm";
-        if($brand != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
+        if($brand != "" || $brand_con != "" || $MIN != "" || $MAX != "" || $cpu != "" || $card != "" || $ram != "" || $ssd != "" || $keyword != ""){
             $sql.=" WHERE chitiet_sanpham.id_chitiet > 0";
         }
 
         if($brand != ""){
             $sql.=" AND danhmuc.name LIKE '%$brand%'";
+        }
+        if($brand_con != ""){
+            $sql.=" AND chitiet_sanpham.id_dmc = $brand_con";
         }
         if($MIN != ""){
             $sql.=" AND chitiet_sanpham.giasp2 > $MIN";

@@ -31,9 +31,23 @@ function load_Allbl(){
     return pdo_query($sql);
 }
 
+//load tất cả phản hồi bình luận
+function load_All_ph_bl($id_bl){
+    $sql = "SELECT * FROM rep_bl WHERE id_bl = $id_bl";
+    return pdo_query($sql);
+}
+
+//chức năng xóa phản hồi bình luận
+function del_repbl($id_repbl){
+    $sql = "DELETE FROM rep_bl WHERE id_repbl = $id_repbl";
+    pdo_execute($sql);
+}
+
 //chức năng xóa bình luận
 function del_bl($id_bl){
-    $sql = "";
+    $sql = "DELETE FROM rep_bl WHERE id_bl IN (SELECT id_bl FROM rep_bl WHERE id_bl = $id_bl);";
+    $sql.= "DELETE FROM binhluan WHERE id_bl = $id_bl";
+    pdo_execute($sql);
 }
 
 ?>

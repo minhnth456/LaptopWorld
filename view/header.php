@@ -189,7 +189,7 @@
                     </li>
                     <li class="m-c">
                         <i class="fa-solid fa-laptop"></i>
-                        <a class="capslock" href="#">Sản phẩm</a>
+                        <a class="capslock" href="index.php?act=sanpham">Sản phẩm</a>
                         <!-- menu dọc -->
 
                         <div class="danh-muc">
@@ -203,7 +203,7 @@
                                         <!-- tiêu đề -->
                                         <div class="tieu-de-danh-muc">
                                             <a class="nor-text" id="<?php echo $select_dm['id_dm'] ?>"
-                                                href="index.php?act=danhmucsp">Laptop
+                                                href="index.php?act=sanpham&brand=<?php echo $select_dm['name'] ?>">Laptop
                                                 <?php echo $select_dm['name'] ?>
                                             </a>
 
@@ -215,7 +215,7 @@
 
                                             foreach($load_all_dmct as $sanpham){ ?>
                                             <div class="san-pham-danh-muc2">
-                                                <a href="http://"><?php echo $sanpham['name'] ?></a>
+                                                <a href="index.php?act=sanpham&brand=<?php echo $sanpham['name'] ?>&brand_con=<?php echo $sanpham['id'] ?>"><?php echo $sanpham['brand_con'] ?></a>
                                             </div>
                                             <?php } ?>
 
@@ -231,15 +231,15 @@
                     </li>
                     <li>
                         <i class="fa-solid fa-newspaper"></i>
-                        <a class="capslock" href="http://">Tin tức</a>
+                        <a class="capslock" href="index.php?act=tintuc">Tin tức</a>
                     </li>
                     <li>
                         <i class="fa-solid fa-building-shield"></i>
-                        <a class="capslock" href="http://">Chính sách</a>
+                        <a class="capslock" href="#">Chính sách</a>
                     </li>
                     <li>
                         <i class="fa-solid fa-phone-volume"></i>
-                        <a class="capslock" href="http://">Liên hệ</a>
+                        <a class="capslock" href="#">Liên hệ</a>
                     </li>
                 </ul>
             </div>

@@ -22,7 +22,8 @@
                 <th scope="row"><?php echo $binhluan['ngaybinhluan']?></th>
                 <th scope="row"><?php echo $binhluan['id_user']?></th>
                 <th scope="row">
-                    <a class="btn btn-danger" href="index.php?act=xoaBl&id_bl=<?php echo $bl['id_bl'] ?>" onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>
+                    <a class="btn btn-primary" href="index.php?act=phanhoi_binhluan&id_bl=<?php echo $binhluan['id_bl'] ?>">Xem phản hồi</a>
+                    <a class="btn btn-danger" href="index.php?act=xoaBl&id_bl=<?php echo $binhluan['id_bl'] ?>" onclick="return confirm('Bạn muốn xóa bình luận sản phẩm không?')">Xóa</a>
                 </th>
 
             </tr>

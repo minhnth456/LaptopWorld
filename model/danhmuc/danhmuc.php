@@ -52,7 +52,7 @@
 }
   // load sản phẩm danh mục
   function load_danhmucCt($iddmct){
-    $sql ="SELECT * FROM `chitiet_danhmuc` WHERE id_dm = $iddmct";
+    $sql ="SELECT chitiet_danhmuc.name as brand_con, chitiet_danhmuc.id, danhmuc.name FROM `chitiet_danhmuc` INNER JOIN `danhmuc` ON chitiet_danhmuc.id_dm = danhmuc.id_dm WHERE chitiet_danhmuc.id_dm = $iddmct";
     $load_all_dmct = pdo_query($sql);
     return $load_all_dmct;
   }

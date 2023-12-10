@@ -474,7 +474,18 @@
                 if(isset($_POST['timkiem'])){
                     $keyw = $_POST['keyw'];
                 }
-                header('location:index.php?keyword='.$keyw.'&');
+                header('location:index.php?act=sanpham&keyword='.$keyw.'&');
+                break;
+            
+            //hiển thị trang sản phẩm
+            case 'sanpham':
+                include "view/sanpham.php";
+                break;
+
+            //hiển thị trang tin tức
+            case 'tintuc':
+                include "view/tintuc.php";
+                break;
 
             default:
                 if(isset($_SESSION['id_user']) && $_SESSION['id_user'] > 0){

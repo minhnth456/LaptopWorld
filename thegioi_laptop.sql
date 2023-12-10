@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 06, 2023 lúc 10:01 PM
+-- Thời gian đã tạo: Th12 10, 2023 lúc 10:57 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -113,7 +113,12 @@ INSERT INTO `anh_sp` (`id`, `img`, `id_pro`) VALUES
 (116, '2194_6.jpg', 43),
 (117, '2194_5.jpg', 43),
 (118, '2194_3.jpg', 43),
-(119, '2194_2.jpg', 43);
+(119, '2194_2.jpg', 43),
+(130, '2018_acer_aspire_a515_56_51ae_core_i5_sua_bo_vien.png', 46),
+(131, '2018_5_s.jpg', 46),
+(132, '2018_2s.jpg', 46),
+(133, '2018_1.jpeg', 46),
+(134, '2018_1_s.jpg', 46);
 
 -- --------------------------------------------------------
 
@@ -193,7 +198,7 @@ CREATE TABLE `chitiet_giohang` (
 --
 
 INSERT INTO `chitiet_giohang` (`id_ctgiohang`, `img_spct`, `tensp`, `giasp`, `giasp2`, `soluong`, `total`, `total_vn`, `id_pro`, `id_chitiet`, `id_giohang`) VALUES
-(88, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 Pro (Ryzen 7-7800U, 32G, 2T, RTX 4050Ti)', '25.890.000', 25890000.00, 1, 25890000.00, '25.890.000', 30, 22, 48);
+(136, 'nitro1.jpg', '[New Outlet] Acer Nitro 5 AN515-58-56HM (Ryzen 5 - 5600U, 16GB, 512GB, RTX 1650Ti)', '17.900.000', 17900000.00, 1, 17900000.00, '17.900.000', 28, 12, 52);
 
 -- --------------------------------------------------------
 
@@ -273,36 +278,37 @@ CREATE TABLE `chitiet_sanpham` (
 
 INSERT INTO `chitiet_sanpham` (`id_chitiet`, `cpu`, `ram`, `ssd`, `giasp`, `giasp2`, `soluong`, `cardVGA`, `luotxem`, `id_pro`, `id_dmc`) VALUES
 (11, 'Core i5 - 12500H', '4GB', '256GB', '21.590.000', 21590000.00, 2, 'RTX 4050', 6, 28, 1),
-(12, 'Ryzen 5 - 5600U', '16GB', '512GB', '17.900.000', 17900000.00, 1, 'RTX 1650Ti', 15, 28, 1),
-(14, 'Core i5 - 1135G7', '8GB', '256GB', '7.890.000', 7890000.00, 5, 'Iris Xe Graphics', 17, 29, 2),
+(12, 'Ryzen 5 - 5600U', '16GB', '512GB', '17.900.000', 17900000.00, 1, 'RTX 1650Ti', 31, 28, 1),
+(14, 'Core i5 - 1135G7', '8GB', '256GB', '7.890.000', 7890000.00, 5, 'Iris Xe Graphics', 18, 29, 2),
 (19, 'Core i3 - 1135G7', '16GB', '512GB', '9.890.000', 9890000.00, 1, 'Iris Xe Graphics', 12, 29, 2),
-(20, 'Ryzen 5 - 5600U', '16GB', '512GB', '21.980.000', 21980000.00, 1, 'RTX 3050Ti', 19, 30, 1),
+(20, 'Ryzen 5 - 5600U', '16GB', '512GB', '21.980.000', 21980000.00, 1, 'RTX 3050Ti', 44, 30, 1),
 (21, 'Core i3 - 1135G7', '16GB', '512GB', '9.890.000', 9890000.00, 2, 'Iris Xe Graphics', 7, 30, 1),
 (22, 'Ryzen 7 - 7800U', '32GB', '2TB', '25.890.000', 25890000.00, 3, 'RTX 4050Ti', 8, 30, 1),
 (25, 'Ryzen 7 - 5800H', '16GB', '256GB', '45.990.000', 45990000.00, 2, 'RTX 3060', 6, 32, 3),
 (29, 'Core i7 - 1255U', '8GB', '512GB', '22.990.000', 22990000.00, 3, 'MX550 2GB', 5, 34, 4),
 (30, 'Ryzen 5 - 3500U', '8GB', '256GB', '15.890.000', 15890000.00, 3, 'Radeon Graphics', 3, 34, 4),
 (31, 'Core i3 - 1115G4', '8GB', '256GB', '9.890.000', 9890000.00, 5, 'Iris Xe Graphics', 2, 34, 4),
-(32, 'Core i9 - 13900HX', '64GB', '2TB', '85.990.000', 85990000.00, 4, 'RTX 4090', 12, 32, 3),
-(33, 'Ryzen 5 - 5600U', '16GB', '512GB', '14.890.000', 14890000.00, 3, 'Radeon Graphics', 1, 35, 5),
-(34, 'Ryzen 5 PRO 4650U', '16GB', '256GB', '17.890.000', 17890000.00, 3, 'Radeon Graphics', 2, 35, 5),
+(32, 'Core i9 - 13900HX', '64GB', '2TB', '85.990.000', 85990000.00, 4, 'RTX 4090', 14, 32, 3),
+(33, 'Ryzen 5 - 5600U', '16GB', '512GB', '14.890.000', 14890000.00, 3, 'Radeon Graphics', 2, 35, 5),
+(34, 'Ryzen 5 PRO 4650U', '16GB', '256GB', '17.890.000', 17890000.00, 3, 'Radeon Graphics', 3, 35, 5),
 (35, 'Core i5 - 12600HX', '16GB', '256GB', '38.000.000', 38000000.00, 2, 'RTX A1000 4GB', 3, 36, 23),
-(36, 'Core i7 - 12850HX', '32GB', '512GB', '43.890.000', 43890000.00, 4, 'RTX A2000 8GB', 4, 36, 23),
-(37, 'Core i5 - 11400H', '8GB', '512GB', '16.890.000', 16890000.00, 6, 'RTX 2050', 2, 37, 24),
+(36, 'Core i7 - 12850HX', '32GB', '512GB', '43.890.000', 43890000.00, 4, 'RTX A2000 8GB', 5, 36, 23),
+(37, 'Core i5 - 11400H', '8GB', '512GB', '16.890.000', 16890000.00, 6, 'RTX 2050', 3, 37, 24),
 (38, 'Core i7 - 11800H', '16GB', '512GB', '20.890.000', 20890000.00, 2, 'RTX 3060', 0, 37, 24),
 (39, 'Core i7 - 12700H', '16GB', '1TB', '25.990.000', 25990000.00, 2, 'RTX 3060', 0, 37, 24),
-(40, 'Core i3 - 1115G4', '4GB', '128GB', '12.490.000', 12490000.00, 12, 'Intel UHD Graphics', 1, 38, 25),
+(40, 'Core i3 - 1115G4', '4GB', '128GB', '12.490.000', 12490000.00, 12, 'Intel UHD Graphics', 2, 38, 25),
 (41, 'Ryzen 7 - 4700U', '8GB', '512GB', '17.490.000', 17490000.00, 3, 'Radeon Graphics', 0, 38, 25),
-(42, 'Core i5 - 1135G7', '8GB', '512GB', '13.490.000', 13490000.00, 3, 'Iris Xe Graphics', 3, 39, 25),
+(42, 'Core i5 - 1135G7', '8GB', '512GB', '13.490.000', 13490000.00, 3, 'Iris Xe Graphics', 4, 39, 25),
 (43, 'Core i5 - 13420H', '16GB', '512GB', '26.490.000', 26490000.00, 4, 'RTX 4050', 0, 40, 7),
-(44, 'Core i7 - 13620H', '16GB', '1TB', '27.990.000', 27990000.00, 2, 'RTX 4050', 2, 40, 7),
+(44, 'Core i7 - 13620H', '16GB', '1TB', '27.990.000', 27990000.00, 2, 'RTX 4050', 4, 40, 7),
 (45, 'Core i9 - 13900HX', '16GB', '1TB', '31.290.000', 31290000.00, 4, 'RTX 4060', 0, 40, 7),
 (46, 'Core i7 - 11800H', '16GB', '1TB', '25.490.000', 25490000.00, 3, 'RTX 3070', 1, 41, 7),
 (47, 'Core i7 - 11800H', '16GB', '512GB', '23.190.000', 23190000.00, 3, 'RTX 3060', 0, 41, 7),
-(48, 'Core i5 - 1335U', '8GB', '512GB', '14.290.000', 14290000.00, 3, 'Iris Xe Graphics', 0, 42, 8),
-(49, 'Ryzen 5 - 7530U', '8GB', '256GB', '13.890.000', 13890000.00, 4, 'Radeon Graphics', 0, 42, 8),
-(50, 'Core i7 - 1250U', '8GB', '512GB', '15.890.000', 15890000.00, 2, 'Iris Xe Graphics', 0, 42, 8),
-(51, 'Core i5 - 1135G7', '8GB', '256GB', '14.490.000', 14490000.00, 7, 'Iris Xe Graphics', 0, 43, 8);
+(48, 'Core i5 - 1335U', '8GB', '512GB', '14.290.000', 14290000.00, 3, 'Iris Xe Graphics', 12, 42, 8),
+(49, 'Ryzen 5 - 7530U', '8GB', '256GB', '13.890.000', 13890000.00, 4, 'Radeon Graphics', 3, 42, 8),
+(50, 'Core i7 - 1250U', '8GB', '512GB', '15.890.000', 15890000.00, 2, 'Iris Xe Graphics', 1, 42, 8),
+(51, 'Core i5 - 1135G7', '8GB', '256GB', '14.490.000', 14490000.00, 7, 'Iris Xe Graphics', 0, 43, 8),
+(60, 'Core i5 - 1235U', '8GB', '256GB', '8.490.000', 8490000.00, 2, 'Iris Xe Graphics', 0, 46, 2);
 
 -- --------------------------------------------------------
 
@@ -348,14 +354,11 @@ CREATE TABLE `giohang` (
 INSERT INTO `giohang` (`id_giohang`, `tongtien`, `tongtien_vn`, `ghichu`, `pttt`, `id_user`) VALUES
 (18, 9890000.00, '9.890.000', NULL, 1, 4),
 (47, 51780000.00, '51.780.000', NULL, 1, 3),
-(48, 53680000.00, '53.680.000', NULL, 1, 80),
-(49, 21980000.00, '21.980.000', NULL, 1, 81),
 (50, 27990000.00, '27.990.000', NULL, 1, 2),
 (51, 43960000.00, '43.960.000', NULL, 1, 84),
-(52, 19780000.00, '19.780.000', NULL, 1, 1),
+(52, 17900000.00, '17.900.000', NULL, 1, 1),
 (53, 43960000.00, '43.960.000', NULL, 1, 85),
-(54, 19780000.00, '19.780.000', NULL, 1, 86),
-(55, 0.00, '0', NULL, 1, 87);
+(54, 19780000.00, '19.780.000', NULL, 1, 86);
 
 -- --------------------------------------------------------
 
@@ -410,7 +413,7 @@ INSERT INTO `hoadon` (`id_hoadon`, `nn_name`, `nn_address`, `nn_tel`, `nn_email`
 (61, 'minh', 'hanoi', '0909090099', 'minhhh@gmail.com', '12:47 02-12-2023', '12:51 02-12-2023', '12:51 02-12-2023', '13:06 02-12-2023', '2023-12-02', 4, 1, 43960000.00, '43.960.000', '', 85),
 (62, 'hAI', 'HA NOI', '09230920323', 'HAI@GMAIL.COM', '13:24 02-12-2023', '13:26 02-12-2023', '13:26 02-12-2023', '13:27 02-12-2023', '2023-12-02', 4, 1, 19780000.00, '19.780.000', 'ha ', 86),
 (63, 'minh', 'hanoi', '0963987818', 'vanhai@gmail.com', '13:25 05-12-2023', NULL, NULL, NULL, NULL, 0, 3, 21980000.00, '21.980.000', 'hang dep wa', 2),
-(64, 'minh', 'HA NOI', '0963987818', 'minh@fpt.edu.vn', '13:28 05-12-2023', NULL, NULL, NULL, NULL, 1, 3, 27990000.00, '27.990.000', 'AVD Ư ', 2);
+(64, 'minh', 'HA NOI', '0963987818', 'minh@fpt.edu.vn', '13:28 05-12-2023', NULL, NULL, NULL, NULL, 0, 3, 27990000.00, '27.990.000', 'AVD Ư ', 2);
 
 -- --------------------------------------------------------
 
@@ -439,7 +442,8 @@ INSERT INTO `rep_bl` (`id_repbl`, `noi_dung`, `date`, `id_user`, `id_bl`) VALUES
 (11, 'alo cai gi', '12:56 25-11-2023', 4, 7),
 (12, 'ban quan tam san pham nay a', '12:56 25-11-2023', 3, 7),
 (13, 'Cam on quy khach', '13:25 25-11-2023', 1, 8),
-(14, 'Cam on quy khac aj', '13:25 25-11-2023', 1, 6);
+(14, 'Cam on quy khac aj', '13:25 25-11-2023', 1, 6),
+(15, 'Ngon', '16:57 07-12-2023', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -473,7 +477,8 @@ INSERT INTO `sanpham` (`id_pro`, `tensp`, `yeuthich`, `mota`, `id_dm`) VALUES
 (40, 'HP Omen 16 2023', 0, 'Khi nhắc đến những chiếc laptop gaming của nhà HP, không thể không nhắc đến dòng OMEN - dòng sản phẩm cực kỳ cao cấp và đáng chú ý. Năm 2023, HP Omen 16 vẫn tiếp tục được \"định vị\" là một chiếc laptop dành riêng cho game thủ, nhà thiết kế và những người sáng tạo. Với cấu hình mạnh mẽ và thiết kế tinh tế, dòng laptop này tiếp tục đáp ứng các yêu cầu cao cấp của những người dùng yêu thích công nghệ và đam mê sáng tạo.', 9),
 (41, 'HP Omen 16', 0, 'Là một laptop Gaming,‌ ‌chiếc‌ ‌máy‌ ‌hướng‌ ‌tới‌ ‌đối‌ ‌tượng‌ ‌người‌ ‌dùng‌ ‌chơi‌ ‌game‌ ‌bán‌ ‌chuyên,‌ ‌cũng‌ ‌như‌ ‌những‌ ‌đối‌ ‌tượng‌ ‌thiết‌ ‌kế‌ ‌đồ‌ ‌họa‌ ‌với‌ ‌chi‌ ‌phí‌ ‌hợp lí.‌ ‌', 9),
 (42, 'HP Envy x360 2023', 0, 'Bạn đang tìm kiếm một chiếc laptop có thể đáp ứng tốt đa dạng nhu cầu học tập, làm việc đa nhiệm với thiết kế sang trọng, lịch lãm nhưng vẫn sở hữu mức giá hợp lý? Thì đừng quên bỏ qua chiếc Laptop HP Envy x360 2023 đang được bày bán tại hệ thống các của hàng của LaptopWorld! Hãy đọc bài đánh giá của LaptopWorld để biết chi tiết và có cái nhìn khách quan về sản phẩm này nhé!', 9),
-(43, 'HP Envy x360 13-bd0063dx', 0, 'HP Envy 13 là một trong những laptop được đánh giá cao trên thị trường, sở hữu tính năng tuyệt vời và giá cả phải chăng. Envy 13 với thiết kế cực gọn nhẹ là sự lựa chọn tốt cho sinh viên và người dùng phổ thông.', 9);
+(43, 'HP Envy x360 13-bd0063dx', 0, 'HP Envy 13 là một trong những laptop được đánh giá cao trên thị trường, sở hữu tính năng tuyệt vời và giá cả phải chăng. Envy 13 với thiết kế cực gọn nhẹ là sự lựa chọn tốt cho sinh viên và người dùng phổ thông.', 9),
+(46, 'Acer Aspire 3 A315-59-53ER', 0, 'Acer Aspire 3 sở hữu thiết kế nhỏ gọn, thân máy mỏng tuyệt đẹp, tối ưu hóa với phần khung được làm từ chất liệu nhựa đặc biệt vừa có sự bền bỉ mà còn nhẹ hơn nhiều so với khung kim loại. Với Aspire 3 bạn có thể làm việc ở bất kỳ đâu, chưa hết trên bề mặt laptop còn được phủ thêm một lớp bảo vệ khỏi những yếu tố bên ngoài môi trường. Bản lề công thái học giúp hút khí bổ sung bên dưới. Dòng laptop gọn nhẹ này phù hợp cho tất cả mọi người từ học sinh, sinh viên đến nhân viên văn phòng nhờ sự thân thiện, bền bỉ mà giá cả lại còn phải chăng.', 1);
 
 -- --------------------------------------------------------
 
@@ -502,12 +507,9 @@ INSERT INTO `taikhoan` (`id_user`, `id_clone`, `name`, `img`, `email`, `pass`, `
 (2, NULL, 'user', 'c6f7bcdb37f9dba782e8.jpg', 'user@gmail.com', '123', '', 0, 1),
 (3, NULL, 'hoangminh2', 'user.png', 'hoangminh2@gmail.com', '123', NULL, NULL, 1),
 (4, NULL, 'hai', 'user.png', 'vanhai@gmail.com', '123', NULL, NULL, 2),
-(80, 45, NULL, 'user.png', NULL, 'LaptopWorld', NULL, NULL, 1),
-(81, 46, NULL, 'user.png', NULL, 'LaptopWorld', NULL, NULL, 1),
 (84, NULL, 'hoangminh', 'user.png', 'minhnth345@gmail.com', '123', '', 0, 1),
 (85, NULL, 'minh2024', 'user.png', 'minhaiywgdiayd@gmail.com', '123', '', 0, 1),
-(86, NULL, 'hai', 'user.png', 'hai@gmail.com', '1', '', 0, 1),
-(87, 50, NULL, 'user.png', NULL, 'LaptopWorld', NULL, NULL, 1);
+(86, NULL, 'hai', 'user.png', 'hai@gmail.com', '1', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -529,7 +531,8 @@ INSERT INTO `taikhoan_clone` (`id_clone`) VALUES
 (47),
 (48),
 (49),
-(50);
+(50),
+(51);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -637,13 +640,13 @@ ALTER TABLE `taikhoan_clone`
 -- AUTO_INCREMENT cho bảng `anh_sp`
 --
 ALTER TABLE `anh_sp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id_bl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_bl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet_danhmuc`
@@ -655,7 +658,7 @@ ALTER TABLE `chitiet_danhmuc`
 -- AUTO_INCREMENT cho bảng `chitiet_giohang`
 --
 ALTER TABLE `chitiet_giohang`
-  MODIFY `id_ctgiohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `id_ctgiohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet_hoadon`
@@ -667,7 +670,7 @@ ALTER TABLE `chitiet_hoadon`
 -- AUTO_INCREMENT cho bảng `chitiet_sanpham`
 --
 ALTER TABLE `chitiet_sanpham`
-  MODIFY `id_chitiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_chitiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -679,7 +682,7 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
@@ -691,25 +694,25 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `rep_bl`
 --
 ALTER TABLE `rep_bl`
-  MODIFY `id_repbl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_repbl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan_clone`
 --
 ALTER TABLE `taikhoan_clone`
-  MODIFY `id_clone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_clone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

@@ -27,6 +27,12 @@
                         $brand = "";
                     }
 
+                    if(isset($_GET['brand_con']) && $_GET['brand_con'] != ""){
+                        $brand_con = $_GET['brand_con'];
+                    } else {
+                        $brand_con = "";
+                    }
+
                     if(isset($_GET['MIN']) && $_GET['MIN'] != ""){
                         $MIN = $_GET['MIN'];
                     } else {
@@ -89,7 +95,7 @@
                     <!-- Thương hiệu khi chưa được chọn -->
                     <span>Thương hiệu <i class="fa fa-sort-down"></i></span>
                     <ul class="menu_sanpham">
-                        <?php $chitiet_danhmuc = boloc_chitiet_danhmuc($MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword); ?>
+                        <?php $chitiet_danhmuc = boloc_chitiet_danhmuc($brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword); ?>
                         <?php foreach($chitiet_danhmuc as $dm): ?>
                         <li><a href="
                                     index.php?brand=<?php echo $dm['name'].'&'; ?>
@@ -131,7 +137,7 @@
                     <!-- Khi chưa chọn giá -->
                     <span>Giá <i class="fa fa-sort-down"></i></span>
                     <ul class="menu_sanpham">
-                        <?php $boloc_giasp = boloc_giasp($brand, $cpu, $card, $ram, $ssd, $keyword) ?>
+                        <?php $boloc_giasp = boloc_giasp($brand, $brand_con, $cpu, $card, $ram, $ssd, $keyword) ?>
                         <?php foreach($boloc_giasp as $gia): ?>
 
                             <?php if($gia['gia0510']){ ?>
@@ -206,7 +212,7 @@
                     <!-- Khi chưa chọn CPU  -->
                     <span>CPU <i class="fa fa-sort-down"></i></span>
                     <ul class="menu_sanpham">
-                        <?php $boloc_cpu = boloc_cpu($brand, $MIN, $MAX, $card, $ram, $ssd, $keyword) ?>
+                        <?php $boloc_cpu = boloc_cpu($brand, $brand_con, $MIN, $MAX, $card, $ram, $ssd, $keyword) ?>
                         <?php foreach($boloc_cpu as $cpusp): ?>
                         
                             <?php if($cpusp['corei3']!= 0){ ?>
@@ -322,7 +328,7 @@
                     <!-- Khi người dùng chọn CardVGA  -->
                     <span>Card VGA <i class="fa fa-sort-down"></i></span>
                     <ul class="menu_sanpham">
-                        <?php $boloc_cardVGA = boloc_cardVGA($brand, $MIN, $MAX, $cpu, $ram, $ssd, $keyword) ?>
+                        <?php $boloc_cardVGA = boloc_cardVGA($brand, $brand_con, $MIN, $MAX, $cpu, $ram, $ssd, $keyword) ?>
                         <?php foreach($boloc_cardVGA as $cardsp): ?>
                         <li><a href="
                                     index.php?card=<?php echo $cardsp['cardVGA'].'&'; ?>
@@ -356,7 +362,7 @@
                     <!-- Khi chưa chọn RAM  -->
                     <span>RAM <i class="fa fa-sort-down"></i></span>
                     <ul class="menu_sanpham">
-                        <?php $boloc_ram = boloc_ram($brand, $MIN, $MAX, $cpu, $card, $ssd, $keyword) ?>
+                        <?php $boloc_ram = boloc_ram($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ssd, $keyword) ?>
                         <?php foreach($boloc_ram as $ramsp): ?>
                         <li><a href="
                                     index.php?ram=<?php echo $ramsp['ram'].'&'; ?>
@@ -390,7 +396,7 @@
                     <!-- Khi chưa chọn SSD  -->
                     <span>Ổ cứng <i class="fa fa-sort-down"></i></span>
                     <ul class="menu_sanpham">
-                        <?php $boloc_ssd = boloc_ssd($brand, $MIN, $MAX, $cpu, $card, $ram, $keyword) ?>
+                        <?php $boloc_ssd = boloc_ssd($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $keyword) ?>
                         <?php foreach($boloc_ssd as $ssdsp): ?>
                         <li><a href="
                                     index.php?ssd=<?php echo $ssdsp['ssd'].'&'; ?>
@@ -432,7 +438,7 @@
                         $sapxep = "";
                     }
                     // đếm số lượng sản phẩm
-                    $dem_so_luong_sp = dem_so_luong_sp($brand, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep);
+                    $dem_so_luong_sp = dem_so_luong_sp($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep);
                     $tongsp = count($dem_so_luong_sp);
                     // số trang dựa theo tổng sản phẩm (mỗi trang 24 sp)
                     $sotrang = ceil($tongsp / 24);
@@ -443,7 +449,7 @@
                     }
                     
                     // load tất cả sản phẩm index
-                    $loadAllSpIndex = loadAllSpIndex($page, $brand, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep);
+                    $loadAllSpIndex = loadAllSpIndex($page, $brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, $keyword, $sapxep);
                 ?>
                 <?php foreach($loadAllSpIndex as $a): ?>
                 <div class="sanpham">
@@ -462,7 +468,7 @@
             <div class="footer">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination" style="display: flex; justify-content: center; margin: 20px 0px">
-                        <li class="page-item"><a class="page-link" href="index.php?page=<?php echo ($page - 1) ?>&<?php if($sapxep != ""){ echo 'sapxep='.$sapxep.'&'; } ?><?php if($brand != ""){ echo 'brand='.$brand.'&'; } ?><?php if($MIN != ""){ echo 'MIN='.$MIN.'&'; } ?><?php if($MAX != ""){ echo 'MAX='.$MAX.'&'; } ?><?php if($cpu != ""){ echo 'cpu='.$cpu.'&'; } ?><?php if($card != ""){ echo 'card='.$card.'&'; } ?><?php if($ram != ""){ echo 'ram='.$ram.'&'; } ?><?php if($ssd != ""){ echo 'ssd='.$ssd.'&'; } ?><?php if($keyword != ""){ echo 'keyword='.$keyword.'&'; } ?>">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="index.php?page=<?php echo ($page - 1) ?>&<?php if($sapxep != ""){ echo 'sapxep='.$sapxep.'&'; } ?><?php if($brand != ""){ echo 'brand='.$brand.'&'; } ?><?php if($MIN != ""){ echo 'MIN='.$MIN.'&'; } ?><?php if($MAX != ""){ echo 'MAX='.$MAX.'&'; } ?><?php if($cpu != ""){ echo 'cpu='.$cpu.'&'; } ?><?php if($card != ""){ echo 'card='.$card.'&'; } ?><?php if($ram != ""){ echo 'ram='.$ram.'&'; } ?><?php if($ssd != ""){ echo 'ssd='.$ssd.'&'; } ?><?php if($keyword != ""){ echo 'keyword='.$keyword.'&'; } ?>">Prev</a></li>
                         <?php for($i = 0; $i < $sotrang; $i++){ ?>
                             <li class="page-item"><a class="page-link" href="index.php?page=<?php echo ($i+1) ?>&<?php if($sapxep != ""){ echo 'sapxep='.$sapxep.'&'; } ?><?php if($brand != ""){ echo 'brand='.$brand.'&'; } ?><?php if($MIN != ""){ echo 'MIN='.$MIN.'&'; } ?><?php if($MAX != ""){ echo 'MAX='.$MAX.'&'; } ?><?php if($cpu != ""){ echo 'cpu='.$cpu.'&'; } ?><?php if($card != ""){ echo 'card='.$card.'&'; } ?><?php if($ram != ""){ echo 'ram='.$ram.'&'; } ?><?php if($ssd != ""){ echo 'ssd='.$ssd.'&'; } ?><?php if($keyword != ""){ echo 'keyword='.$keyword.'&'; } ?>"><?php echo ($i+1) ?></a></li>
                         <?php } ?>

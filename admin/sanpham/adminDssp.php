@@ -7,7 +7,6 @@
                 <th scope="col">Ảnh</th>
                 <th scope="col">Mô tả</th>
                 <th scope="col">Danh mục</th>
-                <th scope="col">Yêu thích</th>
                 <th scope="col">Chức năng</th>
             </tr>
         </thead>
@@ -26,9 +25,9 @@
                 <td scope="row">
                     <img width="100px" src="../img/sanpham/<?php echo $img ?>" alt="" />
                 </td>
-                <td scope="row" style="max-height: 100px; max-width: 300px;"><?php echo $a['mota'] ?></td>
+                <td scope="row" style="max-height: 100px; max-width: 300px;"><textarea class="form-control" id="floatingTextarea" placeholder="Mô tả sản phẩm" name="mota"
+                cols="30" rows="10" style="max-height: 100px; background-color: #fff;" disabled><?php echo $a['mota'] ?></textarea></td>
                 <td scope="row"><?php echo $a['name'] ?></td>
-                <td scope="row"><?php echo $a['yeuthich'] ?></td>
                 <td scope="row" style="max-width: 155px;">
                     <a type="button" class="btn btn-danger"
                         href="index.php?act=suasp&id_pro=<?php echo $a['id_pro']; ?>" style="margin-bottom: 5px">Sửa</a>
