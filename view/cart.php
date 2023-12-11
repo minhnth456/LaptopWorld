@@ -20,6 +20,7 @@
                     </thead>
 
                     <tbody id="body-cart">
+                        
                         <?php $i=0; ?>
                         <?php foreach($loadAllGioHangCT as $a): ?>
                         <tr onmouseover="tinhtongtien()">
@@ -38,7 +39,7 @@
                                 <div class="img_cart" style="display: flex; align-items: center;">
                                     <img src="./img/sanpham/<?php echo $a['img_spct'] ?>" width="80px" alt="" />
                                     <div class="text_cart" style="margin-left: 20px;"><a
-                                            href="#"><?php echo $a['tensp'] ?></a>
+                                            href="index.php?act=chitietsanpham&id_chitiet=<?php echo $a['id_chitiet'] ?>&id_pro=<?php echo $a['id_pro'] ?>"><?php echo $a['tensp'] ?></a>
                                         <div class="baohanh">
                                             Bảo hành 12 tháng
                                         </div>

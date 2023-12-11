@@ -125,9 +125,9 @@ function bieudo_soluongsp($id_dmc){
 
 // lấy danh mục con ra biểu đồ
 function load_dm($id_dm){
-    $sql = "SELECT * FROM chitiet_hoadon
-    JOIN chitiet_danhmuc ON chitiet_hoadon.id_dmc = chitiet_danhmuc.id
-    WHERE chitiet_hoadon.id_dmc in ($id_dm)";
+    $sql = "SELECT * FROM chitiet_sanpham
+    JOIN chitiet_danhmuc ON chitiet_sanpham.id_dmc = chitiet_danhmuc.id
+    WHERE chitiet_sanpham.id_dmc = $id_dm LIMIT 1";
     return pdo_query($sql);
 }
 

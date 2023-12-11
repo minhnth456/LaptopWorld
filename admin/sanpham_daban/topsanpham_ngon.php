@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th scope="col">Stt</th>
-                <th scope="col" style="max-width: 120px">Danh mục</th>
+                <th scope="col" style="width: auto;">Danh mục</th>
                 <th scope="col" style="text-algin:center;">Sản phẩm</th>
                 <th scope="col" style="text-align: center">Số lượt xem sản phẩm</th>
             </tr>
@@ -24,7 +24,7 @@
                     <?php echo $i ?>
                 </td>
                 <!-- Danh mục -->
-                <td style="max-width: 120px">
+                <td style="width: auto;">
                     <?php echo $load_dm[0]['name']; ?>
                 </td>
                 <!-- Sản phẩm đã bán -->

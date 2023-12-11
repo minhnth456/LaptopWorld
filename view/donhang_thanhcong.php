@@ -6,7 +6,7 @@
         xác nhận nhé</span>
     <br>
     <br>
-    <a href="" class="btn btn-success">Đơn hàng</a>
+    <a href="index.php" class="btn btn-success">Tiếp tục mua hàng</a>
     <a href="index.php" class="btn btn-info" style="margin-left: 20px; color: #333;">Home</a>
 </div>
 <div style="background-color: #f5f5f5;padding: 20px 0;text-align: center;color: #fff;"></div>
