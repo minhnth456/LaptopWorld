@@ -131,11 +131,18 @@ function loadAllHoaDon(){
     return pdo_query($sql);
 }
 
+//lấy tất cả thông tin trong bảng hóa đơn
+function loadHoaDon($id_hoadon){
+    $sql = "SELECT * FROM hoadon WHERE id_hoadon = $id_hoadon";
+    return pdo_query($sql);
+}
+
 //lấy tất cả thông tin trong bảng hóa đơn chi tiết
 function loadAllHoaDonCT($id_hoadon){
     $sql = "SELECT * FROM chitiet_hoadon WHERE id_hoadon = $id_hoadon";
     return pdo_query($sql);
 }
+
 //chức năng cập nhật trạng thái đơn hàng
 function capnhat_trangthai($id_hoadon, $trangthai){
     $sql = "UPDATE hoadon SET trangthai = $trangthai WHERE id_hoadon = $id_hoadon";
@@ -170,6 +177,13 @@ function capnhat_trangthai4($id_hoadon, $trangthai, $date, $date5){
     $sql = "UPDATE hoadon SET trangthai = $trangthai, date4 = '$date', date5 = '$date5' WHERE id_hoadon = $id_hoadon";
     pdo_execute($sql);
 }
+
+//chức năng hủy đơn admin
+function capnhat_trangthai5($id_hoadon, $trangthai){
+    $sql = "UPDATE hoadon SET trangthai = $trangthai WHERE id_hoadon = $id_hoadon";
+    pdo_execute($sql);
+}
+
 //kiểm tra thời gian chờ lấy hàng
 function check_date3($id_hoadon){
     $sql = "SELECT date3 FROM hoadon WHERE id_hoadon = $id_hoadon";
@@ -196,7 +210,8 @@ function loadAllHDCT($id_hoadon){
 
 //chức năng người dùng hủy đơn
 function huyDon($id_hoadon){
-    $sql = "UPDATE hoadon SET trangthai = 0 WHERE id_hoadon = $id_hoadon";
+    // $sql = "UPDATE hoadon SET trangthai = 0 WHERE id_hoadon = $id_hoadon";
+    $sql = "";
     pdo_execute($sql);
 }
 

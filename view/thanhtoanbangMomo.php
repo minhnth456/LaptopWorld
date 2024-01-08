@@ -9,7 +9,10 @@ $partnerCode = 'MOMOBKUN20180529';
 $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
-//9704 0000 0000 0018
+// 9704 0000 0000 0018
+// 03 / 07
+// NGUYEN VAN A
+// 0969100100
 
 if (isset($_GET["id_hoadon"])) {
     $orderInfo = "Thanh toán qua MoMo";

@@ -273,7 +273,7 @@
                                 cấu hình + hình ảnh cụ thể vui lòng liên hệ với các tư vấn viên để được trợ giúp.</p>
                     </div>
                     <div class="khung-binh-luan">
-                        <div class="so-bl">
+                        <!-- <div class="so-bl">
                             <p style="font-weight: bold;">0 bình luận</p>
                             <div class="sap-xep">
                                 <p style="font-size: 14px; color: #4b4f56;">Sắp xếp theo</p>
@@ -282,7 +282,7 @@
                                     <option value="2">Cũ nhất</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- khung nguoi dung binh luan -->
                         <?php if(isset($_SESSION['role']) && ($_SESSION['role']) > 0){ ?>
 

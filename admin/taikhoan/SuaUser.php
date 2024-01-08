@@ -25,12 +25,14 @@
             <input type="text" class="form-control" id="floatingInput" name="tel" value="<?php echo $tel ?>">
             <label for="floatingInput">Tel</label>
         </div>
+        <!-- admin  -->
+        <?php if($_SESSION['role'] == 2){ ?>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" name="role" value="<?php echo $role ?>"v required>
             <label for="floatingInput">Role</label>
 
         </div>
-
+        <?php } ?>
 
         </div>
         <div class="d-grid">

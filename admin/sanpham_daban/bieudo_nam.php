@@ -12,7 +12,7 @@ $(document).ready(function() {
           ?>
 
         {
-            year: '<?php echo $date5; ?>',
+            year: '<?php echo $nam; ?>',
             nam: '<?php echo $nam; ?>',
             value: <?php echo $tongsoluong_nam; ?>,
             doanhthu: '<?php echo $tongdoanhthu_nam; ?>',

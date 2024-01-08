@@ -166,7 +166,11 @@
             $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
         }
         if($keyword != ""){
-            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+            if($keyword == "'"){
+                $sql.=" AND sanpham.tensp LIKE '%`%'";
+            } else {
+                $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+            }
         }
         
         $sql.=" GROUP BY RAND(chitiet_sanpham.id_chitiet)";
@@ -238,7 +242,11 @@
             $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
         }
         if($keyword != ""){
-            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+            if($keyword == "'"){
+                $sql.=" AND sanpham.tensp LIKE '%`%'";
+            } else {
+                $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+            }
         }
         
         $sql.=" GROUP BY RAND(chitiet_sanpham.id_chitiet)";

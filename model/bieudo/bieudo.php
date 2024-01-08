@@ -111,15 +111,18 @@ function bieudo_nam(){
     return $bieudo;
 }
 //biểu đồ số lượng sản phẩm
-function bieudo_soluongsp($id_dmc){
-    $sql = "SELECT chitiet_danhmuc.id, chitiet_danhmuc.name,
+function bieudo_soluongsp(){
+    $sql = "SELECT chitiet_danhmuc.id, danhmuc.name,
     COALESCE(SUM(chitiet_hoadon.soluong), 0) AS soluong
     FROM chitiet_hoadon 
     INNER JOIN hoadon 
     ON chitiet_hoadon.id_hoadon = hoadon.id_hoadon 
     INNER JOIN chitiet_danhmuc 
-    ON chitiet_danhmuc.id = chitiet_hoadon.id_dmc 
-    WHERE hoadon.trangthai = 4 AND chitiet_danhmuc.id = $id_dmc;";
+    ON chitiet_danhmuc.id = chitiet_hoadon.id_dmc
+    INNER JOIN danhmuc
+    ON danhmuc.id_dm = chitiet_danhmuc.id_dm
+    WHERE hoadon.trangthai = 4
+    GROUP BY danhmuc.name;";
     return pdo_query($sql);
 }
 

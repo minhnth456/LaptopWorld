@@ -355,7 +355,7 @@
                         delete_ctgiohang($id_giohang);
                         $_SESSION['slgh'] = 0;
                         // Thanh toán bằng momo
-                        if(isset($_POST['COD'])&$_POST['COD']==3){
+                        if(isset($_POST['COD'])&&$_POST['COD']==3){
                             header('Location: view/thanhtoanbangMomo.php?id_hoadon=' . $tongtien_hd);
 
                         }
@@ -454,7 +454,17 @@
             case 'xacnhan_mua_huy':
                 if(isset($_POST['huydon'])){
                     $id_hoadon = $_POST['id_hoadon'];
-                    huyDon($id_hoadon);
+                    $id_user = $_POST['id_user'];
+                    $loadAllHDCT = loadHoaDon($id_hoadon);
+                    foreach($loadAllHDCT as $hdct):
+                        $tt = $hdct['trangthai'];
+                    endforeach;
+                    if($tt == 1){
+                        huyDon($id_hoadon);
+                    } else {
+                        header('location: index.php?act=order&id_user='.$id_user);
+                    }
+                    
                 }
                 if(isset($_POST['danhan'])){
                     $id_hoadon = $_POST['id_hoadon'];

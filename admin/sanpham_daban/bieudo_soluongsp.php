@@ -6,10 +6,7 @@
 $(document).ready(function() {
     var sampleData = [
         <?php
-        $get_all_id_dmc = get_all_id_dmc();
-        foreach($get_all_id_dmc as $id_dmc):
-            $id_dmc = $id_dmc['id'];
-            $bieudo_soluongsp = bieudo_soluongsp($id_dmc);
+            $bieudo_soluongsp = bieudo_soluongsp();
             foreach($bieudo_soluongsp as $b):
         ?>
 
@@ -18,7 +15,6 @@ $(document).ready(function() {
             soluong: '<?php echo $b['soluong'] ?>',
         },
             <?php endforeach; ?>
-        <?php endforeach; ?>
 
     ];
     // Tạo biểu đồ Morris Line

@@ -270,6 +270,7 @@
         <form action="index.php?act=xacnhan_mua_huy" method="post">
             <div class="a" style="background-color: #fffefb; margin-bottom: 30px;">
             <input type="hidden" name="id_hoadon" value="<?php echo $a['id_hoadon'] ?>">
+            <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>">
             <input type="hidden" name="date4" value="<?php echo $real_time; ?>">
             <input type="hidden" name="date5" value="<?php echo $real_time2; ?>">
                 <div class="chuc-nang">

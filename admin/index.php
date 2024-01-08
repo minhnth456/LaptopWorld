@@ -335,7 +335,11 @@ session_start();
                $pass = $_POST['pass'];
                $address = $_POST['address'];
                $tel = $_POST['tel'];
-               $role = $_POST['role'];
+               if(isset($_POST['role'])){
+                  $role = $_POST['role'];
+               } else {
+                  $role = 1;
+               }
                updatetk($name,$email,$pass,$address,$tel,$role,$id_user);
                $thongbao ="Bạn đã sửa thành công";
               }
@@ -409,6 +413,10 @@ session_start();
                $trangthai = $_POST['tt'];
                $date = $_POST['real_time'];
                $date5 = $_POST['real_time2'];
+               //bấm cập nhật chờ lấy hàng Admin
+               if ($trangthai == 0){
+                  capnhat_trangthai5($id_hoadon, $trangthai);
+               }
                //bấm cập nhật chờ lấy hàng Admin
                if ($trangthai == 2){
                   capnhat_trangthai2($id_hoadon, $trangthai, $date);

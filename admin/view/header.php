@@ -177,6 +177,8 @@
                 </ul>
             </div>
 
+            
+            <?php } ?>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -188,7 +190,6 @@
                     </li>
                 </ul>
             </div>
-            <?php } ?>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">

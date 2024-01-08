@@ -46,7 +46,11 @@ function boloc_chitiet_danhmuc($brand_con, $MIN, $MAX, $cpu, $card, $ram, $ssd, 
         $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
     }
     if($keyword != ""){
-        $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        if($keyword == "'"){
+            $sql.=" AND sanpham.tensp LIKE '%`%'";
+        } else {
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
     }
     $sql.=" GROUP BY danhmuc.id_dm;
     ";
@@ -99,7 +103,11 @@ function boloc_giasp($brand, $brand_con, $cpu, $card, $ram, $ssd, $keyword){
         $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
     }
     if($keyword != ""){
-        $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        if($keyword == "'"){
+            $sql.=" AND sanpham.tensp LIKE '%`%'";
+        } else {
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
     }
 
     return pdo_query($sql);
@@ -158,7 +166,11 @@ function boloc_cpu($brand, $brand_con, $MIN, $MAX, $card, $ram, $ssd, $keyword){
         $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
     }
     if($keyword != ""){
-        $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        if($keyword == "'"){
+            $sql.=" AND sanpham.tensp LIKE '%`%'";
+        } else {
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
     }
 
     return pdo_query($sql);
@@ -210,7 +222,11 @@ function boloc_cardVGA($brand, $brand_con, $MIN, $MAX, $cpu, $ram, $ssd, $keywor
         $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
     }
     if($keyword != ""){
-        $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        if($keyword == "'"){
+            $sql.=" AND sanpham.tensp LIKE '%`%'";
+        } else {
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
     }
 
     $sql.= " GROUP BY (chitiet_sanpham.cardVGA)";
@@ -264,7 +280,11 @@ function boloc_ram($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ssd, $keyword) 
         $sql.=" AND chitiet_sanpham.ssd LIKE '%$ssd%'";
     }
     if($keyword != ""){
-        $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        if($keyword == "'"){
+            $sql.=" AND sanpham.tensp LIKE '%`%'";
+        } else {
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
     }
 
     $sql.= " GROUP BY (chitiet_sanpham.ram)";
@@ -318,7 +338,11 @@ function boloc_ssd($brand, $brand_con, $MIN, $MAX, $cpu, $card, $ram, $keyword){
         $sql.=" AND chitiet_sanpham.ram LIKE '%$ram%'";
     }
     if($keyword != ""){
-        $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        if($keyword == "'"){
+            $sql.=" AND sanpham.tensp LIKE '%`%'";
+        } else {
+            $sql.=" AND sanpham.tensp LIKE '%$keyword%'";
+        }
     }
 
     $sql.= " GROUP BY (chitiet_sanpham.ssd)";
